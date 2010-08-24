@@ -1,0 +1,13 @@
+enum color { 
+  red green blue 
+}  
+
+enum shape {  
+  rect triangle circle
+}   
+ 
+var color col1;  
+calc color col2 = color.blue; 
+calc color col3 = shape.circle; 
+ 
+ 
