@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.validation.ValidationMessageAcceptor;
 
 import de.itemis.xtext.typesystem.ITypesystem;
+import de.itemis.xtext.typesystem.characteristics.TypeCharacteristic;
 import de.itemis.xtext.typesystem.exceptions.FeatureMustBeSingleValuedException;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
 import static de.itemis.xtext.util.Utils.eString;
@@ -45,6 +46,10 @@ public class ConstrainPropertyCheck implements ISingleElementTypesystemCheck {
 				}
 			} else if ( o instanceof CustomTypeChecker ) {
 				if ( ((CustomTypeChecker) o).isValid(ts, type, trace) ) {
+					return true;
+				}
+			} else if ( o instanceof TypeCharacteristic ) {
+				if ( ts.hasCharacteristic(type, (TypeCharacteristic) o) ) {
 					return true;
 				}
 			}

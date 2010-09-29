@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.ValidationMessageAcceptor;
 
+import de.itemis.xtext.typesystem.characteristics.TypeCharacteristic;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
 
 /**
@@ -14,7 +15,7 @@ import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
  * expected, pass in a new instance; it will be filled with trace 
  * information about how the type was calculated.
  */
-public interface ITypesystem {
+public interface ITypesystem { 
 
 	/**
 	 * returns the type of the element. This method shall be called 
@@ -59,6 +60,11 @@ public interface ITypesystem {
 	 */
 	public boolean isInstanceOf( EObject actualType, EClass expectedType, TypeCalculationTrace trace );
 
+	/**
+	 * determines whether a type has a given characteristic
+	 */
+	public boolean hasCharacteristic( EObject actualType, TypeCharacteristic c );
+	
 	/**
 	 * returns a more or less useful string representation of 
 	 * an EObject

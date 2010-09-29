@@ -17,6 +17,7 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.itemis.xtext.testing,
  de.itemis.xtext.typesystem,
+ de.itemis.xtext.typesystem.characteristics,
  de.itemis.xtext.typesystem.checks,
  de.itemis.xtext.typesystem.exceptions,
  de.itemis.xtext.typesystem.rules,

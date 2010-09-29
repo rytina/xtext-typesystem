@@ -21,6 +21,7 @@ import org.eclipse.xtext.util.PolymorphicDispatcher;
 import org.eclipse.xtext.util.PolymorphicDispatcher.ErrorHandler;
 import org.eclipse.xtext.validation.ValidationMessageAcceptor;
 
+import de.itemis.xtext.typesystem.characteristics.TypeCharacteristic;
 import de.itemis.xtext.typesystem.checks.ConstrainPropertyCheck;
 import de.itemis.xtext.typesystem.checks.CustomTypeChecker;
 import de.itemis.xtext.typesystem.checks.EnsureOrderedCompatibilityCheck;
@@ -50,6 +51,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	private Set<EClass> all = new HashSet<EClass>();
 	private Multimap<EClass,EStructuralFeature> typeComparisonFeatures = new Multimap<EClass,EStructuralFeature>();
 	private Multimap<EClass,EStructuralFeature> typeRecursionFeatures = new Multimap<EClass,EStructuralFeature>();
+	private Multimap<EClass, TypeCharacteristic> characteristics = new Multimap<EClass, TypeCharacteristic>();
 	private Map<EClass,EClass> subtypeToSupertype = new HashMap<EClass,EClass>();
 	private Map<EClass,EClass> supertypeToSubtype = new HashMap<EClass,EClass>();
 	private List<ISingleElementTypesystemCheck> singleElementChecks = new ArrayList<ISingleElementTypesystemCheck>();
@@ -248,6 +250,9 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	 */
 	protected void usePrototypeAsType( EClass elemClass, EObject prototype ) throws DuplicateRegistrationException {
 		checkDuplicateRegistration(elemClass);
+		if ( prototype instanceof EClass ) {
+			LOGGER.warn("usePrototypeAsType called with an EClass as the prototype; this is most likely a bug!");
+		}
 		rules.put(elemClass, new UsePrototypeTCRule(this, elemClass, prototype));
 	}
 
@@ -502,8 +507,8 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	protected void ensureFeatureType(String errorMessage, EClass ctxClass, EStructuralFeature feature, Object ... validTypes) throws FeatureMustBeSingleValuedException, EClassDoesntHaveFeatureException, InvalidTypeSpecification {
 		ensureValidFeature( ctxClass, feature );
 		for (Object o: validTypes) {
-			if ( !(o instanceof EClass) && !(o instanceof CustomTypeChecker) ) {
-				throw new InvalidTypeSpecification("types must be EClasses or instances of CustomTypechecker");
+			if ( !(o instanceof EClass) && !(o instanceof CustomTypeChecker) && !(o instanceof TypeCharacteristic) ) {
+				throw new InvalidTypeSpecification("types must be EClasses or instances of CustomTypechecker or instances of TypeCharacteristic");
 			}
 		}
 		singleElementChecks.add( new ConstrainPropertyCheck(errorMessage, ctxClass, feature, validTypes) );
@@ -593,6 +598,9 @@ public abstract class DefaultTypesystem implements ITypesystem {
 		if ( type instanceof EClass ) {
 			String name = ((EClass) type).getName();
 			//if ( name.toLowerCase().endsWith("type")) name = name.substring(0,name.length()-4);
+			for (TypeCharacteristic tc: characteristics.get((EClass) type)) {
+				name += "|"+tc.toString();
+			}
 			return name;
 		} else if ( type instanceof EObject ) {
 			StringBuffer bf = new StringBuffer();
@@ -613,6 +621,9 @@ public abstract class DefaultTypesystem implements ITypesystem {
 			}
 			String inner = bf.toString().trim();
 			String ecname = eType.eClass().getName();
+			for (TypeCharacteristic tc: characteristics.get(((EObject) type).eClass())) {
+				ecname += "|"+tc.toString();
+			}
 			//if ( ecname.toLowerCase().endsWith("type")) ecname = ecname.substring(0,ecname.length()-4);
 			if ( inner.equals("")) return ecname;
 			return ecname+"("+inner+")";
@@ -625,7 +636,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 		StringBuffer bf = new StringBuffer();
 		for (int i = 0; i < types.length; i++) {
 			if ( i > 0 ) bf.append(", ");
-			else if ( i == types.length-1) bf.append(" or ");
+			//else if ( i == types.length-1) bf.append(" or ");
 			bf.append(typeString(types[i]));
 		}
 		return bf.toString();
@@ -635,6 +646,15 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	protected void declareSubtype(EClass subtype, EClass supertype) {
 		subtypeToSupertype.put(subtype, supertype);
 		supertypeToSubtype.put(supertype, subtype );
+	}
+	
+	protected void declareCharacteristic(EClass type, TypeCharacteristic c) {
+		characteristics.put(type, c);
+	}
+	
+	@Override
+	public boolean hasCharacteristic(EObject actualType, TypeCharacteristic c) {
+		return characteristics.get(actualType.eClass()).contains(c);
 	}
 	
 
