@@ -23,10 +23,12 @@ import org.eclipse.xtext.validation.ValidationMessageAcceptor;
 
 import de.itemis.xtext.typesystem.characteristics.TypeCharacteristic;
 import de.itemis.xtext.typesystem.checks.ConstrainPropertyCheck;
-import de.itemis.xtext.typesystem.checks.CustomTypeChecker;
 import de.itemis.xtext.typesystem.checks.EnsureOrderedCompatibilityCheck;
 import de.itemis.xtext.typesystem.checks.EnsureUnorderedCompatibilityCheck;
 import de.itemis.xtext.typesystem.checks.ISingleElementTypesystemCheck;
+import de.itemis.xtext.typesystem.checks.custom.CDCTCAdapter;
+import de.itemis.xtext.typesystem.checks.custom.ContextDependentCustomTypeChecker;
+import de.itemis.xtext.typesystem.checks.custom.StaticCustomTypeChecker;
 import de.itemis.xtext.typesystem.exceptions.DuplicateRegistrationException;
 import de.itemis.xtext.typesystem.exceptions.EClassDoesntHaveFeatureException;
 import de.itemis.xtext.typesystem.exceptions.FeatureMustBeSingleValuedException;
@@ -94,6 +96,13 @@ public abstract class DefaultTypesystem implements ITypesystem {
 				}
 			});
 
+	private final PolymorphicDispatcher<EObject> typeCoercionDispatcher = new PolymorphicDispatcher<EObject>("typeCoerce", 4, 4,
+			Collections.singletonList(this), new ErrorHandler<EObject>() {
+				public EObject handle(Object[] params, Throwable e) {
+					return null;
+				}
+			});
+	
 	public static enum CheckKind {
 		same, unordered, ordered;
 	}
@@ -489,6 +498,10 @@ public abstract class DefaultTypesystem implements ITypesystem {
 
 	
 	
+	public void registerCustomTypeChecker( ContextDependentCustomTypeChecker checker ) {
+		singleElementChecks.add(new CDCTCAdapter(checker));
+	}
+	
 	
 	/**
 	 * define a type constraint for a feature. The type of 
@@ -507,7 +520,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	protected void ensureFeatureType(String errorMessage, EClass ctxClass, EStructuralFeature feature, Object ... validTypes) throws FeatureMustBeSingleValuedException, EClassDoesntHaveFeatureException, InvalidTypeSpecification {
 		ensureValidFeature( ctxClass, feature );
 		for (Object o: validTypes) {
-			if ( !(o instanceof EClass) && !(o instanceof CustomTypeChecker) && !(o instanceof TypeCharacteristic) ) {
+			if ( !(o instanceof EClass) && !(o instanceof StaticCustomTypeChecker) && !(o instanceof TypeCharacteristic) ) {
 				throw new InvalidTypeSpecification("types must be EClasses or instances of CustomTypechecker or instances of TypeCharacteristic");
 			}
 		}

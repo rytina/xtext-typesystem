@@ -41,7 +41,7 @@ public class EnsureUnorderedCompatibilityCheck extends AbstractCompatibilityChec
 				acceptor.acceptWarning("type of '"+feature2.getName()+"' is undefined", element, feature2.getFeatureID(), null, null);
 			} 
 			if ( !ts.isCompatibleTypeUnordered(type1, type2, trace) ) {
-				String m = errorMessage != null ? errorMessage : "incompatible types "+ts.typeString(type1)+" and "+ts.typeString(type2)+" (on a "+ctxClass.getName()+")"; 
+				String m = errorMessage != null ? errorMessage : "incompatible type "+ts.typeString(type1)+" and "+ts.typeString(type2)+" (on a "+ctxClass.getName()+")"; 
 				acceptor.acceptError(m, element, feature2.getFeatureID(), null, null);
 				return false;
 			}

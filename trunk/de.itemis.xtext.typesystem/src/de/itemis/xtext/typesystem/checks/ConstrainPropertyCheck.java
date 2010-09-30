@@ -9,6 +9,7 @@ import org.eclipse.xtext.validation.ValidationMessageAcceptor;
 
 import de.itemis.xtext.typesystem.ITypesystem;
 import de.itemis.xtext.typesystem.characteristics.TypeCharacteristic;
+import de.itemis.xtext.typesystem.checks.custom.StaticCustomTypeChecker;
 import de.itemis.xtext.typesystem.exceptions.FeatureMustBeSingleValuedException;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
 import static de.itemis.xtext.util.Utils.eString;
@@ -44,8 +45,8 @@ public class ConstrainPropertyCheck implements ISingleElementTypesystemCheck {
 				if ( ts.isInstanceOf(type, (EClass) o, trace)) {
 					return true;
 				}
-			} else if ( o instanceof CustomTypeChecker ) {
-				if ( ((CustomTypeChecker) o).isValid(ts, type, trace) ) {
+			} else if ( o instanceof StaticCustomTypeChecker ) {
+				if ( ((StaticCustomTypeChecker) o).isValid(ts, type, trace) ) {
 					return true;
 				}
 			} else if ( o instanceof TypeCharacteristic ) {
@@ -54,7 +55,7 @@ public class ConstrainPropertyCheck implements ISingleElementTypesystemCheck {
 				}
 			}
 		}
-		String m = errorMessage != null ? errorMessage : "incompatible types; expected "+ts.typeStrings(validTypes)+", but found "+ts.typeString(type)+" (on a "+ctxClass.getName()+")"; 
+		String m = errorMessage != null ? errorMessage : "incompatible type; expected "+ts.typeStrings(validTypes)+", but found "+ts.typeString(type)+" (on a "+ctxClass.getName()+")"; 
 		acceptor.acceptError(m, element, feature.getFeatureID(), null, null);
 		return false;
 	}
