@@ -4,7 +4,14 @@
 * Ausgeben trace in Test 
 * an ensure that compares to ancestor (für Return Statement, oder Switch Case Cases)						
 * schöne Namen für Typen hinterlegen
-* Document TypeCharacteristics, und mach ein Bsp dafür
+
+
+
+* Document StaticCustomTypeChecker und ContextDependentCustomTypeChecker
+  -> soll ich die über nen Poly Dispatcher machen?
+
+
+  
 
 
 

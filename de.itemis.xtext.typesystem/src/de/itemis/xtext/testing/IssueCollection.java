@@ -245,6 +245,7 @@ public class IssueCollection {
 	}
 
 	public void dumpIssues() {
+		LOGGER.debug("--- Issues ---");
 		for (Issue i: issues) {
 			dumpIssue(resource, i);
 		}
