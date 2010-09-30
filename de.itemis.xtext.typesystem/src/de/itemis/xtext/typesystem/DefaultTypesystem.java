@@ -96,7 +96,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 				}
 			});
 
-	private final PolymorphicDispatcher<EObject> typeCoercionDispatcher = new PolymorphicDispatcher<EObject>("typeCoerce", 4, 4,
+	private final PolymorphicDispatcher<EObject> typeCoercionDispatcher = new PolymorphicDispatcher<EObject>("typeCoerce", 3, 3,
 			Collections.singletonList(this), new ErrorHandler<EObject>() {
 				public EObject handle(Object[] params, Throwable e) {
 					return null;
@@ -141,6 +141,22 @@ public abstract class DefaultTypesystem implements ITypesystem {
 		if ( isSameType(type1, type2, trace)) return type1;
 		if ( isSubtype(type1.eClass(), type2.eClass())) return type2;
 		if ( isSubtype(type2.eClass(), type1.eClass())) return type1;
+		
+		EObject coercedType1 = typeCoercionDispatcher.invoke(type1, type2, trace);
+		if ( coercedType1 != null ) {
+			if ( isSameType(coercedType1, type2, trace)) return type1;
+			if ( isSubtype(coercedType1.eClass(), type2.eClass())) return type2;
+			if ( isSubtype(type2.eClass(), coercedType1.eClass())) return type1;
+		}
+
+		EObject coercedType2 = typeCoercionDispatcher.invoke(type2, type1, trace);
+		if ( coercedType2 != null ) {
+			if ( isSameType(type1, coercedType2, trace)) return type1;
+			if ( isSubtype(type1.eClass(), coercedType2.eClass())) return type2;
+			if ( isSubtype(coercedType2.eClass(), type1.eClass())) return type1;
+		}
+		
+		
 		LOGGER.error("cannot compute common type of "+typeString(type1)+" and "+typeString(type2) );
 		LOGGER.debug("trace: \n"+trace.toString() );
 		return null;
@@ -385,6 +401,15 @@ public abstract class DefaultTypesystem implements ITypesystem {
 		EClass type2Class = type2.eClass();
 		if ( isSubtype( type1Class, type2Class) || isSubtype( type2Class, type1Class) ) {
 			return handleComparisonAndRecursionFeatures(type1, type2, CheckKind.unordered, trace);
+		} else {
+			EObject coercedType1 = typeCoercionDispatcher.invoke(type1, type2, trace);
+			if ( coercedType1 != null ) {
+				return isCompatibleTypeUnordered(coercedType1, type2, trace);
+			}
+			EObject coercedType2 = typeCoercionDispatcher.invoke(type2, type1, trace);
+			if ( coercedType2 != null ) {
+				return isCompatibleTypeUnordered(type1, coercedType2, trace);
+			}
 		}
 		return false;
 	}
@@ -401,6 +426,15 @@ public abstract class DefaultTypesystem implements ITypesystem {
 		EClass type2Class = type2.eClass();
 		if ( isSameOrSubtype( type2Class, type1Class, trace) ) {
 			return handleComparisonAndRecursionFeatures(type1, type2, CheckKind.ordered, trace);
+		} else {
+			EObject coercedType1 = typeCoercionDispatcher.invoke(type1, type2, trace);
+			if ( coercedType1 != null ) {
+				return isCompatibleTypeOrdered(coercedType1, type2, trace);
+			}
+			EObject coercedType2 = typeCoercionDispatcher.invoke(type2, type1, trace);
+			if ( coercedType2 != null ) {
+				return isCompatibleTypeOrdered(type1, coercedType2, trace);
+			}
 		}
 		return false;
 	}
