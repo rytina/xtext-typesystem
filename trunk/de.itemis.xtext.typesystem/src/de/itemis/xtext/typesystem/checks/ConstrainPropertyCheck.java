@@ -42,13 +42,19 @@ public class ConstrainPropertyCheck implements ISingleElementTypesystemCheck {
 		}
 		for (Object o: validTypes) {
 			if ( o instanceof EClass ) {
-				if ( ts.isInstanceOf(type, (EClass) o, trace)) {
+				EClass cls = (EClass) o;
+				if ( ts.isInstanceOf(type, cls, trace)) {
 					return true;
+				} else {
+					EObject coercedType = ts.tryToCoerceType(type, cls.getEPackage().getEFactoryInstance().create(cls) , trace);
+					if ( ts.isInstanceOf(coercedType, cls, trace)) {
+						return true;
+					}
 				}
 			} else if ( o instanceof StaticCustomTypeChecker ) {
 				if ( ((StaticCustomTypeChecker) o).isValid(ts, type, trace) ) {
 					return true;
-				}
+				} 
 			} else if ( o instanceof TypeCharacteristic ) {
 				if ( ts.hasCharacteristic(type, (TypeCharacteristic) o) ) {
 					return true;

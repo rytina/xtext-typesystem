@@ -60,6 +60,8 @@ public interface ITypesystem {
 	 */
 	public boolean isInstanceOf( EObject actualType, EClass expectedType, TypeCalculationTrace trace );
 
+	public EObject tryToCoerceType( EObject candidate, EObject expected, TypeCalculationTrace trace);
+	
 	/**
 	 * determines whether a type has a given characteristic
 	 */
