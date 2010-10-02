@@ -21,13 +21,13 @@ EnumLiteral returns Symbol:
 
 	
 VarDecl returns Symbol:
-	{VarDecl} "var" type=Type name=ID ";";
+	{VarDecl} "var" type=Type name=ID ("=" init=Expr)? ";";
 
 Type:
 	PrimitiveType | ArrayType;
 	
 PrimitiveType:
-	IntType | BoolType | FloatType | EnumType; 
+	IntType | BoolType | FloatType | EnumType | StringType; 
 	
 ArrayType:
 	{ArrayType} "array" "[" baseType=Type "]";
@@ -43,6 +43,9 @@ BoolType:
 
 FloatType:
 	{FloatType} "float";
+
+StringType:
+	{StringType} "string";
 
 Formula:
 	"calc" type=Type name=ID "=" expr=Expr ";";
@@ -61,7 +64,8 @@ PostfixOperators returns Expression:
 	
 Atomic returns Expression:
 	{SymbolRef} symbol=[Symbol|QID] |
-	{NumberLiteral} value=NUMBER;
+	{NumberLiteral} value=NUMBER | 
+	{StringLiteral} value=STRING;
 	
 terminal NUMBER returns ecore::EBigDecimal:
 	('0'..'9')* ('.' ('0'..'9')+)?;

@@ -130,13 +130,17 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeTypeParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cEqualsSignKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cInitAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cInitExprParserRuleCall_4_1_0 = (RuleCall)cInitAssignment_4_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//VarDecl returns Symbol:
-		//	{VarDecl} "var" type=Type name=ID ";";
+		//	{VarDecl} "var" type=Type name=ID ("=" init=Expr)? ";";
 		public ParserRule getRule() { return rule; }
 
-		//{VarDecl} "var" type=Type name=ID ";"
+		//{VarDecl} "var" type=Type name=ID ("=" init=Expr)? ";"
 		public Group getGroup() { return cGroup; }
 
 		//{VarDecl}
@@ -157,8 +161,20 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
+		//("=" init=Expr)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_4_0() { return cEqualsSignKeyword_4_0; }
+
+		//init=Expr
+		public Assignment getInitAssignment_4_1() { return cInitAssignment_4_1; }
+
+		//Expr
+		public RuleCall getInitExprParserRuleCall_4_1_0() { return cInitExprParserRuleCall_4_1_0; }
+
 		//";"
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class TypeElements extends AbstractParserRuleElementFinder {
@@ -188,12 +204,13 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBoolTypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cFloatTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cEnumTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cStringTypeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//PrimitiveType:
-		//	IntType | BoolType | FloatType | EnumType;
+		//	IntType | BoolType | FloatType | EnumType | StringType;
 		public ParserRule getRule() { return rule; }
 
-		//IntType | BoolType | FloatType | EnumType
+		//IntType | BoolType | FloatType | EnumType | StringType
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//IntType
@@ -207,6 +224,9 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 
 		//EnumType
 		public RuleCall getEnumTypeParserRuleCall_3() { return cEnumTypeParserRuleCall_3; }
+
+		//StringType
+		public RuleCall getStringTypeParserRuleCall_4() { return cStringTypeParserRuleCall_4; }
 	}
 
 	public class ArrayTypeElements extends AbstractParserRuleElementFinder {
@@ -323,6 +343,26 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"float"
 		public Keyword getFloatKeyword_1() { return cFloatKeyword_1; }
+	}
+
+	public class StringTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "StringType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cStringTypeAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cStringKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//StringType:
+		//	{StringType} "string";
+		public ParserRule getRule() { return rule; }
+
+		//{StringType} "string"
+		public Group getGroup() { return cGroup; }
+
+		//{StringType}
+		public Action getStringTypeAction_0() { return cStringTypeAction_0; }
+
+		//"string"
+		public Keyword getStringKeyword_1() { return cStringKeyword_1; }
 	}
 
 	public class FormulaElements extends AbstractParserRuleElementFinder {
@@ -509,12 +549,16 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cNumberLiteralAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cValueNUMBERTerminalRuleCall_1_1_0 = (RuleCall)cValueAssignment_1_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cStringLiteralAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Assignment cValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cValueAssignment_2_1.eContents().get(0);
 		
 		//Atomic returns Expression:
-		//	{SymbolRef} symbol=[Symbol|QID] | {NumberLiteral} value=NUMBER;
+		//	{SymbolRef} symbol=[Symbol|QID] | {NumberLiteral} value=NUMBER | {StringLiteral} value=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//{SymbolRef} symbol=[Symbol|QID] | {NumberLiteral} value=NUMBER
+		//{SymbolRef} symbol=[Symbol|QID] | {NumberLiteral} value=NUMBER | {StringLiteral} value=STRING
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//{SymbolRef} symbol=[Symbol|QID]
@@ -543,6 +587,18 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 
 		//NUMBER
 		public RuleCall getValueNUMBERTerminalRuleCall_1_1_0() { return cValueNUMBERTerminalRuleCall_1_1_0; }
+
+		//{StringLiteral} value=STRING
+		public Group getGroup_2() { return cGroup_2; }
+
+		//{StringLiteral}
+		public Action getStringLiteralAction_2_0() { return cStringLiteralAction_2_0; }
+
+		//value=STRING
+		public Assignment getValueAssignment_2_1() { return cValueAssignment_2_1; }
+
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_2_1_0() { return cValueSTRINGTerminalRuleCall_2_1_0; }
 	}
 
 	public class QIDElements extends AbstractParserRuleElementFinder {
@@ -586,6 +642,7 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 	private IntTypeElements pIntType;
 	private BoolTypeElements pBoolType;
 	private FloatTypeElements pFloatType;
+	private StringTypeElements pStringType;
 	private FormulaElements pFormula;
 	private ExprElements pExpr;
 	private AdditionElements pAddition;
@@ -658,7 +715,7 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//VarDecl returns Symbol:
-	//	{VarDecl} "var" type=Type name=ID ";";
+	//	{VarDecl} "var" type=Type name=ID ("=" init=Expr)? ";";
 	public VarDeclElements getVarDeclAccess() {
 		return (pVarDecl != null) ? pVarDecl : (pVarDecl = new VarDeclElements());
 	}
@@ -678,7 +735,7 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PrimitiveType:
-	//	IntType | BoolType | FloatType | EnumType;
+	//	IntType | BoolType | FloatType | EnumType | StringType;
 	public PrimitiveTypeElements getPrimitiveTypeAccess() {
 		return (pPrimitiveType != null) ? pPrimitiveType : (pPrimitiveType = new PrimitiveTypeElements());
 	}
@@ -737,6 +794,16 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 		return getFloatTypeAccess().getRule();
 	}
 
+	//StringType:
+	//	{StringType} "string";
+	public StringTypeElements getStringTypeAccess() {
+		return (pStringType != null) ? pStringType : (pStringType = new StringTypeElements());
+	}
+	
+	public ParserRule getStringTypeRule() {
+		return getStringTypeAccess().getRule();
+	}
+
 	//Formula:
 	//	"calc" type=Type name=ID "=" expr=Expr ";";
 	public FormulaElements getFormulaAccess() {
@@ -788,7 +855,7 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Atomic returns Expression:
-	//	{SymbolRef} symbol=[Symbol|QID] | {NumberLiteral} value=NUMBER;
+	//	{SymbolRef} symbol=[Symbol|QID] | {NumberLiteral} value=NUMBER | {StringLiteral} value=STRING;
 	public AtomicElements getAtomicAccess() {
 		return (pAtomic != null) ? pAtomic : (pAtomic = new AtomicElements());
 	}

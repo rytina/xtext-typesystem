@@ -333,6 +333,25 @@ public interface ExprDemoPackage extends EPackage
   int FLOAT_TYPE_FEATURE_COUNT = PRIMITIVE_TYPE_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link expr.exprDemo.impl.StringTypeImpl <em>String Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see expr.exprDemo.impl.StringTypeImpl
+   * @see expr.exprDemo.impl.ExprDemoPackageImpl#getStringType()
+   * @generated
+   */
+  int STRING_TYPE = 11;
+
+  /**
+   * The number of structural features of the '<em>String Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_TYPE_FEATURE_COUNT = PRIMITIVE_TYPE_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link expr.exprDemo.impl.FormulaImpl <em>Formula</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -340,7 +359,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getFormula()
    * @generated
    */
-  int FORMULA = 11;
+  int FORMULA = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -386,7 +405,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getExpr()
    * @generated
    */
-  int EXPR = 12;
+  int EXPR = 13;
 
   /**
    * The number of structural features of the '<em>Expr</em>' class.
@@ -405,7 +424,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 13;
+  int EXPRESSION = 14;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -424,7 +443,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getEnumLiteral()
    * @generated
    */
-  int ENUM_LITERAL = 14;
+  int ENUM_LITERAL = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -452,7 +471,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getVarDecl()
    * @generated
    */
-  int VAR_DECL = 15;
+  int VAR_DECL = 16;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -473,13 +492,22 @@ public interface ExprDemoPackage extends EPackage
   int VAR_DECL__TYPE = SYMBOL_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Init</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_DECL__INIT = SYMBOL_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Var Decl</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_DECL_FEATURE_COUNT = SYMBOL_FEATURE_COUNT + 1;
+  int VAR_DECL_FEATURE_COUNT = SYMBOL_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link expr.exprDemo.impl.PlusImpl <em>Plus</em>}' class.
@@ -489,7 +517,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getPlus()
    * @generated
    */
-  int PLUS = 16;
+  int PLUS = 17;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -526,7 +554,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getMulti()
    * @generated
    */
-  int MULTI = 17;
+  int MULTI = 18;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -563,7 +591,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getArrayAccess()
    * @generated
    */
-  int ARRAY_ACCESS = 18;
+  int ARRAY_ACCESS = 19;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -600,7 +628,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getSymbolRef()
    * @generated
    */
-  int SYMBOL_REF = 19;
+  int SYMBOL_REF = 20;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' reference.
@@ -628,7 +656,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getNumberLiteral()
    * @generated
    */
-  int NUMBER_LITERAL = 20;
+  int NUMBER_LITERAL = 21;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -647,6 +675,34 @@ public interface ExprDemoPackage extends EPackage
    * @ordered
    */
   int NUMBER_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link expr.exprDemo.impl.StringLiteralImpl <em>String Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see expr.exprDemo.impl.StringLiteralImpl
+   * @see expr.exprDemo.impl.ExprDemoPackageImpl#getStringLiteral()
+   * @generated
+   */
+  int STRING_LITERAL = 22;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>String Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 
   /**
@@ -815,6 +871,16 @@ public interface ExprDemoPackage extends EPackage
   EClass getFloatType();
 
   /**
+   * Returns the meta object for class '{@link expr.exprDemo.StringType <em>String Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Type</em>'.
+   * @see expr.exprDemo.StringType
+   * @generated
+   */
+  EClass getStringType();
+
+  /**
    * Returns the meta object for class '{@link expr.exprDemo.Formula <em>Formula</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -896,6 +962,17 @@ public interface ExprDemoPackage extends EPackage
    * @generated
    */
   EReference getVarDecl_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link expr.exprDemo.VarDecl#getInit <em>Init</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Init</em>'.
+   * @see expr.exprDemo.VarDecl#getInit()
+   * @see #getVarDecl()
+   * @generated
+   */
+  EReference getVarDecl_Init();
 
   /**
    * Returns the meta object for class '{@link expr.exprDemo.Plus <em>Plus</em>}'.
@@ -1034,6 +1111,27 @@ public interface ExprDemoPackage extends EPackage
    * @generated
    */
   EAttribute getNumberLiteral_Value();
+
+  /**
+   * Returns the meta object for class '{@link expr.exprDemo.StringLiteral <em>String Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Literal</em>'.
+   * @see expr.exprDemo.StringLiteral
+   * @generated
+   */
+  EClass getStringLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link expr.exprDemo.StringLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see expr.exprDemo.StringLiteral#getValue()
+   * @see #getStringLiteral()
+   * @generated
+   */
+  EAttribute getStringLiteral_Value();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1209,6 +1307,16 @@ public interface ExprDemoPackage extends EPackage
     EClass FLOAT_TYPE = eINSTANCE.getFloatType();
 
     /**
+     * The meta object literal for the '{@link expr.exprDemo.impl.StringTypeImpl <em>String Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see expr.exprDemo.impl.StringTypeImpl
+     * @see expr.exprDemo.impl.ExprDemoPackageImpl#getStringType()
+     * @generated
+     */
+    EClass STRING_TYPE = eINSTANCE.getStringType();
+
+    /**
      * The meta object literal for the '{@link expr.exprDemo.impl.FormulaImpl <em>Formula</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1281,6 +1389,14 @@ public interface ExprDemoPackage extends EPackage
      * @generated
      */
     EReference VAR_DECL__TYPE = eINSTANCE.getVarDecl_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Init</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_DECL__INIT = eINSTANCE.getVarDecl_Init();
 
     /**
      * The meta object literal for the '{@link expr.exprDemo.impl.PlusImpl <em>Plus</em>}' class.
@@ -1395,6 +1511,24 @@ public interface ExprDemoPackage extends EPackage
      * @generated
      */
     EAttribute NUMBER_LITERAL__VALUE = eINSTANCE.getNumberLiteral_Value();
+
+    /**
+     * The meta object literal for the '{@link expr.exprDemo.impl.StringLiteralImpl <em>String Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see expr.exprDemo.impl.StringLiteralImpl
+     * @see expr.exprDemo.impl.ExprDemoPackageImpl#getStringLiteral()
+     * @generated
+     */
+    EClass STRING_LITERAL = eINSTANCE.getStringLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_LITERAL__VALUE = eINSTANCE.getStringLiteral_Value();
 
   }
 

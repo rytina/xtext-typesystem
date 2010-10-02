@@ -4,7 +4,7 @@ package tests;
 import org.eclipse.emf.ecore.EObject;
 import org.junit.Test;
 
-import de.itemis.xtext.testing.XTextTestCase;
+import de.itemis.xtext.typesystem.testing.XTextTestCase;
 import expr.ExprDemoStandaloneSetup;
 import expr.exprDemo.Formula;
 

@@ -28,6 +28,7 @@
     <genClasses ecoreClass="ExprDemo.ecore#//IntType"/>
     <genClasses ecoreClass="ExprDemo.ecore#//BoolType"/>
     <genClasses ecoreClass="ExprDemo.ecore#//FloatType"/>
+    <genClasses ecoreClass="ExprDemo.ecore#//StringType"/>
     <genClasses ecoreClass="ExprDemo.ecore#//Formula">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Formula/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Formula/expr"/>
@@ -37,6 +38,7 @@
     <genClasses ecoreClass="ExprDemo.ecore#//EnumLiteral"/>
     <genClasses ecoreClass="ExprDemo.ecore#//VarDecl">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//VarDecl/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//VarDecl/init"/>
     </genClasses>
     <genClasses ecoreClass="ExprDemo.ecore#//Plus">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Plus/left"/>
@@ -55,6 +57,9 @@
     </genClasses>
     <genClasses ecoreClass="ExprDemo.ecore#//NumberLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExprDemo.ecore#//NumberLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ExprDemo.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExprDemo.ecore#//StringLiteral/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

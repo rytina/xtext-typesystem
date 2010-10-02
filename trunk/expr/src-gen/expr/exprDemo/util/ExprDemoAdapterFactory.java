@@ -134,6 +134,11 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
         return createFloatTypeAdapter();
       }
       @Override
+      public Adapter caseStringType(StringType object)
+      {
+        return createStringTypeAdapter();
+      }
+      @Override
       public Adapter caseFormula(Formula object)
       {
         return createFormulaAdapter();
@@ -182,6 +187,11 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNumberLiteral(NumberLiteral object)
       {
         return createNumberLiteralAdapter();
+      }
+      @Override
+      public Adapter caseStringLiteral(StringLiteral object)
+      {
+        return createStringLiteralAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -371,6 +381,21 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link expr.exprDemo.StringType <em>String Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see expr.exprDemo.StringType
+   * @generated
+   */
+  public Adapter createStringTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link expr.exprDemo.Formula <em>Formula</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -516,6 +541,21 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNumberLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link expr.exprDemo.StringLiteral <em>String Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see expr.exprDemo.StringLiteral
+   * @generated
+   */
+  public Adapter createStringLiteralAdapter()
   {
     return null;
   }

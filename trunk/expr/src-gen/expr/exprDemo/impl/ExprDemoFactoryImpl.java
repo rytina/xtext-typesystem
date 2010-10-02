@@ -79,6 +79,7 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
       case ExprDemoPackage.INT_TYPE: return createIntType();
       case ExprDemoPackage.BOOL_TYPE: return createBoolType();
       case ExprDemoPackage.FLOAT_TYPE: return createFloatType();
+      case ExprDemoPackage.STRING_TYPE: return createStringType();
       case ExprDemoPackage.FORMULA: return createFormula();
       case ExprDemoPackage.EXPR: return createExpr();
       case ExprDemoPackage.EXPRESSION: return createExpression();
@@ -89,6 +90,7 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
       case ExprDemoPackage.ARRAY_ACCESS: return createArrayAccess();
       case ExprDemoPackage.SYMBOL_REF: return createSymbolRef();
       case ExprDemoPackage.NUMBER_LITERAL: return createNumberLiteral();
+      case ExprDemoPackage.STRING_LITERAL: return createStringLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -220,6 +222,17 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public StringType createStringType()
+  {
+    StringTypeImpl stringType = new StringTypeImpl();
+    return stringType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Formula createFormula()
   {
     FormulaImpl formula = new FormulaImpl();
@@ -323,6 +336,17 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
   {
     NumberLiteralImpl numberLiteral = new NumberLiteralImpl();
     return numberLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringLiteral createStringLiteral()
+  {
+    StringLiteralImpl stringLiteral = new StringLiteralImpl();
+    return stringLiteral;
   }
 
   /**

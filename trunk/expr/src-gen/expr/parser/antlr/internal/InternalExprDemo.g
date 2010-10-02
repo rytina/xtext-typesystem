@@ -392,9 +392,37 @@ ruleVarDecl returns [EObject current=null]
 	    }
 
 )
-)	';' 
+)(	'=' 
     {
-        createLeafNode(grammarAccess.getVarDeclAccess().getSemicolonKeyword_4(), null); 
+        createLeafNode(grammarAccess.getVarDeclAccess().getEqualsSignKeyword_4_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getVarDeclAccess().getInitExprParserRuleCall_4_1_0(), currentNode); 
+	    }
+		lv_init_5_0=ruleExpr		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getVarDeclRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"init",
+	        		lv_init_5_0, 
+	        		"Expr", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+))?	';' 
+    {
+        createLeafNode(grammarAccess.getVarDeclAccess().getSemicolonKeyword_5(), null); 
     }
 )
 ;
@@ -498,6 +526,16 @@ rulePrimitiveType returns [EObject current=null]
     this_EnumType_3=ruleEnumType
     { 
         $current = $this_EnumType_3.current; 
+        currentNode = currentNode.getParent();
+    }
+
+    |
+    { 
+        currentNode=createCompositeNode(grammarAccess.getPrimitiveTypeAccess().getStringTypeParserRuleCall_4(), currentNode); 
+    }
+    this_StringType_4=ruleStringType
+    { 
+        $current = $this_StringType_4.current; 
         currentNode = currentNode.getParent();
     }
 )
@@ -720,6 +758,44 @@ ruleFloatType returns [EObject current=null]
 )	'float' 
     {
         createLeafNode(grammarAccess.getFloatTypeAccess().getFloatKeyword_1(), null); 
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleStringType
+entryRuleStringType returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getStringTypeRule(), currentNode); }
+	 iv_ruleStringType=ruleStringType 
+	 { $current=$iv_ruleStringType.current; } 
+	 EOF 
+;
+
+// Rule StringType
+ruleStringType returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+((
+    { 
+        temp=factory.create(grammarAccess.getStringTypeAccess().getStringTypeAction_0().getType().getClassifier());
+        $current = temp; 
+        temp = null;
+        CompositeNode newNode = createCompositeNode(grammarAccess.getStringTypeAccess().getStringTypeAction_0(), currentNode.getParent());
+    newNode.getChildren().add(currentNode);
+    moveLookaheadInfo(currentNode, newNode);
+    currentNode = newNode; 
+        associateNodeWithAstElement(currentNode, $current); 
+    }
+)	'string' 
+    {
+        createLeafNode(grammarAccess.getStringTypeAccess().getStringKeyword_1(), null); 
     }
 )
 ;
@@ -1171,6 +1247,42 @@ ruleAtomic returns [EObject current=null]
 	       			"value",
 	        		lv_value_3_0, 
 	        		"NUMBER", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))
+    |((
+    { 
+        temp=factory.create(grammarAccess.getAtomicAccess().getStringLiteralAction_2_0().getType().getClassifier());
+        $current = temp; 
+        temp = null;
+        CompositeNode newNode = createCompositeNode(grammarAccess.getAtomicAccess().getStringLiteralAction_2_0(), currentNode.getParent());
+    newNode.getChildren().add(currentNode);
+    moveLookaheadInfo(currentNode, newNode);
+    currentNode = newNode; 
+        associateNodeWithAstElement(currentNode, $current); 
+    }
+)(
+(
+		lv_value_5_0=RULE_STRING
+		{
+			createLeafNode(grammarAccess.getAtomicAccess().getValueSTRINGTerminalRuleCall_2_1_0(), "value"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAtomicRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"value",
+	        		lv_value_5_0, 
+	        		"STRING", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);

@@ -5,6 +5,7 @@ import org.junit.runners.Suite;
 
 import tests.Array;
 import tests.Basic;
+import tests.Coercion;
 import tests.Enum;
 import tests.Subtyping;
 
@@ -14,7 +15,8 @@ import tests.Subtyping;
 	Basic.class,
 	Subtyping.class,
 	Enum.class,
-	Array.class
+	Array.class,
+	Coercion.class
 })
 public class AllTests {
 

@@ -16,6 +16,7 @@ package expr.exprDemo;
  * The following features are supported:
  * <ul>
  *   <li>{@link expr.exprDemo.VarDecl#getType <em>Type</em>}</li>
+ *   <li>{@link expr.exprDemo.VarDecl#getInit <em>Init</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,5 +51,31 @@ public interface VarDecl extends Symbol
    * @generated
    */
   void setType(Type value);
+
+  /**
+   * Returns the value of the '<em><b>Init</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Init</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Init</em>' containment reference.
+   * @see #setInit(Expr)
+   * @see expr.exprDemo.ExprDemoPackage#getVarDecl_Init()
+   * @model containment="true"
+   * @generated
+   */
+  Expr getInit();
+
+  /**
+   * Sets the value of the '{@link expr.exprDemo.VarDecl#getInit <em>Init</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Init</em>' containment reference.
+   * @see #getInit()
+   * @generated
+   */
+  void setInit(Expr value);
 
 } // VarDecl

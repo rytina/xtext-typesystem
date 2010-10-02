@@ -126,6 +126,15 @@ public interface ExprDemoFactory extends EFactory
   FloatType createFloatType();
 
   /**
+   * Returns a new object of class '<em>String Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Type</em>'.
+   * @generated
+   */
+  StringType createStringType();
+
+  /**
    * Returns a new object of class '<em>Formula</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -214,6 +223,15 @@ public interface ExprDemoFactory extends EFactory
    * @generated
    */
   NumberLiteral createNumberLiteral();
+
+  /**
+   * Returns a new object of class '<em>String Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Literal</em>'.
+   * @generated
+   */
+  StringLiteral createStringLiteral();
 
   /**
    * Returns the package supported by this factory.

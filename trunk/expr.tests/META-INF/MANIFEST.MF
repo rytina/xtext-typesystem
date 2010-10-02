@@ -25,6 +25,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.common,
  org.antlr.runtime,
  org.apache.log4j;bundle-version="1.2.15",
- de.itemis.xtext.typesystem;bundle-version="1.0.0" 
+ de.itemis.xtext.typesystem;bundle-version="1.0.0",
+ de.itemis.xtext.typesystem.testing;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

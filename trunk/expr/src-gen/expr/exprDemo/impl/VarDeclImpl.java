@@ -6,6 +6,7 @@
  */
 package expr.exprDemo.impl;
 
+import expr.exprDemo.Expr;
 import expr.exprDemo.ExprDemoPackage;
 import expr.exprDemo.Type;
 import expr.exprDemo.VarDecl;
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link expr.exprDemo.impl.VarDeclImpl#getType <em>Type</em>}</li>
+ *   <li>{@link expr.exprDemo.impl.VarDeclImpl#getInit <em>Init</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,6 +44,16 @@ public class VarDeclImpl extends SymbolImpl implements VarDecl
    * @ordered
    */
   protected Type type;
+
+  /**
+   * The cached value of the '{@link #getInit() <em>Init</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInit()
+   * @generated
+   * @ordered
+   */
+  protected Expr init;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,6 +129,54 @@ public class VarDeclImpl extends SymbolImpl implements VarDecl
    * <!-- end-user-doc -->
    * @generated
    */
+  public Expr getInit()
+  {
+    return init;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetInit(Expr newInit, NotificationChain msgs)
+  {
+    Expr oldInit = init;
+    init = newInit;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExprDemoPackage.VAR_DECL__INIT, oldInit, newInit);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInit(Expr newInit)
+  {
+    if (newInit != init)
+    {
+      NotificationChain msgs = null;
+      if (init != null)
+        msgs = ((InternalEObject)init).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExprDemoPackage.VAR_DECL__INIT, null, msgs);
+      if (newInit != null)
+        msgs = ((InternalEObject)newInit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExprDemoPackage.VAR_DECL__INIT, null, msgs);
+      msgs = basicSetInit(newInit, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ExprDemoPackage.VAR_DECL__INIT, newInit, newInit));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -124,6 +184,8 @@ public class VarDeclImpl extends SymbolImpl implements VarDecl
     {
       case ExprDemoPackage.VAR_DECL__TYPE:
         return basicSetType(null, msgs);
+      case ExprDemoPackage.VAR_DECL__INIT:
+        return basicSetInit(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -140,6 +202,8 @@ public class VarDeclImpl extends SymbolImpl implements VarDecl
     {
       case ExprDemoPackage.VAR_DECL__TYPE:
         return getType();
+      case ExprDemoPackage.VAR_DECL__INIT:
+        return getInit();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -156,6 +220,9 @@ public class VarDeclImpl extends SymbolImpl implements VarDecl
     {
       case ExprDemoPackage.VAR_DECL__TYPE:
         setType((Type)newValue);
+        return;
+      case ExprDemoPackage.VAR_DECL__INIT:
+        setInit((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -174,6 +241,9 @@ public class VarDeclImpl extends SymbolImpl implements VarDecl
       case ExprDemoPackage.VAR_DECL__TYPE:
         setType((Type)null);
         return;
+      case ExprDemoPackage.VAR_DECL__INIT:
+        setInit((Expr)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -190,6 +260,8 @@ public class VarDeclImpl extends SymbolImpl implements VarDecl
     {
       case ExprDemoPackage.VAR_DECL__TYPE:
         return type != null;
+      case ExprDemoPackage.VAR_DECL__INIT:
+        return init != null;
     }
     return super.eIsSet(featureID);
   }

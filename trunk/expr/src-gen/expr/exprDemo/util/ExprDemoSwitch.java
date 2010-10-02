@@ -185,6 +185,15 @@ public class ExprDemoSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ExprDemoPackage.STRING_TYPE:
+      {
+        StringType stringType = (StringType)theEObject;
+        T result = caseStringType(stringType);
+        if (result == null) result = casePrimitiveType(stringType);
+        if (result == null) result = caseType(stringType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ExprDemoPackage.FORMULA:
       {
         Formula formula = (Formula)theEObject;
@@ -268,6 +277,15 @@ public class ExprDemoSwitch<T>
         T result = caseNumberLiteral(numberLiteral);
         if (result == null) result = caseExpression(numberLiteral);
         if (result == null) result = caseExpr(numberLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExprDemoPackage.STRING_LITERAL:
+      {
+        StringLiteral stringLiteral = (StringLiteral)theEObject;
+        T result = caseStringLiteral(stringLiteral);
+        if (result == null) result = caseExpression(stringLiteral);
+        if (result == null) result = caseExpr(stringLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -452,6 +470,22 @@ public class ExprDemoSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>String Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringType(StringType object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Formula</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -607,6 +641,22 @@ public class ExprDemoSwitch<T>
    * @generated
    */
   public T caseNumberLiteral(NumberLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>String Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringLiteral(StringLiteral object)
   {
     return null;
   }

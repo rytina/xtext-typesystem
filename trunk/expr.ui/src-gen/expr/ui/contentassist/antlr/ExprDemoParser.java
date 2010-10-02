@@ -44,10 +44,12 @@ public class ExprDemoParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEnumDeclAccess().getGroup(), "rule__EnumDecl__Group__0");
 					put(grammarAccess.getEnumLiteralAccess().getGroup(), "rule__EnumLiteral__Group__0");
 					put(grammarAccess.getVarDeclAccess().getGroup(), "rule__VarDecl__Group__0");
+					put(grammarAccess.getVarDeclAccess().getGroup_4(), "rule__VarDecl__Group_4__0");
 					put(grammarAccess.getArrayTypeAccess().getGroup(), "rule__ArrayType__Group__0");
 					put(grammarAccess.getIntTypeAccess().getGroup(), "rule__IntType__Group__0");
 					put(grammarAccess.getBoolTypeAccess().getGroup(), "rule__BoolType__Group__0");
 					put(grammarAccess.getFloatTypeAccess().getGroup(), "rule__FloatType__Group__0");
+					put(grammarAccess.getStringTypeAccess().getGroup(), "rule__StringType__Group__0");
 					put(grammarAccess.getFormulaAccess().getGroup(), "rule__Formula__Group__0");
 					put(grammarAccess.getAdditionAccess().getGroup(), "rule__Addition__Group__0");
 					put(grammarAccess.getAdditionAccess().getGroup_1(), "rule__Addition__Group_1__0");
@@ -57,6 +59,7 @@ public class ExprDemoParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPostfixOperatorsAccess().getGroup_1(), "rule__PostfixOperators__Group_1__0");
 					put(grammarAccess.getAtomicAccess().getGroup_0(), "rule__Atomic__Group_0__0");
 					put(grammarAccess.getAtomicAccess().getGroup_1(), "rule__Atomic__Group_1__0");
+					put(grammarAccess.getAtomicAccess().getGroup_2(), "rule__Atomic__Group_2__0");
 					put(grammarAccess.getQIDAccess().getGroup(), "rule__QID__Group__0");
 					put(grammarAccess.getQIDAccess().getGroup_1(), "rule__QID__Group_1__0");
 					put(grammarAccess.getModelAccess().getElementsAssignment(), "rule__Model__ElementsAssignment");
@@ -65,6 +68,7 @@ public class ExprDemoParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEnumLiteralAccess().getNameAssignment_1(), "rule__EnumLiteral__NameAssignment_1");
 					put(grammarAccess.getVarDeclAccess().getTypeAssignment_2(), "rule__VarDecl__TypeAssignment_2");
 					put(grammarAccess.getVarDeclAccess().getNameAssignment_3(), "rule__VarDecl__NameAssignment_3");
+					put(grammarAccess.getVarDeclAccess().getInitAssignment_4_1(), "rule__VarDecl__InitAssignment_4_1");
 					put(grammarAccess.getArrayTypeAccess().getBaseTypeAssignment_3(), "rule__ArrayType__BaseTypeAssignment_3");
 					put(grammarAccess.getEnumTypeAccess().getEnumRefAssignment(), "rule__EnumType__EnumRefAssignment");
 					put(grammarAccess.getFormulaAccess().getTypeAssignment_1(), "rule__Formula__TypeAssignment_1");
@@ -75,6 +79,7 @@ public class ExprDemoParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPostfixOperatorsAccess().getIndexAssignment_1_2(), "rule__PostfixOperators__IndexAssignment_1_2");
 					put(grammarAccess.getAtomicAccess().getSymbolAssignment_0_1(), "rule__Atomic__SymbolAssignment_0_1");
 					put(grammarAccess.getAtomicAccess().getValueAssignment_1_1(), "rule__Atomic__ValueAssignment_1_1");
+					put(grammarAccess.getAtomicAccess().getValueAssignment_2_1(), "rule__Atomic__ValueAssignment_2_1");
 				}
 			};
 		}

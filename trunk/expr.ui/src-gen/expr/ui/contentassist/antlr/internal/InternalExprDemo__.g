@@ -12,40 +12,41 @@ T13 : '{' ;
 T14 : '}' ;
 T15 : 'var' ;
 T16 : ';' ;
-T17 : 'array' ;
-T18 : '[' ;
-T19 : ']' ;
-T20 : 'int' ;
-T21 : 'bool' ;
-T22 : 'float' ;
-T23 : 'calc' ;
-T24 : '=' ;
-T25 : '+' ;
-T26 : '*' ;
-T27 : '.' ;
+T17 : '=' ;
+T18 : 'array' ;
+T19 : '[' ;
+T20 : ']' ;
+T21 : 'int' ;
+T22 : 'bool' ;
+T23 : 'float' ;
+T24 : 'string' ;
+T25 : 'calc' ;
+T26 : '+' ;
+T27 : '*' ;
+T28 : '.' ;
 
-// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2636
+// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2928
 RULE_NUMBER : ('0'..'9')* ('.' ('0'..'9')+)?;
 
-// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2638
+// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2930
 RULE_INT : '$$$don\'t use this anymore$$$';
 
-// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2640
+// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2932
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2642
+// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2934
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2644
+// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2936
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2646
+// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2938
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2648
+// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2940
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2650
+// $ANTLR src "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g" 2942
 RULE_ANY_OTHER : .;
 
 

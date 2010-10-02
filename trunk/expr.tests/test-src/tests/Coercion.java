@@ -6,18 +6,19 @@ import org.junit.Test;
 
 import de.itemis.xtext.typesystem.testing.XTextTestCase;
 import expr.ExprDemoStandaloneSetup;
-import expr.exprDemo.Formula;
+import expr.exprDemo.VarDecl;
 
-public class Enum extends XTextTestCase {
+public class Coercion extends XTextTestCase {
 
 	@Test
 	public void testTypesOfParams() throws Exception {
 		EObject root = initializeAndGetRoot(new ExprDemoStandaloneSetup(), 
-				R.modelroot+"/enum.expr");
+				R.modelroot+"/coercion.expr");
 
-		assertConstraints( allIssues.errorsOnly().sizeIs(1) ); 
-		assertConstraints( allIssues.forType(Formula.class).named("col3").theOneAndOnlyContains("incompatible") );
+		assertConstraints( allIssues.errorsOnly().sizeIs(1) );
+		assertConstraints( allIssues.forType(VarDecl.class).theOneAndOnlyContains("incompatible type"));
 		
 	}
+	
 	
 }

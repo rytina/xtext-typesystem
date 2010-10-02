@@ -5,13 +5,16 @@ import org.eclipse.emf.ecore.EObject;
 import de.itemis.xtext.typesystem.DefaultTypesystem;
 import de.itemis.xtext.typesystem.exceptions.TypesystemConfigurationException;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
-import de.itemis.xtext.util.Utils;
+import de.itemis.xtext.typesystem.util.Utils;
 import expr.exprDemo.ArrayAccess;
 import expr.exprDemo.ArrayType;
 import expr.exprDemo.EnumDecl;
 import expr.exprDemo.EnumType;
 import expr.exprDemo.ExprDemoPackage;
+import expr.exprDemo.IntType;
 import expr.exprDemo.NumberLiteral;
+import expr.exprDemo.StringLiteral;
+import expr.exprDemo.StringType;
 import expr.exprDemo.Type;
 
 public class ExprTypesystem extends DefaultTypesystem {
@@ -45,7 +48,6 @@ public class ExprTypesystem extends DefaultTypesystem {
 			
 			ensureOrderedCompatibility(lang.getFormula(), lang.getFormula_Type(), lang.getFormula_Expr());
 			
-			
 			// enums
 			useTypeOfFeature(lang.getEnumType(), lang.getEnumType_EnumRef());
 			useTypeOfAncestor(lang.getEnumLiteral(), lang.getEnumDecl());
@@ -56,12 +58,28 @@ public class ExprTypesystem extends DefaultTypesystem {
 			ensureFeatureType(lang.getArrayAccess(), lang.getArrayAccess_Expr(), lang.getArrayType());
 			ensureFeatureType("array index must be Int, idiot :)", lang.getArrayAccess(), lang.getArrayAccess_Index(), lang.getIntType());
 			
+			// coercion
+			useCloneAsType(lang.getStringType());
+			useFixedType(lang.getStringLiteral(), lang.getStringType());
+			ensureOrderedCompatibility(lang.getVarDecl(), lang.getVarDecl_Type(), lang.getVarDecl_Init());
+
 			
 		} catch (TypesystemConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
+	}
+	
+	public EObject typeCoerce( EObject candidateElement, StringType candidate, IntType expected, TypeCalculationTrace trace ) {
+		if ( candidateElement instanceof StringLiteral ) {
+			try {
+				Integer.valueOf(((StringLiteral) candidateElement).getValue());
+				trace.add( candidateElement, "element is number-valued string literal -> coercing to int");
+				return create(lang.getIntType());
+			} catch ( NumberFormatException fallthrough ) {}
+		}
+		return null;
 	}
 	
 	public String typeToString( EObject o ) {
