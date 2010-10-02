@@ -17,4 +17,4 @@ Require-Bundle: org.eclipse.ui,
  org.apache.log4j;bundle-version="1.2.15"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: de.itemis.xtext.testing
+Export-Package: de.itemis.xtext.typesystem.testing
