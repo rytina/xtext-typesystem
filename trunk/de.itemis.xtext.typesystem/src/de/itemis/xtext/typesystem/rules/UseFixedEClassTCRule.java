@@ -1,6 +1,6 @@
 package de.itemis.xtext.typesystem.rules;
 
-import static de.itemis.xtext.util.Utils.create;
+import static de.itemis.xtext.typesystem.util.Utils.create;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;

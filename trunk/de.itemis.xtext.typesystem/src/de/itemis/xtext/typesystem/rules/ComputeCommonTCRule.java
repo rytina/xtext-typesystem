@@ -31,7 +31,7 @@ public class ComputeCommonTCRule extends TCRule {
 		if ( type2 == null ) {
 			trace.add(element, "type of feature '"+f2.getName()+"' is undefined");
 		}		
-		return ts.computeCommonType( type1, type2, trace );
+		return ts.computeCommonType( val1, type1, val2, type2, trace );
 	}
 
 	

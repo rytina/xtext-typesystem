@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import de.itemis.xtext.typesystem.exceptions.FeatureMustBeSingleValuedException;
-import static de.itemis.xtext.util.Utils.eString;
+import static de.itemis.xtext.typesystem.util.Utils.eString;
 
 abstract class AbstractCompatibilityCheck implements ISingleElementTypesystemCheck {
 	protected final EClass ctxClass;

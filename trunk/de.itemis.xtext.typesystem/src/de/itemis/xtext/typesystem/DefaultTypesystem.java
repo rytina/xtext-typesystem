@@ -1,8 +1,8 @@
 package de.itemis.xtext.typesystem;
 
-import static de.itemis.xtext.util.Utils.eString;
-import static de.itemis.xtext.util.Utils.name;
-import static de.itemis.xtext.util.Utils.nullTolerantEquals;
+import static de.itemis.xtext.typesystem.util.Utils.eString;
+import static de.itemis.xtext.typesystem.util.Utils.name;
+import static de.itemis.xtext.typesystem.util.Utils.nullTolerantEquals;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -41,7 +41,7 @@ import de.itemis.xtext.typesystem.rules.UseFeatureTCRule;
 import de.itemis.xtext.typesystem.rules.UseFixedEClassTCRule;
 import de.itemis.xtext.typesystem.rules.UsePrototypeTCRule;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
-import de.itemis.xtext.util.Multimap;
+import de.itemis.xtext.typesystem.util.Multimap;
 
 public abstract class DefaultTypesystem implements ITypesystem {
 	private static Logger LOGGER = Logger.getLogger(DefaultTypesystem.class);
@@ -96,7 +96,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 				}
 			});
 
-	private final PolymorphicDispatcher<EObject> typeCoercionDispatcher = new PolymorphicDispatcher<EObject>("typeCoerce", 3, 3,
+	private final PolymorphicDispatcher<EObject> typeCoercionDispatcher = new PolymorphicDispatcher<EObject>("typeCoerce", 4, 4,
 			Collections.singletonList(this), new ErrorHandler<EObject>() {
 				public EObject handle(Object[] params, Throwable e) {
 					return null;
@@ -137,21 +137,21 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	}
 	
 
-	public EObject computeCommonType(EObject type1, EObject type2, TypeCalculationTrace trace) {
-		if ( isSameType(type1, type2, trace)) return type1;
+	public EObject computeCommonType(EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace) {
+		if ( isSameType(element1, type1, element2, type2, trace)) return type1;
 		if ( isSubtype(type1.eClass(), type2.eClass())) return type2;
 		if ( isSubtype(type2.eClass(), type1.eClass())) return type1;
 		
-		EObject coercedType1 = tryToCoerceType(type1, type2, trace);
+		EObject coercedType1 = tryToCoerceType(element1, type1, type2, trace);
 		if ( coercedType1 != null ) {
-			if ( isSameType(coercedType1, type2, trace)) return type1;
+			if ( isSameType(element1, coercedType1, element2, type2, trace)) return type1;
 			if ( isSubtype(coercedType1.eClass(), type2.eClass())) return type2;
 			if ( isSubtype(type2.eClass(), coercedType1.eClass())) return type1;
 		}
 
-		EObject coercedType2 = tryToCoerceType(type2, type1, trace);
+		EObject coercedType2 = tryToCoerceType(element2, type2, type1, trace);
 		if ( coercedType2 != null ) {
-			if ( isSameType(type1, coercedType2, trace)) return type1;
+			if ( isSameType(element1, type1, element2, coercedType2, trace)) return type1;
 			if ( isSubtype(type1.eClass(), coercedType2.eClass())) return type2;
 			if ( isSubtype(coercedType2.eClass(), type1.eClass())) return type1;
 		}
@@ -162,10 +162,11 @@ public abstract class DefaultTypesystem implements ITypesystem {
 		return null;
 	}
 
-	public EObject tryToCoerceType( EObject candidate, EObject expected, TypeCalculationTrace trace) {
-		return typeCoercionDispatcher.invoke(candidate, expected, trace);
+	public EObject tryToCoerceType( EObject element, EObject currentType, EObject requiredType, TypeCalculationTrace trace) {
+		EObject coerced = typeCoercionDispatcher.invoke(element, currentType, requiredType, trace);
+		return coerced;
 	}
-
+ 
 
 	/**
 	 * call this method to find out the type of an element.
@@ -336,7 +337,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	 * Then, if a type comparison feature is registered, 
 	 * compare the value of the feature for both elements
 	 */
-	public boolean isSameType(EObject type1, EObject type2, TypeCalculationTrace trace) {
+	public boolean isSameType(EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace) {
 		Boolean manual = compareTypeDispatcher.invoke(type1, type2, CheckKind.same);
 		if ( manual != null ) return manual.booleanValue();
 		if ( type1.eClass().equals(type2.eClass()) ) {
@@ -378,11 +379,11 @@ public abstract class DefaultTypesystem implements ITypesystem {
 				EObject val1type = typeof( (EObject) val1, trace.child("val1", val1) );
 				EObject val2type = typeof( (EObject) val2, trace.child("val2", val2) );
 				if ( kind == CheckKind.same ) {
-					if ( !isSameType(val1type, val2type, trace)) return false; 
+					if ( !isSameType(val1, val1type, val2, val2type, trace)) return false; 
 				} else if ( kind == CheckKind.unordered ) {
-					if ( !isCompatibleTypeUnordered(val1type, val2type, trace)) return false;
+					if ( !isCompatibleTypeUnordered(val1, val1type, val2, val2type, trace)) return false;
 				} else if ( kind == CheckKind.ordered ) {
-					if ( !isCompatibleTypeOrdered(val1type, val2type, trace)) return false;
+					if ( !isCompatibleTypeOrdered(val1, val1type, val2, val2type, trace)) return false;
 				}
 			}
 		}
@@ -395,24 +396,24 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	 * a super type of element2's type -- or vice versa
 	 * TODO: Possibility to do a polymorphic dispatcher override
 	 */
-	public boolean isCompatibleTypeUnordered(EObject type1, EObject type2, TypeCalculationTrace trace) {
+	public boolean isCompatibleTypeUnordered(EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace) {
 		Boolean manual = compareTypeDispatcher.invoke(type1, type2, CheckKind.unordered);
 		if ( manual != null ) {
 			return manual.booleanValue();
 		}
-		if ( isSameType(type1, type2, trace)) return true;
+		if ( isSameType(element1, type1, element2, type2, trace)) return true;
 		EClass type1Class = type1.eClass();
 		EClass type2Class = type2.eClass();
 		if ( isSubtype( type1Class, type2Class) || isSubtype( type2Class, type1Class) ) {
 			return handleComparisonAndRecursionFeatures(type1, type2, CheckKind.unordered, trace);
 		} else {
-			EObject coercedType1 = tryToCoerceType(type1, type2, trace);
+			EObject coercedType1 = tryToCoerceType(element1, type1, type2, trace);
 			if ( coercedType1 != null ) {
-				return isCompatibleTypeUnordered(coercedType1, type2, trace);
+				return isCompatibleTypeUnordered(element1, coercedType1, element2, type2, trace);
 			}
-			EObject coercedType2 = tryToCoerceType(type2, type1, trace);
+			EObject coercedType2 = tryToCoerceType(element2, type2, type1, trace);
 			if ( coercedType2 != null ) {
-				return isCompatibleTypeUnordered(type1, coercedType2, trace);
+				return isCompatibleTypeUnordered(element1, type1, element2, coercedType2, trace);
 			}
 		}
 		return false;
@@ -422,22 +423,22 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	 * returns true if the type of element1 and element2 are
 	 * the same, or element2 is a subtype of element1
 	 */
-	public boolean isCompatibleTypeOrdered(EObject type1, EObject type2, TypeCalculationTrace trace) {
+	public boolean isCompatibleTypeOrdered(EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace) {
 		Boolean manual = compareTypeDispatcher.invoke(type1, type2, CheckKind.ordered);
 		if ( manual != null ) return manual.booleanValue();
-		if ( isSameType(type1, type2, trace)) return true;
+		if ( isSameType(element1, type1, element2, type2, trace)) return true;
 		EClass type1Class = type1.eClass();
 		EClass type2Class = type2.eClass();
 		if ( isSameOrSubtype( type2Class, type1Class, trace) ) {
 			return handleComparisonAndRecursionFeatures(type1, type2, CheckKind.ordered, trace);
 		} else {
-			EObject coercedType1 = tryToCoerceType(type1, type2, trace);
+			EObject coercedType1 = tryToCoerceType(element1, type1, type2, trace);
 			if ( coercedType1 != null ) {
-				return isCompatibleTypeOrdered(coercedType1, type2, trace);
+				return isCompatibleTypeOrdered(element1, coercedType1, element2, type2, trace);
 			}
-			EObject coercedType2 = tryToCoerceType(type2, type1, trace);
+			EObject coercedType2 = tryToCoerceType(element2, type2, type1, trace);
 			if ( coercedType2 != null ) {
-				return isCompatibleTypeOrdered(type1, coercedType2, trace);
+				return isCompatibleTypeOrdered(element1, type1, element2, coercedType2, trace);
 			}
 		}
 		return false;
@@ -645,7 +646,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 		String manual = typeToStringDispatcher.invoke(type);
 		if ( manual != null ) {
 			return manual;
-		}
+		} 
 		if ( type instanceof EClass ) {
 			String name = ((EClass) type).getName();
 			//if ( name.toLowerCase().endsWith("type")) name = name.substring(0,name.length()-4);
@@ -686,8 +687,10 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	public String typeStrings( Object[] types )  {
 		StringBuffer bf = new StringBuffer();
 		for (int i = 0; i < types.length; i++) {
-			if ( i > 0 ) bf.append(", ");
-			//else if ( i == types.length-1) bf.append(" or ");
+			if ( i > 0 ) {
+				if ( types.length > 1 && i == types.length-1) bf.append(" or ");
+				else bf.append(", "); 
+			}
 			bf.append(typeString(types[i]));
 		}
 		return bf.toString();
@@ -708,5 +711,8 @@ public abstract class DefaultTypesystem implements ITypesystem {
 		return characteristics.get(actualType.eClass()).contains(c);
 	}
 	
+	protected EObject create( EClass cls ) {
+		return cls.getEPackage().getEFactoryInstance().create(cls);
+	}
 
 }

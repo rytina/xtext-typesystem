@@ -1,4 +1,4 @@
-package de.itemis.xtext.util;
+package de.itemis.xtext.typesystem.util;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;

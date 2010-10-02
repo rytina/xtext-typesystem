@@ -27,20 +27,20 @@ public interface ITypesystem {
 	 * compares whether the two types type1 and type2 are
 	 * the same type (with an equals, no recursion)
 	 */
-	public boolean isSameType( EObject type1, EObject type2, TypeCalculationTrace trace );
+	public boolean isSameType( EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace );
 	
 	/**
 	 * compares whether the two types type1 and type 2 are
 	 * type compatible - either can be a subtype of the other
 	 */
-	public boolean isCompatibleTypeUnordered( EObject type1, EObject type2, TypeCalculationTrace trace );
+	public boolean isCompatibleTypeUnordered( EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace );
 	
 	/**
 	 * compares whether the two types type1 and type 2 are
 	 * type compatible - type2 may be a subtype of type1, but
 	 * not the other way round.
 	 */
-	public boolean isCompatibleTypeOrdered( EObject type1, EObject type2, TypeCalculationTrace trace );
+	public boolean isCompatibleTypeOrdered( EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace );
 	
 	/**
 	 * checks whether element's name is unique in the 
@@ -60,7 +60,7 @@ public interface ITypesystem {
 	 */
 	public boolean isInstanceOf( EObject actualType, EClass expectedType, TypeCalculationTrace trace );
 
-	public EObject tryToCoerceType( EObject candidate, EObject expected, TypeCalculationTrace trace);
+	public EObject tryToCoerceType( EObject element, EObject candidate, EObject expected, TypeCalculationTrace trace);
 	
 	/**
 	 * determines whether a type has a given characteristic
@@ -83,7 +83,7 @@ public interface ITypesystem {
 	 * calculates the common type (in terms of subtyping) of 
 	 * the two types passedin
 	 */
-	public EObject computeCommonType(EObject type1, EObject type2, TypeCalculationTrace trace);
+	public EObject computeCommonType(EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace);
 
 
 }

@@ -12,7 +12,7 @@ import de.itemis.xtext.typesystem.characteristics.TypeCharacteristic;
 import de.itemis.xtext.typesystem.checks.custom.StaticCustomTypeChecker;
 import de.itemis.xtext.typesystem.exceptions.FeatureMustBeSingleValuedException;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
-import static de.itemis.xtext.util.Utils.eString;
+import static de.itemis.xtext.typesystem.util.Utils.eString;
 
 public class ConstrainPropertyCheck implements ISingleElementTypesystemCheck {
 	public final EClass ctxClass;
@@ -46,7 +46,7 @@ public class ConstrainPropertyCheck implements ISingleElementTypesystemCheck {
 				if ( ts.isInstanceOf(type, cls, trace)) {
 					return true;
 				} else {
-					EObject coercedType = ts.tryToCoerceType(type, cls.getEPackage().getEFactoryInstance().create(cls) , trace);
+					EObject coercedType = ts.tryToCoerceType(val, type, cls.getEPackage().getEFactoryInstance().create(cls) , trace);
 					if ( ts.isInstanceOf(coercedType, cls, trace)) {
 						return true;
 					}

@@ -3,7 +3,8 @@ package de.itemis.xtext.typesystem.trace;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import static de.itemis.xtext.util.Utils.eString;
+
+import static de.itemis.xtext.typesystem.util.Utils.eString;
 
 public class StringTraceElement implements ITraceStep {
 	

@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import de.itemis.xtext.typesystem.ITypesystem;
 import de.itemis.xtext.typesystem.trace.ITraceStep;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
-import static de.itemis.xtext.util.Utils.eString;
+import static de.itemis.xtext.typesystem.util.Utils.eString;
 
 public abstract class TCRule implements ITraceStep {
 

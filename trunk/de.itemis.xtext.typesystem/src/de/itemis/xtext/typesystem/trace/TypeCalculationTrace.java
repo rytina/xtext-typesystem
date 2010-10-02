@@ -1,6 +1,6 @@
 package de.itemis.xtext.typesystem.trace;
 
-import static de.itemis.xtext.util.Utils.eString;
+import static de.itemis.xtext.typesystem.util.Utils.eString;
 
 import java.util.ArrayList;
 import java.util.List;

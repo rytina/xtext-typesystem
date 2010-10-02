@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package de.itemis.xtext.util;
+package de.itemis.xtext.typesystem.util;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package de.itemis.xtext.util;
+package de.itemis.xtext.typesystem.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
