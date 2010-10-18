@@ -46,7 +46,7 @@ public abstract class XTextTestCase {
 				rs.getResource(URI.createURI(supportFilename), true);
 			}
 			resource = (XtextResource) rs.getResource(URI.createURI(primaryFilename), true);
-			allIssues = new IssueCollection(resource, resource.getResourceServiceProvider().getResourceValidator().validate(resource, CheckMode.ALL, null));
+			allIssues = new IssueCollection(resource, resource.getResourceServiceProvider().getResourceValidator().validate(resource, CheckMode.ALL, null), new ArrayList<String>());
 			root = resource.getContents().get(0);
 		}
 		return root;
@@ -58,12 +58,17 @@ public abstract class XTextTestCase {
 	
 	protected void assertConstraints( IssueCollection coll, String msg ) {
 		assertedIssues.addAll(coll.getIssues());
-		Assert.assertTrue(msg, coll.evaluate() );
+		Assert.assertTrue("failed "+msg+coll.getMessageString(), coll.evaluate() );
 	}
 	
 	protected void assertConstraints( IssueCollection coll) {
 		assertedIssues.addAll(coll.getIssues());
-		Assert.assertTrue("failed", coll.evaluate() );
+		Assert.assertTrue("<no id> failed"+coll.getMessageString(), coll.evaluate() );
+	}
+	
+	protected void assertConstraints( String constraintID, IssueCollection coll) {
+		assertedIssues.addAll(coll.getIssues());
+		Assert.assertTrue(constraintID+" failed"+coll.getMessageString(), coll.evaluate() );
 	}
 	
 	public EObject getEObject( URI uri ) {

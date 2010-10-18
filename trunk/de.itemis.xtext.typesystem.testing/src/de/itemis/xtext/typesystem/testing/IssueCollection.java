@@ -24,19 +24,26 @@ public class IssueCollection {
 	private static Logger LOGGER = Logger.getLogger(IssueCollection.class);
 
 	private List<Issue> issues;
+	private List<String> messages;
 	private XtextResource resource;
 	
 	private boolean state;
 	private boolean stateIsSet;
 
-	public IssueCollection( XtextResource res, List<Issue> issues ) {
+	public IssueCollection( XtextResource res, List<Issue> issues, List<String> messages ) {
 		this.resource = res;
 		this.issues = issues;
+		this.messages = messages;
 	}
-
-	public IssueCollection(XtextResource res) {
+ 
+	public IssueCollection(XtextResource res, List<String> messages) {
 		this.issues = new ArrayList<Issue>();
 		this.resource = res;
+		this.messages = messages;
+	}
+	
+	private void addMessage( String m ) {
+		messages.add( m );
 	}
 	
 	public void addIssue( Issue issue ) {
@@ -44,7 +51,7 @@ public class IssueCollection {
 	}
 	
 	public IssueCollection forType( Class<? extends EObject> cls ) {
-		IssueCollection res = new IssueCollection(resource);
+		IssueCollection res = new IssueCollection(resource, messages);
 		for (Issue i : issues) {
 			URI uri = i.getUriToProblem();
 			EObject eObject = resource.getEObject(uri.fragment());
@@ -53,15 +60,15 @@ public class IssueCollection {
 			}
 		}
 		if (res.getIssueCount() == 0 ) {
-			LOGGER.warn("no elements of type "+cls.getName()+" found");
+			res.addMessage("No issues found for type "+cls.getName());
 		}
 		return res;
 	}
 
 	public IssueCollection get( int index ) {
-		IssueCollection res = new IssueCollection(resource);
+		IssueCollection res = new IssueCollection(resource, messages);
 		if ( index >= getIssueCount() ) {
-			LOGGER.warn("trying to get element at "+index+", but only have "+getIssueCount()+" elements -> creating empty collection!");
+			res.addMessage( "trying to get element at "+index+", but only have "+getIssueCount()+" elements -> creating empty collection!");
 		} else {
 			res.addIssue( getIssues().get(index) );
 		}
@@ -69,10 +76,16 @@ public class IssueCollection {
 	}
 
 	public IssueCollection inLine( int lineNo ) {
-		IssueCollection res = new IssueCollection(resource);
+		IssueCollection res = new IssueCollection(resource, messages);
+		int rc = 0;
 		for (Issue i: issues) {
-			if ( i.getLineNumber() == lineNo )
+			if ( i.getLineNumber() == lineNo ) {
 				res.addIssue( i );
+				rc++;
+			}
+		} 
+		if ( rc == 0 ) {
+			res.addMessage("no issues found for line number "+lineNo);
 		}
 		return res;
 	}
@@ -80,7 +93,7 @@ public class IssueCollection {
 	
 	
 	public IssueCollection withStringFeatureValue( String featureName, String value ) {
-		IssueCollection res = new IssueCollection(resource);
+		IssueCollection res = new IssueCollection(resource, messages);
 		for (Issue i: issues) {
 			EObject eObject = getEObject(i, resource);
 			String v = eString(egetAndResolve(eObject, featureName, resource.getResourceSet()));
@@ -89,13 +102,13 @@ public class IssueCollection {
 			}
 		}
 		if (res.getIssueCount() == 0 ) {
-			LOGGER.warn("no elements found with feature "+featureName+" valued '"+value+"'");
+			res.addMessage("no elements found with feature "+featureName+" valued '"+value+"'");
 		}
 		return res;
 	}
 
 	public IssueCollection errorsOnly() {
-		IssueCollection res = new IssueCollection(resource);
+		IssueCollection res = new IssueCollection(resource, messages);
 		for (Issue i: issues) {
 			if ( i.getSeverity() == Severity.ERROR ) {
 				res.addIssue( i );
@@ -105,7 +118,7 @@ public class IssueCollection {
 	}
 
 	public IssueCollection named( String expectedName ) {
-		IssueCollection res = new IssueCollection(resource);
+		IssueCollection res = new IssueCollection(resource, messages);
 		for (Issue i: issues) {
 			EObject eObject = getEObject(i, resource);
 			String name = name(eObject);
@@ -114,7 +127,7 @@ public class IssueCollection {
 			}
 		}
 		if (res.getIssueCount() == 0 ) {
-			LOGGER.warn("no elements found with name "+expectedName);
+			res.addMessage("no elements found with name "+expectedName);
 		}
 		return res;
 	}
@@ -122,7 +135,7 @@ public class IssueCollection {
 
 	
 	public IssueCollection forElement( Class<? extends EObject> cls, String name ) {
-		IssueCollection res = new IssueCollection(resource);
+		IssueCollection res = new IssueCollection(resource, messages);
 		for (Issue i : issues) {
 			EObject eObject = getEObject(i, resource);
 			if ( cls.isInstance(eObject)) {
@@ -132,7 +145,7 @@ public class IssueCollection {
 			}
 		}
 		if (res.getIssueCount() == 0 ) {
-			LOGGER.warn("no elements of type "+cls.getName()+" named "+name+" found");
+			res.addMessage("no elements of type "+cls.getName()+" named "+name+" found");
 		}
 		return res;
 	}
@@ -147,7 +160,7 @@ public class IssueCollection {
 
 	
 	public IssueCollection under( Class<? extends EObject> cls, String name ) {
-		IssueCollection res = new IssueCollection(resource);
+		IssueCollection res = new IssueCollection(resource, messages);
 		for (Issue i : issues) {
 			URI uri = i.getUriToProblem();
 			EObject eObject = resource.getEObject(uri.fragment());
@@ -163,7 +176,7 @@ public class IssueCollection {
 			} 
 		}
 		if ( res.getIssueCount() == 0 ) {
-			LOGGER.warn("nothing found under a "+cls.getName()+" named "+name);
+			res.addMessage("nothing found under a "+cls.getName()+" named "+name);
 		}
 		return res;
 	}
@@ -173,10 +186,7 @@ public class IssueCollection {
 		if ( issues.size() == i ) {
 			state = true;
 		} else {
-			LOGGER.warn("size mismatch; expected "+i+", actual "+issues.size());
-			for (Issue issue : issues) {
-				LOGGER.debug("  line "+issue.getLineNumber()+": "+issue.getMessage()+" / "+issue.getUriToProblem());
-			}
+			addMessage("failed size: expected "+i+", actual "+issues.size());
 			state = false;
 		}
 		return this;
@@ -189,7 +199,10 @@ public class IssueCollection {
 				found = true;
 			}
 		}
-		if ( found ) reportOk(); else reportError();
+		if ( found ) reportOk(); else {
+			addMessage("failed oneOfThemContains: none of the issues contains substring "+substring);
+			reportError();
+		}
 		return this;
 	}
 	
@@ -197,6 +210,7 @@ public class IssueCollection {
 		for (Issue i: issues) {
 			if ( !i.getMessage().toLowerCase().contains(substring.toLowerCase()) ) {
 				reportError();
+				addMessage("failed allOfThemContain: not all issues contain the substring "+substring);
 			}
 		}
 		reportOk(); 
@@ -206,7 +220,7 @@ public class IssueCollection {
 	public IssueCollection theOneAndOnlyContains(String substring) {
 		if ( issues.size() > 1 ) {
 			reportError();
-			LOGGER.warn("expecting a single issue (theSingleOneReads) but found: "+issues.size());
+			addMessage("failed theOneAndOnlyContains: expecting a single issue (theSingleOneReads) but found: "+issues.size());
 			for (Issue issue : issues) {
 				LOGGER.debug("  line "+issue.getLineNumber()+": "+issue.getMessage()+" / "+issue.getUriToProblem());
 			}			
@@ -242,6 +256,18 @@ public class IssueCollection {
 
 	public List<Issue> getIssues() {
 		return issues;
+	}
+
+	public List<String> getMessages() {
+		return messages;
+	}
+	
+	public String getMessageString() {
+		StringBuffer sb = new StringBuffer();
+		for (String m : messages) {
+			sb.append("\n  - "+m);
+		}
+		return sb.toString();
 	}
 
 	public void dumpIssues() {
