@@ -1,5 +1,7 @@
 package de.itemis.xtext.typesystem.checks;
 
+import static de.itemis.xtext.typesystem.util.Utils.eString;
+
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -12,7 +14,6 @@ import de.itemis.xtext.typesystem.characteristics.TypeCharacteristic;
 import de.itemis.xtext.typesystem.checks.custom.StaticCustomTypeChecker;
 import de.itemis.xtext.typesystem.exceptions.FeatureMustBeSingleValuedException;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
-import static de.itemis.xtext.typesystem.util.Utils.eString;
 
 public class ConstrainPropertyCheck implements ISingleElementTypesystemCheck {
 	public final EClass ctxClass;

@@ -3,7 +3,6 @@ package de.itemis.xtext.typesystem.rules;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.itemis.xtext.typesystem.ITypesystem;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;

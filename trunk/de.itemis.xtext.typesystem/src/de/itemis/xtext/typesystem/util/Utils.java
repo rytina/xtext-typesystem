@@ -1,7 +1,5 @@
 package de.itemis.xtext.typesystem.util;
 
-import static de.itemis.xtext.typesystem.util.Utils.name;
-
 import java.util.ArrayList;
 import java.util.List;
 

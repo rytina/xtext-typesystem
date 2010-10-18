@@ -1,7 +1,6 @@
 package de.itemis.xtext.typesystem.checks.custom;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.parsetree.reconstr.impl.TreeConstTransition;
 
 import de.itemis.xtext.typesystem.ITypesystem;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;

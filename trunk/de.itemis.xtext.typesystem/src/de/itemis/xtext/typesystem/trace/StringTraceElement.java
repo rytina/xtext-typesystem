@@ -1,10 +1,10 @@
 package de.itemis.xtext.typesystem.trace;
 
+import static de.itemis.xtext.typesystem.util.Utils.eString;
+
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
-import static de.itemis.xtext.typesystem.util.Utils.eString;
 
 public class StringTraceElement implements ITraceStep {
 	
