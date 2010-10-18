@@ -6,7 +6,6 @@
 * schöne Namen für Typen hinterlegen
 
 
-
 * Document StaticCustomTypeChecker und ContextDependentCustomTypeChecker
   -> soll ich die über nen Poly Dispatcher machen?
 

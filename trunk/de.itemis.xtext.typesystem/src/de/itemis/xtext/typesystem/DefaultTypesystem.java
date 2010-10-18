@@ -32,6 +32,7 @@ import de.itemis.xtext.typesystem.checks.custom.StaticCustomTypeChecker;
 import de.itemis.xtext.typesystem.exceptions.DuplicateRegistrationException;
 import de.itemis.xtext.typesystem.exceptions.EClassDoesntHaveFeatureException;
 import de.itemis.xtext.typesystem.exceptions.FeatureMustBeSingleValuedException;
+import de.itemis.xtext.typesystem.exceptions.InvalidType;
 import de.itemis.xtext.typesystem.exceptions.InvalidTypeSpecification;
 import de.itemis.xtext.typesystem.rules.CloneTCRule;
 import de.itemis.xtext.typesystem.rules.ComputeCommonTCRule;
@@ -57,6 +58,8 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	private Map<EClass,EClass> subtypeToSupertype = new HashMap<EClass,EClass>();
 	private Map<EClass,EClass> supertypeToSubtype = new HashMap<EClass,EClass>();
 	private List<ISingleElementTypesystemCheck> singleElementChecks = new ArrayList<ISingleElementTypesystemCheck>();
+	
+	private List<EClass> typeRootEClasses = new ArrayList<EClass>();
 	
 	private boolean initialized = false;
 	
@@ -102,7 +105,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 					return null;
 				}
 			});
-	
+
 	public static enum CheckKind {
 		same, unordered, ordered;
 	}
@@ -184,8 +187,32 @@ public abstract class DefaultTypesystem implements ITypesystem {
 		if ( res == null ) {
 			return (EObject)useDeclarativeRules(element, trace);
 		}
+		checkSuperSuperTypes( res );
 		return res;
 	}
+	
+	private boolean hasValidSuperSuperType(EObject candidateType, EClass requiredSuperType) {
+		if ( requiredSuperType != null ) {
+			if ( candidateType instanceof EClass ) {
+				EClass ec = (EClass) candidateType;
+				if ( !ec.getEAllSuperTypes().contains(requiredSuperType) && !ec.equals(requiredSuperType )) {
+					return false;
+				}
+			} else if ( !requiredSuperType.isInstance(candidateType) ) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	private void checkSuperSuperTypes(EObject candidateType) throws InvalidType {
+		for (EClass ec: typeRootEClasses) {
+			if ( hasValidSuperSuperType(candidateType, ec) ) return;
+		}
+		throw new  InvalidType("invalid type EClass: "+typeString(candidateType)+" is not a subtype of "+typeStrings(typeRootEClasses.toArray(new EClass[]{}))+", which have been registered as the required super types of all calculated types.");
+	}
+
+	
 	
 	/**
 	 * ensures that initialize is called exactly once
@@ -224,6 +251,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	 * @throws EClassDoesntHaveFeatureException 
 	 */
 	protected  void declareTypeComparisonFeature( EClass cls, EStructuralFeature feature ) throws FeatureMustBeSingleValuedException, DuplicateRegistrationException, EClassDoesntHaveFeatureException {
+		checkSuperSuperTypes(cls);
 		ensureValidFeature( cls, feature );
 		typeComparisonFeatures.put(cls, feature);
 	}
@@ -249,6 +277,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 
 
 	protected  void declareTypeRecursionFeature( EClass cls, EStructuralFeature feature ) throws FeatureMustBeSingleValuedException, DuplicateRegistrationException, EClassDoesntHaveFeatureException {
+		checkSuperSuperTypes(cls);
 		ensureValidFeature( cls, feature );
 		typeRecursionFeatures.put(cls, feature);
 	}
@@ -562,6 +591,9 @@ public abstract class DefaultTypesystem implements ITypesystem {
 			if ( !(o instanceof EClass) && !(o instanceof StaticCustomTypeChecker) && !(o instanceof TypeCharacteristic) ) {
 				throw new InvalidTypeSpecification("types must be EClasses or instances of CustomTypechecker or instances of TypeCharacteristic");
 			}
+			if ( o instanceof EClass || o instanceof EObject ) {
+				checkSuperSuperTypes((EObject) o);
+			}
 		}
 		singleElementChecks.add( new ConstrainPropertyCheck(errorMessage, ctxClass, feature, validTypes) );
 	}
@@ -608,17 +640,20 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	}
 	
 	protected void ensureOrderedCompatibility(String errorMessage, EClass ctxClass, EStructuralFeature left, EStructuralFeature right) throws FeatureMustBeSingleValuedException, EClassDoesntHaveFeatureException {
+		checkSuperSuperTypes(ctxClass);
 		ensureValidFeature( ctxClass, left );
 		ensureValidFeature( ctxClass, right );
 		singleElementChecks.add( new EnsureOrderedCompatibilityCheck(errorMessage, ctxClass, left, right) );
 	}
 	
 	protected void ensureOrderedCompatibility(EClass ctxClass, EStructuralFeature right) throws FeatureMustBeSingleValuedException, EClassDoesntHaveFeatureException {
+		checkSuperSuperTypes(ctxClass);
 		ensureValidFeature( ctxClass, right );
 		singleElementChecks.add( new EnsureOrderedCompatibilityCheck(ctxClass, right) );
 	}
 	
 	protected void ensureOrderedCompatibility(String errorMessage, EClass ctxClass, EStructuralFeature right) throws FeatureMustBeSingleValuedException, EClassDoesntHaveFeatureException {
+		checkSuperSuperTypes(ctxClass);
 		ensureValidFeature( ctxClass, right );
 		singleElementChecks.add( new EnsureOrderedCompatibilityCheck(errorMessage, ctxClass, right) );
 	}
@@ -698,11 +733,14 @@ public abstract class DefaultTypesystem implements ITypesystem {
 
 
 	protected void declareSubtype(EClass subtype, EClass supertype) {
+		checkSuperSuperTypes(subtype);
+		checkSuperSuperTypes(supertype);
 		subtypeToSupertype.put(subtype, supertype);
 		supertypeToSubtype.put(supertype, subtype );
 	}
 	
 	protected void declareCharacteristic(EClass type, TypeCharacteristic c) {
+		checkSuperSuperTypes(type);
 		characteristics.put(type, c);
 	}
 	
@@ -715,4 +753,10 @@ public abstract class DefaultTypesystem implements ITypesystem {
 		return cls.getEPackage().getEFactoryInstance().create(cls);
 	}
 
+	protected void declareTypeRootEClasses( EClass ... classes ) {
+		for (EClass c : classes) {
+			typeRootEClasses.add(c);
+		}
+	}
+	
 }
