@@ -3,7 +3,6 @@
 * warnings? auch wenn beim TCRule ausrechnen etwas keinen Typ hat!
 * Ausgeben trace in Test 
 * an ensure that compares to ancestor (für Return Statement, oder Switch Case Cases)						
-* schöne Namen für Typen hinterlegen
 
 
 * Document StaticCustomTypeChecker und ContextDependentCustomTypeChecker
