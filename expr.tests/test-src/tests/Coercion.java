@@ -13,7 +13,7 @@ public class Coercion extends XTextTestCase {
 	@Test
 	public void testTypesOfParams() throws Exception {
 		EObject root = initializeAndGetRoot(new ExprDemoStandaloneSetup(), 
-				R.modelroot+"/coercion.expr");
+				R.modelroot+"/5-coercion.expr");
 
 		assertConstraints( allIssues.errorsOnly().sizeIs(1) );
 		assertConstraints( allIssues.forType(VarDecl.class).theOneAndOnlyContains("incompatible type"));

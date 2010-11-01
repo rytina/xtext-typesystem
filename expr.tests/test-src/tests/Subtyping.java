@@ -13,7 +13,7 @@ public class Subtyping extends XTextTestCase {
 	@Test
 	public void testTypesOfParams() throws Exception {
 		EObject root = initializeAndGetRoot(new ExprDemoStandaloneSetup(), 
-				R.modelroot+"/subtyping.expr");
+				R.modelroot+"/2-subtyping.expr");
 
 		assertConstraints( allIssues.errorsOnly().sizeIs(2) );
 		
