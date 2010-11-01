@@ -113,7 +113,6 @@ public class ExprTypesystem extends DefaultTypesystem {
 
 			
 		} catch (TypesystemConfigurationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
