@@ -12,7 +12,7 @@ public class Basic extends XTextTestCase {
 	@Test
 	public void testTypesOfParams() throws Exception {
 		EObject root = initializeAndGetRoot(new ExprDemoStandaloneSetup(), 
-				R.modelroot+"/basic.expr");
+				R.modelroot+"/1-basic.expr");
 		assertConstraints( allIssues.errorsOnly().sizeIs(0) ); 
 		
 	}

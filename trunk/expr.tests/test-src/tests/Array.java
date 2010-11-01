@@ -13,7 +13,7 @@ public class Array extends XTextTestCase {
 	@Test
 	public void testTypesOfParams() throws Exception {
 		EObject root = initializeAndGetRoot(new ExprDemoStandaloneSetup(), 
-				R.modelroot+"/array.expr");
+				R.modelroot+"/4-array.expr");
 
 		assertConstraints( allIssues.errorsOnly().sizeIs(1) ); 
 		assertConstraints( allIssues.forType(Formula.class).named("anotherOne2").theOneAndOnlyContains("incompatible") );
