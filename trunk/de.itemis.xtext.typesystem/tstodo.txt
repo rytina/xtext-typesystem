@@ -1,3 +1,5 @@
+* remove Xtext Dependencies
+
 * constrainFeatureType auch mit Subtypes?
 * compute common type auch mit custom code
 * Ausgeben trace in Test 

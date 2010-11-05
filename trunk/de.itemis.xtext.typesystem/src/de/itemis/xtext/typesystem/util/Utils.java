@@ -42,6 +42,16 @@ public class Utils {
 		}
 	}	
 	
+	public static List<EObject> ancestors(EObject ctx, EClass ancClass) {
+		List<EObject> res = new ArrayList<EObject>();
+		EObject anc = ctx.eContainer();
+		while ( true ) {
+			if ( anc == null ) return res;
+			if ( ancClass.isInstance(anc)) res.add( anc );
+			anc = anc.eContainer();
+		}
+	}	
+	
 	/**
 	 * uses reflection to return the value of the name attribute
 	 * if it exists, null otherwise
