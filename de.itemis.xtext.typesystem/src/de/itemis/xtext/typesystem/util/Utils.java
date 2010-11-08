@@ -223,4 +223,8 @@ public class Utils {
 		return eObject;
 	}
 	
+	public static EObject clone( EObject source ) {
+		return new EcoreUtil.Copier().copy(source);
+	}
+	
 }
