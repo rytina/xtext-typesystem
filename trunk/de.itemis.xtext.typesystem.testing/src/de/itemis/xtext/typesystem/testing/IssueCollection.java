@@ -145,7 +145,7 @@ public class IssueCollection {
 			}
 		}
 		if (res.getIssueCount() == 0 ) {
-			res.addMessage("no elements of type "+cls.getName()+" named "+name+" found");
+			res.addMessage("no elements of type "+cls.getName()+" named '"+name+"' found");
 		}
 		return res;
 	}
@@ -176,7 +176,7 @@ public class IssueCollection {
 			} 
 		}
 		if ( res.getIssueCount() == 0 ) {
-			res.addMessage("nothing found under a "+cls.getName()+" named "+name);
+			res.addMessage("nothing found under a "+cls.getName()+" named '"+name+"'");
 		}
 		return res;
 	}
@@ -200,7 +200,7 @@ public class IssueCollection {
 			}
 		}
 		if ( found ) reportOk(); else {
-			addMessage("failed oneOfThemContains: none of the issues contains substring "+substring);
+			addMessage("failed oneOfThemContains: none of the issues contains substring '"+substring+"'");
 			reportError();
 		}
 		return this;
@@ -224,7 +224,7 @@ public class IssueCollection {
 		for (Issue i: issues) {
 			if ( !i.getMessage().toLowerCase().contains(substring.toLowerCase()) ) {
 				reportError();
-				addMessage("failed allOfThemContain: not all issues contain the substring "+substring);
+				addMessage("failed allOfThemContain: not all issues contain the substring '"+substring+"'");
 			}
 		}
 		reportOk(); 
