@@ -206,6 +206,20 @@ public class IssueCollection {
 		return this;
 	}
 	
+	public IssueCollection nOfThemContain(int n, String substring) {
+		int count = 0;
+		for (Issue i: issues) {
+			if ( i.getMessage().toLowerCase().contains(substring.toLowerCase()) ) { 
+				count++;
+			}
+		}
+		if ( count == n ) reportOk(); else {
+			addMessage("failed nOfThemContain: expected "+n+" with substring '"+substring+"', but '"+count+"' found.");
+			reportError();
+		}
+		return this;
+	}	
+	
 	public IssueCollection allOfThemContain(String substring) {
 		for (Issue i: issues) {
 			if ( !i.getMessage().toLowerCase().contains(substring.toLowerCase()) ) {
