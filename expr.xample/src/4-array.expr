@@ -1,3 +1,6 @@
+model arrays
+
+
 var int i; 
 var array[int] anIntArray;          
 var array[float] aFloatArray;  

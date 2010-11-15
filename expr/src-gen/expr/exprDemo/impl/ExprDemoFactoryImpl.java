@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package expr.exprDemo.impl;
 
@@ -70,6 +69,7 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
     {
       case ExprDemoPackage.MODEL: return createModel();
       case ExprDemoPackage.ELEMENT: return createElement();
+      case ExprDemoPackage.ASSERT: return createAssert();
       case ExprDemoPackage.ENUM_DECL: return createEnumDecl();
       case ExprDemoPackage.SYMBOL: return createSymbol();
       case ExprDemoPackage.TYPE: return createType();
@@ -80,11 +80,12 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
       case ExprDemoPackage.BOOL_TYPE: return createBoolType();
       case ExprDemoPackage.FLOAT_TYPE: return createFloatType();
       case ExprDemoPackage.STRING_TYPE: return createStringType();
-      case ExprDemoPackage.FORMULA: return createFormula();
       case ExprDemoPackage.EXPR: return createExpr();
       case ExprDemoPackage.EXPRESSION: return createExpression();
       case ExprDemoPackage.ENUM_LITERAL: return createEnumLiteral();
       case ExprDemoPackage.VAR_DECL: return createVarDecl();
+      case ExprDemoPackage.FORMULA: return createFormula();
+      case ExprDemoPackage.EQUALS: return createEquals();
       case ExprDemoPackage.PLUS: return createPlus();
       case ExprDemoPackage.MULTI: return createMulti();
       case ExprDemoPackage.ARRAY_ACCESS: return createArrayAccess();
@@ -116,6 +117,17 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
   {
     ElementImpl element = new ElementImpl();
     return element;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Assert createAssert()
+  {
+    AssertImpl assert_ = new AssertImpl();
+    return assert_;
   }
 
   /**
@@ -233,17 +245,6 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Formula createFormula()
-  {
-    FormulaImpl formula = new FormulaImpl();
-    return formula;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Expr createExpr()
   {
     ExprImpl expr = new ExprImpl();
@@ -281,6 +282,28 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
   {
     VarDeclImpl varDecl = new VarDeclImpl();
     return varDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Formula createFormula()
+  {
+    FormulaImpl formula = new FormulaImpl();
+    return formula;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Equals createEquals()
+  {
+    EqualsImpl equals = new EqualsImpl();
+    return equals;
   }
 
   /**

@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package expr.exprDemo;
 
@@ -24,7 +23,7 @@ package expr.exprDemo;
  * @model
  * @generated
  */
-public interface Formula extends Element
+public interface Formula extends Symbol
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.

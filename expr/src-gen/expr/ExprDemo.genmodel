@@ -8,15 +8,20 @@
   <genPackages prefix="ExprDemo" basePackage="expr" disposableProviderFactory="true"
       ecorePackage="ExprDemo.ecore#/">
     <genClasses ecoreClass="ExprDemo.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExprDemo.ecore#//Model/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Model/elements"/>
     </genClasses>
-    <genClasses ecoreClass="ExprDemo.ecore#//Element">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExprDemo.ecore#//Element/name"/>
+    <genClasses ecoreClass="ExprDemo.ecore#//Element"/>
+    <genClasses ecoreClass="ExprDemo.ecore#//Assert">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Assert/expr"/>
     </genClasses>
     <genClasses ecoreClass="ExprDemo.ecore#//EnumDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExprDemo.ecore#//EnumDecl/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//EnumDecl/literals"/>
     </genClasses>
-    <genClasses ecoreClass="ExprDemo.ecore#//Symbol"/>
+    <genClasses ecoreClass="ExprDemo.ecore#//Symbol">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExprDemo.ecore#//Symbol/name"/>
+    </genClasses>
     <genClasses ecoreClass="ExprDemo.ecore#//Type"/>
     <genClasses ecoreClass="ExprDemo.ecore#//PrimitiveType"/>
     <genClasses ecoreClass="ExprDemo.ecore#//ArrayType">
@@ -29,16 +34,20 @@
     <genClasses ecoreClass="ExprDemo.ecore#//BoolType"/>
     <genClasses ecoreClass="ExprDemo.ecore#//FloatType"/>
     <genClasses ecoreClass="ExprDemo.ecore#//StringType"/>
-    <genClasses ecoreClass="ExprDemo.ecore#//Formula">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Formula/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Formula/expr"/>
-    </genClasses>
     <genClasses ecoreClass="ExprDemo.ecore#//Expr"/>
     <genClasses ecoreClass="ExprDemo.ecore#//Expression"/>
     <genClasses ecoreClass="ExprDemo.ecore#//EnumLiteral"/>
     <genClasses ecoreClass="ExprDemo.ecore#//VarDecl">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//VarDecl/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//VarDecl/init"/>
+    </genClasses>
+    <genClasses ecoreClass="ExprDemo.ecore#//Formula">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Formula/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Formula/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="ExprDemo.ecore#//Equals">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Equals/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Equals/right"/>
     </genClasses>
     <genClasses ecoreClass="ExprDemo.ecore#//Plus">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Plus/left"/>

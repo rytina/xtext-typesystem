@@ -1,3 +1,5 @@
+model coercion
+
 var int v1 = 0;
 var string v2 = "Hello"; 
 var string v3 = "100";

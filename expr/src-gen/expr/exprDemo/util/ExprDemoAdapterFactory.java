@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package expr.exprDemo.util;
 
@@ -89,6 +88,11 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
         return createElementAdapter();
       }
       @Override
+      public Adapter caseAssert(Assert object)
+      {
+        return createAssertAdapter();
+      }
+      @Override
       public Adapter caseEnumDecl(EnumDecl object)
       {
         return createEnumDeclAdapter();
@@ -139,11 +143,6 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
         return createStringTypeAdapter();
       }
       @Override
-      public Adapter caseFormula(Formula object)
-      {
-        return createFormulaAdapter();
-      }
-      @Override
       public Adapter caseExpr(Expr object)
       {
         return createExprAdapter();
@@ -162,6 +161,16 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
       public Adapter caseVarDecl(VarDecl object)
       {
         return createVarDeclAdapter();
+      }
+      @Override
+      public Adapter caseFormula(Formula object)
+      {
+        return createFormulaAdapter();
+      }
+      @Override
+      public Adapter caseEquals(Equals object)
+      {
+        return createEqualsAdapter();
       }
       @Override
       public Adapter casePlus(Plus object)
@@ -241,6 +250,21 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link expr.exprDemo.Assert <em>Assert</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see expr.exprDemo.Assert
+   * @generated
+   */
+  public Adapter createAssertAdapter()
   {
     return null;
   }
@@ -396,21 +420,6 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link expr.exprDemo.Formula <em>Formula</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see expr.exprDemo.Formula
-   * @generated
-   */
-  public Adapter createFormulaAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link expr.exprDemo.Expr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -466,6 +475,36 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVarDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link expr.exprDemo.Formula <em>Formula</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see expr.exprDemo.Formula
+   * @generated
+   */
+  public Adapter createFormulaAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link expr.exprDemo.Equals <em>Equals</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see expr.exprDemo.Equals
+   * @generated
+   */
+  public Adapter createEqualsAdapter()
   {
     return null;
   }

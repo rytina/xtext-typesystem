@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package expr.exprDemo.impl;
 
@@ -33,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class FormulaImpl extends ElementImpl implements Formula
+public class FormulaImpl extends SymbolImpl implements Formula
 {
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
