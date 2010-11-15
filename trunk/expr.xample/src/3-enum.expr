@@ -1,3 +1,5 @@
+model enums
+
 enum color { 
   red green blue 
 }  

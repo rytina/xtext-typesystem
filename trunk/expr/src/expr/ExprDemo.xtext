@@ -6,10 +6,15 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 
 Model:
+	"model" name=ID
 	elements+=Element*;
 	
 Element:
-	VarDecl | Formula | EnumDecl;
+	VarDecl | Formula | EnumDecl | Assert;
+	
+Assert:
+	"assert" expr=Expr ";";	
+	
 	
 EnumDecl:	
 	"enum" name=ID "{"
@@ -47,11 +52,15 @@ FloatType:
 StringType:
 	{StringType} "string";
 
-Formula:
-	"calc" type=Type name=ID "=" expr=Expr ";";
+Formula returns Symbol:
+	{Formula} "calc" type=Type name=ID "=" expr=Expr ";";
 	
 Expr:
-	Addition;
+	Comparison;
+
+Comparison returns Expression:
+	Addition ({Equals.left=current}"==" right=Addition)?;
+
 	
 Addition returns Expression:
 	Multiplication ({Plus.left=current}"+" right=Multiplication)*;

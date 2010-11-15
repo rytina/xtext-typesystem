@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package expr.exprDemo;
 
@@ -43,6 +42,15 @@ public interface ExprDemoFactory extends EFactory
    * @generated
    */
   Element createElement();
+
+  /**
+   * Returns a new object of class '<em>Assert</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Assert</em>'.
+   * @generated
+   */
+  Assert createAssert();
 
   /**
    * Returns a new object of class '<em>Enum Decl</em>'.
@@ -135,15 +143,6 @@ public interface ExprDemoFactory extends EFactory
   StringType createStringType();
 
   /**
-   * Returns a new object of class '<em>Formula</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Formula</em>'.
-   * @generated
-   */
-  Formula createFormula();
-
-  /**
    * Returns a new object of class '<em>Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -178,6 +177,24 @@ public interface ExprDemoFactory extends EFactory
    * @generated
    */
   VarDecl createVarDecl();
+
+  /**
+   * Returns a new object of class '<em>Formula</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Formula</em>'.
+   * @generated
+   */
+  Formula createFormula();
+
+  /**
+   * Returns a new object of class '<em>Equals</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Equals</em>'.
+   * @generated
+   */
+  Equals createEquals();
 
   /**
    * Returns a new object of class '<em>Plus</em>'.

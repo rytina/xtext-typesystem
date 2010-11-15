@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package expr.exprDemo.impl;
 
@@ -12,12 +11,15 @@ import expr.exprDemo.Symbol;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -29,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link expr.exprDemo.impl.EnumDeclImpl#getName <em>Name</em>}</li>
  *   <li>{@link expr.exprDemo.impl.EnumDeclImpl#getLiterals <em>Literals</em>}</li>
  * </ul>
  * </p>
@@ -37,6 +40,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class EnumDeclImpl extends ElementImpl implements EnumDecl
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getLiterals() <em>Literals</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -66,6 +89,29 @@ public class EnumDeclImpl extends ElementImpl implements EnumDecl
   protected EClass eStaticClass()
   {
     return ExprDemoPackage.Literals.ENUM_DECL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ExprDemoPackage.ENUM_DECL__NAME, oldName, name));
   }
 
   /**
@@ -108,6 +154,8 @@ public class EnumDeclImpl extends ElementImpl implements EnumDecl
   {
     switch (featureID)
     {
+      case ExprDemoPackage.ENUM_DECL__NAME:
+        return getName();
       case ExprDemoPackage.ENUM_DECL__LITERALS:
         return getLiterals();
     }
@@ -125,6 +173,9 @@ public class EnumDeclImpl extends ElementImpl implements EnumDecl
   {
     switch (featureID)
     {
+      case ExprDemoPackage.ENUM_DECL__NAME:
+        setName((String)newValue);
+        return;
       case ExprDemoPackage.ENUM_DECL__LITERALS:
         getLiterals().clear();
         getLiterals().addAll((Collection<? extends Symbol>)newValue);
@@ -143,6 +194,9 @@ public class EnumDeclImpl extends ElementImpl implements EnumDecl
   {
     switch (featureID)
     {
+      case ExprDemoPackage.ENUM_DECL__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case ExprDemoPackage.ENUM_DECL__LITERALS:
         getLiterals().clear();
         return;
@@ -160,10 +214,29 @@ public class EnumDeclImpl extends ElementImpl implements EnumDecl
   {
     switch (featureID)
     {
+      case ExprDemoPackage.ENUM_DECL__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ExprDemoPackage.ENUM_DECL__LITERALS:
         return literals != null && !literals.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //EnumDeclImpl

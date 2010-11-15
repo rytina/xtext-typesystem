@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package expr.exprDemo.util;
 
@@ -110,6 +109,14 @@ public class ExprDemoSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ExprDemoPackage.ASSERT:
+      {
+        Assert assert_ = (Assert)theEObject;
+        T result = caseAssert(assert_);
+        if (result == null) result = caseElement(assert_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ExprDemoPackage.ENUM_DECL:
       {
         EnumDecl enumDecl = (EnumDecl)theEObject;
@@ -194,14 +201,6 @@ public class ExprDemoSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ExprDemoPackage.FORMULA:
-      {
-        Formula formula = (Formula)theEObject;
-        T result = caseFormula(formula);
-        if (result == null) result = caseElement(formula);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case ExprDemoPackage.EXPR:
       {
         Expr expr = (Expr)theEObject;
@@ -232,6 +231,24 @@ public class ExprDemoSwitch<T>
         T result = caseVarDecl(varDecl);
         if (result == null) result = caseSymbol(varDecl);
         if (result == null) result = caseElement(varDecl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExprDemoPackage.FORMULA:
+      {
+        Formula formula = (Formula)theEObject;
+        T result = caseFormula(formula);
+        if (result == null) result = caseSymbol(formula);
+        if (result == null) result = caseElement(formula);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExprDemoPackage.EQUALS:
+      {
+        Equals equals = (Equals)theEObject;
+        T result = caseEquals(equals);
+        if (result == null) result = caseExpression(equals);
+        if (result == null) result = caseExpr(equals);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -321,6 +338,22 @@ public class ExprDemoSwitch<T>
    * @generated
    */
   public T caseElement(Element object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Assert</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Assert</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAssert(Assert object)
   {
     return null;
   }
@@ -486,22 +519,6 @@ public class ExprDemoSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Formula</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Formula</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFormula(Formula object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Expr</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -561,6 +578,38 @@ public class ExprDemoSwitch<T>
    * @generated
    */
   public T caseVarDecl(VarDecl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Formula</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Formula</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFormula(Formula object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Equals</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Equals</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEquals(Equals object)
   {
     return null;
   }

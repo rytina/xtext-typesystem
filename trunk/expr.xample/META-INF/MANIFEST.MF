@@ -5,6 +5,9 @@ Bundle-SymbolicName: expr.xample
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: expr.xample.Activator
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ expr.generator;bundle-version="1.0.0",
+ org.eclipse.emf.mwe2.launch;bundle-version="1.0.1",
+ org.junit;bundle-version="4.8.1"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

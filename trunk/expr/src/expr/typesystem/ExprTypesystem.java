@@ -1,7 +1,5 @@
 package expr.typesystem;
 
-import org.eclipse.emf.ecore.EObject;
-
 import de.itemis.xtext.typesystem.DefaultTypesystem;
 import de.itemis.xtext.typesystem.exceptions.TypesystemConfigurationException;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
@@ -17,6 +15,8 @@ import expr.exprDemo.StringLiteral;
 import expr.exprDemo.StringType;
 import expr.exprDemo.Type;
 
+import org.eclipse.emf.ecore.EObject;
+
 public class ExprTypesystem extends DefaultTypesystem {
 
 	private ExprDemoPackage lang = ExprDemoPackage.eINSTANCE;
@@ -25,6 +25,10 @@ public class ExprTypesystem extends DefaultTypesystem {
 	protected void initialize() {
 		
 		try {
+
+			useFixedType(lang.getEquals(), lang.getBoolType());
+			ensureFeatureType(lang.getAssert(), lang.getAssert_Expr(), lang.getBoolType());
+			ensureUnorderedCompatibility(lang.getEquals(), lang.getEquals_Left(), lang.getEquals_Right());
 			
 			/* --------------------------------------------------
 			 * BASIC + SUBTYPING
@@ -110,7 +114,7 @@ public class ExprTypesystem extends DefaultTypesystem {
 			
 			// see functions below...
 			
-
+			
 			
 		} catch (TypesystemConfigurationException e) {
 			e.printStackTrace();

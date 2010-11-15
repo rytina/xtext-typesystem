@@ -2,17 +2,18 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package expr.exprDemo.impl;
 
 import expr.exprDemo.ArrayAccess;
 import expr.exprDemo.ArrayType;
+import expr.exprDemo.Assert;
 import expr.exprDemo.BoolType;
 import expr.exprDemo.Element;
 import expr.exprDemo.EnumDecl;
 import expr.exprDemo.EnumLiteral;
 import expr.exprDemo.EnumType;
+import expr.exprDemo.Equals;
 import expr.exprDemo.Expr;
 import expr.exprDemo.ExprDemoFactory;
 import expr.exprDemo.ExprDemoPackage;
@@ -60,6 +61,13 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * @generated
    */
   private EClass elementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass assertEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -136,13 +144,6 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass formulaEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass exprEClass = null;
 
   /**
@@ -165,6 +166,20 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * @generated
    */
   private EClass varDeclEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass formulaEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass equalsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -286,9 +301,19 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getModel_Name()
+  {
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getModel_Elements()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -306,9 +331,19 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getElement_Name()
+  public EClass getAssert()
   {
-    return (EAttribute)elementEClass.getEStructuralFeatures().get(0);
+    return assertEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAssert_Expr()
+  {
+    return (EReference)assertEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -326,9 +361,19 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getEnumDecl_Name()
+  {
+    return (EAttribute)enumDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getEnumDecl_Literals()
   {
-    return (EReference)enumDeclEClass.getEStructuralFeatures().get(0);
+    return (EReference)enumDeclEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -339,6 +384,16 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
   public EClass getSymbol()
   {
     return symbolEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSymbol_Name()
+  {
+    return (EAttribute)symbolEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -446,36 +501,6 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFormula()
-  {
-    return formulaEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFormula_Type()
-  {
-    return (EReference)formulaEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFormula_Expr()
-  {
-    return (EReference)formulaEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getExpr()
   {
     return exprEClass;
@@ -529,6 +554,66 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
   public EReference getVarDecl_Init()
   {
     return (EReference)varDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFormula()
+  {
+    return formulaEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFormula_Type()
+  {
+    return (EReference)formulaEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFormula_Expr()
+  {
+    return (EReference)formulaEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEquals()
+  {
+    return equalsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEquals_Left()
+  {
+    return (EReference)equalsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEquals_Right()
+  {
+    return (EReference)equalsEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -712,15 +797,20 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
+    createEAttribute(modelEClass, MODEL__NAME);
     createEReference(modelEClass, MODEL__ELEMENTS);
 
     elementEClass = createEClass(ELEMENT);
-    createEAttribute(elementEClass, ELEMENT__NAME);
+
+    assertEClass = createEClass(ASSERT);
+    createEReference(assertEClass, ASSERT__EXPR);
 
     enumDeclEClass = createEClass(ENUM_DECL);
+    createEAttribute(enumDeclEClass, ENUM_DECL__NAME);
     createEReference(enumDeclEClass, ENUM_DECL__LITERALS);
 
     symbolEClass = createEClass(SYMBOL);
+    createEAttribute(symbolEClass, SYMBOL__NAME);
 
     typeEClass = createEClass(TYPE);
 
@@ -740,10 +830,6 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
 
     stringTypeEClass = createEClass(STRING_TYPE);
 
-    formulaEClass = createEClass(FORMULA);
-    createEReference(formulaEClass, FORMULA__TYPE);
-    createEReference(formulaEClass, FORMULA__EXPR);
-
     exprEClass = createEClass(EXPR);
 
     expressionEClass = createEClass(EXPRESSION);
@@ -753,6 +839,14 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     varDeclEClass = createEClass(VAR_DECL);
     createEReference(varDeclEClass, VAR_DECL__TYPE);
     createEReference(varDeclEClass, VAR_DECL__INIT);
+
+    formulaEClass = createEClass(FORMULA);
+    createEReference(formulaEClass, FORMULA__TYPE);
+    createEReference(formulaEClass, FORMULA__EXPR);
+
+    equalsEClass = createEClass(EQUALS);
+    createEReference(equalsEClass, EQUALS__LEFT);
+    createEReference(equalsEClass, EQUALS__RIGHT);
 
     plusEClass = createEClass(PLUS);
     createEReference(plusEClass, PLUS__LEFT);
@@ -805,6 +899,7 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    assertEClass.getESuperTypes().add(this.getElement());
     enumDeclEClass.getESuperTypes().add(this.getElement());
     symbolEClass.getESuperTypes().add(this.getElement());
     primitiveTypeEClass.getESuperTypes().add(this.getType());
@@ -814,10 +909,11 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     boolTypeEClass.getESuperTypes().add(this.getPrimitiveType());
     floatTypeEClass.getESuperTypes().add(this.getPrimitiveType());
     stringTypeEClass.getESuperTypes().add(this.getPrimitiveType());
-    formulaEClass.getESuperTypes().add(this.getElement());
     expressionEClass.getESuperTypes().add(this.getExpr());
     enumLiteralEClass.getESuperTypes().add(this.getSymbol());
     varDeclEClass.getESuperTypes().add(this.getSymbol());
+    formulaEClass.getESuperTypes().add(this.getSymbol());
+    equalsEClass.getESuperTypes().add(this.getExpression());
     plusEClass.getESuperTypes().add(this.getExpression());
     multiEClass.getESuperTypes().add(this.getExpression());
     arrayAccessEClass.getESuperTypes().add(this.getExpression());
@@ -827,15 +923,20 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Elements(), this.getElement(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(assertEClass, Assert.class, "Assert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAssert_Expr(), this.getExpr(), null, "expr", null, 0, 1, Assert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumDeclEClass, EnumDecl.class, "EnumDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEnumDecl_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEnumDecl_Literals(), this.getSymbol(), null, "literals", null, 0, -1, EnumDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSymbol_Name(), ecorePackage.getEString(), "name", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -855,10 +956,6 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
 
     initEClass(stringTypeEClass, StringType.class, "StringType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(formulaEClass, Formula.class, "Formula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFormula_Type(), this.getType(), null, "type", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFormula_Expr(), this.getExpr(), null, "expr", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -868,6 +965,14 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     initEClass(varDeclEClass, VarDecl.class, "VarDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getVarDecl_Type(), this.getType(), null, "type", null, 0, 1, VarDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVarDecl_Init(), this.getExpr(), null, "init", null, 0, 1, VarDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(formulaEClass, Formula.class, "Formula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFormula_Type(), this.getType(), null, "type", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFormula_Expr(), this.getExpr(), null, "expr", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(equalsEClass, Equals.class, "Equals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEquals_Left(), this.getExpression(), null, "left", null, 0, 1, Equals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEquals_Right(), this.getExpression(), null, "right", null, 0, 1, Equals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(plusEClass, Plus.class, "Plus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPlus_Left(), this.getExpression(), null, "left", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
