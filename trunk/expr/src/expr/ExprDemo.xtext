@@ -1,3 +1,4 @@
+
 grammar expr.ExprDemo with org.eclipse.xtext.common.Terminals
 
 generate exprDemo "http://www.ExprDemo.expr"
@@ -13,7 +14,7 @@ Element:
 	VarDecl | Formula | EnumDecl | Assert;
 	
 Assert:
-	"assert" expr=Expr ";";	
+	"assert" expression=Expr ("error" errorMsg=Expr)?;
 	
 	
 EnumDecl:	

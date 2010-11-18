@@ -29,8 +29,13 @@ public class «name.toFirstUpper()» {
 «ENDDEFINE»
 
 «DEFINE code FOR Assert»
-	Assert.assertTrue( «EXPAND code FOR expr-» );
+	«IF errorMsg != null»
+		Assert.assertTrue( "«EXPAND code FOR errorMsg»", «EXPAND code FOR expression» );
+	«ELSE»#
+		Assert.assertTrue( «EXPAND code FOR expression» );
+	«ENDIF»
 «ENDDEFINE»
+
 
 «DEFINE code FOR Type»«ENDDEFINE»
 «DEFINE code FOR IntType»int«ENDDEFINE»
