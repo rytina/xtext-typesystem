@@ -26,9 +26,10 @@ public class ExprTypesystem extends DefaultTypesystem {
 		
 		try {
 
+			ensureFeatureType(lang.getAssert(), lang.getAssert_Expression(), lang.getBoolType());
+			ensureFeatureType(lang.getAssert(), lang.getAssert_ErrorMsg(), lang.getStringType());
 			useFixedType(lang.getEquals(), lang.getBoolType());
-			ensureFeatureType(lang.getAssert(), lang.getAssert_Expr(), lang.getBoolType());
-			ensureUnorderedCompatibility(lang.getEquals(), lang.getEquals_Left(), lang.getEquals_Right());
+			
 			
 			/* --------------------------------------------------
 			 * BASIC + SUBTYPING
