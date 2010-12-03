@@ -13,7 +13,8 @@
     </genClasses>
     <genClasses ecoreClass="ExprDemo.ecore#//Element"/>
     <genClasses ecoreClass="ExprDemo.ecore#//Assert">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Assert/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Assert/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Assert/errorMsg"/>
     </genClasses>
     <genClasses ecoreClass="ExprDemo.ecore#//EnumDecl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExprDemo.ecore#//EnumDecl/name"/>

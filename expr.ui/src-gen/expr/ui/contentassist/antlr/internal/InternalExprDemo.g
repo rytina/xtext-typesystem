@@ -943,9 +943,9 @@ rule__Assert__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getAssertAccess().getExprAssignment_1()); }
-(rule__Assert__ExprAssignment_1)
-{ after(grammarAccess.getAssertAccess().getExprAssignment_1()); }
+{ before(grammarAccess.getAssertAccess().getExpressionAssignment_1()); }
+(rule__Assert__ExpressionAssignment_1)
+{ after(grammarAccess.getAssertAccess().getExpressionAssignment_1()); }
 )
 
 ;
@@ -971,11 +971,9 @@ rule__Assert__Group__2__Impl
     }
 :
 (
-{ before(grammarAccess.getAssertAccess().getSemicolonKeyword_2()); }
-
-	';' 
-
-{ after(grammarAccess.getAssertAccess().getSemicolonKeyword_2()); }
+{ before(grammarAccess.getAssertAccess().getGroup_2()); }
+(rule__Assert__Group_2__0)?
+{ after(grammarAccess.getAssertAccess().getGroup_2()); }
 )
 
 ;
@@ -984,6 +982,69 @@ finally {
 }
 
 
+
+
+
+
+
+
+rule__Assert__Group_2__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Assert__Group_2__0__Impl
+	rule__Assert__Group_2__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Assert__Group_2__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getAssertAccess().getErrorKeyword_2_0()); }
+
+	'error' 
+
+{ after(grammarAccess.getAssertAccess().getErrorKeyword_2_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Assert__Group_2__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Assert__Group_2__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Assert__Group_2__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getAssertAccess().getErrorMsgAssignment_2_1()); }
+(rule__Assert__ErrorMsgAssignment_2_1)
+{ after(grammarAccess.getAssertAccess().getErrorMsgAssignment_2_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 
 
@@ -3118,14 +3179,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Assert__ExprAssignment_1
+rule__Assert__ExpressionAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getAssertAccess().getExprExprParserRuleCall_1_0()); }
-	ruleExpr{ after(grammarAccess.getAssertAccess().getExprExprParserRuleCall_1_0()); }
+{ before(grammarAccess.getAssertAccess().getExpressionExprParserRuleCall_1_0()); }
+	ruleExpr{ after(grammarAccess.getAssertAccess().getExpressionExprParserRuleCall_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Assert__ErrorMsgAssignment_2_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getAssertAccess().getErrorMsgExprParserRuleCall_2_1_0()); }
+	ruleExpr{ after(grammarAccess.getAssertAccess().getErrorMsgExprParserRuleCall_2_1_0()); }
 )
 
 ;

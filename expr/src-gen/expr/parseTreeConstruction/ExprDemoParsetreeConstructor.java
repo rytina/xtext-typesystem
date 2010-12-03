@@ -394,11 +394,11 @@ protected class Element_AssertParserRuleCall_3 extends RuleCallToken {
 /************ begin Rule Assert ****************
  *
  * Assert:
- * 	"assert" expr=Expr ";";
+ * 	"assert" expression=Expr ("error" errorMsg=Expr)?;
  *
  **/
 
-// "assert" expr=Expr ";"
+// "assert" expression=Expr ("error" errorMsg=Expr)?
 protected class Assert_Group extends GroupToken {
 	
 	public Assert_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -413,7 +413,8 @@ protected class Assert_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Assert_SemicolonKeyword_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Assert_Group_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Assert_ExpressionAssignment_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -448,16 +449,16 @@ protected class Assert_AssertKeyword_0 extends KeywordToken  {
 
 }
 
-// expr=Expr
-protected class Assert_ExprAssignment_1 extends AssignmentToken  {
+// expression=Expr
+protected class Assert_ExpressionAssignment_1 extends AssignmentToken  {
 	
-	public Assert_ExprAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Assert_ExpressionAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getAssertAccess().getExprAssignment_1();
+		return grammarAccess.getAssertAccess().getExpressionAssignment_1();
 	}
 
     @Override
@@ -470,13 +471,13 @@ protected class Assert_ExprAssignment_1 extends AssignmentToken  {
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("expr",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("expr");
+		if((value = eObjectConsumer.getConsumable("expression",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("expression");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getExprRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getAssertAccess().getExprExprParserRuleCall_1_0(); 
+				element = grammarAccess.getAssertAccess().getExpressionExprParserRuleCall_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -494,27 +495,96 @@ protected class Assert_ExprAssignment_1 extends AssignmentToken  {
 	}	
 }
 
-// ";"
-protected class Assert_SemicolonKeyword_2 extends KeywordToken  {
+// ("error" errorMsg=Expr)?
+protected class Assert_Group_2 extends GroupToken {
 	
-	public Assert_SemicolonKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Assert_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getAssertAccess().getSemicolonKeyword_2();
+	public Group getGrammarElement() {
+		return grammarAccess.getAssertAccess().getGroup_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Assert_ExprAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Assert_ErrorMsgAssignment_2_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
+
+// "error"
+protected class Assert_ErrorKeyword_2_0 extends KeywordToken  {
+	
+	public Assert_ErrorKeyword_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getAssertAccess().getErrorKeyword_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Assert_ExpressionAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// errorMsg=Expr
+protected class Assert_ErrorMsgAssignment_2_1 extends AssignmentToken  {
+	
+	public Assert_ErrorMsgAssignment_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getAssertAccess().getErrorMsgAssignment_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Expr_ComparisonParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("errorMsg",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("errorMsg");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getExprRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getAssertAccess().getErrorMsgExprParserRuleCall_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Assert_ErrorKeyword_2_0(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
 
 
 /************ end Rule Assert ****************/

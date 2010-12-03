@@ -1,57 +1,57 @@
-$$<$$IMPORT expr::exprDemo$$>$$
+«IMPORT expr::exprDemo»
 
-$$<$$DEFINE main FOR Model$$>$$
-$$<$$FILE name.toFirstUpper()+".java"$$>$$
+«DEFINE main FOR Model»
+«FILE name.toFirstUpper()+".java"»
 
 import org.junit.Test;
 import junit.framework.Assert;
 
 
-public class $$<$$name.toFirstUpper()$$>$$ {
+public class «name.toFirstUpper()» {
 
 	@Test
 	public void runTest() {
-		$$<$$EXPAND code FOREACH elements$$>$$		
+		«EXPAND code FOREACH elements»		
 	}
 
 }
-$$<$$ENDFILE$$>$$
-$$<$$ENDDEFINE$$>$$
+«ENDFILE»
+«ENDDEFINE»
 
-$$<$$DEFINE code FOR Element$$>$$$$<$$ENDDEFINE$$>$$
+«DEFINE code FOR Element»«ENDDEFINE»
 
-$$<$$DEFINE code FOR VarDecl$$>$$
-	$$<$$EXPAND code FOR type$$>$$ $$<$$name$$>$$ $$<$$IF init != null$$>$$ = $$<$$EXPAND code FOR init$$>$$$$<$$ENDIF-$$>$$;
-$$<$$ENDDEFINE$$>$$
+«DEFINE code FOR VarDecl»
+	«EXPAND code FOR type» «name» «IF init != null» = «EXPAND code FOR init»«ENDIF-»;
+«ENDDEFINE»
 
-$$<$$DEFINE code FOR Formula$$>$$
-	$$<$$EXPAND code FOR type$$>$$ $$<$$name$$>$$ = $$<$$EXPAND code FOR expr-$$>$$;
-$$<$$ENDDEFINE$$>$$
+«DEFINE code FOR Formula»
+	«EXPAND code FOR type» «name» = «EXPAND code FOR expr-»;
+«ENDDEFINE»
 
-$$<$$DEFINE code FOR Assert$$>$$
-	$$<$$IF errorMsg != null$$>$$
-		Assert.assertTrue( "$$<$$EXPAND code FOR errorMsg$$>$$", $$<$$EXPAND code FOR expression$$>$$ );
-	$$<$$ELSE$$>$$#
-		Assert.assertTrue( $$<$$EXPAND code FOR expression$$>$$ );
-	$$<$$ENDIF$$>$$
-$$<$$ENDDEFINE$$>$$
+«DEFINE code FOR Assert»
+	«IF errorMsg != null»
+		Assert.assertTrue( "«EXPAND code FOR errorMsg»", «EXPAND code FOR expression» );
+	«ELSE»#
+		Assert.assertTrue( «EXPAND code FOR expression» );
+	«ENDIF»
+«ENDDEFINE»
 
 
-$$<$$DEFINE code FOR Type$$>$$$$<$$ENDDEFINE$$>$$
-$$<$$DEFINE code FOR IntType$$>$$int$$<$$ENDDEFINE$$>$$
-$$<$$DEFINE code FOR FloatType$$>$$float$$<$$ENDDEFINE$$>$$
-$$<$$DEFINE code FOR BoolType$$>$$boolean$$<$$ENDDEFINE$$>$$
-$$<$$DEFINE code FOR StringType$$>$$String$$<$$ENDDEFINE$$>$$
-$$<$$DEFINE code FOR ArrayType$$>$$$$<$$EXPAND code FOR baseType$$>$$[]$$<$$ENDDEFINE$$>$$
+«DEFINE code FOR Type»«ENDDEFINE»
+«DEFINE code FOR IntType»int«ENDDEFINE»
+«DEFINE code FOR FloatType»float«ENDDEFINE»
+«DEFINE code FOR BoolType»boolean«ENDDEFINE»
+«DEFINE code FOR StringType»String«ENDDEFINE»
+«DEFINE code FOR ArrayType»«EXPAND code FOR baseType»[]«ENDDEFINE»
 
-$$<$$DEFINE code FOR Expr$$>$$$$<$$ENDDEFINE$$>$$
-$$<$$DEFINE code FOR Equals$$>$$$$<$$EXPAND code FOR left$$>$$ == $$<$$EXPAND code FOR right$$>$$$$<$$ENDDEFINE$$>$$
-$$<$$DEFINE code FOR Plus$$>$$$$<$$EXPAND code FOR left$$>$$ + $$<$$EXPAND code FOR right$$>$$$$<$$ENDDEFINE$$>$$
-$$<$$DEFINE code FOR Multi$$>$$$$<$$EXPAND code FOR left$$>$$ * $$<$$EXPAND code FOR right$$>$$$$<$$ENDDEFINE$$>$$
-$$<$$DEFINE code FOR ArrayAccess$$>$$$$<$$EXPAND code FOR expr$$>$$[$$<$$EXPAND code FOR index$$>$$]$$<$$ENDDEFINE$$>$$
-$$<$$DEFINE code FOR SymbolRef$$>$$$$<$$symbol.name$$>$$$$<$$ENDDEFINE$$>$$
-$$<$$DEFINE code FOR NumberLiteral$$>$$$$<$$value$$>$$$$<$$ENDDEFINE$$>$$
-$$<$$DEFINE code FOR StringLiteral$$>$$$$<$$value$$>$$$$<$$ENDDEFINE$$>$$
+«DEFINE code FOR Expr»«ENDDEFINE»
+«DEFINE code FOR Equals»«EXPAND code FOR left» == «EXPAND code FOR right»«ENDDEFINE»
+«DEFINE code FOR Plus»«EXPAND code FOR left» + «EXPAND code FOR right»«ENDDEFINE»
+«DEFINE code FOR Multi»«EXPAND code FOR left» * «EXPAND code FOR right»«ENDDEFINE»
+«DEFINE code FOR ArrayAccess»«EXPAND code FOR expr»[«EXPAND code FOR index»]«ENDDEFINE»
+«DEFINE code FOR SymbolRef»«symbol.name»«ENDDEFINE»
+«DEFINE code FOR NumberLiteral»«value»«ENDDEFINE»
+«DEFINE code FOR StringLiteral»«value»«ENDDEFINE»
 
 
 
