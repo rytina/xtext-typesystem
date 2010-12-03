@@ -81,28 +81,40 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Assert");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cAssertKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExprExprParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExpressionExprParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cErrorKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cErrorMsgAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cErrorMsgExprParserRuleCall_2_1_0 = (RuleCall)cErrorMsgAssignment_2_1.eContents().get(0);
 		
 		//Assert:
-		//	"assert" expr=Expr ";";
+		//	"assert" expression=Expr ("error" errorMsg=Expr)?;
 		public ParserRule getRule() { return rule; }
 
-		//"assert" expr=Expr ";"
+		//"assert" expression=Expr ("error" errorMsg=Expr)?
 		public Group getGroup() { return cGroup; }
 
 		//"assert"
 		public Keyword getAssertKeyword_0() { return cAssertKeyword_0; }
 
-		//expr=Expr
-		public Assignment getExprAssignment_1() { return cExprAssignment_1; }
+		//expression=Expr
+		public Assignment getExpressionAssignment_1() { return cExpressionAssignment_1; }
 
 		//Expr
-		public RuleCall getExprExprParserRuleCall_1_0() { return cExprExprParserRuleCall_1_0; }
+		public RuleCall getExpressionExprParserRuleCall_1_0() { return cExpressionExprParserRuleCall_1_0; }
 
-		//";"
-		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
+		//("error" errorMsg=Expr)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"error"
+		public Keyword getErrorKeyword_2_0() { return cErrorKeyword_2_0; }
+
+		//errorMsg=Expr
+		public Assignment getErrorMsgAssignment_2_1() { return cErrorMsgAssignment_2_1; }
+
+		//Expr
+		public RuleCall getErrorMsgExprParserRuleCall_2_1_0() { return cErrorMsgExprParserRuleCall_2_1_0; }
 	}
 
 	public class EnumDeclElements extends AbstractParserRuleElementFinder {
@@ -785,7 +797,7 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Assert:
-	//	"assert" expr=Expr ";";
+	//	"assert" expression=Expr ("error" errorMsg=Expr)?;
 	public AssertElements getAssertAccess() {
 		return (pAssert != null) ? pAssert : (pAssert = new AssertElements());
 	}

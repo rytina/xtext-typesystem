@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package expr.exprDemo.impl;
 
@@ -24,7 +25,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link expr.exprDemo.impl.AssertImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link expr.exprDemo.impl.AssertImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link expr.exprDemo.impl.AssertImpl#getErrorMsg <em>Error Msg</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,14 +35,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class AssertImpl extends ElementImpl implements Assert
 {
   /**
-   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
+   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpr()
+   * @see #getExpression()
    * @generated
    * @ordered
    */
-  protected Expr expr;
+  protected Expr expression;
+
+  /**
+   * The cached value of the '{@link #getErrorMsg() <em>Error Msg</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getErrorMsg()
+   * @generated
+   * @ordered
+   */
+  protected Expr errorMsg;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,9 +80,9 @@ public class AssertImpl extends ElementImpl implements Assert
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expr getExpr()
+  public Expr getExpression()
   {
-    return expr;
+    return expression;
   }
 
   /**
@@ -78,13 +90,13 @@ public class AssertImpl extends ElementImpl implements Assert
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(Expr newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpression(Expr newExpression, NotificationChain msgs)
   {
-    Expr oldExpr = expr;
-    expr = newExpr;
+    Expr oldExpression = expression;
+    expression = newExpression;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExprDemoPackage.ASSERT__EXPR, oldExpr, newExpr);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExprDemoPackage.ASSERT__EXPRESSION, oldExpression, newExpression);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -95,20 +107,68 @@ public class AssertImpl extends ElementImpl implements Assert
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(Expr newExpr)
+  public void setExpression(Expr newExpression)
   {
-    if (newExpr != expr)
+    if (newExpression != expression)
     {
       NotificationChain msgs = null;
-      if (expr != null)
-        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExprDemoPackage.ASSERT__EXPR, null, msgs);
-      if (newExpr != null)
-        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExprDemoPackage.ASSERT__EXPR, null, msgs);
-      msgs = basicSetExpr(newExpr, msgs);
+      if (expression != null)
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExprDemoPackage.ASSERT__EXPRESSION, null, msgs);
+      if (newExpression != null)
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExprDemoPackage.ASSERT__EXPRESSION, null, msgs);
+      msgs = basicSetExpression(newExpression, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ExprDemoPackage.ASSERT__EXPR, newExpr, newExpr));
+      eNotify(new ENotificationImpl(this, Notification.SET, ExprDemoPackage.ASSERT__EXPRESSION, newExpression, newExpression));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expr getErrorMsg()
+  {
+    return errorMsg;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetErrorMsg(Expr newErrorMsg, NotificationChain msgs)
+  {
+    Expr oldErrorMsg = errorMsg;
+    errorMsg = newErrorMsg;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExprDemoPackage.ASSERT__ERROR_MSG, oldErrorMsg, newErrorMsg);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setErrorMsg(Expr newErrorMsg)
+  {
+    if (newErrorMsg != errorMsg)
+    {
+      NotificationChain msgs = null;
+      if (errorMsg != null)
+        msgs = ((InternalEObject)errorMsg).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExprDemoPackage.ASSERT__ERROR_MSG, null, msgs);
+      if (newErrorMsg != null)
+        msgs = ((InternalEObject)newErrorMsg).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExprDemoPackage.ASSERT__ERROR_MSG, null, msgs);
+      msgs = basicSetErrorMsg(newErrorMsg, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ExprDemoPackage.ASSERT__ERROR_MSG, newErrorMsg, newErrorMsg));
   }
 
   /**
@@ -121,8 +181,10 @@ public class AssertImpl extends ElementImpl implements Assert
   {
     switch (featureID)
     {
-      case ExprDemoPackage.ASSERT__EXPR:
-        return basicSetExpr(null, msgs);
+      case ExprDemoPackage.ASSERT__EXPRESSION:
+        return basicSetExpression(null, msgs);
+      case ExprDemoPackage.ASSERT__ERROR_MSG:
+        return basicSetErrorMsg(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,8 +199,10 @@ public class AssertImpl extends ElementImpl implements Assert
   {
     switch (featureID)
     {
-      case ExprDemoPackage.ASSERT__EXPR:
-        return getExpr();
+      case ExprDemoPackage.ASSERT__EXPRESSION:
+        return getExpression();
+      case ExprDemoPackage.ASSERT__ERROR_MSG:
+        return getErrorMsg();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,8 +217,11 @@ public class AssertImpl extends ElementImpl implements Assert
   {
     switch (featureID)
     {
-      case ExprDemoPackage.ASSERT__EXPR:
-        setExpr((Expr)newValue);
+      case ExprDemoPackage.ASSERT__EXPRESSION:
+        setExpression((Expr)newValue);
+        return;
+      case ExprDemoPackage.ASSERT__ERROR_MSG:
+        setErrorMsg((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,8 +237,11 @@ public class AssertImpl extends ElementImpl implements Assert
   {
     switch (featureID)
     {
-      case ExprDemoPackage.ASSERT__EXPR:
-        setExpr((Expr)null);
+      case ExprDemoPackage.ASSERT__EXPRESSION:
+        setExpression((Expr)null);
+        return;
+      case ExprDemoPackage.ASSERT__ERROR_MSG:
+        setErrorMsg((Expr)null);
         return;
     }
     super.eUnset(featureID);
@@ -187,8 +257,10 @@ public class AssertImpl extends ElementImpl implements Assert
   {
     switch (featureID)
     {
-      case ExprDemoPackage.ASSERT__EXPR:
-        return expr != null;
+      case ExprDemoPackage.ASSERT__EXPRESSION:
+        return expression != null;
+      case ExprDemoPackage.ASSERT__ERROR_MSG:
+        return errorMsg != null;
     }
     return super.eIsSet(featureID);
   }

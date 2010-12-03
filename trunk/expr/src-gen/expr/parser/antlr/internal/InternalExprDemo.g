@@ -233,9 +233,9 @@ ruleAssert returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getAssertAccess().getExprExprParserRuleCall_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getAssertAccess().getExpressionExprParserRuleCall_1_0(), currentNode); 
 	    }
-		lv_expr_1_0=ruleExpr		{
+		lv_expression_1_0=ruleExpr		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getAssertRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -243,8 +243,8 @@ ruleAssert returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"expr",
-	        		lv_expr_1_0, 
+	       			"expression",
+	        		lv_expression_1_0, 
 	        		"Expr", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -254,11 +254,35 @@ ruleAssert returns [EObject current=null]
 	    }
 
 )
-)	';' 
+)(	'error' 
     {
-        createLeafNode(grammarAccess.getAssertAccess().getSemicolonKeyword_2(), null); 
+        createLeafNode(grammarAccess.getAssertAccess().getErrorKeyword_2_0(), null); 
     }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getAssertAccess().getErrorMsgExprParserRuleCall_2_1_0(), currentNode); 
+	    }
+		lv_errorMsg_3_0=ruleExpr		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAssertRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"errorMsg",
+	        		lv_errorMsg_3_0, 
+	        		"Expr", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
 )
+))?)
 ;
 
 

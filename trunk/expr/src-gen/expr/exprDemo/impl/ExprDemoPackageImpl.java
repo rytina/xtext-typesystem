@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package expr.exprDemo.impl;
 
@@ -341,9 +342,19 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssert_Expr()
+  public EReference getAssert_Expression()
   {
     return (EReference)assertEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAssert_ErrorMsg()
+  {
+    return (EReference)assertEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -803,7 +814,8 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     elementEClass = createEClass(ELEMENT);
 
     assertEClass = createEClass(ASSERT);
-    createEReference(assertEClass, ASSERT__EXPR);
+    createEReference(assertEClass, ASSERT__EXPRESSION);
+    createEReference(assertEClass, ASSERT__ERROR_MSG);
 
     enumDeclEClass = createEClass(ENUM_DECL);
     createEAttribute(enumDeclEClass, ENUM_DECL__NAME);
@@ -929,7 +941,8 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(assertEClass, Assert.class, "Assert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAssert_Expr(), this.getExpr(), null, "expr", null, 0, 1, Assert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssert_Expression(), this.getExpr(), null, "expression", null, 0, 1, Assert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssert_ErrorMsg(), this.getExpr(), null, "errorMsg", null, 0, 1, Assert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumDeclEClass, EnumDecl.class, "EnumDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnumDecl_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
