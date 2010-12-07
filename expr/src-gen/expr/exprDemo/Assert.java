@@ -15,8 +15,9 @@ package expr.exprDemo;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link expr.exprDemo.Assert#getExpression <em>Expression</em>}</li>
- *   <li>{@link expr.exprDemo.Assert#getErrorMsg <em>Error Msg</em>}</li>
+ *   <li>{@link expr.exprDemo.Assert#getActual <em>Actual</em>}</li>
+ *   <li>{@link expr.exprDemo.Assert#getExpected <em>Expected</em>}</li>
+ *   <li>{@link expr.exprDemo.Assert#getMsg <em>Msg</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,55 +28,81 @@ package expr.exprDemo;
 public interface Assert extends Element
 {
   /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+   * Returns the value of the '<em><b>Actual</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Actual</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expr)
-   * @see expr.exprDemo.ExprDemoPackage#getAssert_Expression()
+   * @return the value of the '<em>Actual</em>' containment reference.
+   * @see #setActual(Expr)
+   * @see expr.exprDemo.ExprDemoPackage#getAssert_Actual()
    * @model containment="true"
    * @generated
    */
-  Expr getExpression();
+  Expr getActual();
 
   /**
-   * Sets the value of the '{@link expr.exprDemo.Assert#getExpression <em>Expression</em>}' containment reference.
+   * Sets the value of the '{@link expr.exprDemo.Assert#getActual <em>Actual</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expression</em>' containment reference.
-   * @see #getExpression()
+   * @param value the new value of the '<em>Actual</em>' containment reference.
+   * @see #getActual()
    * @generated
    */
-  void setExpression(Expr value);
+  void setActual(Expr value);
 
   /**
-   * Returns the value of the '<em><b>Error Msg</b></em>' containment reference.
+   * Returns the value of the '<em><b>Expected</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Error Msg</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Expected</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Error Msg</em>' containment reference.
-   * @see #setErrorMsg(Expr)
-   * @see expr.exprDemo.ExprDemoPackage#getAssert_ErrorMsg()
+   * @return the value of the '<em>Expected</em>' containment reference.
+   * @see #setExpected(Expr)
+   * @see expr.exprDemo.ExprDemoPackage#getAssert_Expected()
    * @model containment="true"
    * @generated
    */
-  Expr getErrorMsg();
+  Expr getExpected();
 
   /**
-   * Sets the value of the '{@link expr.exprDemo.Assert#getErrorMsg <em>Error Msg</em>}' containment reference.
+   * Sets the value of the '{@link expr.exprDemo.Assert#getExpected <em>Expected</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Error Msg</em>' containment reference.
-   * @see #getErrorMsg()
+   * @param value the new value of the '<em>Expected</em>' containment reference.
+   * @see #getExpected()
    * @generated
    */
-  void setErrorMsg(Expr value);
+  void setExpected(Expr value);
+
+  /**
+   * Returns the value of the '<em><b>Msg</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Msg</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Msg</em>' containment reference.
+   * @see #setMsg(Expr)
+   * @see expr.exprDemo.ExprDemoPackage#getAssert_Msg()
+   * @model containment="true"
+   * @generated
+   */
+  Expr getMsg();
+
+  /**
+   * Sets the value of the '{@link expr.exprDemo.Assert#getMsg <em>Msg</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Msg</em>' containment reference.
+   * @see #getMsg()
+   * @generated
+   */
+  void setMsg(Expr value);
 
 } // Assert

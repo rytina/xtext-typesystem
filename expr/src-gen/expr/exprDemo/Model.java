@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link expr.exprDemo.Model#isIsTested <em>Is Tested</em>}</li>
  *   <li>{@link expr.exprDemo.Model#getName <em>Name</em>}</li>
  *   <li>{@link expr.exprDemo.Model#getUsings <em>Usings</em>}</li>
  *   <li>{@link expr.exprDemo.Model#getElements <em>Elements</em>}</li>
@@ -31,6 +32,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Is Tested</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Tested</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Tested</em>' attribute.
+   * @see #setIsTested(boolean)
+   * @see expr.exprDemo.ExprDemoPackage#getModel_IsTested()
+   * @model
+   * @generated
+   */
+  boolean isIsTested();
+
+  /**
+   * Sets the value of the '{@link expr.exprDemo.Model#isIsTested <em>Is Tested</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Tested</em>' attribute.
+   * @see #isIsTested()
+   * @generated
+   */
+  void setIsTested(boolean value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

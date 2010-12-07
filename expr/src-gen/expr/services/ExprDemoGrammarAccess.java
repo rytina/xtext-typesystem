@@ -20,53 +20,61 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Model");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cModelKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cUsingsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUsingsUsingParserRuleCall_2_0 = (RuleCall)cUsingsAssignment_2.eContents().get(0);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Assignment cElementsAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
-		private final RuleCall cElementsElementParserRuleCall_3_0_0 = (RuleCall)cElementsAssignment_3_0.eContents().get(0);
-		private final Assignment cFunctionsAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
-		private final RuleCall cFunctionsFunctionDeclarationParserRuleCall_3_1_0 = (RuleCall)cFunctionsAssignment_3_1.eContents().get(0);
+		private final Assignment cIsTestedAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cIsTestedTestedKeyword_0_0 = (Keyword)cIsTestedAssignment_0.eContents().get(0);
+		private final Keyword cModelKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cUsingsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cUsingsUsingParserRuleCall_3_0 = (RuleCall)cUsingsAssignment_3.eContents().get(0);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Assignment cElementsAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
+		private final RuleCall cElementsElementParserRuleCall_4_0_0 = (RuleCall)cElementsAssignment_4_0.eContents().get(0);
+		private final Assignment cFunctionsAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
+		private final RuleCall cFunctionsFunctionDeclarationParserRuleCall_4_1_0 = (RuleCall)cFunctionsAssignment_4_1.eContents().get(0);
 		
 		//Model:
-		//	"model" name=ID usings+=Using* (elements+=Element | functions+=FunctionDeclaration)*;
+		//	isTested?="tested"? "model" name=ID usings+=Using* (elements+=Element | functions+=FunctionDeclaration)*;
 		public ParserRule getRule() { return rule; }
 
-		//"model" name=ID usings+=Using* (elements+=Element | functions+=FunctionDeclaration)*
+		//isTested?="tested"? "model" name=ID usings+=Using* (elements+=Element | functions+=FunctionDeclaration)*
 		public Group getGroup() { return cGroup; }
 
+		//isTested?="tested"?
+		public Assignment getIsTestedAssignment_0() { return cIsTestedAssignment_0; }
+
+		//"tested"
+		public Keyword getIsTestedTestedKeyword_0_0() { return cIsTestedTestedKeyword_0_0; }
+
 		//"model"
-		public Keyword getModelKeyword_0() { return cModelKeyword_0; }
+		public Keyword getModelKeyword_1() { return cModelKeyword_1; }
 
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
 		//usings+=Using*
-		public Assignment getUsingsAssignment_2() { return cUsingsAssignment_2; }
+		public Assignment getUsingsAssignment_3() { return cUsingsAssignment_3; }
 
 		//Using
-		public RuleCall getUsingsUsingParserRuleCall_2_0() { return cUsingsUsingParserRuleCall_2_0; }
+		public RuleCall getUsingsUsingParserRuleCall_3_0() { return cUsingsUsingParserRuleCall_3_0; }
 
 		//(elements+=Element | functions+=FunctionDeclaration)*
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
 		//elements+=Element
-		public Assignment getElementsAssignment_3_0() { return cElementsAssignment_3_0; }
+		public Assignment getElementsAssignment_4_0() { return cElementsAssignment_4_0; }
 
 		//Element
-		public RuleCall getElementsElementParserRuleCall_3_0_0() { return cElementsElementParserRuleCall_3_0_0; }
+		public RuleCall getElementsElementParserRuleCall_4_0_0() { return cElementsElementParserRuleCall_4_0_0; }
 
 		//functions+=FunctionDeclaration
-		public Assignment getFunctionsAssignment_3_1() { return cFunctionsAssignment_3_1; }
+		public Assignment getFunctionsAssignment_4_1() { return cFunctionsAssignment_4_1; }
 
 		//FunctionDeclaration
-		public RuleCall getFunctionsFunctionDeclarationParserRuleCall_3_1_0() { return cFunctionsFunctionDeclarationParserRuleCall_3_1_0; }
+		public RuleCall getFunctionsFunctionDeclarationParserRuleCall_4_1_0() { return cFunctionsFunctionDeclarationParserRuleCall_4_1_0; }
 	}
 
 	public class UsingElements extends AbstractParserRuleElementFinder {
@@ -309,40 +317,52 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Assert");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cAssertKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExpressionExprParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cErrorKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cErrorMsgAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cErrorMsgExprParserRuleCall_2_1_0 = (RuleCall)cErrorMsgAssignment_2_1.eContents().get(0);
+		private final Assignment cActualAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cActualExprParserRuleCall_1_0 = (RuleCall)cActualAssignment_1.eContents().get(0);
+		private final Keyword cIsKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cExpectedAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExpectedExprParserRuleCall_3_0 = (RuleCall)cExpectedAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cColonKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cMsgAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cMsgExprParserRuleCall_4_1_0 = (RuleCall)cMsgAssignment_4_1.eContents().get(0);
 		
 		//Assert:
-		//	"assert" expression=Expr ("error" errorMsg=Expr)?;
+		//	"assert" actual=Expr "is" expected=Expr (":" msg=Expr)?;
 		public ParserRule getRule() { return rule; }
 
-		//"assert" expression=Expr ("error" errorMsg=Expr)?
+		//"assert" actual=Expr "is" expected=Expr (":" msg=Expr)?
 		public Group getGroup() { return cGroup; }
 
 		//"assert"
 		public Keyword getAssertKeyword_0() { return cAssertKeyword_0; }
 
-		//expression=Expr
-		public Assignment getExpressionAssignment_1() { return cExpressionAssignment_1; }
+		//actual=Expr
+		public Assignment getActualAssignment_1() { return cActualAssignment_1; }
 
 		//Expr
-		public RuleCall getExpressionExprParserRuleCall_1_0() { return cExpressionExprParserRuleCall_1_0; }
+		public RuleCall getActualExprParserRuleCall_1_0() { return cActualExprParserRuleCall_1_0; }
 
-		//("error" errorMsg=Expr)?
-		public Group getGroup_2() { return cGroup_2; }
+		//"is"
+		public Keyword getIsKeyword_2() { return cIsKeyword_2; }
 
-		//"error"
-		public Keyword getErrorKeyword_2_0() { return cErrorKeyword_2_0; }
-
-		//errorMsg=Expr
-		public Assignment getErrorMsgAssignment_2_1() { return cErrorMsgAssignment_2_1; }
+		//expected=Expr
+		public Assignment getExpectedAssignment_3() { return cExpectedAssignment_3; }
 
 		//Expr
-		public RuleCall getErrorMsgExprParserRuleCall_2_1_0() { return cErrorMsgExprParserRuleCall_2_1_0; }
+		public RuleCall getExpectedExprParserRuleCall_3_0() { return cExpectedExprParserRuleCall_3_0; }
+
+		//(":" msg=Expr)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//":"
+		public Keyword getColonKeyword_4_0() { return cColonKeyword_4_0; }
+
+		//msg=Expr
+		public Assignment getMsgAssignment_4_1() { return cMsgAssignment_4_1; }
+
+		//Expr
+		public RuleCall getMsgExprParserRuleCall_4_1_0() { return cMsgExprParserRuleCall_4_1_0; }
 	}
 
 	public class EnumDeclElements extends AbstractParserRuleElementFinder {
@@ -1048,7 +1068,7 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	"model" name=ID usings+=Using* (elements+=Element | functions+=FunctionDeclaration)*;
+	//	isTested?="tested"? "model" name=ID usings+=Using* (elements+=Element | functions+=FunctionDeclaration)*;
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}
@@ -1120,7 +1140,7 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Assert:
-	//	"assert" expression=Expr ("error" errorMsg=Expr)?;
+	//	"assert" actual=Expr "is" expected=Expr (":" msg=Expr)?;
 	public AssertElements getAssertAccess() {
 		return (pAssert != null) ? pAssert : (pAssert = new AssertElements());
 	}
@@ -1310,7 +1330,7 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 		return getAtomicAccess().getRule();
 	}
 
-	//terminal NUMBER returns ecore::EBigDecimal:
+	//terminal NUMBER:
 	//	"0".."9"* ("." "0".."9"+)?;
 	public TerminalRule getNUMBERRule() {
 		return (tNUMBER != null) ? tNUMBER : (tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NUMBER"));

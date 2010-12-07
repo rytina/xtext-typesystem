@@ -8,6 +8,7 @@
   <genPackages prefix="ExprDemo" basePackage="expr" disposableProviderFactory="true"
       ecorePackage="ExprDemo.ecore#/">
     <genClasses ecoreClass="ExprDemo.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExprDemo.ecore#//Model/isTested"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExprDemo.ecore#//Model/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Model/usings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Model/elements"/>
@@ -24,8 +25,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Return/expr"/>
     </genClasses>
     <genClasses ecoreClass="ExprDemo.ecore#//Assert">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Assert/expression"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Assert/errorMsg"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Assert/actual"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Assert/expected"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//Assert/msg"/>
     </genClasses>
     <genClasses ecoreClass="ExprDemo.ecore#//EnumDecl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExprDemo.ecore#//EnumDecl/name"/>

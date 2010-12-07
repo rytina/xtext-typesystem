@@ -6,7 +6,6 @@
  */
 package expr.exprDemo;
 
-import java.math.BigDecimal;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,12 +34,12 @@ public interface NumberLiteral extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(BigDecimal)
+   * @see #setValue(String)
    * @see expr.exprDemo.ExprDemoPackage#getNumberLiteral_Value()
    * @model
    * @generated
    */
-  BigDecimal getValue();
+  String getValue();
 
   /**
    * Sets the value of the '{@link expr.exprDemo.NumberLiteral#getValue <em>Value</em>}' attribute.
@@ -50,6 +49,6 @@ public interface NumberLiteral extends Expression
    * @see #getValue()
    * @generated
    */
-  void setValue(BigDecimal value);
+  void setValue(String value);
 
 } // NumberLiteral
