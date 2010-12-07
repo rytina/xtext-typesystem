@@ -103,10 +103,33 @@ public class ExprDemoSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ExprDemoPackage.USING:
+      {
+        Using using = (Using)theEObject;
+        T result = caseUsing(using);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ExprDemoPackage.ELEMENT:
       {
         Element element = (Element)theEObject;
         T result = caseElement(element);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExprDemoPackage.SYMBOL:
+      {
+        Symbol symbol = (Symbol)theEObject;
+        T result = caseSymbol(symbol);
+        if (result == null) result = caseElement(symbol);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExprDemoPackage.RETURN:
+      {
+        Return return_ = (Return)theEObject;
+        T result = caseReturn(return_);
+        if (result == null) result = caseElement(return_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -123,14 +146,6 @@ public class ExprDemoSwitch<T>
         EnumDecl enumDecl = (EnumDecl)theEObject;
         T result = caseEnumDecl(enumDecl);
         if (result == null) result = caseElement(enumDecl);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ExprDemoPackage.SYMBOL:
-      {
-        Symbol symbol = (Symbol)theEObject;
-        T result = caseSymbol(symbol);
-        if (result == null) result = caseElement(symbol);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -214,6 +229,24 @@ public class ExprDemoSwitch<T>
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
         if (result == null) result = caseExpr(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExprDemoPackage.FUNCTION_DECLARATION:
+      {
+        FunctionDeclaration functionDeclaration = (FunctionDeclaration)theEObject;
+        T result = caseFunctionDeclaration(functionDeclaration);
+        if (result == null) result = caseSymbol(functionDeclaration);
+        if (result == null) result = caseElement(functionDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExprDemoPackage.PARAMETER:
+      {
+        Parameter parameter = (Parameter)theEObject;
+        T result = caseParameter(parameter);
+        if (result == null) result = caseSymbol(parameter);
+        if (result == null) result = caseElement(parameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -328,6 +361,22 @@ public class ExprDemoSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Using</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Using</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUsing(Using object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -339,6 +388,38 @@ public class ExprDemoSwitch<T>
    * @generated
    */
   public T caseElement(Element object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Symbol</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Symbol</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSymbol(Symbol object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Return</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Return</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReturn(Return object)
   {
     return null;
   }
@@ -371,22 +452,6 @@ public class ExprDemoSwitch<T>
    * @generated
    */
   public T caseEnumDecl(EnumDecl object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Symbol</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Symbol</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSymbol(Symbol object)
   {
     return null;
   }
@@ -547,6 +612,38 @@ public class ExprDemoSwitch<T>
    * @generated
    */
   public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunctionDeclaration(FunctionDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameter(Parameter object)
   {
     return null;
   }

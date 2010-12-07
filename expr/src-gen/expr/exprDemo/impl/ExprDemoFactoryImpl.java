@@ -69,10 +69,12 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
     switch (eClass.getClassifierID())
     {
       case ExprDemoPackage.MODEL: return createModel();
+      case ExprDemoPackage.USING: return createUsing();
       case ExprDemoPackage.ELEMENT: return createElement();
+      case ExprDemoPackage.SYMBOL: return createSymbol();
+      case ExprDemoPackage.RETURN: return createReturn();
       case ExprDemoPackage.ASSERT: return createAssert();
       case ExprDemoPackage.ENUM_DECL: return createEnumDecl();
-      case ExprDemoPackage.SYMBOL: return createSymbol();
       case ExprDemoPackage.TYPE: return createType();
       case ExprDemoPackage.PRIMITIVE_TYPE: return createPrimitiveType();
       case ExprDemoPackage.ARRAY_TYPE: return createArrayType();
@@ -83,6 +85,8 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
       case ExprDemoPackage.STRING_TYPE: return createStringType();
       case ExprDemoPackage.EXPR: return createExpr();
       case ExprDemoPackage.EXPRESSION: return createExpression();
+      case ExprDemoPackage.FUNCTION_DECLARATION: return createFunctionDeclaration();
+      case ExprDemoPackage.PARAMETER: return createParameter();
       case ExprDemoPackage.ENUM_LITERAL: return createEnumLiteral();
       case ExprDemoPackage.VAR_DECL: return createVarDecl();
       case ExprDemoPackage.FORMULA: return createFormula();
@@ -114,10 +118,43 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Using createUsing()
+  {
+    UsingImpl using = new UsingImpl();
+    return using;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Element createElement()
   {
     ElementImpl element = new ElementImpl();
     return element;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Symbol createSymbol()
+  {
+    SymbolImpl symbol = new SymbolImpl();
+    return symbol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Return createReturn()
+  {
+    ReturnImpl return_ = new ReturnImpl();
+    return return_;
   }
 
   /**
@@ -140,17 +177,6 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
   {
     EnumDeclImpl enumDecl = new EnumDeclImpl();
     return enumDecl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Symbol createSymbol()
-  {
-    SymbolImpl symbol = new SymbolImpl();
-    return symbol;
   }
 
   /**
@@ -261,6 +287,28 @@ public class ExprDemoFactoryImpl extends EFactoryImpl implements ExprDemoFactory
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionDeclaration createFunctionDeclaration()
+  {
+    FunctionDeclarationImpl functionDeclaration = new FunctionDeclarationImpl();
+    return functionDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Parameter createParameter()
+  {
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
   }
 
   /**

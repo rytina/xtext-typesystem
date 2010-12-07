@@ -9,6 +9,8 @@ package expr.exprDemo.impl;
 import expr.exprDemo.Element;
 import expr.exprDemo.ExprDemoPackage;
 import expr.exprDemo.Model;
+import expr.exprDemo.Symbol;
+import expr.exprDemo.Using;
 
 import java.util.Collection;
 
@@ -34,7 +36,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link expr.exprDemo.impl.ModelImpl#getName <em>Name</em>}</li>
+ *   <li>{@link expr.exprDemo.impl.ModelImpl#getUsings <em>Usings</em>}</li>
  *   <li>{@link expr.exprDemo.impl.ModelImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link expr.exprDemo.impl.ModelImpl#getFunctions <em>Functions</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,6 +67,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getUsings() <em>Usings</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUsings()
+   * @generated
+   * @ordered
+   */
+  protected EList<Using> usings;
+
+  /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -71,6 +85,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected EList<Element> elements;
+
+  /**
+   * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFunctions()
+   * @generated
+   * @ordered
+   */
+  protected EList<Symbol> functions;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,6 +145,20 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Using> getUsings()
+  {
+    if (usings == null)
+    {
+      usings = new EObjectContainmentEList<Using>(Using.class, this, ExprDemoPackage.MODEL__USINGS);
+    }
+    return usings;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Element> getElements()
   {
     if (elements == null)
@@ -135,13 +173,31 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Symbol> getFunctions()
+  {
+    if (functions == null)
+    {
+      functions = new EObjectContainmentEList<Symbol>(Symbol.class, this, ExprDemoPackage.MODEL__FUNCTIONS);
+    }
+    return functions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
+      case ExprDemoPackage.MODEL__USINGS:
+        return ((InternalEList<?>)getUsings()).basicRemove(otherEnd, msgs);
       case ExprDemoPackage.MODEL__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+      case ExprDemoPackage.MODEL__FUNCTIONS:
+        return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -158,8 +214,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case ExprDemoPackage.MODEL__NAME:
         return getName();
+      case ExprDemoPackage.MODEL__USINGS:
+        return getUsings();
       case ExprDemoPackage.MODEL__ELEMENTS:
         return getElements();
+      case ExprDemoPackage.MODEL__FUNCTIONS:
+        return getFunctions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -178,9 +238,17 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case ExprDemoPackage.MODEL__NAME:
         setName((String)newValue);
         return;
+      case ExprDemoPackage.MODEL__USINGS:
+        getUsings().clear();
+        getUsings().addAll((Collection<? extends Using>)newValue);
+        return;
       case ExprDemoPackage.MODEL__ELEMENTS:
         getElements().clear();
         getElements().addAll((Collection<? extends Element>)newValue);
+        return;
+      case ExprDemoPackage.MODEL__FUNCTIONS:
+        getFunctions().clear();
+        getFunctions().addAll((Collection<? extends Symbol>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -199,8 +267,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case ExprDemoPackage.MODEL__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case ExprDemoPackage.MODEL__USINGS:
+        getUsings().clear();
+        return;
       case ExprDemoPackage.MODEL__ELEMENTS:
         getElements().clear();
+        return;
+      case ExprDemoPackage.MODEL__FUNCTIONS:
+        getFunctions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -218,8 +292,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case ExprDemoPackage.MODEL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case ExprDemoPackage.MODEL__USINGS:
+        return usings != null && !usings.isEmpty();
       case ExprDemoPackage.MODEL__ELEMENTS:
         return elements != null && !elements.isEmpty();
+      case ExprDemoPackage.MODEL__FUNCTIONS:
+        return functions != null && !functions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

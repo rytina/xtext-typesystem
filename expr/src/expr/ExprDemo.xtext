@@ -8,10 +8,31 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Model:
 	"model" name=ID
-	elements+=Element*;
+	(usings+=Using)*
+	(elements+=Element |
+	 functions+=FunctionDeclaration)*;
+	
+Using:
+	"using" importedNamespace=ImportID;
+	
+// ... and ID with .* at the end.
+ImportID:
+	ID ('.' '*');	
 	
 Element:
-	VarDecl | Formula | EnumDecl | Assert;
+	VarDecl | Formula | EnumDecl | Assert | Return;
+	
+FunctionDeclaration returns Symbol:
+	{FunctionDeclaration} "function" type=Type name=ID "(" 
+		(params+=Parameter  ("," params+=Parameter)* )?  ")" "{"		// FUNC
+		(elements+=Element)*
+	"}";	
+	
+Return:
+	"return" expr=Expr ";";	
+	
+Parameter returns Symbol:
+	{Parameter} type=Type name=ID;
 	
 Assert:
 	"assert" expression=Expr ("error" errorMsg=Expr)?;
@@ -73,7 +94,7 @@ PostfixOperators returns Expression:
 	Atomic ({ArrayAccess.expr=current} "[" index=Expr "]")?;
 	
 Atomic returns Expression:
-	{SymbolRef} symbol=[Symbol|QID] |
+	{SymbolRef} symbol=[Symbol|QID] ("(" (actuals+=Expr)? ("," actuals+=Expr)* ")")? |	// FUNC
 	{NumberLiteral} value=NUMBER | 
 	{StringLiteral} value=STRING;
 	

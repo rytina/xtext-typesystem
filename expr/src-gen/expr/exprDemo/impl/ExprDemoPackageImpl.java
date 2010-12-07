@@ -21,17 +21,21 @@ import expr.exprDemo.ExprDemoPackage;
 import expr.exprDemo.Expression;
 import expr.exprDemo.FloatType;
 import expr.exprDemo.Formula;
+import expr.exprDemo.FunctionDeclaration;
 import expr.exprDemo.IntType;
 import expr.exprDemo.Model;
 import expr.exprDemo.Multi;
 import expr.exprDemo.NumberLiteral;
+import expr.exprDemo.Parameter;
 import expr.exprDemo.Plus;
 import expr.exprDemo.PrimitiveType;
+import expr.exprDemo.Return;
 import expr.exprDemo.StringLiteral;
 import expr.exprDemo.StringType;
 import expr.exprDemo.Symbol;
 import expr.exprDemo.SymbolRef;
 import expr.exprDemo.Type;
+import expr.exprDemo.Using;
 import expr.exprDemo.VarDecl;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -61,7 +65,28 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass usingEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass elementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass symbolEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass returnEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,13 +101,6 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * @generated
    */
   private EClass enumDeclEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass symbolEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -153,6 +171,20 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * @generated
    */
   private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionDeclarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parameterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -312,9 +344,49 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Elements()
+  public EReference getModel_Usings()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_Elements()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_Functions()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUsing()
+  {
+    return usingEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUsing_ImportedNamespace()
+  {
+    return (EAttribute)usingEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -325,6 +397,46 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
   public EClass getElement()
   {
     return elementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSymbol()
+  {
+    return symbolEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSymbol_Name()
+  {
+    return (EAttribute)symbolEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getReturn()
+  {
+    return returnEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getReturn_Expr()
+  {
+    return (EReference)returnEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -385,26 +497,6 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
   public EReference getEnumDecl_Literals()
   {
     return (EReference)enumDeclEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSymbol()
-  {
-    return symbolEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSymbol_Name()
-  {
-    return (EAttribute)symbolEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -525,6 +617,66 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
   public EClass getExpression()
   {
     return expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFunctionDeclaration()
+  {
+    return functionDeclarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionDeclaration_Type()
+  {
+    return (EReference)functionDeclarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionDeclaration_Params()
+  {
+    return (EReference)functionDeclarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionDeclaration_Elements()
+  {
+    return (EReference)functionDeclarationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getParameter()
+  {
+    return parameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParameter_Type()
+  {
+    return (EReference)parameterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -742,6 +894,16 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getSymbolRef_Actuals()
+  {
+    return (EReference)symbolRefEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getNumberLiteral()
   {
     return numberLiteralEClass;
@@ -809,9 +971,20 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     // Create classes and their features
     modelEClass = createEClass(MODEL);
     createEAttribute(modelEClass, MODEL__NAME);
+    createEReference(modelEClass, MODEL__USINGS);
     createEReference(modelEClass, MODEL__ELEMENTS);
+    createEReference(modelEClass, MODEL__FUNCTIONS);
+
+    usingEClass = createEClass(USING);
+    createEAttribute(usingEClass, USING__IMPORTED_NAMESPACE);
 
     elementEClass = createEClass(ELEMENT);
+
+    symbolEClass = createEClass(SYMBOL);
+    createEAttribute(symbolEClass, SYMBOL__NAME);
+
+    returnEClass = createEClass(RETURN);
+    createEReference(returnEClass, RETURN__EXPR);
 
     assertEClass = createEClass(ASSERT);
     createEReference(assertEClass, ASSERT__EXPRESSION);
@@ -820,9 +993,6 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     enumDeclEClass = createEClass(ENUM_DECL);
     createEAttribute(enumDeclEClass, ENUM_DECL__NAME);
     createEReference(enumDeclEClass, ENUM_DECL__LITERALS);
-
-    symbolEClass = createEClass(SYMBOL);
-    createEAttribute(symbolEClass, SYMBOL__NAME);
 
     typeEClass = createEClass(TYPE);
 
@@ -845,6 +1015,14 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     exprEClass = createEClass(EXPR);
 
     expressionEClass = createEClass(EXPRESSION);
+
+    functionDeclarationEClass = createEClass(FUNCTION_DECLARATION);
+    createEReference(functionDeclarationEClass, FUNCTION_DECLARATION__TYPE);
+    createEReference(functionDeclarationEClass, FUNCTION_DECLARATION__PARAMS);
+    createEReference(functionDeclarationEClass, FUNCTION_DECLARATION__ELEMENTS);
+
+    parameterEClass = createEClass(PARAMETER);
+    createEReference(parameterEClass, PARAMETER__TYPE);
 
     enumLiteralEClass = createEClass(ENUM_LITERAL);
 
@@ -874,6 +1052,7 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
 
     symbolRefEClass = createEClass(SYMBOL_REF);
     createEReference(symbolRefEClass, SYMBOL_REF__SYMBOL);
+    createEReference(symbolRefEClass, SYMBOL_REF__ACTUALS);
 
     numberLiteralEClass = createEClass(NUMBER_LITERAL);
     createEAttribute(numberLiteralEClass, NUMBER_LITERAL__VALUE);
@@ -911,9 +1090,10 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    symbolEClass.getESuperTypes().add(this.getElement());
+    returnEClass.getESuperTypes().add(this.getElement());
     assertEClass.getESuperTypes().add(this.getElement());
     enumDeclEClass.getESuperTypes().add(this.getElement());
-    symbolEClass.getESuperTypes().add(this.getElement());
     primitiveTypeEClass.getESuperTypes().add(this.getType());
     arrayTypeEClass.getESuperTypes().add(this.getType());
     enumTypeEClass.getESuperTypes().add(this.getPrimitiveType());
@@ -922,6 +1102,8 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     floatTypeEClass.getESuperTypes().add(this.getPrimitiveType());
     stringTypeEClass.getESuperTypes().add(this.getPrimitiveType());
     expressionEClass.getESuperTypes().add(this.getExpr());
+    functionDeclarationEClass.getESuperTypes().add(this.getSymbol());
+    parameterEClass.getESuperTypes().add(this.getSymbol());
     enumLiteralEClass.getESuperTypes().add(this.getSymbol());
     varDeclEClass.getESuperTypes().add(this.getSymbol());
     formulaEClass.getESuperTypes().add(this.getSymbol());
@@ -936,9 +1118,20 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Usings(), this.getUsing(), null, "usings", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Elements(), this.getElement(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Functions(), this.getSymbol(), null, "functions", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(usingEClass, Using.class, "Using", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUsing_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Using.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSymbol_Name(), ecorePackage.getEString(), "name", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(returnEClass, Return.class, "Return", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReturn_Expr(), this.getExpr(), null, "expr", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assertEClass, Assert.class, "Assert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssert_Expression(), this.getExpr(), null, "expression", null, 0, 1, Assert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -947,9 +1140,6 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     initEClass(enumDeclEClass, EnumDecl.class, "EnumDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnumDecl_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEnumDecl_Literals(), this.getSymbol(), null, "literals", null, 0, -1, EnumDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSymbol_Name(), ecorePackage.getEString(), "name", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -972,6 +1162,14 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(functionDeclarationEClass, FunctionDeclaration.class, "FunctionDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionDeclaration_Type(), this.getType(), null, "type", null, 0, 1, FunctionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionDeclaration_Params(), this.getSymbol(), null, "params", null, 0, -1, FunctionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionDeclaration_Elements(), this.getElement(), null, "elements", null, 0, -1, FunctionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParameter_Type(), this.getType(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumLiteralEClass, EnumLiteral.class, "EnumLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1001,6 +1199,7 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
 
     initEClass(symbolRefEClass, SymbolRef.class, "SymbolRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSymbolRef_Symbol(), this.getSymbol(), null, "symbol", null, 0, 1, SymbolRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSymbolRef_Actuals(), this.getExpr(), null, "actuals", null, 0, -1, SymbolRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(numberLiteralEClass, NumberLiteral.class, "NumberLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNumberLiteral_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1, NumberLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

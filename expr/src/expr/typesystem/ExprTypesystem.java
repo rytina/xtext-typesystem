@@ -26,11 +26,6 @@ public class ExprTypesystem extends DefaultTypesystem {
 		
 		try {
 
-			ensureFeatureType(lang.getAssert(), lang.getAssert_Expression(), lang.getBoolType());
-			ensureFeatureType(lang.getAssert(), lang.getAssert_ErrorMsg(), lang.getStringType());
-			useFixedType(lang.getEquals(), lang.getBoolType());
-			
-			
 			/* --------------------------------------------------
 			 * BASIC + SUBTYPING
 			 */
@@ -70,7 +65,7 @@ public class ExprTypesystem extends DefaultTypesystem {
 			// or a subtype of the declared type
 			ensureOrderedCompatibility(lang.getFormula(), lang.getFormula_Type(), lang.getFormula_Expr());
 			// ... similar for the init-expression of a var
-			ensureOrderedCompatibility(lang.getVarDecl(), lang.getVarDecl_Type(), lang.getVarDecl_Init());
+			ensureOrderedCompatibility(lang.getVarDecl(), lang.getVarDecl_Type(), lang.getVarDecl_Init());	
 
 			
 			
@@ -116,6 +111,22 @@ public class ExprTypesystem extends DefaultTypesystem {
 			// see functions below...
 			
 			
+		
+			/* --------------------------------------------------
+			 * ASSERT
+			 */
+			ensureFeatureType(lang.getAssert(), lang.getAssert_Expression(), lang.getBoolType());
+			ensureFeatureType(lang.getAssert(), lang.getAssert_ErrorMsg(), lang.getStringType());
+			useFixedType(lang.getEquals(), lang.getBoolType());
+			
+
+			/* --------------------------------------------------
+			 * FUNCTIONSDECLARATION
+			 */
+			useTypeOfFeature(lang.getParameter(), lang.getParameter_Type());
+			useTypeOfFeature(lang.getFunctionDeclaration(), lang.getFunctionDeclaration_Type());
+			
+
 			
 		} catch (TypesystemConfigurationException e) {
 			e.printStackTrace();
