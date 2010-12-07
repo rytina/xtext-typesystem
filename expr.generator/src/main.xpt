@@ -39,10 +39,10 @@ public class «name.toFirstUpper()» {
 «ENDDEFINE»
 
 «DEFINE code FOR Assert»
-	«IF errorMsg != null»
-		Assert.assertTrue( "«EXPAND code FOR errorMsg»", «EXPAND code FOR expression» );
-	«ELSE»#
-		Assert.assertTrue( «EXPAND code FOR expression» );
+	«IF msg != null»
+		Assert.assertEquals(«EXPAND code FOR msg», «EXPAND code FOR expected», «EXPAND code FOR actual»);
+	«ELSE»
+		Assert.assertEquals(«EXPAND code FOR expected», «EXPAND code FOR actual»);
 	«ENDIF»
 «ENDDEFINE»
 
