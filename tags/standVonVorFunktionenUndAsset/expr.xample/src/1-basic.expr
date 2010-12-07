@@ -1,0 +1,12 @@
+model basic
+
+var int a;
+var int b;
+//var int c;
+var string c;   // error: int + string does not work
+
+
+calc int x = a;  
+calc int y = a + c;  
+calc int z = a * a + b;    
+
