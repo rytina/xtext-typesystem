@@ -1,9 +1,10 @@
 model basic
 
-var int a = 5;
-calc int x = 2*a;
+using lib.* 
+ 
+var int a = 5;  
+calc float x = addiere(2.2,2); 
 
 assert x == 10 error "something is broken"  
 
-  
 
