@@ -814,21 +814,21 @@ finally {
 
 
 
-rule__Model__Alternatives_3
+rule__Model__Alternatives_4
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getModelAccess().getElementsAssignment_3_0()); }
-(rule__Model__ElementsAssignment_3_0)
-{ after(grammarAccess.getModelAccess().getElementsAssignment_3_0()); }
+{ before(grammarAccess.getModelAccess().getElementsAssignment_4_0()); }
+(rule__Model__ElementsAssignment_4_0)
+{ after(grammarAccess.getModelAccess().getElementsAssignment_4_0()); }
 )
 
     |(
-{ before(grammarAccess.getModelAccess().getFunctionsAssignment_3_1()); }
-(rule__Model__FunctionsAssignment_3_1)
-{ after(grammarAccess.getModelAccess().getFunctionsAssignment_3_1()); }
+{ before(grammarAccess.getModelAccess().getFunctionsAssignment_4_1()); }
+(rule__Model__FunctionsAssignment_4_1)
+{ after(grammarAccess.getModelAccess().getFunctionsAssignment_4_1()); }
 )
 
 ;
@@ -986,11 +986,9 @@ rule__Model__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getModelAccess().getModelKeyword_0()); }
-
-	'model' 
-
-{ after(grammarAccess.getModelAccess().getModelKeyword_0()); }
+{ before(grammarAccess.getModelAccess().getIsTestedAssignment_0()); }
+(rule__Model__IsTestedAssignment_0)?
+{ after(grammarAccess.getModelAccess().getIsTestedAssignment_0()); }
 )
 
 ;
@@ -1017,9 +1015,11 @@ rule__Model__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getModelAccess().getNameAssignment_1()); }
-(rule__Model__NameAssignment_1)
-{ after(grammarAccess.getModelAccess().getNameAssignment_1()); }
+{ before(grammarAccess.getModelAccess().getModelKeyword_1()); }
+
+	'model' 
+
+{ after(grammarAccess.getModelAccess().getModelKeyword_1()); }
 )
 
 ;
@@ -1046,9 +1046,9 @@ rule__Model__Group__2__Impl
     }
 :
 (
-{ before(grammarAccess.getModelAccess().getUsingsAssignment_2()); }
-(rule__Model__UsingsAssignment_2)*
-{ after(grammarAccess.getModelAccess().getUsingsAssignment_2()); }
+{ before(grammarAccess.getModelAccess().getNameAssignment_2()); }
+(rule__Model__NameAssignment_2)
+{ after(grammarAccess.getModelAccess().getNameAssignment_2()); }
 )
 
 ;
@@ -1063,6 +1063,7 @@ rule__Model__Group__3
     }
 :
 	rule__Model__Group__3__Impl
+	rule__Model__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1074,15 +1075,45 @@ rule__Model__Group__3__Impl
     }
 :
 (
-{ before(grammarAccess.getModelAccess().getAlternatives_3()); }
-(rule__Model__Alternatives_3)*
-{ after(grammarAccess.getModelAccess().getAlternatives_3()); }
+{ before(grammarAccess.getModelAccess().getUsingsAssignment_3()); }
+(rule__Model__UsingsAssignment_3)*
+{ after(grammarAccess.getModelAccess().getUsingsAssignment_3()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__Model__Group__4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Model__Group__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Model__Group__4__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getModelAccess().getAlternatives_4()); }
+(rule__Model__Alternatives_4)*
+{ after(grammarAccess.getModelAccess().getAlternatives_4()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -1966,9 +1997,9 @@ rule__Assert__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getAssertAccess().getExpressionAssignment_1()); }
-(rule__Assert__ExpressionAssignment_1)
-{ after(grammarAccess.getAssertAccess().getExpressionAssignment_1()); }
+{ before(grammarAccess.getAssertAccess().getActualAssignment_1()); }
+(rule__Assert__ActualAssignment_1)
+{ after(grammarAccess.getAssertAccess().getActualAssignment_1()); }
 )
 
 ;
@@ -1983,6 +2014,7 @@ rule__Assert__Group__2
     }
 :
 	rule__Assert__Group__2__Impl
+	rule__Assert__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1994,9 +2026,68 @@ rule__Assert__Group__2__Impl
     }
 :
 (
-{ before(grammarAccess.getAssertAccess().getGroup_2()); }
-(rule__Assert__Group_2__0)?
-{ after(grammarAccess.getAssertAccess().getGroup_2()); }
+{ before(grammarAccess.getAssertAccess().getIsKeyword_2()); }
+
+	'is' 
+
+{ after(grammarAccess.getAssertAccess().getIsKeyword_2()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Assert__Group__3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Assert__Group__3__Impl
+	rule__Assert__Group__4
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Assert__Group__3__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getAssertAccess().getExpectedAssignment_3()); }
+(rule__Assert__ExpectedAssignment_3)
+{ after(grammarAccess.getAssertAccess().getExpectedAssignment_3()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Assert__Group__4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Assert__Group__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Assert__Group__4__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getAssertAccess().getGroup_4()); }
+(rule__Assert__Group_4__0)?
+{ after(grammarAccess.getAssertAccess().getGroup_4()); }
 )
 
 ;
@@ -2011,29 +2102,33 @@ finally {
 
 
 
-rule__Assert__Group_2__0
+
+
+
+
+rule__Assert__Group_4__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__Assert__Group_2__0__Impl
-	rule__Assert__Group_2__1
+	rule__Assert__Group_4__0__Impl
+	rule__Assert__Group_4__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Assert__Group_2__0__Impl
+rule__Assert__Group_4__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getAssertAccess().getErrorKeyword_2_0()); }
+{ before(grammarAccess.getAssertAccess().getColonKeyword_4_0()); }
 
-	'error' 
+	':' 
 
-{ after(grammarAccess.getAssertAccess().getErrorKeyword_2_0()); }
+{ after(grammarAccess.getAssertAccess().getColonKeyword_4_0()); }
 )
 
 ;
@@ -2042,26 +2137,26 @@ finally {
 }
 
 
-rule__Assert__Group_2__1
+rule__Assert__Group_4__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__Assert__Group_2__1__Impl
+	rule__Assert__Group_4__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Assert__Group_2__1__Impl
+rule__Assert__Group_4__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getAssertAccess().getErrorMsgAssignment_2_1()); }
-(rule__Assert__ErrorMsgAssignment_2_1)
-{ after(grammarAccess.getAssertAccess().getErrorMsgAssignment_2_1()); }
+{ before(grammarAccess.getAssertAccess().getMsgAssignment_4_1()); }
+(rule__Assert__MsgAssignment_4_1)
+{ after(grammarAccess.getAssertAccess().getMsgAssignment_4_1()); }
 )
 
 ;
@@ -4393,14 +4488,22 @@ finally {
 
 
 
-rule__Model__NameAssignment_1
+rule__Model__IsTestedAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getModelAccess().getNameIDTerminalRuleCall_1_0()); }
-	RULE_ID{ after(grammarAccess.getModelAccess().getNameIDTerminalRuleCall_1_0()); }
+{ before(grammarAccess.getModelAccess().getIsTestedTestedKeyword_0_0()); }
+(
+{ before(grammarAccess.getModelAccess().getIsTestedTestedKeyword_0_0()); }
+
+	'tested' 
+
+{ after(grammarAccess.getModelAccess().getIsTestedTestedKeyword_0_0()); }
+)
+
+{ after(grammarAccess.getModelAccess().getIsTestedTestedKeyword_0_0()); }
 )
 
 ;
@@ -4408,14 +4511,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Model__UsingsAssignment_2
+rule__Model__NameAssignment_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getModelAccess().getUsingsUsingParserRuleCall_2_0()); }
-	ruleUsing{ after(grammarAccess.getModelAccess().getUsingsUsingParserRuleCall_2_0()); }
+{ before(grammarAccess.getModelAccess().getNameIDTerminalRuleCall_2_0()); }
+	RULE_ID{ after(grammarAccess.getModelAccess().getNameIDTerminalRuleCall_2_0()); }
 )
 
 ;
@@ -4423,14 +4526,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Model__ElementsAssignment_3_0
+rule__Model__UsingsAssignment_3
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getModelAccess().getElementsElementParserRuleCall_3_0_0()); }
-	ruleElement{ after(grammarAccess.getModelAccess().getElementsElementParserRuleCall_3_0_0()); }
+{ before(grammarAccess.getModelAccess().getUsingsUsingParserRuleCall_3_0()); }
+	ruleUsing{ after(grammarAccess.getModelAccess().getUsingsUsingParserRuleCall_3_0()); }
 )
 
 ;
@@ -4438,14 +4541,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Model__FunctionsAssignment_3_1
+rule__Model__ElementsAssignment_4_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getModelAccess().getFunctionsFunctionDeclarationParserRuleCall_3_1_0()); }
-	ruleFunctionDeclaration{ after(grammarAccess.getModelAccess().getFunctionsFunctionDeclarationParserRuleCall_3_1_0()); }
+{ before(grammarAccess.getModelAccess().getElementsElementParserRuleCall_4_0_0()); }
+	ruleElement{ after(grammarAccess.getModelAccess().getElementsElementParserRuleCall_4_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Model__FunctionsAssignment_4_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getModelAccess().getFunctionsFunctionDeclarationParserRuleCall_4_1_0()); }
+	ruleFunctionDeclaration{ after(grammarAccess.getModelAccess().getFunctionsFunctionDeclarationParserRuleCall_4_1_0()); }
 )
 
 ;
@@ -4588,14 +4706,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Assert__ExpressionAssignment_1
+rule__Assert__ActualAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getAssertAccess().getExpressionExprParserRuleCall_1_0()); }
-	ruleExpr{ after(grammarAccess.getAssertAccess().getExpressionExprParserRuleCall_1_0()); }
+{ before(grammarAccess.getAssertAccess().getActualExprParserRuleCall_1_0()); }
+	ruleExpr{ after(grammarAccess.getAssertAccess().getActualExprParserRuleCall_1_0()); }
 )
 
 ;
@@ -4603,14 +4721,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Assert__ErrorMsgAssignment_2_1
+rule__Assert__ExpectedAssignment_3
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getAssertAccess().getErrorMsgExprParserRuleCall_2_1_0()); }
-	ruleExpr{ after(grammarAccess.getAssertAccess().getErrorMsgExprParserRuleCall_2_1_0()); }
+{ before(grammarAccess.getAssertAccess().getExpectedExprParserRuleCall_3_0()); }
+	ruleExpr{ after(grammarAccess.getAssertAccess().getExpectedExprParserRuleCall_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Assert__MsgAssignment_4_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getAssertAccess().getMsgExprParserRuleCall_4_1_0()); }
+	ruleExpr{ after(grammarAccess.getAssertAccess().getMsgExprParserRuleCall_4_1_0()); }
 )
 
 ;

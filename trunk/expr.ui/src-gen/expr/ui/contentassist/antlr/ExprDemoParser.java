@@ -37,7 +37,7 @@ public class ExprDemoParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getModelAccess().getAlternatives_3(), "rule__Model__Alternatives_3");
+					put(grammarAccess.getModelAccess().getAlternatives_4(), "rule__Model__Alternatives_4");
 					put(grammarAccess.getElementAccess().getAlternatives(), "rule__Element__Alternatives");
 					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getPrimitiveTypeAccess().getAlternatives(), "rule__PrimitiveType__Alternatives");
@@ -52,7 +52,7 @@ public class ExprDemoParser extends AbstractContentAssistParser {
 					put(grammarAccess.getReturnAccess().getGroup(), "rule__Return__Group__0");
 					put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 					put(grammarAccess.getAssertAccess().getGroup(), "rule__Assert__Group__0");
-					put(grammarAccess.getAssertAccess().getGroup_2(), "rule__Assert__Group_2__0");
+					put(grammarAccess.getAssertAccess().getGroup_4(), "rule__Assert__Group_4__0");
 					put(grammarAccess.getEnumDeclAccess().getGroup(), "rule__EnumDecl__Group__0");
 					put(grammarAccess.getEnumLiteralAccess().getGroup(), "rule__EnumLiteral__Group__0");
 					put(grammarAccess.getVarDeclAccess().getGroup(), "rule__VarDecl__Group__0");
@@ -78,10 +78,11 @@ public class ExprDemoParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAtomicAccess().getGroup_2(), "rule__Atomic__Group_2__0");
 					put(grammarAccess.getQIDAccess().getGroup(), "rule__QID__Group__0");
 					put(grammarAccess.getQIDAccess().getGroup_1(), "rule__QID__Group_1__0");
-					put(grammarAccess.getModelAccess().getNameAssignment_1(), "rule__Model__NameAssignment_1");
-					put(grammarAccess.getModelAccess().getUsingsAssignment_2(), "rule__Model__UsingsAssignment_2");
-					put(grammarAccess.getModelAccess().getElementsAssignment_3_0(), "rule__Model__ElementsAssignment_3_0");
-					put(grammarAccess.getModelAccess().getFunctionsAssignment_3_1(), "rule__Model__FunctionsAssignment_3_1");
+					put(grammarAccess.getModelAccess().getIsTestedAssignment_0(), "rule__Model__IsTestedAssignment_0");
+					put(grammarAccess.getModelAccess().getNameAssignment_2(), "rule__Model__NameAssignment_2");
+					put(grammarAccess.getModelAccess().getUsingsAssignment_3(), "rule__Model__UsingsAssignment_3");
+					put(grammarAccess.getModelAccess().getElementsAssignment_4_0(), "rule__Model__ElementsAssignment_4_0");
+					put(grammarAccess.getModelAccess().getFunctionsAssignment_4_1(), "rule__Model__FunctionsAssignment_4_1");
 					put(grammarAccess.getUsingAccess().getImportedNamespaceAssignment_1(), "rule__Using__ImportedNamespaceAssignment_1");
 					put(grammarAccess.getFunctionDeclarationAccess().getTypeAssignment_2(), "rule__FunctionDeclaration__TypeAssignment_2");
 					put(grammarAccess.getFunctionDeclarationAccess().getNameAssignment_3(), "rule__FunctionDeclaration__NameAssignment_3");
@@ -91,8 +92,9 @@ public class ExprDemoParser extends AbstractContentAssistParser {
 					put(grammarAccess.getReturnAccess().getExprAssignment_1(), "rule__Return__ExprAssignment_1");
 					put(grammarAccess.getParameterAccess().getTypeAssignment_1(), "rule__Parameter__TypeAssignment_1");
 					put(grammarAccess.getParameterAccess().getNameAssignment_2(), "rule__Parameter__NameAssignment_2");
-					put(grammarAccess.getAssertAccess().getExpressionAssignment_1(), "rule__Assert__ExpressionAssignment_1");
-					put(grammarAccess.getAssertAccess().getErrorMsgAssignment_2_1(), "rule__Assert__ErrorMsgAssignment_2_1");
+					put(grammarAccess.getAssertAccess().getActualAssignment_1(), "rule__Assert__ActualAssignment_1");
+					put(grammarAccess.getAssertAccess().getExpectedAssignment_3(), "rule__Assert__ExpectedAssignment_3");
+					put(grammarAccess.getAssertAccess().getMsgAssignment_4_1(), "rule__Assert__MsgAssignment_4_1");
 					put(grammarAccess.getEnumDeclAccess().getNameAssignment_1(), "rule__EnumDecl__NameAssignment_1");
 					put(grammarAccess.getEnumDeclAccess().getLiteralsAssignment_3(), "rule__EnumDecl__LiteralsAssignment_3");
 					put(grammarAccess.getEnumLiteralAccess().getNameAssignment_1(), "rule__EnumLiteral__NameAssignment_1");
