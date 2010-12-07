@@ -84,9 +84,24 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter caseUsing(Using object)
+      {
+        return createUsingAdapter();
+      }
+      @Override
       public Adapter caseElement(Element object)
       {
         return createElementAdapter();
+      }
+      @Override
+      public Adapter caseSymbol(Symbol object)
+      {
+        return createSymbolAdapter();
+      }
+      @Override
+      public Adapter caseReturn(Return object)
+      {
+        return createReturnAdapter();
       }
       @Override
       public Adapter caseAssert(Assert object)
@@ -97,11 +112,6 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
       public Adapter caseEnumDecl(EnumDecl object)
       {
         return createEnumDeclAdapter();
-      }
-      @Override
-      public Adapter caseSymbol(Symbol object)
-      {
-        return createSymbolAdapter();
       }
       @Override
       public Adapter caseType(Type object)
@@ -152,6 +162,16 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseFunctionDeclaration(FunctionDeclaration object)
+      {
+        return createFunctionDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseParameter(Parameter object)
+      {
+        return createParameterAdapter();
       }
       @Override
       public Adapter caseEnumLiteral(EnumLiteral object)
@@ -241,6 +261,21 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link expr.exprDemo.Using <em>Using</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see expr.exprDemo.Using
+   * @generated
+   */
+  public Adapter createUsingAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link expr.exprDemo.Element <em>Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -251,6 +286,36 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link expr.exprDemo.Symbol <em>Symbol</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see expr.exprDemo.Symbol
+   * @generated
+   */
+  public Adapter createSymbolAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link expr.exprDemo.Return <em>Return</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see expr.exprDemo.Return
+   * @generated
+   */
+  public Adapter createReturnAdapter()
   {
     return null;
   }
@@ -281,21 +346,6 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEnumDeclAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link expr.exprDemo.Symbol <em>Symbol</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see expr.exprDemo.Symbol
-   * @generated
-   */
-  public Adapter createSymbolAdapter()
   {
     return null;
   }
@@ -446,6 +496,36 @@ public class ExprDemoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link expr.exprDemo.FunctionDeclaration <em>Function Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see expr.exprDemo.FunctionDeclaration
+   * @generated
+   */
+  public Adapter createFunctionDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link expr.exprDemo.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see expr.exprDemo.Parameter
+   * @generated
+   */
+  public Adapter createParameterAdapter()
   {
     return null;
   }

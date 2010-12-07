@@ -80,13 +80,31 @@ public interface ExprDemoPackage extends EPackage
   int MODEL__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Usings</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__USINGS = 1;
+
+  /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__ELEMENTS = 1;
+  int MODEL__ELEMENTS = 2;
+
+  /**
+   * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__FUNCTIONS = 3;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -95,7 +113,35 @@ public interface ExprDemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 2;
+  int MODEL_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link expr.exprDemo.impl.UsingImpl <em>Using</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see expr.exprDemo.impl.UsingImpl
+   * @see expr.exprDemo.impl.ExprDemoPackageImpl#getUsing()
+   * @generated
+   */
+  int USING = 1;
+
+  /**
+   * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USING__IMPORTED_NAMESPACE = 0;
+
+  /**
+   * The number of structural features of the '<em>Using</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USING_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link expr.exprDemo.impl.ElementImpl <em>Element</em>}' class.
@@ -105,7 +151,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getElement()
    * @generated
    */
-  int ELEMENT = 1;
+  int ELEMENT = 2;
 
   /**
    * The number of structural features of the '<em>Element</em>' class.
@@ -117,6 +163,62 @@ public interface ExprDemoPackage extends EPackage
   int ELEMENT_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link expr.exprDemo.impl.SymbolImpl <em>Symbol</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see expr.exprDemo.impl.SymbolImpl
+   * @see expr.exprDemo.impl.ExprDemoPackageImpl#getSymbol()
+   * @generated
+   */
+  int SYMBOL = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYMBOL__NAME = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Symbol</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYMBOL_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link expr.exprDemo.impl.ReturnImpl <em>Return</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see expr.exprDemo.impl.ReturnImpl
+   * @see expr.exprDemo.impl.ExprDemoPackageImpl#getReturn()
+   * @generated
+   */
+  int RETURN = 4;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN__EXPR = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Return</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link expr.exprDemo.impl.AssertImpl <em>Assert</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -124,7 +226,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getAssert()
    * @generated
    */
-  int ASSERT = 2;
+  int ASSERT = 5;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -161,7 +263,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getEnumDecl()
    * @generated
    */
-  int ENUM_DECL = 3;
+  int ENUM_DECL = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -191,34 +293,6 @@ public interface ExprDemoPackage extends EPackage
   int ENUM_DECL_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link expr.exprDemo.impl.SymbolImpl <em>Symbol</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see expr.exprDemo.impl.SymbolImpl
-   * @see expr.exprDemo.impl.ExprDemoPackageImpl#getSymbol()
-   * @generated
-   */
-  int SYMBOL = 4;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SYMBOL__NAME = ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Symbol</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SYMBOL_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link expr.exprDemo.impl.TypeImpl <em>Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -226,7 +300,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getType()
    * @generated
    */
-  int TYPE = 5;
+  int TYPE = 7;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -245,7 +319,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getPrimitiveType()
    * @generated
    */
-  int PRIMITIVE_TYPE = 6;
+  int PRIMITIVE_TYPE = 8;
 
   /**
    * The number of structural features of the '<em>Primitive Type</em>' class.
@@ -264,7 +338,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getArrayType()
    * @generated
    */
-  int ARRAY_TYPE = 7;
+  int ARRAY_TYPE = 9;
 
   /**
    * The feature id for the '<em><b>Base Type</b></em>' containment reference.
@@ -292,7 +366,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getEnumType()
    * @generated
    */
-  int ENUM_TYPE = 8;
+  int ENUM_TYPE = 10;
 
   /**
    * The feature id for the '<em><b>Enum Ref</b></em>' reference.
@@ -320,7 +394,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getIntType()
    * @generated
    */
-  int INT_TYPE = 9;
+  int INT_TYPE = 11;
 
   /**
    * The number of structural features of the '<em>Int Type</em>' class.
@@ -339,7 +413,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getBoolType()
    * @generated
    */
-  int BOOL_TYPE = 10;
+  int BOOL_TYPE = 12;
 
   /**
    * The number of structural features of the '<em>Bool Type</em>' class.
@@ -358,7 +432,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getFloatType()
    * @generated
    */
-  int FLOAT_TYPE = 11;
+  int FLOAT_TYPE = 13;
 
   /**
    * The number of structural features of the '<em>Float Type</em>' class.
@@ -377,7 +451,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getStringType()
    * @generated
    */
-  int STRING_TYPE = 12;
+  int STRING_TYPE = 14;
 
   /**
    * The number of structural features of the '<em>String Type</em>' class.
@@ -396,7 +470,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getExpr()
    * @generated
    */
-  int EXPR = 13;
+  int EXPR = 15;
 
   /**
    * The number of structural features of the '<em>Expr</em>' class.
@@ -415,7 +489,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 14;
+  int EXPRESSION = 16;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -427,6 +501,98 @@ public interface ExprDemoPackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = EXPR_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link expr.exprDemo.impl.FunctionDeclarationImpl <em>Function Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see expr.exprDemo.impl.FunctionDeclarationImpl
+   * @see expr.exprDemo.impl.ExprDemoPackageImpl#getFunctionDeclaration()
+   * @generated
+   */
+  int FUNCTION_DECLARATION = 17;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DECLARATION__NAME = SYMBOL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DECLARATION__TYPE = SYMBOL_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DECLARATION__PARAMS = SYMBOL_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DECLARATION__ELEMENTS = SYMBOL_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Function Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DECLARATION_FEATURE_COUNT = SYMBOL_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link expr.exprDemo.impl.ParameterImpl <em>Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see expr.exprDemo.impl.ParameterImpl
+   * @see expr.exprDemo.impl.ExprDemoPackageImpl#getParameter()
+   * @generated
+   */
+  int PARAMETER = 18;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__NAME = SYMBOL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__TYPE = SYMBOL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_FEATURE_COUNT = SYMBOL_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link expr.exprDemo.impl.EnumLiteralImpl <em>Enum Literal</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -434,7 +600,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getEnumLiteral()
    * @generated
    */
-  int ENUM_LITERAL = 15;
+  int ENUM_LITERAL = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -462,7 +628,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getVarDecl()
    * @generated
    */
-  int VAR_DECL = 16;
+  int VAR_DECL = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -508,7 +674,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getFormula()
    * @generated
    */
-  int FORMULA = 17;
+  int FORMULA = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -554,7 +720,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getEquals()
    * @generated
    */
-  int EQUALS = 18;
+  int EQUALS = 22;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -591,7 +757,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getPlus()
    * @generated
    */
-  int PLUS = 19;
+  int PLUS = 23;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -628,7 +794,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getMulti()
    * @generated
    */
-  int MULTI = 20;
+  int MULTI = 24;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -665,7 +831,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getArrayAccess()
    * @generated
    */
-  int ARRAY_ACCESS = 21;
+  int ARRAY_ACCESS = 25;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -702,7 +868,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getSymbolRef()
    * @generated
    */
-  int SYMBOL_REF = 22;
+  int SYMBOL_REF = 26;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' reference.
@@ -714,13 +880,22 @@ public interface ExprDemoPackage extends EPackage
   int SYMBOL_REF__SYMBOL = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Actuals</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYMBOL_REF__ACTUALS = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Symbol Ref</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SYMBOL_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int SYMBOL_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link expr.exprDemo.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
@@ -730,7 +905,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getNumberLiteral()
    * @generated
    */
-  int NUMBER_LITERAL = 23;
+  int NUMBER_LITERAL = 27;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -758,7 +933,7 @@ public interface ExprDemoPackage extends EPackage
    * @see expr.exprDemo.impl.ExprDemoPackageImpl#getStringLiteral()
    * @generated
    */
-  int STRING_LITERAL = 24;
+  int STRING_LITERAL = 28;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -801,6 +976,17 @@ public interface ExprDemoPackage extends EPackage
   EAttribute getModel_Name();
 
   /**
+   * Returns the meta object for the containment reference list '{@link expr.exprDemo.Model#getUsings <em>Usings</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Usings</em>'.
+   * @see expr.exprDemo.Model#getUsings()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Usings();
+
+  /**
    * Returns the meta object for the containment reference list '{@link expr.exprDemo.Model#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -812,6 +998,38 @@ public interface ExprDemoPackage extends EPackage
   EReference getModel_Elements();
 
   /**
+   * Returns the meta object for the containment reference list '{@link expr.exprDemo.Model#getFunctions <em>Functions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Functions</em>'.
+   * @see expr.exprDemo.Model#getFunctions()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Functions();
+
+  /**
+   * Returns the meta object for class '{@link expr.exprDemo.Using <em>Using</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Using</em>'.
+   * @see expr.exprDemo.Using
+   * @generated
+   */
+  EClass getUsing();
+
+  /**
+   * Returns the meta object for the attribute '{@link expr.exprDemo.Using#getImportedNamespace <em>Imported Namespace</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Imported Namespace</em>'.
+   * @see expr.exprDemo.Using#getImportedNamespace()
+   * @see #getUsing()
+   * @generated
+   */
+  EAttribute getUsing_ImportedNamespace();
+
+  /**
    * Returns the meta object for class '{@link expr.exprDemo.Element <em>Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -820,6 +1038,48 @@ public interface ExprDemoPackage extends EPackage
    * @generated
    */
   EClass getElement();
+
+  /**
+   * Returns the meta object for class '{@link expr.exprDemo.Symbol <em>Symbol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Symbol</em>'.
+   * @see expr.exprDemo.Symbol
+   * @generated
+   */
+  EClass getSymbol();
+
+  /**
+   * Returns the meta object for the attribute '{@link expr.exprDemo.Symbol#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see expr.exprDemo.Symbol#getName()
+   * @see #getSymbol()
+   * @generated
+   */
+  EAttribute getSymbol_Name();
+
+  /**
+   * Returns the meta object for class '{@link expr.exprDemo.Return <em>Return</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Return</em>'.
+   * @see expr.exprDemo.Return
+   * @generated
+   */
+  EClass getReturn();
+
+  /**
+   * Returns the meta object for the containment reference '{@link expr.exprDemo.Return#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see expr.exprDemo.Return#getExpr()
+   * @see #getReturn()
+   * @generated
+   */
+  EReference getReturn_Expr();
 
   /**
    * Returns the meta object for class '{@link expr.exprDemo.Assert <em>Assert</em>}'.
@@ -884,27 +1144,6 @@ public interface ExprDemoPackage extends EPackage
    * @generated
    */
   EReference getEnumDecl_Literals();
-
-  /**
-   * Returns the meta object for class '{@link expr.exprDemo.Symbol <em>Symbol</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Symbol</em>'.
-   * @see expr.exprDemo.Symbol
-   * @generated
-   */
-  EClass getSymbol();
-
-  /**
-   * Returns the meta object for the attribute '{@link expr.exprDemo.Symbol#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see expr.exprDemo.Symbol#getName()
-   * @see #getSymbol()
-   * @generated
-   */
-  EAttribute getSymbol_Name();
 
   /**
    * Returns the meta object for class '{@link expr.exprDemo.Type <em>Type</em>}'.
@@ -1027,6 +1266,70 @@ public interface ExprDemoPackage extends EPackage
    * @generated
    */
   EClass getExpression();
+
+  /**
+   * Returns the meta object for class '{@link expr.exprDemo.FunctionDeclaration <em>Function Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function Declaration</em>'.
+   * @see expr.exprDemo.FunctionDeclaration
+   * @generated
+   */
+  EClass getFunctionDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link expr.exprDemo.FunctionDeclaration#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see expr.exprDemo.FunctionDeclaration#getType()
+   * @see #getFunctionDeclaration()
+   * @generated
+   */
+  EReference getFunctionDeclaration_Type();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link expr.exprDemo.FunctionDeclaration#getParams <em>Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Params</em>'.
+   * @see expr.exprDemo.FunctionDeclaration#getParams()
+   * @see #getFunctionDeclaration()
+   * @generated
+   */
+  EReference getFunctionDeclaration_Params();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link expr.exprDemo.FunctionDeclaration#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see expr.exprDemo.FunctionDeclaration#getElements()
+   * @see #getFunctionDeclaration()
+   * @generated
+   */
+  EReference getFunctionDeclaration_Elements();
+
+  /**
+   * Returns the meta object for class '{@link expr.exprDemo.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parameter</em>'.
+   * @see expr.exprDemo.Parameter
+   * @generated
+   */
+  EClass getParameter();
+
+  /**
+   * Returns the meta object for the containment reference '{@link expr.exprDemo.Parameter#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see expr.exprDemo.Parameter#getType()
+   * @see #getParameter()
+   * @generated
+   */
+  EReference getParameter_Type();
 
   /**
    * Returns the meta object for class '{@link expr.exprDemo.EnumLiteral <em>Enum Literal</em>}'.
@@ -1252,6 +1555,17 @@ public interface ExprDemoPackage extends EPackage
   EReference getSymbolRef_Symbol();
 
   /**
+   * Returns the meta object for the containment reference list '{@link expr.exprDemo.SymbolRef#getActuals <em>Actuals</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Actuals</em>'.
+   * @see expr.exprDemo.SymbolRef#getActuals()
+   * @see #getSymbolRef()
+   * @generated
+   */
+  EReference getSymbolRef_Actuals();
+
+  /**
    * Returns the meta object for class '{@link expr.exprDemo.NumberLiteral <em>Number Literal</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1335,12 +1649,46 @@ public interface ExprDemoPackage extends EPackage
     EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
 
     /**
+     * The meta object literal for the '<em><b>Usings</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__USINGS = eINSTANCE.getModel_Usings();
+
+    /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
+
+    /**
+     * The meta object literal for the '<em><b>Functions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__FUNCTIONS = eINSTANCE.getModel_Functions();
+
+    /**
+     * The meta object literal for the '{@link expr.exprDemo.impl.UsingImpl <em>Using</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see expr.exprDemo.impl.UsingImpl
+     * @see expr.exprDemo.impl.ExprDemoPackageImpl#getUsing()
+     * @generated
+     */
+    EClass USING = eINSTANCE.getUsing();
+
+    /**
+     * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USING__IMPORTED_NAMESPACE = eINSTANCE.getUsing_ImportedNamespace();
 
     /**
      * The meta object literal for the '{@link expr.exprDemo.impl.ElementImpl <em>Element</em>}' class.
@@ -1351,6 +1699,42 @@ public interface ExprDemoPackage extends EPackage
      * @generated
      */
     EClass ELEMENT = eINSTANCE.getElement();
+
+    /**
+     * The meta object literal for the '{@link expr.exprDemo.impl.SymbolImpl <em>Symbol</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see expr.exprDemo.impl.SymbolImpl
+     * @see expr.exprDemo.impl.ExprDemoPackageImpl#getSymbol()
+     * @generated
+     */
+    EClass SYMBOL = eINSTANCE.getSymbol();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SYMBOL__NAME = eINSTANCE.getSymbol_Name();
+
+    /**
+     * The meta object literal for the '{@link expr.exprDemo.impl.ReturnImpl <em>Return</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see expr.exprDemo.impl.ReturnImpl
+     * @see expr.exprDemo.impl.ExprDemoPackageImpl#getReturn()
+     * @generated
+     */
+    EClass RETURN = eINSTANCE.getReturn();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RETURN__EXPR = eINSTANCE.getReturn_Expr();
 
     /**
      * The meta object literal for the '{@link expr.exprDemo.impl.AssertImpl <em>Assert</em>}' class.
@@ -1403,24 +1787,6 @@ public interface ExprDemoPackage extends EPackage
      * @generated
      */
     EReference ENUM_DECL__LITERALS = eINSTANCE.getEnumDecl_Literals();
-
-    /**
-     * The meta object literal for the '{@link expr.exprDemo.impl.SymbolImpl <em>Symbol</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see expr.exprDemo.impl.SymbolImpl
-     * @see expr.exprDemo.impl.ExprDemoPackageImpl#getSymbol()
-     * @generated
-     */
-    EClass SYMBOL = eINSTANCE.getSymbol();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SYMBOL__NAME = eINSTANCE.getSymbol_Name();
 
     /**
      * The meta object literal for the '{@link expr.exprDemo.impl.TypeImpl <em>Type</em>}' class.
@@ -1537,6 +1903,58 @@ public interface ExprDemoPackage extends EPackage
      * @generated
      */
     EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '{@link expr.exprDemo.impl.FunctionDeclarationImpl <em>Function Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see expr.exprDemo.impl.FunctionDeclarationImpl
+     * @see expr.exprDemo.impl.ExprDemoPackageImpl#getFunctionDeclaration()
+     * @generated
+     */
+    EClass FUNCTION_DECLARATION = eINSTANCE.getFunctionDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_DECLARATION__TYPE = eINSTANCE.getFunctionDeclaration_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_DECLARATION__PARAMS = eINSTANCE.getFunctionDeclaration_Params();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_DECLARATION__ELEMENTS = eINSTANCE.getFunctionDeclaration_Elements();
+
+    /**
+     * The meta object literal for the '{@link expr.exprDemo.impl.ParameterImpl <em>Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see expr.exprDemo.impl.ParameterImpl
+     * @see expr.exprDemo.impl.ExprDemoPackageImpl#getParameter()
+     * @generated
+     */
+    EClass PARAMETER = eINSTANCE.getParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
 
     /**
      * The meta object literal for the '{@link expr.exprDemo.impl.EnumLiteralImpl <em>Enum Literal</em>}' class.
@@ -1721,6 +2139,14 @@ public interface ExprDemoPackage extends EPackage
      * @generated
      */
     EReference SYMBOL_REF__SYMBOL = eINSTANCE.getSymbolRef_Symbol();
+
+    /**
+     * The meta object literal for the '<em><b>Actuals</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SYMBOL_REF__ACTUALS = eINSTANCE.getSymbolRef_Actuals();
 
     /**
      * The meta object literal for the '{@link expr.exprDemo.impl.NumberLiteralImpl <em>Number Literal</em>}' class.

@@ -36,6 +36,15 @@ public interface ExprDemoFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Using</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Using</em>'.
+   * @generated
+   */
+  Using createUsing();
+
+  /**
    * Returns a new object of class '<em>Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -43,6 +52,24 @@ public interface ExprDemoFactory extends EFactory
    * @generated
    */
   Element createElement();
+
+  /**
+   * Returns a new object of class '<em>Symbol</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Symbol</em>'.
+   * @generated
+   */
+  Symbol createSymbol();
+
+  /**
+   * Returns a new object of class '<em>Return</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Return</em>'.
+   * @generated
+   */
+  Return createReturn();
 
   /**
    * Returns a new object of class '<em>Assert</em>'.
@@ -61,15 +88,6 @@ public interface ExprDemoFactory extends EFactory
    * @generated
    */
   EnumDecl createEnumDecl();
-
-  /**
-   * Returns a new object of class '<em>Symbol</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Symbol</em>'.
-   * @generated
-   */
-  Symbol createSymbol();
 
   /**
    * Returns a new object of class '<em>Type</em>'.
@@ -160,6 +178,24 @@ public interface ExprDemoFactory extends EFactory
    * @generated
    */
   Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Function Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Declaration</em>'.
+   * @generated
+   */
+  FunctionDeclaration createFunctionDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter</em>'.
+   * @generated
+   */
+  Parameter createParameter();
 
   /**
    * Returns a new object of class '<em>Enum Literal</em>'.

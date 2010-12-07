@@ -1,4 +1,9 @@
 * remove Xtext Dependencies
+* parameter listen vergleichen (positionsbasiert)
+* null-tolerantes TCT
+* ggfs. isComOrde auch nur die Typen übergeben
+
+
 
 * constrainFeatureType auch mit Subtypes?
 * compute common type auch mit custom code

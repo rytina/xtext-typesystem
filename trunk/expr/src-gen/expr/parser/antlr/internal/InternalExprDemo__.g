@@ -8,49 +8,55 @@ import org.eclipse.xtext.parser.antlr.Lexer;
 }
 
 T12 : 'model' ;
-T13 : 'assert' ;
-T14 : 'error' ;
-T15 : 'enum' ;
-T16 : '{' ;
-T17 : '}' ;
-T18 : 'var' ;
-T19 : '=' ;
-T20 : ';' ;
-T21 : 'array' ;
-T22 : '[' ;
-T23 : ']' ;
-T24 : 'int' ;
-T25 : 'bool' ;
-T26 : 'float' ;
-T27 : 'string' ;
-T28 : 'calc' ;
-T29 : '==' ;
-T30 : '+' ;
-T31 : '*' ;
-T32 : '.' ;
+T13 : 'using' ;
+T14 : '.' ;
+T15 : '*' ;
+T16 : 'function' ;
+T17 : '(' ;
+T18 : ',' ;
+T19 : ')' ;
+T20 : '{' ;
+T21 : '}' ;
+T22 : 'return' ;
+T23 : ';' ;
+T24 : 'assert' ;
+T25 : 'error' ;
+T26 : 'enum' ;
+T27 : 'var' ;
+T28 : '=' ;
+T29 : 'array' ;
+T30 : '[' ;
+T31 : ']' ;
+T32 : 'int' ;
+T33 : 'bool' ;
+T34 : 'float' ;
+T35 : 'string' ;
+T36 : 'calc' ;
+T37 : '==' ;
+T38 : '+' ;
 
-// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 1547
+// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 2074
 RULE_NUMBER : ('0'..'9')* ('.' ('0'..'9')+)?;
 
-// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 1549
+// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 2076
 RULE_INT : '$$$don\'t use this anymore$$$';
 
-// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 1551
+// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 2078
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 1553
+// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 2080
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 1555
+// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 2082
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 1557
+// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 2084
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 1559
+// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 2086
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 1561
+// $ANTLR src "../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g" 2088
 RULE_ANY_OTHER : .;
 
 

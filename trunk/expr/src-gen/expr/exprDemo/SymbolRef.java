@@ -6,6 +6,7 @@
  */
 package expr.exprDemo;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,6 +17,7 @@ package expr.exprDemo;
  * The following features are supported:
  * <ul>
  *   <li>{@link expr.exprDemo.SymbolRef#getSymbol <em>Symbol</em>}</li>
+ *   <li>{@link expr.exprDemo.SymbolRef#getActuals <em>Actuals</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,5 +52,21 @@ public interface SymbolRef extends Expression
    * @generated
    */
   void setSymbol(Symbol value);
+
+  /**
+   * Returns the value of the '<em><b>Actuals</b></em>' containment reference list.
+   * The list contents are of type {@link expr.exprDemo.Expr}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Actuals</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Actuals</em>' containment reference list.
+   * @see expr.exprDemo.ExprDemoPackage#getSymbolRef_Actuals()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Expr> getActuals();
 
 } // SymbolRef
