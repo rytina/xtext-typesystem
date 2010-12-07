@@ -71,13 +71,22 @@ public interface ExprDemoPackage extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Is Tested</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__IS_TESTED = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__NAME = 0;
+  int MODEL__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Usings</b></em>' containment reference list.
@@ -86,7 +95,7 @@ public interface ExprDemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__USINGS = 1;
+  int MODEL__USINGS = 2;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -95,7 +104,7 @@ public interface ExprDemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__ELEMENTS = 2;
+  int MODEL__ELEMENTS = 3;
 
   /**
    * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -104,7 +113,7 @@ public interface ExprDemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__FUNCTIONS = 3;
+  int MODEL__FUNCTIONS = 4;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -113,7 +122,7 @@ public interface ExprDemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 4;
+  int MODEL_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link expr.exprDemo.impl.UsingImpl <em>Using</em>}' class.
@@ -229,22 +238,31 @@ public interface ExprDemoPackage extends EPackage
   int ASSERT = 5;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Actual</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSERT__EXPRESSION = ELEMENT_FEATURE_COUNT + 0;
+  int ASSERT__ACTUAL = ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Error Msg</b></em>' containment reference.
+   * The feature id for the '<em><b>Expected</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSERT__ERROR_MSG = ELEMENT_FEATURE_COUNT + 1;
+  int ASSERT__EXPECTED = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Msg</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSERT__MSG = ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Assert</em>' class.
@@ -253,7 +271,7 @@ public interface ExprDemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSERT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+  int ASSERT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link expr.exprDemo.impl.EnumDeclImpl <em>Enum Decl</em>}' class.
@@ -965,6 +983,17 @@ public interface ExprDemoPackage extends EPackage
   EClass getModel();
 
   /**
+   * Returns the meta object for the attribute '{@link expr.exprDemo.Model#isIsTested <em>Is Tested</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Tested</em>'.
+   * @see expr.exprDemo.Model#isIsTested()
+   * @see #getModel()
+   * @generated
+   */
+  EAttribute getModel_IsTested();
+
+  /**
    * Returns the meta object for the attribute '{@link expr.exprDemo.Model#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1092,26 +1121,37 @@ public interface ExprDemoPackage extends EPackage
   EClass getAssert();
 
   /**
-   * Returns the meta object for the containment reference '{@link expr.exprDemo.Assert#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the containment reference '{@link expr.exprDemo.Assert#getActual <em>Actual</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see expr.exprDemo.Assert#getExpression()
+   * @return the meta object for the containment reference '<em>Actual</em>'.
+   * @see expr.exprDemo.Assert#getActual()
    * @see #getAssert()
    * @generated
    */
-  EReference getAssert_Expression();
+  EReference getAssert_Actual();
 
   /**
-   * Returns the meta object for the containment reference '{@link expr.exprDemo.Assert#getErrorMsg <em>Error Msg</em>}'.
+   * Returns the meta object for the containment reference '{@link expr.exprDemo.Assert#getExpected <em>Expected</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Error Msg</em>'.
-   * @see expr.exprDemo.Assert#getErrorMsg()
+   * @return the meta object for the containment reference '<em>Expected</em>'.
+   * @see expr.exprDemo.Assert#getExpected()
    * @see #getAssert()
    * @generated
    */
-  EReference getAssert_ErrorMsg();
+  EReference getAssert_Expected();
+
+  /**
+   * Returns the meta object for the containment reference '{@link expr.exprDemo.Assert#getMsg <em>Msg</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Msg</em>'.
+   * @see expr.exprDemo.Assert#getMsg()
+   * @see #getAssert()
+   * @generated
+   */
+  EReference getAssert_Msg();
 
   /**
    * Returns the meta object for class '{@link expr.exprDemo.EnumDecl <em>Enum Decl</em>}'.
@@ -1641,6 +1681,14 @@ public interface ExprDemoPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
+     * The meta object literal for the '<em><b>Is Tested</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL__IS_TESTED = eINSTANCE.getModel_IsTested();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1747,20 +1795,28 @@ public interface ExprDemoPackage extends EPackage
     EClass ASSERT = eINSTANCE.getAssert();
 
     /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Actual</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ASSERT__EXPRESSION = eINSTANCE.getAssert_Expression();
+    EReference ASSERT__ACTUAL = eINSTANCE.getAssert_Actual();
 
     /**
-     * The meta object literal for the '<em><b>Error Msg</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Expected</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ASSERT__ERROR_MSG = eINSTANCE.getAssert_ErrorMsg();
+    EReference ASSERT__EXPECTED = eINSTANCE.getAssert_Expected();
+
+    /**
+     * The meta object literal for the '<em><b>Msg</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSERT__MSG = eINSTANCE.getAssert_Msg();
 
     /**
      * The meta object literal for the '{@link expr.exprDemo.impl.EnumDeclImpl <em>Enum Decl</em>}' class.

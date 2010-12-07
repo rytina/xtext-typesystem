@@ -1,5 +1,7 @@
 package expr.validation;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
@@ -9,14 +11,18 @@ import com.google.inject.Inject;
 import de.itemis.xtext.typesystem.ITypesystem;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
 import de.itemis.xtext.typesystem.util.Utils;
+import expr.exprDemo.Assert;
+import expr.exprDemo.Element;
 import expr.exprDemo.Expr;
 import expr.exprDemo.ExprDemoPackage;
+import expr.exprDemo.Formula;
 import expr.exprDemo.FunctionDeclaration;
+import expr.exprDemo.Model;
 import expr.exprDemo.Parameter;
 import expr.exprDemo.Return;
 import expr.exprDemo.Symbol;
 import expr.exprDemo.SymbolRef;
-import expr.services.ExprDemoGrammarAccess.FunctionDeclarationElements;
+import expr.interpreter.ExprModelInterpreter;
  
 
 public class ExprDemoJavaValidator extends AbstractExprDemoJavaValidator {
@@ -44,6 +50,15 @@ public class ExprDemoJavaValidator extends AbstractExprDemoJavaValidator {
 	public void checkReturnOnlyInFunction( Return r ) {
 		if ( Utils.ancestor(r, FunctionDeclaration.class) == null ) {
 			error( "return can only be used inside of funtctions", r, -1);
+		}
+	}
+	
+	@Check
+	public void runAssertStatements( Model m ) {
+		if ( !m.isIsTested() ) return;
+		Map<EObject, String> errors = new ExprModelInterpreter().runModel(m);
+		for (EObject o: errors.keySet()) {
+			error( errors.get(o), o, -1 );
 		}
 	}
 	
@@ -84,6 +99,21 @@ public class ExprDemoJavaValidator extends AbstractExprDemoJavaValidator {
 		}
 	}
 	
+	@Check
+	public void checkTestCoverage( Formula f )  {
+		Model m = Utils.ancestor(f, Model.class);
+		if ( !m.isIsTested() ) return;
+		EList<Element> elements = m.getElements();
+		for (Element element : elements) {
+			if ( element instanceof Assert ) {
+				Expr actual = ((Assert) element).getActual();
+				if ( actual instanceof SymbolRef ) {
+					if ( ((SymbolRef) actual).getSymbol() == f ) return; // alles ok!
+				}
+			}
+		}
+		warning("no test found for this formula", f, -1);
+	}	
 	
 
 	

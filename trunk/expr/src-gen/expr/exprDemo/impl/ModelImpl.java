@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link expr.exprDemo.impl.ModelImpl#isIsTested <em>Is Tested</em>}</li>
  *   <li>{@link expr.exprDemo.impl.ModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link expr.exprDemo.impl.ModelImpl#getUsings <em>Usings</em>}</li>
  *   <li>{@link expr.exprDemo.impl.ModelImpl#getElements <em>Elements</em>}</li>
@@ -46,6 +47,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
+  /**
+   * The default value of the '{@link #isIsTested() <em>Is Tested</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsTested()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean IS_TESTED_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIsTested() <em>Is Tested</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsTested()
+   * @generated
+   * @ordered
+   */
+  protected boolean isTested = IS_TESTED_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -115,6 +136,29 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EClass eStaticClass()
   {
     return ExprDemoPackage.Literals.MODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isIsTested()
+  {
+    return isTested;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIsTested(boolean newIsTested)
+  {
+    boolean oldIsTested = isTested;
+    isTested = newIsTested;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ExprDemoPackage.MODEL__IS_TESTED, oldIsTested, isTested));
   }
 
   /**
@@ -212,6 +256,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case ExprDemoPackage.MODEL__IS_TESTED:
+        return isIsTested();
       case ExprDemoPackage.MODEL__NAME:
         return getName();
       case ExprDemoPackage.MODEL__USINGS:
@@ -235,6 +281,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case ExprDemoPackage.MODEL__IS_TESTED:
+        setIsTested((Boolean)newValue);
+        return;
       case ExprDemoPackage.MODEL__NAME:
         setName((String)newValue);
         return;
@@ -264,6 +313,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case ExprDemoPackage.MODEL__IS_TESTED:
+        setIsTested(IS_TESTED_EDEFAULT);
+        return;
       case ExprDemoPackage.MODEL__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -290,6 +342,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case ExprDemoPackage.MODEL__IS_TESTED:
+        return isTested != IS_TESTED_EDEFAULT;
       case ExprDemoPackage.MODEL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ExprDemoPackage.MODEL__USINGS:
@@ -313,7 +367,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (isTested: ");
+    result.append(isTested);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

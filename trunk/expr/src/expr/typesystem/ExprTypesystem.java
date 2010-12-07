@@ -115,9 +115,16 @@ public class ExprTypesystem extends DefaultTypesystem {
 			/* --------------------------------------------------
 			 * ASSERT
 			 */
-			ensureFeatureType(lang.getAssert(), lang.getAssert_Expression(), lang.getBoolType());
-			ensureFeatureType(lang.getAssert(), lang.getAssert_ErrorMsg(), lang.getStringType());
-			useFixedType(lang.getEquals(), lang.getBoolType());
+			/* --------------------------------------------------
+			 * ASSERT
+			 */
+			ensureOrderedCompatibility(lang.getAssert(), 
+						lang.getAssert_Actual(), 
+						lang.getAssert_Expected());
+			
+			ensureFeatureType(lang.getAssert(), 
+						lang.getAssert_Msg(), 
+						lang.getStringType());			
 			
 
 			/* --------------------------------------------------
@@ -142,7 +149,7 @@ public class ExprTypesystem extends DefaultTypesystem {
 	
 	// the type of a number literal depends on whether it has a dot in it
 	public EObject type( NumberLiteral l, TypeCalculationTrace trace ) {
-		if ( l.getValue().toString().indexOf(".") > 0 ) {
+		if ( l.getValue().indexOf(".") > 0 ) {
 			return Utils.create(lang.getFloatType());
 		} else {
 			return Utils.create(lang.getIntType());
