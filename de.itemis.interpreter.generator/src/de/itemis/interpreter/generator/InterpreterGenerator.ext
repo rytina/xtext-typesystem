@@ -1,0 +1,12 @@
+import org::eclipse::xtext;
+
+Collection[String] statementLikeClasses(): 
+  	JAVA de.itemis.interpreter.generator.InterpreterGenerator.statementLikeClasses();
+  	
+Collection[String] expressionLikeClasses(): 
+  	JAVA de.itemis.interpreter.generator.InterpreterGenerator.expressionLikeClasses();  	
+  	
+String metaclassPackage(): 
+  	JAVA de.itemis.interpreter.generator.InterpreterGenerator.metaclassPackage();  	
+  	
+  	
