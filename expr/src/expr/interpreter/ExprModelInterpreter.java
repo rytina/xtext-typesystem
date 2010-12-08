@@ -6,6 +6,9 @@ import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
+import de.itemis.interpreter.MessageList;
+import de.itemis.interpreter.SymbolTable;
+
 import expr.exprDemo.Assert;
 import expr.exprDemo.Element;
 import expr.exprDemo.Expr;
@@ -21,14 +24,13 @@ import expr.exprDemo.VarDecl;
 
 public class ExprModelInterpreter {
 
-	private Map<EObject, Object> symtab = new HashMap<EObject, Object>();
+	private SymbolTable symtab = new SymbolTable();
+	private MessageList messages = new MessageList();
 	
-	private Map<EObject, String> errors = new HashMap<EObject, String>();
-	
-	public Map<EObject, String> runModel( Model m ) {
+	public MessageList runModel( Model m ) {
 		try {
 			execute(m.getElements());
-			return errors;
+			return messages;
 		} catch ( Throwable t ) {
 			t.printStackTrace();
 		}
@@ -59,11 +61,11 @@ public class ExprModelInterpreter {
 				Object expectedVal = eval( expected );
 				Object actualVal = eval( actual );
 				if ( !expectedVal.equals(actualVal) ) {
-					errors.put(element, "Failed; expected "+expectedVal+", but is "+actualVal );
+					messages.addError(element, "Failed; expected "+expectedVal+", but is "+actualVal );
 				}
 			}
 		} catch ( InterpreterKaputtException ex ) {
-			errors.put(ex.element, ex.getMessage());
+			messages.addError(ex.element, ex.getMessage());
 		}
 		
 	}
@@ -80,11 +82,11 @@ public class ExprModelInterpreter {
 			Double l = (Double)eval( ((Plus) e).getLeft());
 			Double r = (Double)eval( ((Plus) e).getRight());
 			if ( l == null ) {
-				errors.put(e, "left value is null");
+				messages.addError(e, "left value is null");
 				return 0;
 			}
 			if ( r == null ) {
-				errors.put(e, "right value is null");
+				messages.addError(e, "right value is null");
 				return 0;
 			}
 			return new Double( l.doubleValue() + r.doubleValue() );

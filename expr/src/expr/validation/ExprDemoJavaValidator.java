@@ -8,6 +8,7 @@ import org.eclipse.xtext.validation.Check;
 
 import com.google.inject.Inject;
 
+import de.itemis.interpreter.MessageList;
 import de.itemis.xtext.typesystem.ITypesystem;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
 import de.itemis.xtext.typesystem.util.Utils;
@@ -56,9 +57,9 @@ public class ExprDemoJavaValidator extends AbstractExprDemoJavaValidator {
 	@Check
 	public void runAssertStatements( Model m ) {
 		if ( !m.isIsTested() ) return;
-		Map<EObject, String> errors = new ExprModelInterpreter().runModel(m);
-		for (EObject o: errors.keySet()) {
-			error( errors.get(o), o, -1 );
+		MessageList errors = new ExprModelInterpreter().runModel(m);
+		for (MessageList.MessageItem o: errors.getMessages()) {
+			error( o.message, o.element, -1 );
 		}
 	}
 	
