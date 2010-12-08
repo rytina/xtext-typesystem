@@ -1,0 +1,16 @@
+«IMPORT org::eclipse::xtext»
+
+«EXTENSION org::eclipse::xtext::generator::Naming»
+«EXTENSION org::eclipse::xtext::GrammarUtil»
+
+«DEFINE generate FOR Grammar-»´
+«FILE name.asPath()+"/../interpreter/AbstractInterpreter.java" SRC_GEN»
+
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE addToPluginXmlRt FOR Grammar»«ENDDEFINE»
+
+«DEFINE addToPluginXmlUi FOR Grammar»«ENDDEFINE»
+
+«DEFINE addToStandaloneSetup FOR Grammar»«ENDDEFINE»
