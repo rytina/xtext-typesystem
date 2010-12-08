@@ -3,9 +3,39 @@
 «EXTENSION org::eclipse::xtext::generator::Naming»
 «EXTENSION org::eclipse::xtext::GrammarUtil»
 
+«EXTENSION de::itemis::interpreter::generator::InterpreterGenerator»
+
+
 «DEFINE generate FOR Grammar-»´
 «FILE name.asPath()+"/../interpreter/AbstractInterpreter.java" SRC_GEN»
+package expr.interpreter;
 
+import org.eclipse.emf.ecore.EObject;
+import «metaclassPackage()».*; 
+
+import de.itemis.interpreter.InterpreterException;
+import de.itemis.interpreter.MethodNotImplementedException;
+
+public class AbstractInterpreter {
+
+	public void execute( EObject statement ) throws InterpreterException {
+		«FOREACH statementLikeClasses() AS c»
+		if ( statement instanceof «c» ) {
+			execute«c»( («c»)statement );
+			return;
+		}
+		«ENDFOREACH»
+	}
+
+	
+	«FOREACH statementLikeClasses() AS c»
+	protected void execute«c»( «c» s )  throws InterpreterException {
+		throw new MethodNotImplementedException(s, "method execute«c» not implemented");
+	} 
+	«ENDFOREACH»
+
+
+}
 «ENDFILE»
 «ENDDEFINE»
 
