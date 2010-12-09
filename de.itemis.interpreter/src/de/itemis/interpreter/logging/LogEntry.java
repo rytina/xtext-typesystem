@@ -12,7 +12,9 @@ public class LogEntry {
 	public static enum Kind {
 		root, debug, info, error, exception, success, fail
 	}
-	
+
+	private static LogEntry mostRecentRoot;
+
 	public final Kind kind;
 	public final EObject element;
 	public final String message;
@@ -90,6 +92,16 @@ public class LogEntry {
 		}
 		return s;
 	}
+
+	public static void setMostRecentRoot(LogEntry r) {
+		mostRecentRoot = r;
+	}
+	
+	public static LogEntry getMostRecentRoot() {
+		return mostRecentRoot;
+	}
+
+
 
 	
 	

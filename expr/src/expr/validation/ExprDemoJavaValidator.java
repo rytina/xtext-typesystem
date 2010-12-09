@@ -29,6 +29,8 @@ import expr.interpreter.ExprModelInterpreter;
 
 public class ExprDemoJavaValidator extends AbstractExprDemoJavaValidator {
 
+	public static final String INTERPRETERFAILED = "INTERPRETERFAILED";
+
 	@Inject
 	private ITypesystem ts;
 	
@@ -55,19 +57,19 @@ public class ExprDemoJavaValidator extends AbstractExprDemoJavaValidator {
 		}
 	}
 	
-	@Check
+	@Check()
 	public void runAssertStatements( Model m ) {
 		if ( !m.isIsTested() ) return;
 		try {
 			MessageList errors = new ExprModelInterpreter().runModel(m, ts);
 			for (MessageList.MessageItem o: errors.getMessages()) {
-				error( o.message, o.element, -1 );
+				error( o.message, o.element, -1, INTERPRETERFAILED );
 			}
 		} catch (InterpreterException e) {
 			if ( e.getFailedObject() != null ) {
-				error( e.getMessage(), e.getFailedObject(), -1 );
+				error( e.getMessage(), e.getFailedObject(), -1, INTERPRETERFAILED );
 			} else {
-				error( e.getMessage(), m, -1 );
+				error( e.getMessage(), m, -1, INTERPRETERFAILED );
 				e.printStackTrace();
 			}
 		}

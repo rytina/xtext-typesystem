@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.osgi.framework.internal.core.Msg;
 
 public class MessageList {
 
 	private List<MessageItem> items = new ArrayList<MessageItem>();
-	
-	public MessageList() {
-		
-	}
+
 	
 	public void addMessage( EObject element, Kind kind, String message ) {
 		items.add(new MessageItem(element, kind, message));
