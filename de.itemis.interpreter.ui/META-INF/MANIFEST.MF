@@ -12,7 +12,7 @@ Require-Bundle: org.eclipse.xtext.ui,
  org.eclipse.xtext.builder,
  org.antlr.runtime,
  de.itemis.xtext.typesystem;bundle-version="1.0.0",
- de.itemis.interpreter;bundle-version="1.0.0"
+ de.itemis.interpreter;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.itemis.interpreter.ui,

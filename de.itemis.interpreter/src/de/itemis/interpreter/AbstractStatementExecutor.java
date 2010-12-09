@@ -19,6 +19,10 @@ public abstract  class AbstractStatementExecutor extends InterpreterPart {
 		return evaluator.eval(expr, parentLog);
 	}
 	
+	public Object evalCheckNull( EObject expr, LogEntry parentLog ) throws InterpreterException {
+		return evaluator.evalCheckNull(expr, parentLog);
+	}
+	
 	public abstract void execute( EObject statement, LogEntry parentLog ) throws InterpreterException;
 
 	public void execute(List<? extends EObject> statements, LogEntry parentLog ) throws InterpreterException {
