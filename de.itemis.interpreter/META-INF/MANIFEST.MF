@@ -7,7 +7,8 @@ Bundle-Activator: de.itemis.interpreter.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;bundle-version="2.6.0",
- de.itemis.xtext.typesystem;bundle-version="1.0.0"
+ de.itemis.xtext.typesystem;bundle-version="1.0.0",
+ org.apache.log4j;bundle-version="1.2.15"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.itemis.interpreter,
