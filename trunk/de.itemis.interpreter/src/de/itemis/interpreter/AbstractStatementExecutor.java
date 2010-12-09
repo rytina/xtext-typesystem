@@ -8,19 +8,18 @@ import de.itemis.interpreter.logging.LogEntry;
 
 public abstract  class AbstractStatementExecutor extends InterpreterPart {
 
-	private AbstractExpressionEvaluator evaluator;
-
-	public AbstractStatementExecutor( ExecutionContext ctx, AbstractExpressionEvaluator evaluator ) {
+	public AbstractStatementExecutor( ExecutionContext ctx ) {
 		super(ctx);
-		this.evaluator = evaluator;
+		ctx.setExecutor(this);
+		
 	}
 	
 	public Object eval( EObject expr, LogEntry parentLog ) throws InterpreterException {
-		return evaluator.eval(expr, parentLog);
+		return ctx.getEvaluator().eval(expr, parentLog);
 	}
 	
 	public Object evalCheckNull( EObject expr, LogEntry parentLog ) throws InterpreterException {
-		return evaluator.evalCheckNull(expr, parentLog);
+		return ctx.getEvaluator().evalCheckNull(expr, parentLog);
 	}
 	
 	public abstract void execute( EObject statement, LogEntry parentLog ) throws InterpreterException;

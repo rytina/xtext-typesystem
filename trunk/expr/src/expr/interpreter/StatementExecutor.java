@@ -6,12 +6,13 @@ import de.itemis.interpreter.logging.LogEntry;
 import expr.exprDemo.Assert;
 import expr.exprDemo.Expr;
 import expr.exprDemo.Formula;
+import expr.exprDemo.Return;
 import expr.exprDemo.VarDecl;
 
 public class StatementExecutor extends AbstractExprDemoStatementExecutor {
 
-	public StatementExecutor(ExecutionContext ctx, Evaluator evaluator ) {
-		super(ctx, evaluator);
+	public StatementExecutor(ExecutionContext ctx ) {
+		super(ctx);
 	}
 	
 	@Override
@@ -37,6 +38,12 @@ public class StatementExecutor extends AbstractExprDemoStatementExecutor {
 		if ( !expected.equals(actual) ) {
 			ctx.messages.addError(s, "Failed; expected "+expected+", but is "+actual );
 		}
+	}
+	
+	@Override
+	protected void executeReturn(Return s, LogEntry log)
+			throws InterpreterException {
+		ctx.symboltable.put(Evaluator.RETURN_SYMBOL, evalCheckNull(s.getExpr(), log));
 	}
 
 } 

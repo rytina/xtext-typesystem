@@ -15,8 +15,8 @@ import de.itemis.interpreter.AbstractExpressionEvaluator;
 
 public abstract class AbstractExprDemoStatementExecutor extends AbstractStatementExecutor {
 
-	public AbstractExprDemoStatementExecutor( ExecutionContext ctx, AbstractExpressionEvaluator evaluator ) {
-		super(ctx, evaluator);
+	public AbstractExprDemoStatementExecutor( ExecutionContext ctx ) {
+		super(ctx);
 	}
 
 	public void execute( EObject statement, LogEntry parentLog ) throws InterpreterException {

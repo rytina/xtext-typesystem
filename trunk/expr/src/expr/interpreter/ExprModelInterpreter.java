@@ -13,7 +13,8 @@ public class ExprModelInterpreter {
 		ExecutionContext ctx = new ExecutionContext(ts);
 		LogEntry log = LogEntry.root("running model "+m.getName());
 		LogEntry.setMostRecentRoot(log);
-		new StatementExecutor(ctx, new Evaluator(ctx)).execute(m.getElements(), log);
+		new Evaluator(ctx);
+		new StatementExecutor(ctx).execute(m.getElements(), log);
 		return ctx.messages;
 	}
 	
