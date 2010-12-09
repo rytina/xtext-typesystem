@@ -30,8 +30,8 @@ import de.itemis.interpreter.AbstractExpressionEvaluator;
 
 public abstract class Abstract«langName()»StatementExecutor extends AbstractStatementExecutor {
 
-	public Abstract«langName()»StatementExecutor( ExecutionContext ctx, AbstractExpressionEvaluator evaluator ) {
-		super(ctx, evaluator);
+	public Abstract«langName()»StatementExecutor( ExecutionContext ctx ) {
+		super(ctx);
 	}
 
 	public void execute( EObject statement, LogEntry parentLog ) throws InterpreterException {

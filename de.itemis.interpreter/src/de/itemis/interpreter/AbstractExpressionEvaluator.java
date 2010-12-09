@@ -9,6 +9,7 @@ public abstract class AbstractExpressionEvaluator extends InterpreterPart {
 
 	public AbstractExpressionEvaluator( ExecutionContext ctx ) {
 		super(ctx);
+		ctx.setEvaluator(this);
 	}
 	
 	public abstract Object eval( EObject expr, LogEntry parentLog ) throws InterpreterException;
