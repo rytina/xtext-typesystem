@@ -9,4 +9,11 @@ Collection[String] expressionLikeClasses():
 String metaclassPackage(): 
   	JAVA de.itemis.interpreter.generator.InterpreterGenerator.metaclassPackage();  	
   	
+String langName(): 
+  	JAVA de.itemis.interpreter.generator.InterpreterGenerator.langName();
   	
+String interpreterPackage():	
+	JAVA de.itemis.interpreter.generator.InterpreterGenerator.interpreterPackage();
+  	
+  	
+  	 

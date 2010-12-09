@@ -24,6 +24,15 @@ public class SymbolTable {
 		return t.get(e);
 	}
 	
+	public Object getCheckNull( Object e ) throws SymbolNotFoundException {
+		Object o = get(e);
+		if ( o == null ) {
+			throw new SymbolNotFoundException(e, "the symbol "+e.toString()+" was not found in the symbol table");
+		}
+		return o;
+	}
+	
+	
 	public void push(String name) {
 		Table tnew = new Table(stack.peek(), name);
 		stack.push(tnew);

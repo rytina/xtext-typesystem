@@ -88,7 +88,10 @@ Workflow {
 			fragment = contentAssist.JavaBasedContentAssistFragment {}
 
 			// interpreter  
-			fragment = de.itemis.interpreter.generator.InterpreterGenerator {}
+			fragment = de.itemis.interpreter.generator.InterpreterGenerator {
+				statementRootClassName = "Element"
+				expressionRootClassName = "Expr"
+			}
 
 
 			// generates a more lightweight Antlr parser and lexer tailored for content assist  
