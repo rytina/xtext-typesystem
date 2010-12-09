@@ -12,6 +12,7 @@ public class ExprModelInterpreter {
 	public MessageList runModel( Model m, ITypesystem ts ) throws InterpreterException {
 		ExecutionContext ctx = new ExecutionContext(ts);
 		LogEntry log = LogEntry.root("running model "+m.getName());
+		LogEntry.setMostRecentRoot(log);
 		new StatementExecutor(ctx, new Evaluator(ctx)).execute(m.getElements(), log);
 		return ctx.messages;
 	}

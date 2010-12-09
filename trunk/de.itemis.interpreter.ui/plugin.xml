@@ -7,7 +7,7 @@
        <view
              allowMultiple="false"
              category="de.itemis.interpreter.category"
-             class="de.itemis.interpreter.ui.logview.TestLogViewPart"
+             class="de.itemis.interpreter.ui.logview.LogViewPart"
              id="de.itemis.interpreter.ui.logview"
              name="Interpreter Execution Log"
              restorable="true">
