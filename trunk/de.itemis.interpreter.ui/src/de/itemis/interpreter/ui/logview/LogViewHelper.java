@@ -13,6 +13,10 @@ public class LogViewHelper {
 
 	public static void showMostRecentLog() {
 		final IEditorPart activeEditor = Workbench.getInstance().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		showMostRecentLog(activeEditor);
+	}
+		
+	public static void showMostRecentLog(final IEditorPart activeEditor ) {
 		final IWorkbenchPartSite partSite = activeEditor.getSite();
 		partSite.getShell().getDisplay().asyncExec(new Runnable() {
 			@Override
