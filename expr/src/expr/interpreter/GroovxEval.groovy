@@ -53,7 +53,7 @@ class GroovxEval extends AbstractExprDemoExpressionEvaluator {
 				for( int i=0; i<expr.getActuals().size(); i++ ) {
 					Expr actual = expr.getActuals().get(i);
 					Parameter formal = (Parameter) fd.getParams().get(i);
-					ctx.symboltable.put(formal, evalCheckNull(actual, log));
+					ctx.symboltable.put(formal, evalCheckNullLog(actual, log));
 				}
 				ctx.getExecutor().execute( fd.getElements(), log );
 				Object res = ctx.symboltable.get(Evaluator.RETURN_SYMBOL);
@@ -64,8 +64,8 @@ class GroovxEval extends AbstractExprDemoExpressionEvaluator {
 	
 	
 	private def Object doLeftRight( Object expr, LogEntry log, Closure c ) {
-		double l = evalCheckNull( expr.left, log )
-		double r = evalCheckNull( expr.right, log )
+		double l = evalCheckNullLog( expr.left, log )
+		double r = evalCheckNullLog( expr.right, log )
 		return c(l,r)
 	}
 	

@@ -19,19 +19,19 @@ public class StatementExecutor extends AbstractExprDemoStatementExecutor {
 	protected void executeVarDecl(VarDecl s, LogEntry log) {
 		Expr init = ((VarDecl) s).getInit();
 		if ( init != null) {
-			ctx.symboltable.put(s, eval( init, log ));
+			ctx.symboltable.put(s, evalCheckNullLog( init, log ));
 		}
 	}
 	
 	@Override
 	protected void executeFormula(Formula s, LogEntry log) {
-		ctx.symboltable.put(s, eval( s.getExpr(), log ) );
+		ctx.symboltable.put(s, evalCheckNullLog( s.getExpr(), log ) );
 	}
 	
 	@Override
 	protected void executeAssert(Assert s, LogEntry log) {
-		Object expected = eval( s.getExpected(), log );
-		Object actual = eval( s.getActual(), log );
+		Object expected = evalCheckNullLog( s.getExpected(), log );
+		Object actual = evalCheckNullLog( s.getActual(), log );
 		if ( !expected.equals(actual) ) {
 			ctx.messages.addError(s, "Failed; expected "+expected+", but is "+actual );
 		}
@@ -39,7 +39,7 @@ public class StatementExecutor extends AbstractExprDemoStatementExecutor {
 	
 	@Override
 	protected void executeReturn(Return s, LogEntry log) {
-		ctx.symboltable.put(Evaluator.RETURN_SYMBOL, evalCheckNull(s.getExpr(), log));
+		ctx.symboltable.put(Evaluator.RETURN_SYMBOL, evalCheckNullLog(s.getExpr(), log));
 	}
 
 } 

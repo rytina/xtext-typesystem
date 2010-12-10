@@ -39,7 +39,7 @@ public class LogViewPart extends ViewPart {
 		viewer.setUseHashlookup(true);
 		viewer.setAutoExpandLevel(2);
 
-		viewer.setContentProvider(new TestLogContentProvider());
+		viewer.setContentProvider(new LogContentProvider());
 
 		Tree tree = viewer.getTree();
 
@@ -87,7 +87,7 @@ public class LogViewPart extends ViewPart {
 			public String getText(Object element) {
 				LogEntry entry = (LogEntry) element;
 
-				return entry.element.eClass().getName();
+				return entry.formattedElement();
 			}
 		});
 
@@ -157,6 +157,7 @@ public class LogViewPart extends ViewPart {
 	}
 
 	public void setInput(LogEntry input) {
+		input.postprocess();
 		viewer.setInput(input);
 	}
 
