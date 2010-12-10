@@ -57,6 +57,7 @@
     </genClasses>
     <genClasses ecoreClass="ExprDemo.ecore#//EnumLiteral"/>
     <genClasses ecoreClass="ExprDemo.ecore#//VarDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExprDemo.ecore#//VarDecl/readonly"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//VarDecl/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExprDemo.ecore#//VarDecl/init"/>
     </genClasses>

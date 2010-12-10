@@ -657,13 +657,22 @@ public interface ExprDemoPackage extends EPackage
   int VAR_DECL__NAME = SYMBOL__NAME;
 
   /**
+   * The feature id for the '<em><b>Readonly</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_DECL__READONLY = SYMBOL_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_DECL__TYPE = SYMBOL_FEATURE_COUNT + 0;
+  int VAR_DECL__TYPE = SYMBOL_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Init</b></em>' containment reference.
@@ -672,7 +681,7 @@ public interface ExprDemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VAR_DECL__INIT = SYMBOL_FEATURE_COUNT + 1;
+  int VAR_DECL__INIT = SYMBOL_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Var Decl</em>' class.
@@ -681,7 +690,7 @@ public interface ExprDemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VAR_DECL_FEATURE_COUNT = SYMBOL_FEATURE_COUNT + 2;
+  int VAR_DECL_FEATURE_COUNT = SYMBOL_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link expr.exprDemo.impl.FormulaImpl <em>Formula</em>}' class.
@@ -1391,6 +1400,17 @@ public interface ExprDemoPackage extends EPackage
   EClass getVarDecl();
 
   /**
+   * Returns the meta object for the attribute '{@link expr.exprDemo.VarDecl#isReadonly <em>Readonly</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Readonly</em>'.
+   * @see expr.exprDemo.VarDecl#isReadonly()
+   * @see #getVarDecl()
+   * @generated
+   */
+  EAttribute getVarDecl_Readonly();
+
+  /**
    * Returns the meta object for the containment reference '{@link expr.exprDemo.VarDecl#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2030,6 +2050,14 @@ public interface ExprDemoPackage extends EPackage
      * @generated
      */
     EClass VAR_DECL = eINSTANCE.getVarDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Readonly</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VAR_DECL__READONLY = eINSTANCE.getVarDecl_Readonly();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.

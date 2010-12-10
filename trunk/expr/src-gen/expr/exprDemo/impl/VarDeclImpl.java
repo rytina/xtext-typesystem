@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link expr.exprDemo.impl.VarDeclImpl#isReadonly <em>Readonly</em>}</li>
  *   <li>{@link expr.exprDemo.impl.VarDeclImpl#getType <em>Type</em>}</li>
  *   <li>{@link expr.exprDemo.impl.VarDeclImpl#getInit <em>Init</em>}</li>
  * </ul>
@@ -34,6 +35,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class VarDeclImpl extends SymbolImpl implements VarDecl
 {
+  /**
+   * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isReadonly()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean READONLY_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isReadonly()
+   * @generated
+   * @ordered
+   */
+  protected boolean readonly = READONLY_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -73,6 +94,29 @@ public class VarDeclImpl extends SymbolImpl implements VarDecl
   protected EClass eStaticClass()
   {
     return ExprDemoPackage.Literals.VAR_DECL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isReadonly()
+  {
+    return readonly;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setReadonly(boolean newReadonly)
+  {
+    boolean oldReadonly = readonly;
+    readonly = newReadonly;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ExprDemoPackage.VAR_DECL__READONLY, oldReadonly, readonly));
   }
 
   /**
@@ -199,6 +243,8 @@ public class VarDeclImpl extends SymbolImpl implements VarDecl
   {
     switch (featureID)
     {
+      case ExprDemoPackage.VAR_DECL__READONLY:
+        return isReadonly();
       case ExprDemoPackage.VAR_DECL__TYPE:
         return getType();
       case ExprDemoPackage.VAR_DECL__INIT:
@@ -217,6 +263,9 @@ public class VarDeclImpl extends SymbolImpl implements VarDecl
   {
     switch (featureID)
     {
+      case ExprDemoPackage.VAR_DECL__READONLY:
+        setReadonly((Boolean)newValue);
+        return;
       case ExprDemoPackage.VAR_DECL__TYPE:
         setType((Type)newValue);
         return;
@@ -237,6 +286,9 @@ public class VarDeclImpl extends SymbolImpl implements VarDecl
   {
     switch (featureID)
     {
+      case ExprDemoPackage.VAR_DECL__READONLY:
+        setReadonly(READONLY_EDEFAULT);
+        return;
       case ExprDemoPackage.VAR_DECL__TYPE:
         setType((Type)null);
         return;
@@ -257,12 +309,31 @@ public class VarDeclImpl extends SymbolImpl implements VarDecl
   {
     switch (featureID)
     {
+      case ExprDemoPackage.VAR_DECL__READONLY:
+        return readonly != READONLY_EDEFAULT;
       case ExprDemoPackage.VAR_DECL__TYPE:
         return type != null;
       case ExprDemoPackage.VAR_DECL__INIT:
         return init != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (readonly: ");
+    result.append(readonly);
+    result.append(')');
+    return result.toString();
   }
 
 } //VarDeclImpl

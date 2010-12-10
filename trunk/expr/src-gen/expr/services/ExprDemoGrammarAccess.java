@@ -433,56 +433,64 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VarDecl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cVarDeclAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cVarKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTypeTypeParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cEqualsSignKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cInitAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cInitExprParserRuleCall_4_1_0 = (RuleCall)cInitAssignment_4_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cReadonlyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cReadonlyReadonlyKeyword_1_0 = (Keyword)cReadonlyAssignment_1.eContents().get(0);
+		private final Keyword cVarKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeTypeParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameIDTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cEqualsSignKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cInitAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cInitExprParserRuleCall_5_1_0 = (RuleCall)cInitAssignment_5_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//VarDecl returns Symbol:
-		//	{VarDecl} "var" type=Type name=ID ("=" init=Expr)? ";";
+		//	{VarDecl} readonly?="readonly"? "var" type=Type name=ID ("=" init=Expr)? ";";
 		public ParserRule getRule() { return rule; }
 
-		//{VarDecl} "var" type=Type name=ID ("=" init=Expr)? ";"
+		//{VarDecl} readonly?="readonly"? "var" type=Type name=ID ("=" init=Expr)? ";"
 		public Group getGroup() { return cGroup; }
 
 		//{VarDecl}
 		public Action getVarDeclAction_0() { return cVarDeclAction_0; }
 
+		//readonly?="readonly"?
+		public Assignment getReadonlyAssignment_1() { return cReadonlyAssignment_1; }
+
+		//"readonly"
+		public Keyword getReadonlyReadonlyKeyword_1_0() { return cReadonlyReadonlyKeyword_1_0; }
+
 		//"var"
-		public Keyword getVarKeyword_1() { return cVarKeyword_1; }
+		public Keyword getVarKeyword_2() { return cVarKeyword_2; }
 
 		//type=Type
-		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 
 		//Type
-		public RuleCall getTypeTypeParserRuleCall_2_0() { return cTypeTypeParserRuleCall_2_0; }
+		public RuleCall getTypeTypeParserRuleCall_3_0() { return cTypeTypeParserRuleCall_3_0; }
 
 		//name=ID
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+		public RuleCall getNameIDTerminalRuleCall_4_0() { return cNameIDTerminalRuleCall_4_0; }
 
 		//("=" init=Expr)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_5() { return cGroup_5; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_4_0() { return cEqualsSignKeyword_4_0; }
+		public Keyword getEqualsSignKeyword_5_0() { return cEqualsSignKeyword_5_0; }
 
 		//init=Expr
-		public Assignment getInitAssignment_4_1() { return cInitAssignment_4_1; }
+		public Assignment getInitAssignment_5_1() { return cInitAssignment_5_1; }
 
 		//Expr
-		public RuleCall getInitExprParserRuleCall_4_1_0() { return cInitExprParserRuleCall_4_1_0; }
+		public RuleCall getInitExprParserRuleCall_5_1_0() { return cInitExprParserRuleCall_5_1_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
+		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
 	}
 
 	public class TypeElements extends AbstractParserRuleElementFinder {
@@ -1170,7 +1178,7 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//VarDecl returns Symbol:
-	//	{VarDecl} "var" type=Type name=ID ("=" init=Expr)? ";";
+	//	{VarDecl} readonly?="readonly"? "var" type=Type name=ID ("=" init=Expr)? ";";
 	public VarDeclElements getVarDeclAccess() {
 		return (pVarDecl != null) ? pVarDecl : (pVarDecl = new VarDeclElements());
 	}

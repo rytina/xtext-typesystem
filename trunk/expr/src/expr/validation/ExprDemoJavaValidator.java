@@ -24,6 +24,7 @@ import expr.exprDemo.Parameter;
 import expr.exprDemo.Return;
 import expr.exprDemo.Symbol;
 import expr.exprDemo.SymbolRef;
+import expr.exprDemo.VarDecl;
 import expr.interpreter.ExprModelInterpreter;
  
 
@@ -128,6 +129,10 @@ public class ExprDemoJavaValidator extends AbstractExprDemoJavaValidator {
 		warning("no test found for this formula", f, -1);
 	}	
 	
-
-	
+	@Check
+	public void checkReadonlyStuff(VarDecl ctx) {
+		if ( ctx.isReadonly() && ctx.getInit() == null ) {
+			error("readonly vars must have an init expression", ctx, -1);
+		}
+	}
 }

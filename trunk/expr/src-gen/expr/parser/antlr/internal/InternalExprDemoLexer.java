@@ -19,10 +19,11 @@ public class InternalExprDemoLexer extends Lexer {
     public static final int T27=27;
     public static final int T26=26;
     public static final int T25=25;
-    public static final int Tokens=41;
+    public static final int Tokens=42;
     public static final int T24=24;
     public static final int EOF=-1;
     public static final int RULE_SL_COMMENT=9;
+    public static final int T41=41;
     public static final int T23=23;
     public static final int T40=40;
     public static final int T22=22;
@@ -375,10 +376,10 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mT29() throws RecognitionException {
         try {
             int _type = T29;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:27:5: ( 'var' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:27:7: 'var'
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:27:5: ( 'readonly' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:27:7: 'readonly'
             {
-            match("var"); 
+            match("readonly"); 
 
 
             }
@@ -394,10 +395,11 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mT30() throws RecognitionException {
         try {
             int _type = T30;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:28:5: ( '=' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:28:7: '='
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:28:5: ( 'var' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:28:7: 'var'
             {
-            match('='); 
+            match("var"); 
+
 
             }
 
@@ -412,11 +414,10 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mT31() throws RecognitionException {
         try {
             int _type = T31;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:29:5: ( 'array' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:29:7: 'array'
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:29:5: ( '=' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:29:7: '='
             {
-            match("array"); 
-
+            match('='); 
 
             }
 
@@ -431,10 +432,11 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mT32() throws RecognitionException {
         try {
             int _type = T32;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:30:5: ( '[' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:30:7: '['
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:30:5: ( 'array' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:30:7: 'array'
             {
-            match('['); 
+            match("array"); 
+
 
             }
 
@@ -449,10 +451,10 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mT33() throws RecognitionException {
         try {
             int _type = T33;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:31:5: ( ']' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:31:7: ']'
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:31:5: ( '[' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:31:7: '['
             {
-            match(']'); 
+            match('['); 
 
             }
 
@@ -467,11 +469,10 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mT34() throws RecognitionException {
         try {
             int _type = T34;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:32:5: ( 'int' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:32:7: 'int'
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:32:5: ( ']' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:32:7: ']'
             {
-            match("int"); 
-
+            match(']'); 
 
             }
 
@@ -486,10 +487,10 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mT35() throws RecognitionException {
         try {
             int _type = T35;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:33:5: ( 'bool' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:33:7: 'bool'
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:33:5: ( 'int' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:33:7: 'int'
             {
-            match("bool"); 
+            match("int"); 
 
 
             }
@@ -505,10 +506,10 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mT36() throws RecognitionException {
         try {
             int _type = T36;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:34:5: ( 'float' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:34:7: 'float'
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:34:5: ( 'bool' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:34:7: 'bool'
             {
-            match("float"); 
+            match("bool"); 
 
 
             }
@@ -524,10 +525,10 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mT37() throws RecognitionException {
         try {
             int _type = T37;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:35:5: ( 'string' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:35:7: 'string'
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:35:5: ( 'float' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:35:7: 'float'
             {
-            match("string"); 
+            match("float"); 
 
 
             }
@@ -543,10 +544,10 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mT38() throws RecognitionException {
         try {
             int _type = T38;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:36:5: ( 'calc' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:36:7: 'calc'
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:36:5: ( 'string' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:36:7: 'string'
             {
-            match("calc"); 
+            match("string"); 
 
 
             }
@@ -562,10 +563,10 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mT39() throws RecognitionException {
         try {
             int _type = T39;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:37:5: ( '==' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:37:7: '=='
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:37:5: ( 'calc' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:37:7: 'calc'
             {
-            match("=="); 
+            match("calc"); 
 
 
             }
@@ -581,10 +582,11 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mT40() throws RecognitionException {
         try {
             int _type = T40;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:38:5: ( '+' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:38:7: '+'
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:38:5: ( '==' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:38:7: '=='
             {
-            match('+'); 
+            match("=="); 
+
 
             }
 
@@ -595,14 +597,32 @@ public class InternalExprDemoLexer extends Lexer {
     }
     // $ANTLR end T40
 
+    // $ANTLR start T41
+    public final void mT41() throws RecognitionException {
+        try {
+            int _type = T41;
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:39:5: ( '+' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:39:7: '+'
+            {
+            match('+'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T41
+
     // $ANTLR start RULE_NUMBER
     public final void mRULE_NUMBER() throws RecognitionException {
         try {
             int _type = RULE_NUMBER;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2123:13: ( ( '0' .. '9' )* ( '.' ( '0' .. '9' )+ )? )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2123:15: ( '0' .. '9' )* ( '.' ( '0' .. '9' )+ )?
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2144:13: ( ( '0' .. '9' )* ( '.' ( '0' .. '9' )+ )? )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2144:15: ( '0' .. '9' )* ( '.' ( '0' .. '9' )+ )?
             {
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2123:15: ( '0' .. '9' )*
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2144:15: ( '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -615,7 +635,7 @@ public class InternalExprDemoLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2123:16: '0' .. '9'
+            	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2144:16: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -627,7 +647,7 @@ public class InternalExprDemoLexer extends Lexer {
                 }
             } while (true);
 
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2123:27: ( '.' ( '0' .. '9' )+ )?
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2144:27: ( '.' ( '0' .. '9' )+ )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -636,10 +656,10 @@ public class InternalExprDemoLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2123:28: '.' ( '0' .. '9' )+
+                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2144:28: '.' ( '0' .. '9' )+
                     {
                     match('.'); 
-                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2123:32: ( '0' .. '9' )+
+                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2144:32: ( '0' .. '9' )+
                     int cnt2=0;
                     loop2:
                     do {
@@ -653,7 +673,7 @@ public class InternalExprDemoLexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2123:33: '0' .. '9'
+                    	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2144:33: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -689,8 +709,8 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2125:10: ( '$$$don\\'t use this anymore$$$' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2125:12: '$$$don\\'t use this anymore$$$'
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2146:10: ( '$$$don\\'t use this anymore$$$' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2146:12: '$$$don\\'t use this anymore$$$'
             {
             match("$$$don\'t use this anymore$$$"); 
 
@@ -708,10 +728,10 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2127:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2127:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2148:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2148:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2127:11: ( '^' )?
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2148:11: ( '^' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -720,7 +740,7 @@ public class InternalExprDemoLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2127:11: '^'
+                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2148:11: '^'
                     {
                     match('^'); 
 
@@ -739,7 +759,7 @@ public class InternalExprDemoLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2127:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2148:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop5:
             do {
                 int alt5=2;
@@ -787,10 +807,10 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2129:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2129:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2150:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2150:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2129:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2150:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -802,16 +822,16 @@ public class InternalExprDemoLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("2129:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 8, 0, input);
+                    new NoViableAltException("2150:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 8, 0, input);
 
                 throw nvae;
             }
             switch (alt8) {
                 case 1 :
-                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2129:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2150:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2129:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2150:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -827,7 +847,7 @@ public class InternalExprDemoLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2129:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2150:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -844,7 +864,7 @@ public class InternalExprDemoLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2129:62: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2150:62: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -870,10 +890,10 @@ public class InternalExprDemoLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2129:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2150:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2129:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2150:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -889,7 +909,7 @@ public class InternalExprDemoLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2129:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2150:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -906,7 +926,7 @@ public class InternalExprDemoLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2129:129: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2150:129: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -948,12 +968,12 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2131:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2131:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2152:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2152:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2131:24: ( options {greedy=false; } : . )*
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2152:24: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -978,7 +998,7 @@ public class InternalExprDemoLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2131:52: .
+            	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2152:52: .
             	    {
             	    matchAny(); 
 
@@ -1006,12 +1026,12 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2133:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2133:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2154:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2154:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2133:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2154:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop10:
             do {
                 int alt10=2;
@@ -1024,7 +1044,7 @@ public class InternalExprDemoLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2133:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2154:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1045,7 +1065,7 @@ public class InternalExprDemoLexer extends Lexer {
                 }
             } while (true);
 
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2133:40: ( ( '\\r' )? '\\n' )?
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2154:40: ( ( '\\r' )? '\\n' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1054,9 +1074,9 @@ public class InternalExprDemoLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2133:41: ( '\\r' )? '\\n'
+                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2154:41: ( '\\r' )? '\\n'
                     {
-                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2133:41: ( '\\r' )?
+                    // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2154:41: ( '\\r' )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -1065,7 +1085,7 @@ public class InternalExprDemoLexer extends Lexer {
                     }
                     switch (alt11) {
                         case 1 :
-                            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2133:41: '\\r'
+                            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2154:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1095,10 +1115,10 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2135:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2135:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2156:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2156:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2135:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2156:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -1151,8 +1171,8 @@ public class InternalExprDemoLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2137:16: ( . )
-            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2137:18: .
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2158:16: ( . )
+            // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:2158:18: .
             {
             matchAny(); 
 
@@ -1166,8 +1186,8 @@ public class InternalExprDemoLexer extends Lexer {
     // $ANTLR end RULE_ANY_OTHER
 
     public void mTokens() throws RecognitionException {
-        // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:8: ( T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | RULE_NUMBER | RULE_INT | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt14=37;
+        // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:8: ( T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | RULE_NUMBER | RULE_INT | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt14=38;
         int LA14_0 = input.LA(1);
 
         if ( (LA14_0=='t') ) {
@@ -1180,34 +1200,34 @@ public class InternalExprDemoLexer extends Lexer {
                     int LA14_71 = input.LA(4);
 
                     if ( (LA14_71=='t') ) {
-                        int LA14_86 = input.LA(5);
+                        int LA14_87 = input.LA(5);
 
-                        if ( (LA14_86=='e') ) {
-                            int LA14_100 = input.LA(6);
+                        if ( (LA14_87=='e') ) {
+                            int LA14_102 = input.LA(6);
 
-                            if ( (LA14_100=='d') ) {
-                                int LA14_112 = input.LA(7);
+                            if ( (LA14_102=='d') ) {
+                                int LA14_115 = input.LA(7);
 
-                                if ( ((LA14_112>='0' && LA14_112<='9')||(LA14_112>='A' && LA14_112<='Z')||LA14_112=='_'||(LA14_112>='a' && LA14_112<='z')) ) {
-                                    alt14=32;
+                                if ( ((LA14_115>='0' && LA14_115<='9')||(LA14_115>='A' && LA14_115<='Z')||LA14_115=='_'||(LA14_115>='a' && LA14_115<='z')) ) {
+                                    alt14=33;
                                 }
                                 else {
                                     alt14=1;}
                             }
                             else {
-                                alt14=32;}
+                                alt14=33;}
                         }
                         else {
-                            alt14=32;}
+                            alt14=33;}
                     }
                     else {
-                        alt14=32;}
+                        alt14=33;}
                 }
                 else {
-                    alt14=32;}
+                    alt14=33;}
             }
             else {
-                alt14=32;}
+                alt14=33;}
         }
         else if ( (LA14_0=='m') ) {
             int LA14_2 = input.LA(2);
@@ -1219,28 +1239,28 @@ public class InternalExprDemoLexer extends Lexer {
                     int LA14_72 = input.LA(4);
 
                     if ( (LA14_72=='e') ) {
-                        int LA14_87 = input.LA(5);
+                        int LA14_88 = input.LA(5);
 
-                        if ( (LA14_87=='l') ) {
-                            int LA14_101 = input.LA(6);
+                        if ( (LA14_88=='l') ) {
+                            int LA14_103 = input.LA(6);
 
-                            if ( ((LA14_101>='0' && LA14_101<='9')||(LA14_101>='A' && LA14_101<='Z')||LA14_101=='_'||(LA14_101>='a' && LA14_101<='z')) ) {
-                                alt14=32;
+                            if ( ((LA14_103>='0' && LA14_103<='9')||(LA14_103>='A' && LA14_103<='Z')||LA14_103=='_'||(LA14_103>='a' && LA14_103<='z')) ) {
+                                alt14=33;
                             }
                             else {
                                 alt14=2;}
                         }
                         else {
-                            alt14=32;}
+                            alt14=33;}
                     }
                     else {
-                        alt14=32;}
+                        alt14=33;}
                 }
                 else {
-                    alt14=32;}
+                    alt14=33;}
             }
             else {
-                alt14=32;}
+                alt14=33;}
         }
         else if ( (LA14_0=='u') ) {
             int LA14_3 = input.LA(2);
@@ -1252,34 +1272,34 @@ public class InternalExprDemoLexer extends Lexer {
                     int LA14_73 = input.LA(4);
 
                     if ( (LA14_73=='n') ) {
-                        int LA14_88 = input.LA(5);
+                        int LA14_89 = input.LA(5);
 
-                        if ( (LA14_88=='g') ) {
-                            int LA14_102 = input.LA(6);
+                        if ( (LA14_89=='g') ) {
+                            int LA14_104 = input.LA(6);
 
-                            if ( ((LA14_102>='0' && LA14_102<='9')||(LA14_102>='A' && LA14_102<='Z')||LA14_102=='_'||(LA14_102>='a' && LA14_102<='z')) ) {
-                                alt14=32;
+                            if ( ((LA14_104>='0' && LA14_104<='9')||(LA14_104>='A' && LA14_104<='Z')||LA14_104=='_'||(LA14_104>='a' && LA14_104<='z')) ) {
+                                alt14=33;
                             }
                             else {
                                 alt14=3;}
                         }
                         else {
-                            alt14=32;}
+                            alt14=33;}
                     }
                     else {
-                        alt14=32;}
+                        alt14=33;}
                 }
                 else {
-                    alt14=32;}
+                    alt14=33;}
             }
             else {
-                alt14=32;}
+                alt14=33;}
         }
         else if ( (LA14_0=='.') ) {
             int LA14_4 = input.LA(2);
 
             if ( ((LA14_4>='0' && LA14_4<='9')) ) {
-                alt14=30;
+                alt14=31;
             }
             else {
                 alt14=4;}
@@ -1297,25 +1317,25 @@ public class InternalExprDemoLexer extends Lexer {
                     int LA14_74 = input.LA(4);
 
                     if ( (LA14_74=='a') ) {
-                        int LA14_89 = input.LA(5);
+                        int LA14_90 = input.LA(5);
 
-                        if ( (LA14_89=='t') ) {
-                            int LA14_103 = input.LA(6);
+                        if ( (LA14_90=='t') ) {
+                            int LA14_105 = input.LA(6);
 
-                            if ( ((LA14_103>='0' && LA14_103<='9')||(LA14_103>='A' && LA14_103<='Z')||LA14_103=='_'||(LA14_103>='a' && LA14_103<='z')) ) {
-                                alt14=32;
+                            if ( ((LA14_105>='0' && LA14_105<='9')||(LA14_105>='A' && LA14_105<='Z')||LA14_105=='_'||(LA14_105>='a' && LA14_105<='z')) ) {
+                                alt14=33;
                             }
                             else {
-                                alt14=25;}
+                                alt14=26;}
                         }
                         else {
-                            alt14=32;}
+                            alt14=33;}
                     }
                     else {
-                        alt14=32;}
+                        alt14=33;}
                 }
                 else {
-                    alt14=32;}
+                    alt14=33;}
                 }
                 break;
             case 'u':
@@ -1326,47 +1346,47 @@ public class InternalExprDemoLexer extends Lexer {
                     int LA14_75 = input.LA(4);
 
                     if ( (LA14_75=='c') ) {
-                        int LA14_90 = input.LA(5);
+                        int LA14_91 = input.LA(5);
 
-                        if ( (LA14_90=='t') ) {
-                            int LA14_104 = input.LA(6);
+                        if ( (LA14_91=='t') ) {
+                            int LA14_106 = input.LA(6);
 
-                            if ( (LA14_104=='i') ) {
-                                int LA14_116 = input.LA(7);
+                            if ( (LA14_106=='i') ) {
+                                int LA14_119 = input.LA(7);
 
-                                if ( (LA14_116=='o') ) {
-                                    int LA14_122 = input.LA(8);
+                                if ( (LA14_119=='o') ) {
+                                    int LA14_126 = input.LA(8);
 
-                                    if ( (LA14_122=='n') ) {
-                                        int LA14_126 = input.LA(9);
+                                    if ( (LA14_126=='n') ) {
+                                        int LA14_131 = input.LA(9);
 
-                                        if ( ((LA14_126>='0' && LA14_126<='9')||(LA14_126>='A' && LA14_126<='Z')||LA14_126=='_'||(LA14_126>='a' && LA14_126<='z')) ) {
-                                            alt14=32;
+                                        if ( ((LA14_131>='0' && LA14_131<='9')||(LA14_131>='A' && LA14_131<='Z')||LA14_131=='_'||(LA14_131>='a' && LA14_131<='z')) ) {
+                                            alt14=33;
                                         }
                                         else {
                                             alt14=6;}
                                     }
                                     else {
-                                        alt14=32;}
+                                        alt14=33;}
                                 }
                                 else {
-                                    alt14=32;}
+                                    alt14=33;}
                             }
                             else {
-                                alt14=32;}
+                                alt14=33;}
                         }
                         else {
-                            alt14=32;}
+                            alt14=33;}
                     }
                     else {
-                        alt14=32;}
+                        alt14=33;}
                 }
                 else {
-                    alt14=32;}
+                    alt14=33;}
                 }
                 break;
             default:
-                alt14=32;}
+                alt14=33;}
 
         }
         else if ( (LA14_0=='(') ) {
@@ -1388,40 +1408,83 @@ public class InternalExprDemoLexer extends Lexer {
             int LA14_12 = input.LA(2);
 
             if ( (LA14_12=='e') ) {
-                int LA14_49 = input.LA(3);
-
-                if ( (LA14_49=='t') ) {
+                switch ( input.LA(3) ) {
+                case 't':
+                    {
                     int LA14_76 = input.LA(4);
 
                     if ( (LA14_76=='u') ) {
-                        int LA14_91 = input.LA(5);
+                        int LA14_92 = input.LA(5);
 
-                        if ( (LA14_91=='r') ) {
-                            int LA14_105 = input.LA(6);
+                        if ( (LA14_92=='r') ) {
+                            int LA14_107 = input.LA(6);
 
-                            if ( (LA14_105=='n') ) {
-                                int LA14_117 = input.LA(7);
+                            if ( (LA14_107=='n') ) {
+                                int LA14_120 = input.LA(7);
 
-                                if ( ((LA14_117>='0' && LA14_117<='9')||(LA14_117>='A' && LA14_117<='Z')||LA14_117=='_'||(LA14_117>='a' && LA14_117<='z')) ) {
-                                    alt14=32;
+                                if ( ((LA14_120>='0' && LA14_120<='9')||(LA14_120>='A' && LA14_120<='Z')||LA14_120=='_'||(LA14_120>='a' && LA14_120<='z')) ) {
+                                    alt14=33;
                                 }
                                 else {
                                     alt14=12;}
                             }
                             else {
-                                alt14=32;}
+                                alt14=33;}
                         }
                         else {
-                            alt14=32;}
+                            alt14=33;}
                     }
                     else {
-                        alt14=32;}
-                }
-                else {
-                    alt14=32;}
+                        alt14=33;}
+                    }
+                    break;
+                case 'a':
+                    {
+                    int LA14_77 = input.LA(4);
+
+                    if ( (LA14_77=='d') ) {
+                        int LA14_93 = input.LA(5);
+
+                        if ( (LA14_93=='o') ) {
+                            int LA14_108 = input.LA(6);
+
+                            if ( (LA14_108=='n') ) {
+                                int LA14_121 = input.LA(7);
+
+                                if ( (LA14_121=='l') ) {
+                                    int LA14_128 = input.LA(8);
+
+                                    if ( (LA14_128=='y') ) {
+                                        int LA14_132 = input.LA(9);
+
+                                        if ( ((LA14_132>='0' && LA14_132<='9')||(LA14_132>='A' && LA14_132<='Z')||LA14_132=='_'||(LA14_132>='a' && LA14_132<='z')) ) {
+                                            alt14=33;
+                                        }
+                                        else {
+                                            alt14=18;}
+                                    }
+                                    else {
+                                        alt14=33;}
+                                }
+                                else {
+                                    alt14=33;}
+                            }
+                            else {
+                                alt14=33;}
+                        }
+                        else {
+                            alt14=33;}
+                    }
+                    else {
+                        alt14=33;}
+                    }
+                    break;
+                default:
+                    alt14=33;}
+
             }
             else {
-                alt14=32;}
+                alt14=33;}
         }
         else if ( (LA14_0==';') ) {
             alt14=13;
@@ -1433,34 +1496,34 @@ public class InternalExprDemoLexer extends Lexer {
                 int LA14_51 = input.LA(3);
 
                 if ( (LA14_51=='s') ) {
-                    int LA14_77 = input.LA(4);
+                    int LA14_78 = input.LA(4);
 
-                    if ( (LA14_77=='e') ) {
-                        int LA14_92 = input.LA(5);
+                    if ( (LA14_78=='e') ) {
+                        int LA14_94 = input.LA(5);
 
-                        if ( (LA14_92=='r') ) {
-                            int LA14_106 = input.LA(6);
+                        if ( (LA14_94=='r') ) {
+                            int LA14_109 = input.LA(6);
 
-                            if ( (LA14_106=='t') ) {
-                                int LA14_118 = input.LA(7);
+                            if ( (LA14_109=='t') ) {
+                                int LA14_122 = input.LA(7);
 
-                                if ( ((LA14_118>='0' && LA14_118<='9')||(LA14_118>='A' && LA14_118<='Z')||LA14_118=='_'||(LA14_118>='a' && LA14_118<='z')) ) {
-                                    alt14=32;
+                                if ( ((LA14_122>='0' && LA14_122<='9')||(LA14_122>='A' && LA14_122<='Z')||LA14_122=='_'||(LA14_122>='a' && LA14_122<='z')) ) {
+                                    alt14=33;
                                 }
                                 else {
                                     alt14=14;}
                             }
                             else {
-                                alt14=32;}
+                                alt14=33;}
                         }
                         else {
-                            alt14=32;}
+                            alt14=33;}
                     }
                     else {
-                        alt14=32;}
+                        alt14=33;}
                 }
                 else {
-                    alt14=32;}
+                    alt14=33;}
                 }
                 break;
             case 'r':
@@ -1468,32 +1531,32 @@ public class InternalExprDemoLexer extends Lexer {
                 int LA14_52 = input.LA(3);
 
                 if ( (LA14_52=='r') ) {
-                    int LA14_78 = input.LA(4);
+                    int LA14_79 = input.LA(4);
 
-                    if ( (LA14_78=='a') ) {
-                        int LA14_93 = input.LA(5);
+                    if ( (LA14_79=='a') ) {
+                        int LA14_95 = input.LA(5);
 
-                        if ( (LA14_93=='y') ) {
-                            int LA14_107 = input.LA(6);
+                        if ( (LA14_95=='y') ) {
+                            int LA14_110 = input.LA(6);
 
-                            if ( ((LA14_107>='0' && LA14_107<='9')||(LA14_107>='A' && LA14_107<='Z')||LA14_107=='_'||(LA14_107>='a' && LA14_107<='z')) ) {
-                                alt14=32;
+                            if ( ((LA14_110>='0' && LA14_110<='9')||(LA14_110>='A' && LA14_110<='Z')||LA14_110=='_'||(LA14_110>='a' && LA14_110<='z')) ) {
+                                alt14=33;
                             }
                             else {
-                                alt14=20;}
+                                alt14=21;}
                         }
                         else {
-                            alt14=32;}
+                            alt14=33;}
                     }
                     else {
-                        alt14=32;}
+                        alt14=33;}
                 }
                 else {
-                    alt14=32;}
+                    alt14=33;}
                 }
                 break;
             default:
-                alt14=32;}
+                alt14=33;}
 
         }
         else if ( (LA14_0=='i') ) {
@@ -1503,7 +1566,7 @@ public class InternalExprDemoLexer extends Lexer {
                 int LA14_53 = input.LA(3);
 
                 if ( ((LA14_53>='0' && LA14_53<='9')||(LA14_53>='A' && LA14_53<='Z')||LA14_53=='_'||(LA14_53>='a' && LA14_53<='z')) ) {
-                    alt14=32;
+                    alt14=33;
                 }
                 else {
                     alt14=15;}
@@ -1514,20 +1577,20 @@ public class InternalExprDemoLexer extends Lexer {
                 int LA14_54 = input.LA(3);
 
                 if ( (LA14_54=='t') ) {
-                    int LA14_80 = input.LA(4);
+                    int LA14_81 = input.LA(4);
 
-                    if ( ((LA14_80>='0' && LA14_80<='9')||(LA14_80>='A' && LA14_80<='Z')||LA14_80=='_'||(LA14_80>='a' && LA14_80<='z')) ) {
-                        alt14=32;
+                    if ( ((LA14_81>='0' && LA14_81<='9')||(LA14_81>='A' && LA14_81<='Z')||LA14_81=='_'||(LA14_81>='a' && LA14_81<='z')) ) {
+                        alt14=33;
                     }
                     else {
-                        alt14=23;}
+                        alt14=24;}
                 }
                 else {
-                    alt14=32;}
+                    alt14=33;}
                 }
                 break;
             default:
-                alt14=32;}
+                alt14=33;}
 
         }
         else if ( (LA14_0==':') ) {
@@ -1540,25 +1603,25 @@ public class InternalExprDemoLexer extends Lexer {
                 int LA14_56 = input.LA(3);
 
                 if ( (LA14_56=='u') ) {
-                    int LA14_81 = input.LA(4);
+                    int LA14_82 = input.LA(4);
 
-                    if ( (LA14_81=='m') ) {
-                        int LA14_95 = input.LA(5);
+                    if ( (LA14_82=='m') ) {
+                        int LA14_97 = input.LA(5);
 
-                        if ( ((LA14_95>='0' && LA14_95<='9')||(LA14_95>='A' && LA14_95<='Z')||LA14_95=='_'||(LA14_95>='a' && LA14_95<='z')) ) {
-                            alt14=32;
+                        if ( ((LA14_97>='0' && LA14_97<='9')||(LA14_97>='A' && LA14_97<='Z')||LA14_97=='_'||(LA14_97>='a' && LA14_97<='z')) ) {
+                            alt14=33;
                         }
                         else {
                             alt14=17;}
                     }
                     else {
-                        alt14=32;}
+                        alt14=33;}
                 }
                 else {
-                    alt14=32;}
+                    alt14=33;}
             }
             else {
-                alt14=32;}
+                alt14=33;}
         }
         else if ( (LA14_0=='v') ) {
             int LA14_18 = input.LA(2);
@@ -1567,34 +1630,34 @@ public class InternalExprDemoLexer extends Lexer {
                 int LA14_57 = input.LA(3);
 
                 if ( (LA14_57=='r') ) {
-                    int LA14_82 = input.LA(4);
+                    int LA14_83 = input.LA(4);
 
-                    if ( ((LA14_82>='0' && LA14_82<='9')||(LA14_82>='A' && LA14_82<='Z')||LA14_82=='_'||(LA14_82>='a' && LA14_82<='z')) ) {
-                        alt14=32;
+                    if ( ((LA14_83>='0' && LA14_83<='9')||(LA14_83>='A' && LA14_83<='Z')||LA14_83=='_'||(LA14_83>='a' && LA14_83<='z')) ) {
+                        alt14=33;
                     }
                     else {
-                        alt14=18;}
+                        alt14=19;}
                 }
                 else {
-                    alt14=32;}
+                    alt14=33;}
             }
             else {
-                alt14=32;}
+                alt14=33;}
         }
         else if ( (LA14_0=='=') ) {
             int LA14_19 = input.LA(2);
 
             if ( (LA14_19=='=') ) {
-                alt14=28;
+                alt14=29;
             }
             else {
-                alt14=19;}
+                alt14=20;}
         }
         else if ( (LA14_0=='[') ) {
-            alt14=21;
+            alt14=22;
         }
         else if ( (LA14_0==']') ) {
-            alt14=22;
+            alt14=23;
         }
         else if ( (LA14_0=='b') ) {
             int LA14_22 = input.LA(2);
@@ -1603,25 +1666,25 @@ public class InternalExprDemoLexer extends Lexer {
                 int LA14_62 = input.LA(3);
 
                 if ( (LA14_62=='o') ) {
-                    int LA14_83 = input.LA(4);
+                    int LA14_84 = input.LA(4);
 
-                    if ( (LA14_83=='l') ) {
-                        int LA14_97 = input.LA(5);
+                    if ( (LA14_84=='l') ) {
+                        int LA14_99 = input.LA(5);
 
-                        if ( ((LA14_97>='0' && LA14_97<='9')||(LA14_97>='A' && LA14_97<='Z')||LA14_97=='_'||(LA14_97>='a' && LA14_97<='z')) ) {
-                            alt14=32;
+                        if ( ((LA14_99>='0' && LA14_99<='9')||(LA14_99>='A' && LA14_99<='Z')||LA14_99=='_'||(LA14_99>='a' && LA14_99<='z')) ) {
+                            alt14=33;
                         }
                         else {
-                            alt14=24;}
+                            alt14=25;}
                     }
                     else {
-                        alt14=32;}
+                        alt14=33;}
                 }
                 else {
-                    alt14=32;}
+                    alt14=33;}
             }
             else {
-                alt14=32;}
+                alt14=33;}
         }
         else if ( (LA14_0=='s') ) {
             int LA14_23 = input.LA(2);
@@ -1630,37 +1693,37 @@ public class InternalExprDemoLexer extends Lexer {
                 int LA14_63 = input.LA(3);
 
                 if ( (LA14_63=='r') ) {
-                    int LA14_84 = input.LA(4);
+                    int LA14_85 = input.LA(4);
 
-                    if ( (LA14_84=='i') ) {
-                        int LA14_98 = input.LA(5);
+                    if ( (LA14_85=='i') ) {
+                        int LA14_100 = input.LA(5);
 
-                        if ( (LA14_98=='n') ) {
-                            int LA14_110 = input.LA(6);
+                        if ( (LA14_100=='n') ) {
+                            int LA14_113 = input.LA(6);
 
-                            if ( (LA14_110=='g') ) {
-                                int LA14_120 = input.LA(7);
+                            if ( (LA14_113=='g') ) {
+                                int LA14_124 = input.LA(7);
 
-                                if ( ((LA14_120>='0' && LA14_120<='9')||(LA14_120>='A' && LA14_120<='Z')||LA14_120=='_'||(LA14_120>='a' && LA14_120<='z')) ) {
-                                    alt14=32;
+                                if ( ((LA14_124>='0' && LA14_124<='9')||(LA14_124>='A' && LA14_124<='Z')||LA14_124=='_'||(LA14_124>='a' && LA14_124<='z')) ) {
+                                    alt14=33;
                                 }
                                 else {
-                                    alt14=26;}
+                                    alt14=27;}
                             }
                             else {
-                                alt14=32;}
+                                alt14=33;}
                         }
                         else {
-                            alt14=32;}
+                            alt14=33;}
                     }
                     else {
-                        alt14=32;}
+                        alt14=33;}
                 }
                 else {
-                    alt14=32;}
+                    alt14=33;}
             }
             else {
-                alt14=32;}
+                alt14=33;}
         }
         else if ( (LA14_0=='c') ) {
             int LA14_24 = input.LA(2);
@@ -1669,95 +1732,95 @@ public class InternalExprDemoLexer extends Lexer {
                 int LA14_64 = input.LA(3);
 
                 if ( (LA14_64=='l') ) {
-                    int LA14_85 = input.LA(4);
+                    int LA14_86 = input.LA(4);
 
-                    if ( (LA14_85=='c') ) {
-                        int LA14_99 = input.LA(5);
+                    if ( (LA14_86=='c') ) {
+                        int LA14_101 = input.LA(5);
 
-                        if ( ((LA14_99>='0' && LA14_99<='9')||(LA14_99>='A' && LA14_99<='Z')||LA14_99=='_'||(LA14_99>='a' && LA14_99<='z')) ) {
-                            alt14=32;
+                        if ( ((LA14_101>='0' && LA14_101<='9')||(LA14_101>='A' && LA14_101<='Z')||LA14_101=='_'||(LA14_101>='a' && LA14_101<='z')) ) {
+                            alt14=33;
                         }
                         else {
-                            alt14=27;}
+                            alt14=28;}
                     }
                     else {
-                        alt14=32;}
+                        alt14=33;}
                 }
                 else {
-                    alt14=32;}
+                    alt14=33;}
             }
             else {
-                alt14=32;}
+                alt14=33;}
         }
         else if ( (LA14_0=='+') ) {
-            alt14=29;
+            alt14=30;
         }
         else if ( ((LA14_0>='0' && LA14_0<='9')) ) {
-            alt14=30;
+            alt14=31;
         }
         else if ( (LA14_0=='$') ) {
             int LA14_28 = input.LA(2);
 
             if ( (LA14_28=='$') ) {
-                alt14=31;
+                alt14=32;
             }
             else {
-                alt14=37;}
+                alt14=38;}
         }
         else if ( (LA14_0=='^') ) {
             int LA14_29 = input.LA(2);
 
             if ( ((LA14_29>='A' && LA14_29<='Z')||LA14_29=='_'||(LA14_29>='a' && LA14_29<='z')) ) {
-                alt14=32;
+                alt14=33;
             }
             else {
-                alt14=37;}
+                alt14=38;}
         }
         else if ( ((LA14_0>='A' && LA14_0<='Z')||LA14_0=='_'||LA14_0=='d'||(LA14_0>='g' && LA14_0<='h')||(LA14_0>='j' && LA14_0<='l')||(LA14_0>='n' && LA14_0<='q')||(LA14_0>='w' && LA14_0<='z')) ) {
-            alt14=32;
+            alt14=33;
         }
         else if ( (LA14_0=='\"') ) {
             int LA14_31 = input.LA(2);
 
             if ( ((LA14_31>='\u0000' && LA14_31<='\uFFFE')) ) {
-                alt14=33;
+                alt14=34;
             }
             else {
-                alt14=37;}
+                alt14=38;}
         }
         else if ( (LA14_0=='\'') ) {
             int LA14_32 = input.LA(2);
 
             if ( ((LA14_32>='\u0000' && LA14_32<='\uFFFE')) ) {
-                alt14=33;
+                alt14=34;
             }
             else {
-                alt14=37;}
+                alt14=38;}
         }
         else if ( (LA14_0=='/') ) {
             switch ( input.LA(2) ) {
-            case '/':
+            case '*':
                 {
                 alt14=35;
                 }
                 break;
-            case '*':
+            case '/':
                 {
-                alt14=34;
+                alt14=36;
                 }
                 break;
             default:
-                alt14=37;}
+                alt14=38;}
 
         }
         else if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {
-            alt14=36;
-        }
-        else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||LA14_0=='!'||LA14_0=='#'||(LA14_0>='%' && LA14_0<='&')||LA14_0=='-'||LA14_0=='<'||(LA14_0>='>' && LA14_0<='@')||LA14_0=='\\'||LA14_0=='`'||LA14_0=='|'||(LA14_0>='~' && LA14_0<='\uFFFE')) ) {
             alt14=37;
         }
+        else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||LA14_0=='!'||LA14_0=='#'||(LA14_0>='%' && LA14_0<='&')||LA14_0=='-'||LA14_0=='<'||(LA14_0>='>' && LA14_0<='@')||LA14_0=='\\'||LA14_0=='`'||LA14_0=='|'||(LA14_0>='~' && LA14_0<='\uFFFE')) ) {
+            alt14=38;
+        }
         else {
-            alt14=30;}
+            alt14=31;}
         switch (alt14) {
             case 1 :
                 // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:10: T12
@@ -1963,56 +2026,63 @@ public class InternalExprDemoLexer extends Lexer {
                 }
                 break;
             case 30 :
-                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:126: RULE_NUMBER
+                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:126: T41
+                {
+                mT41(); 
+
+                }
+                break;
+            case 31 :
+                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:130: RULE_NUMBER
                 {
                 mRULE_NUMBER(); 
 
                 }
                 break;
-            case 31 :
-                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:138: RULE_INT
+            case 32 :
+                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:142: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 32 :
-                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:147: RULE_ID
+            case 33 :
+                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:151: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 33 :
-                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:155: RULE_STRING
+            case 34 :
+                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:159: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 34 :
-                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:167: RULE_ML_COMMENT
+            case 35 :
+                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:171: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 35 :
-                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:183: RULE_SL_COMMENT
+            case 36 :
+                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:187: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 36 :
-                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:199: RULE_WS
+            case 37 :
+                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:203: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 37 :
-                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:207: RULE_ANY_OTHER
+            case 38 :
+                // ../expr/src-gen/expr/parser/antlr/internal/InternalExprDemo.g:1:211: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
