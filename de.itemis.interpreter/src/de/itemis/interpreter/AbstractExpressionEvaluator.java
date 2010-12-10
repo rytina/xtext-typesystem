@@ -1,7 +1,6 @@
 package de.itemis.interpreter;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 
 import de.itemis.interpreter.logging.LogEntry;
 
@@ -48,5 +47,138 @@ public abstract class AbstractExpressionEvaluator extends InterpreterPart {
 		double rightVal = ((Double)evalCheckNull(right, log)).doubleValue();
 		return leftVal / rightVal;
 	}
+	
+	
+	protected Object intDoublePlus( EObject expr, EObject left, EObject right, LogEntry log ) throws InterpreterException {
+		Object leftVal = eval( left, log );
+		Object rightVal = eval( right, log );
+		if ( leftVal instanceof Integer && rightVal instanceof Integer ) return Integer.valueOf( ((Integer)leftVal).intValue() + ((Integer)rightVal).intValue() );
+		if ( leftVal instanceof Double && rightVal instanceof Integer ) return Double.valueOf( ((Double)leftVal).doubleValue() + ((Integer)rightVal).intValue() );
+		if ( leftVal instanceof Integer && rightVal instanceof Double ) return Double.valueOf( ((Integer)leftVal).intValue() + ((Double)rightVal).doubleValue() );
+		if ( leftVal instanceof Double && rightVal instanceof Double ) return Double.valueOf( ((Double)leftVal).doubleValue() + ((Double)rightVal).doubleValue() );
+		throw new InterpreterException(expr, "don't know how to handle addition in doubleIntPlus(...)");
+	}
+	
+	protected Object intDoubleMinus( EObject expr, EObject left, EObject right, LogEntry log ) throws InterpreterException {
+		Object leftVal = eval( left, log );
+		Object rightVal = eval( right, log );
+		if ( leftVal instanceof Integer && rightVal instanceof Integer ) return Integer.valueOf( ((Integer)leftVal).intValue() - ((Integer)rightVal).intValue() );
+		if ( leftVal instanceof Double && rightVal instanceof Integer ) return Double.valueOf( ((Double)leftVal).doubleValue() - ((Integer)rightVal).intValue() );
+		if ( leftVal instanceof Integer && rightVal instanceof Double ) return Double.valueOf( ((Integer)leftVal).intValue() - ((Double)rightVal).doubleValue() );
+		if ( leftVal instanceof Double && rightVal instanceof Double ) return Double.valueOf( ((Double)leftVal).doubleValue() - ((Double)rightVal).doubleValue() );
+		throw new InterpreterException(expr, "don't know how to handle subtraction in doubleIntMinus(...)");
+	}
+	
+	protected Object intDoubleMulti( EObject expr, EObject left, EObject right, LogEntry log ) throws InterpreterException {
+		Object leftVal = eval( left, log );
+		Object rightVal = eval( right, log );
+		if ( leftVal instanceof Integer && rightVal instanceof Integer ) return Integer.valueOf( ((Integer)leftVal).intValue() * ((Integer)rightVal).intValue() );
+		if ( leftVal instanceof Double && rightVal instanceof Integer ) return Double.valueOf( ((Double)leftVal).doubleValue() * ((Integer)rightVal).intValue() );
+		if ( leftVal instanceof Integer && rightVal instanceof Double ) return Double.valueOf( ((Integer)leftVal).intValue() * ((Double)rightVal).doubleValue() );
+		if ( leftVal instanceof Double && rightVal instanceof Double ) return Double.valueOf( ((Double)leftVal).doubleValue() * ((Double)rightVal).doubleValue() );
+		throw new InterpreterException(expr, "don't know how to handle multiplication in doubleIntMulti(...)");
+	}
+	
+	protected Object intDoubleDiv( EObject expr, EObject left, EObject right, LogEntry log ) throws InterpreterException {
+		Object leftVal = eval( left, log );
+		Object rightVal = eval( right, log );
+		if ( leftVal instanceof Integer && rightVal instanceof Integer ) return Integer.valueOf( ((Integer)leftVal).intValue() / ((Integer)rightVal).intValue() );
+		if ( leftVal instanceof Double && rightVal instanceof Integer ) return Double.valueOf( ((Double)leftVal).doubleValue() / ((Integer)rightVal).intValue() );
+		if ( leftVal instanceof Integer && rightVal instanceof Double ) return Double.valueOf( ((Integer)leftVal).intValue() / ((Double)rightVal).doubleValue() );
+		if ( leftVal instanceof Double && rightVal instanceof Double ) return Double.valueOf( ((Double)leftVal).doubleValue() / ((Double)rightVal).doubleValue() );
+		throw new InterpreterException(expr, "don't know how to handle division in doubleIntDiv(...)");
+	}
+	
+	protected int intDoubleCompareNumeric(Object left, Object right) {
+		if ( left.equals(right) ) return 0;
+		if ( left instanceof Integer && right instanceof Integer ) {
+			int l = ((Integer)left).intValue();
+			int r = ((Integer)right).intValue();
+			if ( l < r ) return -1;
+			if ( l > r ) return 1;
+		}
+		else if ( left instanceof Double && right instanceof Integer ) {
+			double l = ((Double)left).doubleValue();
+			int r = ((Integer)right).intValue();
+			if ( l < r ) return -1;
+			if ( l > r ) return 1;
+		}
+		else if ( left instanceof Integer && right instanceof Double ) {
+			int l = ((Integer)left).intValue();
+			double r = ((Double)right).doubleValue();
+			if ( l < r ) return -1;
+			if ( l > r ) return 1;
+		}
+		else if ( left instanceof Double && right instanceof Double ) {
+			double l = ((Double)left).doubleValue();
+			double r = ((Double)right).doubleValue();
+			if ( l < r ) return -1;
+			if ( l > r ) return 1;
+		}
+		return 0;
+	}
+
+	protected Object intDoubleEquals(EObject left, EObject right, LogEntry log) {
+		Object leftVal = eval( left, log );
+		Object rightVal = eval( right, log );
+		int c = intDoubleCompareNumeric( leftVal, rightVal );
+		return c == 0;
+	}
+
+	protected Object intDoubleGreater(EObject left, EObject right, LogEntry log) {
+		Object leftVal = eval( left, log );
+		Object rightVal = eval( right, log );
+		int c = intDoubleCompareNumeric( leftVal, rightVal );
+		return c > 0;
+	}
+	
+	protected Object intDoubleGreaterEquals(EObject left, EObject right, LogEntry log) {
+		Object leftVal = eval( left, log );
+		Object rightVal = eval( right, log );
+		int c = intDoubleCompareNumeric( leftVal, rightVal );
+		return c >= 0;
+	}
+	
+	protected Object intDoubleSmaller(EObject left, EObject right, LogEntry log) {
+		Object leftVal = eval( left, log );
+		Object rightVal = eval( right, log );
+		int c = intDoubleCompareNumeric( leftVal, rightVal );
+		return c < 0;
+	}
+
+	protected Object intDoubleSmallerEquals(EObject left, EObject right, LogEntry log) {
+		Object leftVal = eval( left, log );
+		Object rightVal = eval( right, log );
+		int c = intDoubleCompareNumeric( leftVal, rightVal );
+		return c <= 0;
+	}
+	
+	protected Object booleanOr(EObject left, EObject right, LogEntry log) {
+		boolean leftVal = ((Boolean)eval( left, log )).booleanValue();
+		boolean rightVal = ((Boolean)eval( right, log )).booleanValue();
+		return leftVal || rightVal;
+	}
+
+	protected Object booleanAnd(EObject left, EObject right, LogEntry log) {
+		boolean leftVal = ((Boolean)eval( left, log )).booleanValue();
+		boolean rightVal = ((Boolean)eval( right, log )).booleanValue();
+		return leftVal && rightVal;
+	}
+
+	protected Object booleanNot(EObject expr, LogEntry log) {
+		boolean val = ((Boolean)eval( expr, log )).booleanValue();
+		return !val;
+	}
+
+	
+	
+	
+
+
+
+
+
+
+
 	
 }

@@ -2,7 +2,7 @@ package de.itemis.interpreter;
 
 import org.eclipse.emf.ecore.EObject;
 
-public class InterpreterException extends Exception {
+public class InterpreterException extends RuntimeException {
 
 	private EObject failedObject;
 
