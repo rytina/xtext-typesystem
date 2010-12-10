@@ -25,4 +25,28 @@ public abstract class AbstractExpressionEvaluator extends InterpreterPart {
 		return checkNull( expr, eval( expr, parentLog ) );
 	}
 	
+	protected Object doublePlusDouble( EObject left, EObject right, LogEntry log ) throws InterpreterException {
+		double leftVal = ((Double)evalCheckNull(left, log)).doubleValue();
+		double rightVal = ((Double)evalCheckNull(right, log)).doubleValue();
+		return leftVal + rightVal;
+	}
+	
+	protected Object doubleMinusDouble( EObject left, EObject right, LogEntry log ) throws InterpreterException {
+		double leftVal = ((Double)evalCheckNull(left, log)).doubleValue();
+		double rightVal = ((Double)evalCheckNull(right, log)).doubleValue();
+		return leftVal - rightVal;
+	}
+	
+	protected Object doubleTimesDouble( EObject left, EObject right, LogEntry log ) throws InterpreterException {
+		double leftVal = ((Double)evalCheckNull(left, log)).doubleValue();
+		double rightVal = ((Double)evalCheckNull(right, log)).doubleValue();
+		return leftVal * rightVal;
+	}
+	
+	protected Object doubleDivDouble( EObject left, EObject right, LogEntry log ) throws InterpreterException {
+		double leftVal = ((Double)evalCheckNull(left, log)).doubleValue();
+		double rightVal = ((Double)evalCheckNull(right, log)).doubleValue();
+		return leftVal / rightVal;
+	}
+	
 }

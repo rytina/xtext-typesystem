@@ -14,6 +14,7 @@ public class ExprModelInterpreter {
 		LogEntry log = LogEntry.root("running model "+m.getName());
 		LogEntry.setMostRecentRoot(log);
 		new Evaluator(ctx);
+		//new GroovxEval(ctx);
 		new StatementExecutor(ctx).execute(m.getElements(), log);
 		return ctx.messages;
 	}

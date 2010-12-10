@@ -32,23 +32,19 @@ public class Evaluator extends AbstractExprDemoExpressionEvaluator {
 	@Override
 	protected Object evalStringLiteral(StringLiteral expr, LogEntry log)
 			throws InterpreterException {
-		return ( expr.getValue() );
+		return expr.getValue();
 	}
 	
 	@Override
 	protected Object evalMulti(Multi expr, LogEntry log)
 			throws InterpreterException {
-		Double l = (Double)evalCheckNull( expr.getLeft(), log);
-		Double r = (Double)evalCheckNull( expr.getRight(), log);
-		return new Double( l.doubleValue() * r.doubleValue() );
+		return doubleTimesDouble(expr.getLeft(), expr.getRight(), log);
 	}
 	
 	@Override
 	protected Object evalPlus(Plus expr, LogEntry log)
 			throws InterpreterException {
-		Double l = (Double)evalCheckNull( expr.getLeft(), log);
-		Double r = (Double)evalCheckNull( expr.getRight(), log);
-		return new Double( l.doubleValue() + r.doubleValue() );
+		return doublePlusDouble(expr.getLeft(), expr.getRight(), log);
 	}
 	
 	@Override
