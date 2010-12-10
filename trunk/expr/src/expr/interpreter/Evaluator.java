@@ -1,12 +1,8 @@
 package expr.interpreter;
 
-import java.util.List;
-
-
 import de.itemis.interpreter.ExecutionContext;
 import de.itemis.interpreter.InterpreterException;
 import de.itemis.interpreter.logging.LogEntry;
-import expr.exprDemo.Expr;
 import expr.exprDemo.Formula;
 import expr.exprDemo.FunctionDeclaration;
 import expr.exprDemo.Multi;
@@ -50,13 +46,13 @@ public class Evaluator extends AbstractExprDemoExpressionEvaluator {
 	protected Object evalSymbolRef(SymbolRef expr, LogEntry log) {
 		Symbol symbol = expr.getSymbol();
 		if ( symbol instanceof VarDecl ) {
-			return ctx.symboltable.getCheckNull(symbol);
+			return log( symbol, ctx.symboltable.getCheckNull(symbol), log);
 		}
 		if ( symbol instanceof Formula ) {
-			return eval(((Formula) symbol).getExpr(), log);
+			return evalCheckNullLog(((Formula) symbol).getExpr(), log);
 		}
 		if ( symbol instanceof Parameter ) {
-			return ctx.symboltable.get(symbol);
+			return log( symbol, ctx.symboltable.get(symbol), log );
 		}
 		if ( symbol instanceof FunctionDeclaration ) {
 			FunctionDeclaration fd = (FunctionDeclaration) symbol;

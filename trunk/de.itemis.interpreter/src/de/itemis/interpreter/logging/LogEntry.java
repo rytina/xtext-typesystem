@@ -6,18 +6,20 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 
+import de.itemis.xtext.typesystem.util.Utils;
+
 
 public class LogEntry {
 
 	public static enum Kind {
-		root, debug, info, error, exception, success, fail
+		root, debug, info, error, exception, success, fail, eval, result
 	}
 
 	private static LogEntry mostRecentRoot;
 
-	public final Kind kind;
+	public Kind kind;
 	public final EObject element;
-	public final String message;
+	public String message;
 	public List<LogEntry> children = new LinkedList<LogEntry>();
 	public final long timestamp;
 	public final Exception exception;
@@ -101,7 +103,25 @@ public class LogEntry {
 		return mostRecentRoot;
 	}
 
+	public String formattedElement() { 
+		String name = Utils.name(element);
+		if ( name != null ) return element.eClass().getName()+" "+name;
+		return element.eClass().getName();
+	}
 
+	public void postprocess() {
+		for ( int i=children.size()-1; i>=0; i--) {
+			LogEntry e1 = children.get(i);
+			e1.postprocess();
+			if ( i == 0 ) return;
+			LogEntry e2 = children.get(i-1);
+			if ( e1.kind == Kind.result && e2.kind == Kind.eval ) {
+				e2.message += " "+e1.message;
+				children.remove(i);
+			}
+		}
+		
+	}
 
 	
 	

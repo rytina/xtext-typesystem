@@ -19,7 +19,7 @@ public abstract class AbstractExprDemoExpressionEvaluator extends AbstractExpres
 
 	public Object eval( EObject expr, LogEntry parentLog ) throws InterpreterException {
 
-		LogEntry localLog = parentLog.child(LogEntry.Kind.debug, expr, "evaluating "+expr.eClass().getName());
+		LogEntry localLog = parentLog.child(LogEntry.Kind.eval, expr, "evaluating "+expr.eClass().getName());
 
 		
 		if ( expr instanceof Equals ) {

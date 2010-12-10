@@ -5,7 +5,7 @@ import org.eclipse.jface.viewers.Viewer;
 
 import de.itemis.interpreter.logging.LogEntry;
 
-public class TestLogContentProvider implements ITreeContentProvider {
+public class LogContentProvider implements ITreeContentProvider {
 
 	@Override
 	public Object[] getChildren(Object parentElement) {
