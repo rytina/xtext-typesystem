@@ -1,5 +1,6 @@
 package de.itemis.interpreter;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import de.itemis.interpreter.logging.LogEntry;
@@ -169,6 +170,20 @@ public abstract class AbstractExpressionEvaluator extends InterpreterPart {
 		boolean val = ((Boolean)eval( expr, log )).booleanValue();
 		return !val;
 	}
+
+	protected Object callAndReturnWithPositionalArgs(String name, EList<? extends EObject> formals,
+			EList<? extends EObject> actuals, EList<? extends EObject> bodyStatements, Object returnSymbol, LogEntry log) {
+				ctx.symboltable.push(name);
+				for( int i=0; i<actuals.size(); i++ ) {
+					EObject actual = actuals.get(i);
+					EObject formal = formals.get(i);
+					ctx.symboltable.put(formal, evalCheckNull(actual, log));
+				}
+				ctx.getExecutor().execute( bodyStatements, log );
+				Object res = ctx.symboltable.get(returnSymbol);
+				ctx.symboltable.pop();
+				return res;
+			}
 
 	
 	

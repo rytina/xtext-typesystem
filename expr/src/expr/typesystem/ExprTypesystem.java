@@ -150,8 +150,10 @@ public class ExprTypesystem extends DefaultTypesystem {
 	// the type of a number literal depends on whether it has a dot in it
 	public EObject type( NumberLiteral l, TypeCalculationTrace trace ) {
 		if ( l.getValue().indexOf(".") > 0 ) {
+			trace.add(l, "dot found => float");
 			return Utils.create(lang.getFloatType());
 		} else {
+			trace.add(l, "no dot found => int");
 			return Utils.create(lang.getIntType());
 		}
 	}

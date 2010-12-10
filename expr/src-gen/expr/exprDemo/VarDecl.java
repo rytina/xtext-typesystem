@@ -14,6 +14,7 @@ package expr.exprDemo;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link expr.exprDemo.VarDecl#isReadonly <em>Readonly</em>}</li>
  *   <li>{@link expr.exprDemo.VarDecl#getType <em>Type</em>}</li>
  *   <li>{@link expr.exprDemo.VarDecl#getInit <em>Init</em>}</li>
  * </ul>
@@ -25,6 +26,32 @@ package expr.exprDemo;
  */
 public interface VarDecl extends Symbol
 {
+  /**
+   * Returns the value of the '<em><b>Readonly</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Readonly</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Readonly</em>' attribute.
+   * @see #setReadonly(boolean)
+   * @see expr.exprDemo.ExprDemoPackage#getVarDecl_Readonly()
+   * @model
+   * @generated
+   */
+  boolean isReadonly();
+
+  /**
+   * Sets the value of the '{@link expr.exprDemo.VarDecl#isReadonly <em>Readonly</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Readonly</em>' attribute.
+   * @see #isReadonly()
+   * @generated
+   */
+  void setReadonly(boolean value);
+
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->

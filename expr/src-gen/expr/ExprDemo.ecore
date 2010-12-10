@@ -62,6 +62,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumLiteral" eSuperTypes="#//Symbol"/>
   <eClassifiers xsi:type="ecore:EClass" name="VarDecl" eSuperTypes="#//Symbol">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readonly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="init" eType="#//Expr" containment="true"/>
   </eClassifiers>

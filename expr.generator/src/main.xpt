@@ -60,7 +60,7 @@ public class «name.toFirstUpper()» {
 «DEFINE code FOR Multi»«EXPAND code FOR left» * «EXPAND code FOR right»«ENDDEFINE»
 «DEFINE code FOR ArrayAccess»«EXPAND code FOR expr»[«EXPAND code FOR index»]«ENDDEFINE»
 «DEFINE code FOR NumberLiteral»«value»«ENDDEFINE»
-«DEFINE code FOR StringLiteral»«value»«ENDDEFINE»
+«DEFINE code FOR StringLiteral»"«value»"«ENDDEFINE»
 
 «DEFINE code FOR SymbolRef-»
 «IF FunctionDeclaration.isInstance(this.symbol)-»

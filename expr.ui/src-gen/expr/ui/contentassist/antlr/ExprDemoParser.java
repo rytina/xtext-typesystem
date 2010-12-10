@@ -56,7 +56,7 @@ public class ExprDemoParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEnumDeclAccess().getGroup(), "rule__EnumDecl__Group__0");
 					put(grammarAccess.getEnumLiteralAccess().getGroup(), "rule__EnumLiteral__Group__0");
 					put(grammarAccess.getVarDeclAccess().getGroup(), "rule__VarDecl__Group__0");
-					put(grammarAccess.getVarDeclAccess().getGroup_4(), "rule__VarDecl__Group_4__0");
+					put(grammarAccess.getVarDeclAccess().getGroup_5(), "rule__VarDecl__Group_5__0");
 					put(grammarAccess.getArrayTypeAccess().getGroup(), "rule__ArrayType__Group__0");
 					put(grammarAccess.getIntTypeAccess().getGroup(), "rule__IntType__Group__0");
 					put(grammarAccess.getBoolTypeAccess().getGroup(), "rule__BoolType__Group__0");
@@ -98,9 +98,10 @@ public class ExprDemoParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEnumDeclAccess().getNameAssignment_1(), "rule__EnumDecl__NameAssignment_1");
 					put(grammarAccess.getEnumDeclAccess().getLiteralsAssignment_3(), "rule__EnumDecl__LiteralsAssignment_3");
 					put(grammarAccess.getEnumLiteralAccess().getNameAssignment_1(), "rule__EnumLiteral__NameAssignment_1");
-					put(grammarAccess.getVarDeclAccess().getTypeAssignment_2(), "rule__VarDecl__TypeAssignment_2");
-					put(grammarAccess.getVarDeclAccess().getNameAssignment_3(), "rule__VarDecl__NameAssignment_3");
-					put(grammarAccess.getVarDeclAccess().getInitAssignment_4_1(), "rule__VarDecl__InitAssignment_4_1");
+					put(grammarAccess.getVarDeclAccess().getReadonlyAssignment_1(), "rule__VarDecl__ReadonlyAssignment_1");
+					put(grammarAccess.getVarDeclAccess().getTypeAssignment_3(), "rule__VarDecl__TypeAssignment_3");
+					put(grammarAccess.getVarDeclAccess().getNameAssignment_4(), "rule__VarDecl__NameAssignment_4");
+					put(grammarAccess.getVarDeclAccess().getInitAssignment_5_1(), "rule__VarDecl__InitAssignment_5_1");
 					put(grammarAccess.getArrayTypeAccess().getBaseTypeAssignment_3(), "rule__ArrayType__BaseTypeAssignment_3");
 					put(grammarAccess.getEnumTypeAccess().getEnumRefAssignment(), "rule__EnumType__EnumRefAssignment");
 					put(grammarAccess.getFormulaAccess().getTypeAssignment_2(), "rule__Formula__TypeAssignment_2");

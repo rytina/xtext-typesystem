@@ -23,6 +23,7 @@ RULE_ML_COMMENT=8
 'is'=25
 'float'=35
 '}'=20
+'readonly'=41
 '{'=19
 'var'=28
 'array'=30

@@ -47,7 +47,7 @@ EnumLiteral returns Symbol:
 
 	
 VarDecl returns Symbol:
-	{VarDecl} "var" type=Type name=ID ("=" init=Expr)? ";";
+	{VarDecl} (readonly?="readonly")? "var" type=Type name=ID ("=" init=Expr)? ";";
 
 Type:
 	PrimitiveType | ArrayType;

@@ -1,5 +1,8 @@
 package expr.interpreter;
 
+import java.util.List;
+
+
 import de.itemis.interpreter.ExecutionContext;
 import de.itemis.interpreter.InterpreterException;
 import de.itemis.interpreter.logging.LogEntry;
@@ -24,32 +27,27 @@ public class Evaluator extends AbstractExprDemoExpressionEvaluator {
 	}
 	
 	@Override
-	protected Object evalNumberLiteral(NumberLiteral expr, LogEntry log)
-			throws InterpreterException {
+	protected Object evalNumberLiteral(NumberLiteral expr, LogEntry log) {
 		return new Double( expr.getValue() );
 	}
 	
 	@Override
-	protected Object evalStringLiteral(StringLiteral expr, LogEntry log)
-			throws InterpreterException {
+	protected Object evalStringLiteral(StringLiteral expr, LogEntry log) {
 		return expr.getValue();
 	}
 	
 	@Override
-	protected Object evalMulti(Multi expr, LogEntry log)
-			throws InterpreterException {
+	protected Object evalMulti(Multi expr, LogEntry log) {
 		return doubleTimesDouble(expr.getLeft(), expr.getRight(), log);
 	}
 	
 	@Override
-	protected Object evalPlus(Plus expr, LogEntry log)
-			throws InterpreterException {
+	protected Object evalPlus(Plus expr, LogEntry log) {
 		return doublePlusDouble(expr.getLeft(), expr.getRight(), log);
 	}
 	
 	@Override
-	protected Object evalSymbolRef(SymbolRef expr, LogEntry log)
-			throws InterpreterException {
+	protected Object evalSymbolRef(SymbolRef expr, LogEntry log) {
 		Symbol symbol = expr.getSymbol();
 		if ( symbol instanceof VarDecl ) {
 			return ctx.symboltable.getCheckNull(symbol);
@@ -62,16 +60,8 @@ public class Evaluator extends AbstractExprDemoExpressionEvaluator {
 		}
 		if ( symbol instanceof FunctionDeclaration ) {
 			FunctionDeclaration fd = (FunctionDeclaration) symbol;
-			ctx.symboltable.push("calling function");
-			for( int i=0; i<expr.getActuals().size(); i++ ) {
-				Expr actual = expr.getActuals().get(i);
-				Parameter formal = (Parameter) fd.getParams().get(i);
-				ctx.symboltable.put(formal, evalCheckNull(actual, log));
-			}
-			ctx.getExecutor().execute( fd.getElements(), log );
-			Object res = ctx.symboltable.get(RETURN_SYMBOL);
-			ctx.symboltable.pop();
-			return res;
+			return callAndReturnWithPositionalArgs("calling "+fd.getName(), fd.getParams(), 
+					expr.getActuals(), fd.getElements(), RETURN_SYMBOL, log);
 		}
 		throw new InterpreterException(expr, "interpreter failed; cannot resolve symbol reference "+expr.eClass().getName());
 	}

@@ -723,9 +723,19 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getVarDecl_Readonly()
+  {
+    return (EAttribute)varDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getVarDecl_Type()
   {
-    return (EReference)varDeclEClass.getEStructuralFeatures().get(0);
+    return (EReference)varDeclEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -735,7 +745,7 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
    */
   public EReference getVarDecl_Init()
   {
-    return (EReference)varDeclEClass.getEStructuralFeatures().get(1);
+    return (EReference)varDeclEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1048,6 +1058,7 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     enumLiteralEClass = createEClass(ENUM_LITERAL);
 
     varDeclEClass = createEClass(VAR_DECL);
+    createEAttribute(varDeclEClass, VAR_DECL__READONLY);
     createEReference(varDeclEClass, VAR_DECL__TYPE);
     createEReference(varDeclEClass, VAR_DECL__INIT);
 
@@ -1197,6 +1208,7 @@ public class ExprDemoPackageImpl extends EPackageImpl implements ExprDemoPackage
     initEClass(enumLiteralEClass, EnumLiteral.class, "EnumLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(varDeclEClass, VarDecl.class, "VarDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVarDecl_Readonly(), ecorePackage.getEBoolean(), "readonly", null, 0, 1, VarDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVarDecl_Type(), this.getType(), null, "type", null, 0, 1, VarDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVarDecl_Init(), this.getExpr(), null, "init", null, 0, 1, VarDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
