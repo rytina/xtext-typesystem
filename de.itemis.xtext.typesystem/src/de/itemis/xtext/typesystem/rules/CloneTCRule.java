@@ -15,7 +15,10 @@ public class CloneTCRule extends TCRule {
 
 	@Override
 	public EObject calculateType(TypeCalculationTrace trace, EObject element) {
-		return new EcoreUtil.Copier().copy(element);
+		EcoreUtil.Copier copier = new EcoreUtil.Copier();
+		EObject res = copier.copy(element);
+		copier.copyReferences();
+		return res;
 	}
 
 	
