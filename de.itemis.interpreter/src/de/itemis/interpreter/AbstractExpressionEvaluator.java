@@ -131,6 +131,13 @@ public abstract class AbstractExpressionEvaluator extends InterpreterPart {
 		return c == 0;
 	}
 
+	protected Object intDoubleUnequals(EObject left, EObject right, LogEntry log) {
+		Object leftVal = evalCheckNullLog( left, log );
+		Object rightVal = evalCheckNullLog( right, log );
+		int c = intDoubleCompareNumeric( leftVal, rightVal );
+		return c != 0;
+	}
+
 	protected Object intDoubleGreater(EObject left, EObject right, LogEntry log) {
 		Object leftVal = evalCheckNullLog( left, log );
 		Object rightVal = evalCheckNullLog( right, log );
