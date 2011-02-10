@@ -43,7 +43,7 @@ public class SymbolTable {
 	}	
 	
 	private static class Table {
-		private Map<Object, Object> table;
+		private Map<Object, Object> symbols;
 		private Table parent;
 		private String name;
 		
@@ -52,23 +52,27 @@ public class SymbolTable {
 			this.name = name;
 		}
 		
-		public void put( Object e, Object o) {
-			if ( table == null ) {
-				table = new HashMap<Object, Object>();
-			}
-			table.put(e, o);
+		public synchronized void put( Object e, Object o) {
+			symbols().put(e, o);
 		}
 		
-		public Object get( Object e ) {
+		public synchronized Object get( Object e ) {
 			Object found = null;
 			Table t = this;
 			while ( found == null ) {
-				found = table.get(e);
+				found = symbols().get(e);
 				if ( found != null ) return found;
 				t = t.parent;
 				if ( t == null ) return null;
 			}
 			return null;
+		}
+		
+		private synchronized Map<Object, Object> symbols() {
+			if ( symbols == null ) {
+				symbols = new HashMap<Object, Object>();
+			}
+			return symbols;
 		}
 		
 		public Table child(String name) {
