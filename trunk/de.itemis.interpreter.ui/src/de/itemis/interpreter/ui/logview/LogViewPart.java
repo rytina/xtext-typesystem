@@ -100,8 +100,10 @@ public class LogViewPart extends ViewPart {
 			@Override
 			public String getText(Object element) {
 				LogEntry entry = (LogEntry) element;
-
-				return entry.message;
+				int indent = entry.getDepth();
+				StringBuilder b = new StringBuilder();
+				for (int i=0; i<indent; i++) b.append("  ");
+				return b.toString()+entry.message;
 			}
 		});
 

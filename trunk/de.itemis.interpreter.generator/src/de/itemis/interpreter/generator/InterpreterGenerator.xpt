@@ -27,7 +27,6 @@ import de.itemis.interpreter.logging.LogEntry;
 import de.itemis.interpreter.AbstractExpressionEvaluator;
 
 
-
 public abstract class Abstract«langName()»StatementExecutor extends AbstractStatementExecutor {
 
 	public Abstract«langName()»StatementExecutor( ExecutionContext ctx ) {
@@ -35,8 +34,8 @@ public abstract class Abstract«langName()»StatementExecutor extends AbstractStat
 	}
 
 	public void execute( EObject statement, LogEntry parentLog ) throws InterpreterException {
-	
-		LogEntry localLog = parentLog.child(LogEntry.Kind.debug, statement, "executing "+statement.eClass().getName());
+		
+		LogEntry localLog = log( statement, parentLog );
 	
 		«FOREACH statementLikeClasses() AS c»
 		if ( statement instanceof «c» ) {
