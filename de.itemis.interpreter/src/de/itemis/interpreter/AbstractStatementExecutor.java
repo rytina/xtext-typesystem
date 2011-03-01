@@ -11,7 +11,18 @@ public abstract  class AbstractStatementExecutor extends InterpreterPart {
 	public AbstractStatementExecutor( ExecutionContext ctx ) {
 		super(ctx);
 		ctx.setExecutor(this);
-		
+	}
+
+	public String getLogMessage(EObject o) {
+		return "executing "+o.eClass().getName();
+	}
+	
+	protected LogEntry log( EObject o, LogEntry log ) {
+		String m = getLogMessage(o);
+		if ( m != null ) {
+			return log.child(LogEntry.Kind.debug, o, m );	
+		}
+		return log;
 	}
 	
 	public Object eval( EObject expr, LogEntry parentLog ) throws InterpreterException {

@@ -38,6 +38,11 @@ public class LogEntry {
 		return parent;
 	}
 	
+	public int getDepth() {
+		if ( parent == null ) return 0;
+		return getParent().getDepth()+1;
+	}
+	
 	public LogEntry( LogEntry parent, Kind kind, EObject element, String message ) {
 		this( parent, kind, element, message, null );
 	}
@@ -104,6 +109,7 @@ public class LogEntry {
 	}
 
 	public String formattedElement() { 
+		if ( element == null ) return "<no element>";
 		String name = Utils.name(element);
 		if ( name != null ) return element.eClass().getName()+" "+name;
 		return element.eClass().getName();
