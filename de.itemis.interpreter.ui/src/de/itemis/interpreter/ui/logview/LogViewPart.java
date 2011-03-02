@@ -3,6 +3,7 @@ package de.itemis.interpreter.ui.logview;
 import java.text.SimpleDateFormat;
 
 import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.DoubleClickEvent;
@@ -28,6 +29,10 @@ public class LogViewPart extends ViewPart {
 	private TreeViewer viewer;
 
 	private XtextEditor activeEditor;
+
+	private Rerunner rerunner;
+
+	private IAction rerunAction;
 	
 	public LogViewPart() {
 
@@ -40,7 +45,16 @@ public class LogViewPart extends ViewPart {
 		viewer.setAutoExpandLevel(2);
 
 		viewer.setContentProvider(new LogContentProvider());
-
+		
+		rerunAction = new Action("Rerun") {
+			@Override
+			public void run() {
+				rerunner.execute();
+			}
+		};
+		rerunAction.setEnabled(false);
+		getViewSite().getActionBars().getToolBarManager().add(rerunAction); 
+		
 		Tree tree = viewer.getTree();
 
 		tree.setHeaderVisible(true);
@@ -158,9 +172,11 @@ public class LogViewPart extends ViewPart {
 		viewer.getControl().setFocus();
 	}
 
-	public void setInput(LogEntry input) {
+	public void setInput(LogEntry input, Rerunner r) {
 		input.postprocess();
 		viewer.setInput(input);
+		this.rerunner = r;
+		rerunAction.setEnabled(this.rerunner != null);
 	}
 
 	public TreeViewer getViewer() {

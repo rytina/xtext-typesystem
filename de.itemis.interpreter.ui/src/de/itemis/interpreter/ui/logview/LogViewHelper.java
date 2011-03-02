@@ -11,12 +11,12 @@ import de.itemis.interpreter.logging.LogEntry;
 
 public class LogViewHelper {
 
-	public static void showMostRecentLog() {
+	public static void showMostRecentLog(Rerunner rr) {
 		final IEditorPart activeEditor = Workbench.getInstance().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		showMostRecentLog(activeEditor);
+		showMostRecentLog(activeEditor, rr);
 	}
 		
-	public static void showMostRecentLog(final IEditorPart activeEditor ) {
+	public static void showMostRecentLog(final IEditorPart activeEditor, final Rerunner rr ) {
 		final IWorkbenchPartSite partSite = activeEditor.getSite();
 		partSite.getShell().getDisplay().asyncExec(new Runnable() {
 			@Override
@@ -28,7 +28,7 @@ public class LogViewHelper {
 						LogViewPart view = (LogViewPart) viewPart;
 						view.setActiveEditor((XtextEditor)activeEditor);
 						LogEntry e = LogEntry.getMostRecentRoot();
-						view.setInput(e);
+						view.setInput(e, rr); 
 					}
 				} catch (PartInitException e1) {
 					e1.printStackTrace();
