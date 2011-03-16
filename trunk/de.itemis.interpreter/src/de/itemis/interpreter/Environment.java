@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-public class SymbolTable {
+public class Environment {
 
 	private Stack<Table> stack = new Stack<Table>();
 	
 	
 	
-	public SymbolTable() {
+	public Environment() {
 		stack.add(new Table(null, "default"));
 	}
 	
@@ -74,11 +74,7 @@ public class SymbolTable {
 			}
 			return symbols;
 		}
-		
-		public Table child(String name) {
-			Table t = new Table(this, name);
-			return t;
-		}
+		 
 		
 	}
 	
