@@ -368,7 +368,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	 * compare the value of the feature for both elements
 	 */
 	public boolean isSameType(EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace) {
-		Boolean manual = compareTypeDispatcher.invoke(type1, type2, CheckKind.same);
+		Boolean manual = compareTypeDispatcher.invoke(type1, type2, CheckKind.same, trace);
 		if ( manual != null ) return manual.booleanValue();
 		if ( type1.eClass().equals(type2.eClass()) ) {
 			return handleComparisonAndRecursionFeatures(type1, type2, CheckKind.same, trace);
@@ -427,7 +427,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	 * TODO: Possibility to do a polymorphic dispatcher override
 	 */
 	public boolean isCompatibleTypeUnordered(EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace) {
-		Boolean manual = compareTypeDispatcher.invoke(type1, type2, CheckKind.unordered);
+		Boolean manual = compareTypeDispatcher.invoke(type1, type2, CheckKind.unordered, trace);
 		if ( manual != null ) {
 			return manual.booleanValue();
 		}
@@ -454,7 +454,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	 * the same, or element2 is a subtype of element1
 	 */
 	public boolean isCompatibleTypeOrdered(EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace) {
-		Boolean manual = compareTypeDispatcher.invoke(type1, type2, CheckKind.ordered);
+		Boolean manual = compareTypeDispatcher.invoke(type1, type2, CheckKind.ordered, trace);
 		if ( manual != null ) return manual.booleanValue();
 		if ( isSameType(element1, type1, element2, type2, trace)) return true;
 		EClass type1Class = type1.eClass();
