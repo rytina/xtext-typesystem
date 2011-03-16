@@ -185,15 +185,15 @@ public abstract class AbstractExpressionEvaluator extends InterpreterPart {
 
 	protected Object callAndReturnWithPositionalArgs(String name, EList<? extends EObject> formals,
 			EList<? extends EObject> actuals, EList<? extends EObject> bodyStatements, Object returnSymbol, LogEntry log) {
-		ctx.symboltable.push(name);
+		ctx.environment.push(name);
 		for( int i=0; i<actuals.size(); i++ ) {
 			EObject actual = actuals.get(i);
 			EObject formal = formals.get(i);
-			ctx.symboltable.put(formal, evalCheckNullLog(actual, log));
+			ctx.environment.put(formal, evalCheckNullLog(actual, log));
 		}
 		ctx.getExecutor().execute( bodyStatements, log );
-		Object res = ctx.symboltable.get(returnSymbol);
-		ctx.symboltable.pop();
+		Object res = ctx.environment.get(returnSymbol);
+		ctx.environment.pop();
 		return res;
 	}
 

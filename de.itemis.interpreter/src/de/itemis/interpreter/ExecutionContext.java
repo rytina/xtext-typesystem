@@ -6,7 +6,7 @@ public class ExecutionContext {
 
 	public final MessageList messages = new MessageList();
 	
-	public final SymbolTable symboltable = new SymbolTable();
+	public final Environment environment = new Environment();
 	
 	public final ITypesystem typesystem;
 
