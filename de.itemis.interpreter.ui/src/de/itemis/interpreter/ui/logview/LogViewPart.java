@@ -177,6 +177,7 @@ public class LogViewPart extends ViewPart {
 		viewer.setInput(input);
 		this.rerunner = r;
 		rerunAction.setEnabled(this.rerunner != null);
+		rerunAction.setToolTipText( rerunner != null ? rerunner.getLabel() : null);
 	}
 
 	public TreeViewer getViewer() {
