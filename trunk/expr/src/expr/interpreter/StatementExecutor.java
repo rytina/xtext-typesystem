@@ -19,13 +19,13 @@ public class StatementExecutor extends AbstractExprDemoStatementExecutor {
 	protected void executeVarDecl(VarDecl s, LogEntry log) {
 		Expr init = ((VarDecl) s).getInit();
 		if ( init != null) {
-			ctx.symboltable.put(s, evalCheckNullLog( init, log ));
+			ctx.environment.put(s, evalCheckNullLog( init, log ));
 		}
 	}
 	
 	@Override
 	protected void executeFormula(Formula s, LogEntry log) {
-		ctx.symboltable.put(s, evalCheckNullLog( s.getExpr(), log ) );
+		ctx.environment.put(s, evalCheckNullLog( s.getExpr(), log ) );
 	}
 	
 	@Override
@@ -39,7 +39,7 @@ public class StatementExecutor extends AbstractExprDemoStatementExecutor {
 	
 	@Override
 	protected void executeReturn(Return s, LogEntry log) {
-		ctx.symboltable.put(Evaluator.RETURN_SYMBOL, evalCheckNullLog(s.getExpr(), log));
+		ctx.environment.put(Evaluator.RETURN_SYMBOL, evalCheckNullLog(s.getExpr(), log));
 	}
 
 } 
