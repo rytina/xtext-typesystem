@@ -12,7 +12,6 @@ import de.itemis.interpreter.logging.LogEntry;
 import de.itemis.interpreter.AbstractExpressionEvaluator;
 
 
-
 public abstract class AbstractExprDemoStatementExecutor extends AbstractStatementExecutor {
 
 	public AbstractExprDemoStatementExecutor( ExecutionContext ctx ) {
@@ -20,8 +19,8 @@ public abstract class AbstractExprDemoStatementExecutor extends AbstractStatemen
 	}
 
 	public void execute( EObject statement, LogEntry parentLog ) throws InterpreterException {
-	
-		LogEntry localLog = parentLog.child(LogEntry.Kind.debug, statement, "executing "+statement.eClass().getName());
+		
+		LogEntry localLog = log( statement, parentLog );
 	
 		
 		if ( statement instanceof FunctionDeclaration ) {

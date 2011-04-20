@@ -46,13 +46,13 @@ public class Evaluator extends AbstractExprDemoExpressionEvaluator {
 	protected Object evalSymbolRef(SymbolRef expr, LogEntry log) {
 		Symbol symbol = expr.getSymbol();
 		if ( symbol instanceof VarDecl ) {
-			return log( symbol, ctx.symboltable.getCheckNull(symbol), log);
+			return log( symbol, ctx.environment.getCheckNull(symbol), log);
 		}
 		if ( symbol instanceof Formula ) {
 			return evalCheckNullLog(((Formula) symbol).getExpr(), log);
 		}
 		if ( symbol instanceof Parameter ) {
-			return log( symbol, ctx.symboltable.get(symbol), log );
+			return log( symbol, ctx.environment.get(symbol), log );
 		}
 		if ( symbol instanceof FunctionDeclaration ) {
 			FunctionDeclaration fd = (FunctionDeclaration) symbol;
