@@ -1,0 +1,124 @@
+«IMPORT org::eclipse::xtext»
+
+«EXTENSION org::eclipse::xtext::generator::Naming»
+«EXTENSION org::eclipse::xtext::GrammarUtil»
+
+«EXTENSION de::itemis::interpreter::generator::InterpreterGenerator»
+
+
+«DEFINE generate FOR Grammar-»´
+	«EXPAND statementExecutor FOR this»
+	«EXPAND expressionEvaluator FOR this»
+«ENDDEFINE»
+
+
+«DEFINE statementExecutor FOR Grammar-»´
+«FILE name.asPath()+"/../interpreter/Abstract"+langName()+"StatementExecutor.java" SRC_GEN»
+package «interpreterPackage()»;
+
+import org.eclipse.emf.ecore.EObject;
+import «metaclassPackage()».*; 
+
+import de.itemis.interpreter.InterpreterException;
+import de.itemis.interpreter.MethodNotImplementedException;
+import de.itemis.interpreter.AbstractStatementExecutor;
+import de.itemis.interpreter.ExecutionContext;
+import de.itemis.interpreter.logging.LogEntry;
+import de.itemis.interpreter.AbstractExpressionEvaluator;
+
+
+public abstract class Abstract«langName()»StatementExecutor extends AbstractStatementExecutor {
+
+	public Abstract«langName()»StatementExecutor( ExecutionContext ctx ) {
+		super(ctx);
+	}
+
+	public void execute( EObject statement, LogEntry parentLog ) throws InterpreterException {
+		
+		LogEntry localLog = log( statement, parentLog );
+	
+		«FOREACH statementLikeClasses() AS c»
+		if ( statement instanceof «c» ) {
+			execute«c»( («c»)statement, localLog );
+			return;
+		}
+		«ENDFOREACH»
+		
+		throw new InterpreterException(statement, "generated execute(...) method cannot handle type "+statement.eClass().getName());
+		
+	}
+
+	
+	«FOREACH statementLikeClasses() AS c»
+	protected void execute«c»( «c» s, LogEntry log )  throws InterpreterException {
+		throw new MethodNotImplementedException(s, "method execute«c» not implemented");
+	} 
+	«ENDFOREACH»
+
+
+}
+«ENDFILE»
+«ENDDEFINE»
+
+
+
+«DEFINE expressionEvaluator FOR Grammar-»´
+«FILE name.asPath()+"/../interpreter/Abstract"+langName()+"ExpressionEvaluator.java" SRC_GEN»
+package «interpreterPackage()»;
+
+import org.eclipse.emf.ecore.EObject;
+import «metaclassPackage()».*; 
+
+import de.itemis.interpreter.InterpreterException;
+import de.itemis.interpreter.MethodNotImplementedException;
+import de.itemis.interpreter.AbstractExpressionEvaluator;
+import de.itemis.interpreter.ExecutionContext;
+import de.itemis.interpreter.logging.LogEntry;
+
+
+public abstract class Abstract«langName()»ExpressionEvaluator extends AbstractExpressionEvaluator {
+
+	public Abstract«langName()»ExpressionEvaluator( ExecutionContext ctx ) {
+		super(ctx);
+	}
+
+	public Object eval( EObject expr, LogEntry parentLog ) throws InterpreterException {
+
+		LogEntry localLog = parentLog.child(LogEntry.Kind.eval, expr, "evaluating "+expr.eClass().getName());
+
+		«FOREACH expressionLikeClasses() AS c»
+		if ( expr instanceof «c» ) {
+			return eval«c»( («c»)expr, localLog );
+		}
+		«ENDFOREACH»
+		
+		throw new InterpreterException(expr, "generated eval(...) method cannot handle type "+expr.eClass().getName());
+	}
+
+	
+	«FOREACH expressionLikeClasses() AS c»
+	protected Object eval«c»( «c» expr, LogEntry log )  throws InterpreterException {
+		throw new MethodNotImplementedException(expr, "method eval«c» not implemented");
+	} 
+	«ENDFOREACH»
+
+
+}
+«ENDFILE»
+«ENDDEFINE»
+
+
+
+
+
+
+
+
+
+
+
+«DEFINE addToPluginXmlRt FOR Grammar»«ENDDEFINE»
+
+«DEFINE addToPluginXmlUi FOR Grammar»«ENDDEFINE»
+
+«DEFINE addToStandaloneSetup FOR Grammar»«ENDDEFINE»
