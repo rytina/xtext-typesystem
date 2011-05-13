@@ -1,7 +1,0 @@
-module expr.xample
-
-import org.eclipse.emf.mwe.utils.*
-  
-@ExprGenerator { 
-	modelPath = "./src-forgenerator"
-}
