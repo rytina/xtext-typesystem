@@ -6,9 +6,13 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.validation.Check;
 
+import com.google.inject.Inject;
+
 import de.itemis.xtext.typesystem.dsl.generator.Utils;
+import de.itemis.xtext.typesystem.dsl.scoping.TsDslScopeProvider;
 import de.itemis.xtext.typesystem.dsl.tsDsl.AbstractTypeTypingRule;
 import de.itemis.xtext.typesystem.dsl.tsDsl.CharRef;
 import de.itemis.xtext.typesystem.dsl.tsDsl.ComatibilityTypeConstraint;
@@ -18,6 +22,7 @@ import de.itemis.xtext.typesystem.dsl.tsDsl.FeatureTypeConstraint;
 import de.itemis.xtext.typesystem.dsl.tsDsl.FixedTypingRule;
 import de.itemis.xtext.typesystem.dsl.tsDsl.MetaclassSpec;
 import de.itemis.xtext.typesystem.dsl.tsDsl.Section;
+import de.itemis.xtext.typesystem.dsl.tsDsl.TbdRule;
 import de.itemis.xtext.typesystem.dsl.tsDsl.TsDslPackage;
 import de.itemis.xtext.typesystem.dsl.tsDsl.TypeComparisonFeature;
 import de.itemis.xtext.typesystem.dsl.tsDsl.TypeOfFeatureRule;
@@ -28,6 +33,29 @@ import de.itemis.xtext.typesystem.dsl.tsDsl.TypesystemSpec;
 
 public class TsDslJavaValidator extends AbstractTsDslJavaValidator {
 
+	@Inject
+	private IScopeProvider scoper = null;
+	
+	
+	@Check
+	public void checkBasicParameters( TbdRule r) {
+		error("must be replaced with actual specification", r.eContainer(), TsDslPackage.eINSTANCE.getMetaclassSpec_TypingRule(), -1);
+	}
+	
+	
+	
+	@Check
+	public void checkBasicParameters( TypesystemSpec spec ) {
+		if ( spec.getName().indexOf(".") < 0) {
+			error("cannot use unqualified names here", TsDslPackage.eINSTANCE.getTypesystemSpec_Name());
+		}
+		TsDslScopeProvider sp = (TsDslScopeProvider)scoper;
+		if ( sp.load(spec.getEcoreUri()) == null ) {
+			error("cannot load Ecore file (please use a platform:/resource URI)", TsDslPackage.eINSTANCE.getTypesystemSpec_EcoreUri());
+		}
+	}
+	
+	
 	@Check
 	public void checkUniqueTypeRule(MetaclassSpec s) {
 		for (MetaclassSpec ms: all(s)) {
@@ -45,7 +73,7 @@ public class TsDslJavaValidator extends AbstractTsDslJavaValidator {
 		Iterable<EClass> subtypes = new Utils().subtypes(spec.getClazz());
 		for (EClassifier sub : subtypes) {
 			if (! new Utils().hasSpecFor(tsspec, (EClass)sub)) {
-				error("subtype "+sub.getName()+" not handled", spec, TsDslPackage.eINSTANCE.getMetaclassSpec_TypingRule(), -1);
+				warning("subtype "+sub.getName()+" not handled", spec, TsDslPackage.eINSTANCE.getMetaclassSpec_TypingRule(), -1);
 			}
 		}
 	}
@@ -111,7 +139,7 @@ public class TsDslJavaValidator extends AbstractTsDslJavaValidator {
 	private void checkTypePropagation( MetaclassSpec spec, EClass target, EStructuralFeature errorFeature ) {
 		TypesystemSpec tsspec = (TypesystemSpec)spec.eContainer().eContainer();
 		if ( ! new Utils().hasSpecFor(tsspec, target)) {
-			error("no typing rule available for "+target.getName(), errorFeature);
+			warning("no typing rule available for "+target.getName(), errorFeature, -1, ErrorConstants.METACLASSSPEC_MISSING, errorFeature.getName(), target.getName());
 		}
 	}
 	

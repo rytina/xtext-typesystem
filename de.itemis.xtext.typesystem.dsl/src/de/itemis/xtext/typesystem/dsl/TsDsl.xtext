@@ -48,10 +48,10 @@ TypeConstraint:
 	FeatureTypeConstraint | ComatibilityTypeConstraint;
 
 ComatibilityTypeConstraint:
-	"ensureCompatibility" feature1=[ecore::EStructuralFeature] op=Op feature2=[ecore::EStructuralFeature];
+	"ensureCompatibility" feature1=[ecore::EStructuralFeature] op=Op feature2=[ecore::EStructuralFeature] (errorMsg=STRING)?;
 	
 FeatureTypeConstraint:
-	"ensureType" feature=[ecore::EStructuralFeature] op=SubTypeOp (types+=TypeSpec) ("," types+=TypeSpec)*;
+	"ensureType" feature=[ecore::EStructuralFeature] op=SubTypeOp (types+=TypeSpec) ("," types+=TypeSpec)* (errorMsg=STRING)?;
 
 TypeSpec:
 		EClassRef | CharRef;
@@ -83,7 +83,10 @@ SameTypeOp:
 
 TypingRule:
 	CloneRule | TypeOfFeatureRule | FixedTypingRule | CommonSuperTypeOfRule | 
-	JavaCodeTypingRule | TypeOfAncestor | AbstractTypeTypingRule | NoTypeRule;
+	JavaCodeTypingRule | TypeOfAncestor | AbstractTypeTypingRule | NoTypeRule | TbdRule;
+
+TbdRule:
+	{TbdRule} "tbd";
 
 NoTypeRule:
 	{NoTypeRulw} "none";
@@ -105,7 +108,7 @@ CommonSuperTypeOfRule:
 	"common" feature1=[ecore::EStructuralFeature] feature2=[ecore::EStructuralFeature];
 
 FixedTypingRule:
-	"fixed" clazz=[ecore::EClass];
+	clazz=[ecore::EClass];
 
 
 TypeOfFeatureRule:

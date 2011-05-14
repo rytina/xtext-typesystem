@@ -39,7 +39,7 @@ public class TsDslScopeProvider extends AbstractDeclarativeScopeProvider {
 	}
 	
 	
-	private EPackage load( String uri ) {
+	public EPackage load( String uri ) {
 		if ( pack == null ) {
 			ResourceSet rs = new ResourceSetImpl();
 			Resource r = rs.createResource(URI.createURI(uri));

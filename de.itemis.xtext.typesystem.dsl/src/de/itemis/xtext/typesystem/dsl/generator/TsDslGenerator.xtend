@@ -35,56 +35,57 @@ class TsDslGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		val m = resource.contents.get(0) as TypesystemSpec
-		fsa.generateFile( m.name.replaceAll("\\.", "/")+"Generated.java", '''
-		package Çm.packÈ;
+		fsa.generateFile( m.name.replaceAll("\\.", "/")+"Generated.java", 
+		''' 
+		package «m.pack»;
 
 		import org.eclipse.emf.ecore.EObject;
 		import de.itemis.xtext.typesystem.exceptions.TypesystemConfigurationException;
 		import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
 
-		public abstract class Çm.classNameÈ extends de.itemis.xtext.typesystem.DefaultTypesystem {
+		public abstract class «m.className» extends de.itemis.xtext.typesystem.DefaultTypesystem {
 
-			protected Çm.languagePackÈ p = Çm.languagePackÈ.eINSTANCE;
+			protected «m.languagePack» p = «m.languagePack».eINSTANCE;
 
 			protected void initialize() {
 
 				try {
 
-					ÇFOR s: m.sectionsÈ
+					«FOR s: m.sections»
 						// ----------------------------------------------------------------
-						// Section: Çs.nameÈ
+						// Section: «s.name»
 
-						ÇFOR sts: s.subtypeSpecÈ
-							declareSubtype( Çsts.subtype.getterÈ, Çsts.supertype.getterÈ);
-						ÇENDFORÈ
-						ÇFOR MetaclassSpec ms: s.metaclassSpecsÈ
-							ÇIF ms.includeSubtypesÈ
+						«FOR sts: s.subtypeSpec»
+							declareSubtype( «sts.subtype.getter», «sts.supertype.getter»);
+						«ENDFOR»
+						«FOR MetaclassSpec ms: s.metaclassSpecs»
+							«IF ms.includeSubtypes»
 								// include subtypes!
-								Çms.typingRule.rulecode(ms.clazz)È
-								ÇFOR sub: ms.clazz.subtypesÈ
-									ÇIF !ms.ts.hasDirectSpecFor(sub)È
-										Çms.typingRule.rulecode(sub)È
-									ÇENDIFÈ
-									ÇFOR con: ms.constraintsÈ
-										Çcon.constraintcode(sub)È
-									ÇENDFORÈ
-								ÇENDFORÈ
+								«ms.typingRule.rulecode(ms.clazz)»
+								«FOR sub: ms.clazz.subtypes»
+									«IF !ms.ts.hasDirectSpecFor(sub)»
+										«ms.typingRule.rulecode(sub)»
+									«ENDIF»
+									«FOR con: ms.constraints»
+										«con.constraintcode(sub)»
+									«ENDFOR»
+								«ENDFOR»
 								// ------
-							ÇELSEÈ
-								Çms.typingRule.rulecode(ms.clazz)È
-								ÇFOR con: ms.constraintsÈ
-									Çcon.constraintcode(ms.clazz)È
-								ÇENDFORÈ
-							ÇENDIFÈ
-							ÇFOR tcf: ms.comparisonFeaturesÈ
-								declareTypeComparisonFeature( Çms.clazz.getterÈ, Çtcf.feature.getterÈ );
-							ÇENDFORÈ
-							ÇFOR tcf: ms.recursionFeaturesÈ
-								declareTypeRecursionFeature( Çms.clazz.getterÈ, Çtcf.feature.getterÈ );
-							ÇENDFORÈ
-						ÇENDFORÈ
+							«ELSE»
+								«ms.typingRule.rulecode(ms.clazz)»
+								«FOR con: ms.constraints»
+									«con.constraintcode(ms.clazz)»
+								«ENDFOR»
+							«ENDIF»
+							«FOR tcf: ms.comparisonFeatures»
+								declareTypeComparisonFeature( «ms.clazz.getter», «tcf.feature.getter» );
+							«ENDFOR»
+							«FOR tcf: ms.recursionFeatures»
+								declareTypeRecursionFeature( «ms.clazz.getter», «tcf.feature.getter» );
+							«ENDFOR»
+						«ENDFOR»
 
-					ÇENDFORÈ
+					«ENDFOR»
 
 
 					initializeManuallyWrittenRules();
@@ -93,14 +94,14 @@ class TsDslGenerator implements IGenerator {
 			}
 
 
-			ÇFOR s: m.sections /*could be nicer! */È
-				ÇFOR MetaclassSpec ms: s.metaclassSpecsÈ
-					ÇIF typeof(JavaCodeTypingRule).isInstance(ms.typingRule)È
-						protected abstract EObject type( Çm.languagePack.skipLastSegmentÈ.Çms.clazz.nameÈ element, TypeCalculationTrace trace );
-					ÇENDIFÈ
-				ÇENDFORÈ
+			«FOR s: m.sections /*could be nicer! */»
+				«FOR MetaclassSpec ms: s.metaclassSpecs»
+					«IF typeof(JavaCodeTypingRule).isInstance(ms.typingRule)»
+						protected abstract EObject type( «m.languagePack.skipLastSegment».«ms.clazz.name» element, TypeCalculationTrace trace );
+					«ENDIF»
+				«ENDFOR»
 
-			ÇENDFORÈ
+			«ENDFOR»
 
 
 
@@ -111,24 +112,24 @@ class TsDslGenerator implements IGenerator {
 	}
 
 	def dispatch rulecode( TypingRule tr, EClass clazz ) ''''''
-	def dispatch rulecode( CloneRule cr, EClass clazz ) '''useCloneAsType( Çclazz.getterÈ );'''
-	def dispatch rulecode( FixedTypingRule ft, EClass clazz ) '''useFixedType( Çclazz.getterÈ, Çft.clazz.getterÈ );'''
-	def dispatch rulecode( TypeOfFeatureRule cfr, EClass clazz ) '''useTypeOfFeature( Çclazz.getterÈ, Çcfr.feature.getterÈ );'''
-	def dispatch rulecode( CommonSuperTypeOfRule str, EClass clazz ) '''computeCommonType( Çclazz.getterÈ, Çstr.feature1.getterÈ, Çstr.feature2.getterÈ);'''
-	def dispatch rulecode( TypeOfAncestor atr, EClass clazz ) '''useTypeOfAncestor( Çclazz.getterÈ, Çatr.clazz.getterÈ );'''
+	def dispatch rulecode( CloneRule cr, EClass clazz ) '''useCloneAsType( «clazz.getter» );'''
+	def dispatch rulecode( FixedTypingRule ft, EClass clazz ) '''useFixedType( «clazz.getter», «ft.clazz.getter» );'''
+	def dispatch rulecode( TypeOfFeatureRule cfr, EClass clazz ) '''useTypeOfFeature( «clazz.getter», «cfr.feature.getter» );'''
+	def dispatch rulecode( CommonSuperTypeOfRule str, EClass clazz ) '''computeCommonType( «clazz.getter», «str.feature1.getter», «str.feature2.getter»);'''
+	def dispatch rulecode( TypeOfAncestor atr, EClass clazz ) '''useTypeOfAncestor( «clazz.getter», «atr.clazz.getter» );'''
 
 
 
 
 	def dispatch constraintcode( FeatureTypeConstraint tc, EClass clazz ) '''
-		ensureFeatureType( Çclazz.getterÈ, Çtc.feature.getterÈÇtc.types.fold("",[s, e|s+", "+e.code])È );
+		ensureFeatureType( «IF tc.errorMsg != null»"«tc.errorMsg»", «ENDIF»«clazz.getter», «tc.feature.getter»«tc.types.fold("",[s, e|s+", "+e.code])» );
 	'''
 
 	def dispatch constraintcode( ComatibilityTypeConstraint tc, EClass clazz ) {
 		switch (tc.op) {
 			SameTypeOp: "TODO currently not yet suported"
-			SubTypeOp: '''ensureOrderedCompatibility( Çclazz.getterÈ, Çtc.feature1.getterÈ, Çtc.feature2.getterÈ );'''
-			UnoderedSubtypeOp: '''ensureUnorderedCompatibility( Çclazz.getterÈ, Çtc.feature1.getterÈ, Çtc.feature2.getterÈ );'''
+			SubTypeOp: '''ensureOrderedCompatibility( «IF tc.errorMsg != null»"«tc.errorMsg»", «ENDIF»«clazz.getter», «tc.feature1.getter», «tc.feature2.getter» );'''
+			UnoderedSubtypeOp: '''ensureUnorderedCompatibility( «IF tc.errorMsg != null»"«tc.errorMsg»", «ENDIF»«clazz.getter», «tc.feature1.getter», «tc.feature2.getter» );'''
 		}
 	}
 
