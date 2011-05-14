@@ -43,7 +43,7 @@ class TsDslGenerator implements IGenerator {
 		import de.itemis.xtext.typesystem.exceptions.TypesystemConfigurationException;
 		import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
 
-		public abstract class «m.className» extends de.itemis.xtext.typesystem.DefaultTypesystem {
+		public «IF m.all.exists(s|typeof(JavaCodeTypingRule).isInstance( s.typingRule ))»abstract «ENDIF»class «m.className» extends de.itemis.xtext.typesystem.DefaultTypesystem {
 
 			protected «m.languagePack» p = «m.languagePack».eINSTANCE;
 
@@ -86,13 +86,9 @@ class TsDslGenerator implements IGenerator {
 						«ENDFOR»
 
 					«ENDFOR»
-
-
-					initializeManuallyWrittenRules();
 				} catch ( TypesystemConfigurationException ex ) {
 				}
 			}
-
 
 			«FOR s: m.sections /*could be nicer! */»
 				«FOR MetaclassSpec ms: s.metaclassSpecs»
@@ -100,12 +96,7 @@ class TsDslGenerator implements IGenerator {
 						protected abstract EObject type( «m.languagePack.skipLastSegment».«ms.clazz.name» element, TypeCalculationTrace trace );
 					«ENDIF»
 				«ENDFOR»
-
 			«ENDFOR»
-
-
-
-			protected abstract void initializeManuallyWrittenRules() throws TypesystemConfigurationException;
 
 		}
 		''' )
