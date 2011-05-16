@@ -8,4 +8,4 @@ calc int t5 = 2 + 2;   // works; type of plus is int
 calc int t6 = 2 + 2.3; // error: common type of 2 and 2.3 is float 
                        //        which cannot be assigned to int
   
-   
+    
