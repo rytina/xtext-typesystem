@@ -85,8 +85,12 @@ public class InterpreterGenerator extends AbstractGeneratorFragment {
 			EObject o = all.next();
 			if ( o instanceof EClass ) {
 				EClass c = (EClass) o;
-				if ( c.getEAllSuperTypes().contains(statementLikeRoot) ) statementLikeClasses.add(c);
-				if ( c.getEAllSuperTypes().contains(exprLikeRoot) ) exprLikeClasses.add(c);
+				for (EClass sc : c.getEAllSuperTypes()) {
+					if ( sc.getName().equals(statementLikeRoot.getName()))
+						statementLikeClasses.add(c);
+					if ( sc.getName().equals(exprLikeRoot.getName()))
+						exprLikeClasses.add(c);
+				}
 			}
 		}
 		
