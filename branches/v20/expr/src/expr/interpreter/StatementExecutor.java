@@ -1,7 +1,6 @@
 package expr.interpreter;
 
 import de.itemis.interpreter.ExecutionContext;
-import de.itemis.interpreter.InterpreterException;
 import de.itemis.interpreter.logging.LogEntry;
 import expr.exprDemo.Assert;
 import expr.exprDemo.Expr;
@@ -15,7 +14,6 @@ public class StatementExecutor extends AbstractExprDemoStatementExecutor {
 		super(ctx);
 	}
 	
-	@Override
 	protected void executeVarDecl(VarDecl s, LogEntry log) {
 		Expr init = ((VarDecl) s).getInit();
 		if ( init != null) {
@@ -23,12 +21,10 @@ public class StatementExecutor extends AbstractExprDemoStatementExecutor {
 		}
 	}
 	
-	@Override
 	protected void executeFormula(Formula s, LogEntry log) {
 		ctx.environment.put(s, evalCheckNullLog( s.getExpr(), log ) );
 	}
 	
-	@Override
 	protected void executeAssert(Assert s, LogEntry log) {
 		Object expected = evalCheckNullLog( s.getExpected(), log );
 		Object actual = evalCheckNullLog( s.getActual(), log );
@@ -37,7 +33,6 @@ public class StatementExecutor extends AbstractExprDemoStatementExecutor {
 		}
 	}
 	
-	@Override
 	protected void executeReturn(Return s, LogEntry log) {
 		ctx.environment.put(Evaluator.RETURN_SYMBOL, evalCheckNullLog(s.getExpr(), log));
 	}

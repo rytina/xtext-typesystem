@@ -22,27 +22,22 @@ public class Evaluator extends AbstractExprDemoExpressionEvaluator {
 		super(ctx);
 	}
 	
-	@Override
 	protected Object evalNumberLiteral(NumberLiteral expr, LogEntry log) {
 		return new Double( expr.getValue() );
 	}
 	
-	@Override
 	protected Object evalStringLiteral(StringLiteral expr, LogEntry log) {
 		return expr.getValue();
 	}
 	
-	@Override
 	protected Object evalMulti(Multi expr, LogEntry log) {
 		return doubleTimesDouble(expr.getLeft(), expr.getRight(), log);
 	}
 	
-	@Override
 	protected Object evalPlus(Plus expr, LogEntry log) {
 		return doublePlusDouble(expr.getLeft(), expr.getRight(), log);
 	}
 	
-	@Override
 	protected Object evalSymbolRef(SymbolRef expr, LogEntry log) {
 		Symbol symbol = expr.getSymbol();
 		if ( symbol instanceof VarDecl ) {

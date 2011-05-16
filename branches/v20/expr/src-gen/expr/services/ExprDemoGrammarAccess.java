@@ -110,7 +110,7 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAsteriskKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		
 		//// ... and ID with .* at the end.
-		//ImportID returns ecore::EString:
+		//ImportID:
 		//	ID ("." "*");
 		public ParserRule getRule() { return rule; }
 
@@ -1003,7 +1003,7 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
-		//QID returns ecore::EString:
+		//QID:
 		//	ID ("." ID)*;
 		public ParserRule getRule() { return rule; }
 
@@ -1096,7 +1096,7 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// ... and ID with .* at the end.
-	//ImportID returns ecore::EString:
+	//ImportID:
 	//	ID ("." "*");
 	public ImportIDElements getImportIDAccess() {
 		return (pImportID != null) ? pImportID : (pImportID = new ImportIDElements());
@@ -1350,7 +1350,7 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
 	} 
 
-	//QID returns ecore::EString:
+	//QID:
 	//	ID ("." ID)*;
 	public QIDElements getQIDAccess() {
 		return (pQID != null) ? pQID : (pQID = new QIDElements());
@@ -1367,8 +1367,8 @@ public class ExprDemoGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal STRING:
-	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" | "n" |
-	//	"f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
+	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
+	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 

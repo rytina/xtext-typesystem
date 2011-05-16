@@ -12,613 +12,681 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalExprDemoLexer extends Lexer {
+    public static final int T__40=40;
     public static final int RULE_ID=4;
+    public static final int T__41=41;
+    public static final int T__29=29;
+    public static final int T__28=28;
+    public static final int T__27=27;
+    public static final int T__26=26;
+    public static final int T__25=25;
+    public static final int T__24=24;
+    public static final int T__23=23;
+    public static final int T__22=22;
     public static final int RULE_ANY_OTHER=11;
-    public static final int T29=29;
-    public static final int T28=28;
-    public static final int T27=27;
-    public static final int T26=26;
-    public static final int T25=25;
-    public static final int Tokens=42;
-    public static final int T24=24;
+    public static final int T__21=21;
+    public static final int T__20=20;
     public static final int EOF=-1;
     public static final int RULE_SL_COMMENT=9;
-    public static final int T41=41;
-    public static final int T23=23;
-    public static final int T40=40;
-    public static final int T22=22;
-    public static final int T21=21;
-    public static final int T20=20;
     public static final int RULE_ML_COMMENT=8;
+    public static final int T__19=19;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
     public static final int RULE_STRING=6;
+    public static final int T__16=16;
+    public static final int T__33=33;
+    public static final int T__15=15;
+    public static final int T__34=34;
+    public static final int T__18=18;
+    public static final int T__35=35;
+    public static final int T__17=17;
+    public static final int T__36=36;
+    public static final int T__12=12;
+    public static final int T__37=37;
     public static final int RULE_NUMBER=5;
+    public static final int T__38=38;
+    public static final int T__14=14;
+    public static final int T__39=39;
+    public static final int T__13=13;
     public static final int RULE_INT=7;
-    public static final int T38=38;
-    public static final int T37=37;
-    public static final int T12=12;
-    public static final int T13=13;
-    public static final int T39=39;
-    public static final int T14=14;
-    public static final int T34=34;
     public static final int RULE_WS=10;
-    public static final int T15=15;
-    public static final int T33=33;
-    public static final int T16=16;
-    public static final int T36=36;
-    public static final int T17=17;
-    public static final int T35=35;
-    public static final int T18=18;
-    public static final int T30=30;
-    public static final int T19=19;
-    public static final int T32=32;
-    public static final int T31=31;
+
+    // delegates
+    // delegators
+
     public InternalExprDemoLexer() {;} 
     public InternalExprDemoLexer(CharStream input) {
-        super(input);
+        this(input, new RecognizerSharedState());
+    }
+    public InternalExprDemoLexer(CharStream input, RecognizerSharedState state) {
+        super(input,state);
+
     }
     public String getGrammarFileName() { return "../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g"; }
 
-    // $ANTLR start T12
-    public final void mT12() throws RecognitionException {
+    // $ANTLR start "T__12"
+    public final void mT__12() throws RecognitionException {
         try {
-            int _type = T12;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:10:5: ( 'model' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:10:7: 'model'
+            int _type = T__12;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:11:7: ( 'model' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:11:9: 'model'
             {
             match("model"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T12
+    // $ANTLR end "T__12"
 
-    // $ANTLR start T13
-    public final void mT13() throws RecognitionException {
+    // $ANTLR start "T__13"
+    public final void mT__13() throws RecognitionException {
         try {
-            int _type = T13;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:11:5: ( 'using' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:11:7: 'using'
+            int _type = T__13;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:12:7: ( 'using' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:12:9: 'using'
             {
             match("using"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T13
+    // $ANTLR end "T__13"
 
-    // $ANTLR start T14
-    public final void mT14() throws RecognitionException {
+    // $ANTLR start "T__14"
+    public final void mT__14() throws RecognitionException {
         try {
-            int _type = T14;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:12:5: ( '.' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:12:7: '.'
+            int _type = T__14;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:13:7: ( '.' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:13:9: '.'
             {
             match('.'); 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T14
+    // $ANTLR end "T__14"
 
-    // $ANTLR start T15
-    public final void mT15() throws RecognitionException {
+    // $ANTLR start "T__15"
+    public final void mT__15() throws RecognitionException {
         try {
-            int _type = T15;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:13:5: ( '*' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:13:7: '*'
+            int _type = T__15;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:14:7: ( '*' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:14:9: '*'
             {
             match('*'); 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T15
+    // $ANTLR end "T__15"
 
-    // $ANTLR start T16
-    public final void mT16() throws RecognitionException {
+    // $ANTLR start "T__16"
+    public final void mT__16() throws RecognitionException {
         try {
-            int _type = T16;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:14:5: ( 'function' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:14:7: 'function'
+            int _type = T__16;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:15:7: ( 'function' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:15:9: 'function'
             {
             match("function"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T16
+    // $ANTLR end "T__16"
 
-    // $ANTLR start T17
-    public final void mT17() throws RecognitionException {
+    // $ANTLR start "T__17"
+    public final void mT__17() throws RecognitionException {
         try {
-            int _type = T17;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:15:5: ( '(' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:15:7: '('
+            int _type = T__17;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:16:7: ( '(' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:16:9: '('
             {
             match('('); 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T17
+    // $ANTLR end "T__17"
 
-    // $ANTLR start T18
-    public final void mT18() throws RecognitionException {
+    // $ANTLR start "T__18"
+    public final void mT__18() throws RecognitionException {
         try {
-            int _type = T18;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:16:5: ( ')' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:16:7: ')'
+            int _type = T__18;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:17:7: ( ')' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:17:9: ')'
             {
             match(')'); 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T18
+    // $ANTLR end "T__18"
 
-    // $ANTLR start T19
-    public final void mT19() throws RecognitionException {
+    // $ANTLR start "T__19"
+    public final void mT__19() throws RecognitionException {
         try {
-            int _type = T19;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:17:5: ( '{' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:17:7: '{'
+            int _type = T__19;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:18:7: ( '{' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:18:9: '{'
             {
             match('{'); 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T19
+    // $ANTLR end "T__19"
 
-    // $ANTLR start T20
-    public final void mT20() throws RecognitionException {
+    // $ANTLR start "T__20"
+    public final void mT__20() throws RecognitionException {
         try {
-            int _type = T20;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:18:5: ( '}' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:18:7: '}'
+            int _type = T__20;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:19:7: ( '}' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:19:9: '}'
             {
             match('}'); 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T20
+    // $ANTLR end "T__20"
 
-    // $ANTLR start T21
-    public final void mT21() throws RecognitionException {
+    // $ANTLR start "T__21"
+    public final void mT__21() throws RecognitionException {
         try {
-            int _type = T21;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:19:5: ( ',' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:19:7: ','
+            int _type = T__21;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:20:7: ( ',' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:20:9: ','
             {
             match(','); 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T21
+    // $ANTLR end "T__21"
 
-    // $ANTLR start T22
-    public final void mT22() throws RecognitionException {
+    // $ANTLR start "T__22"
+    public final void mT__22() throws RecognitionException {
         try {
-            int _type = T22;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:20:5: ( 'return' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:20:7: 'return'
+            int _type = T__22;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:21:7: ( 'return' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:21:9: 'return'
             {
             match("return"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T22
+    // $ANTLR end "T__22"
 
-    // $ANTLR start T23
-    public final void mT23() throws RecognitionException {
+    // $ANTLR start "T__23"
+    public final void mT__23() throws RecognitionException {
         try {
-            int _type = T23;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:21:5: ( ';' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:21:7: ';'
+            int _type = T__23;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:22:7: ( ';' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:22:9: ';'
             {
             match(';'); 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T23
+    // $ANTLR end "T__23"
 
-    // $ANTLR start T24
-    public final void mT24() throws RecognitionException {
+    // $ANTLR start "T__24"
+    public final void mT__24() throws RecognitionException {
         try {
-            int _type = T24;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:22:5: ( 'assert' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:22:7: 'assert'
+            int _type = T__24;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:23:7: ( 'assert' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:23:9: 'assert'
             {
             match("assert"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T24
+    // $ANTLR end "T__24"
 
-    // $ANTLR start T25
-    public final void mT25() throws RecognitionException {
+    // $ANTLR start "T__25"
+    public final void mT__25() throws RecognitionException {
         try {
-            int _type = T25;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:23:5: ( 'is' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:23:7: 'is'
+            int _type = T__25;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:24:7: ( 'is' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:24:9: 'is'
             {
             match("is"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T25
+    // $ANTLR end "T__25"
 
-    // $ANTLR start T26
-    public final void mT26() throws RecognitionException {
+    // $ANTLR start "T__26"
+    public final void mT__26() throws RecognitionException {
         try {
-            int _type = T26;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:24:5: ( ':' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:24:7: ':'
+            int _type = T__26;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:25:7: ( ':' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:25:9: ':'
             {
             match(':'); 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T26
+    // $ANTLR end "T__26"
 
-    // $ANTLR start T27
-    public final void mT27() throws RecognitionException {
+    // $ANTLR start "T__27"
+    public final void mT__27() throws RecognitionException {
         try {
-            int _type = T27;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:25:5: ( 'enum' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:25:7: 'enum'
+            int _type = T__27;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:26:7: ( 'enum' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:26:9: 'enum'
             {
             match("enum"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T27
+    // $ANTLR end "T__27"
 
-    // $ANTLR start T28
-    public final void mT28() throws RecognitionException {
+    // $ANTLR start "T__28"
+    public final void mT__28() throws RecognitionException {
         try {
-            int _type = T28;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:26:5: ( 'var' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:26:7: 'var'
+            int _type = T__28;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:27:7: ( 'var' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:27:9: 'var'
             {
             match("var"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T28
+    // $ANTLR end "T__28"
 
-    // $ANTLR start T29
-    public final void mT29() throws RecognitionException {
+    // $ANTLR start "T__29"
+    public final void mT__29() throws RecognitionException {
         try {
-            int _type = T29;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:27:5: ( '=' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:27:7: '='
+            int _type = T__29;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:28:7: ( '=' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:28:9: '='
             {
             match('='); 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T29
+    // $ANTLR end "T__29"
 
-    // $ANTLR start T30
-    public final void mT30() throws RecognitionException {
+    // $ANTLR start "T__30"
+    public final void mT__30() throws RecognitionException {
         try {
-            int _type = T30;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:28:5: ( 'array' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:28:7: 'array'
+            int _type = T__30;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:29:7: ( 'array' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:29:9: 'array'
             {
             match("array"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T30
+    // $ANTLR end "T__30"
 
-    // $ANTLR start T31
-    public final void mT31() throws RecognitionException {
+    // $ANTLR start "T__31"
+    public final void mT__31() throws RecognitionException {
         try {
-            int _type = T31;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:29:5: ( '[' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:29:7: '['
+            int _type = T__31;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:30:7: ( '[' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:30:9: '['
             {
             match('['); 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T31
+    // $ANTLR end "T__31"
 
-    // $ANTLR start T32
-    public final void mT32() throws RecognitionException {
+    // $ANTLR start "T__32"
+    public final void mT__32() throws RecognitionException {
         try {
-            int _type = T32;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:30:5: ( ']' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:30:7: ']'
+            int _type = T__32;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:31:7: ( ']' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:31:9: ']'
             {
             match(']'); 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T32
+    // $ANTLR end "T__32"
 
-    // $ANTLR start T33
-    public final void mT33() throws RecognitionException {
+    // $ANTLR start "T__33"
+    public final void mT__33() throws RecognitionException {
         try {
-            int _type = T33;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:31:5: ( 'int' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:31:7: 'int'
+            int _type = T__33;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:32:7: ( 'int' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:32:9: 'int'
             {
             match("int"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T33
+    // $ANTLR end "T__33"
 
-    // $ANTLR start T34
-    public final void mT34() throws RecognitionException {
+    // $ANTLR start "T__34"
+    public final void mT__34() throws RecognitionException {
         try {
-            int _type = T34;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:32:5: ( 'bool' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:32:7: 'bool'
+            int _type = T__34;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:33:7: ( 'bool' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:33:9: 'bool'
             {
             match("bool"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T34
+    // $ANTLR end "T__34"
 
-    // $ANTLR start T35
-    public final void mT35() throws RecognitionException {
+    // $ANTLR start "T__35"
+    public final void mT__35() throws RecognitionException {
         try {
-            int _type = T35;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:33:5: ( 'float' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:33:7: 'float'
+            int _type = T__35;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:34:7: ( 'float' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:34:9: 'float'
             {
             match("float"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T35
+    // $ANTLR end "T__35"
 
-    // $ANTLR start T36
-    public final void mT36() throws RecognitionException {
+    // $ANTLR start "T__36"
+    public final void mT__36() throws RecognitionException {
         try {
-            int _type = T36;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:34:5: ( 'string' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:34:7: 'string'
+            int _type = T__36;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:35:7: ( 'string' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:35:9: 'string'
             {
             match("string"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T36
+    // $ANTLR end "T__36"
 
-    // $ANTLR start T37
-    public final void mT37() throws RecognitionException {
+    // $ANTLR start "T__37"
+    public final void mT__37() throws RecognitionException {
         try {
-            int _type = T37;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:35:5: ( 'calc' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:35:7: 'calc'
+            int _type = T__37;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:36:7: ( 'calc' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:36:9: 'calc'
             {
             match("calc"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T37
+    // $ANTLR end "T__37"
 
-    // $ANTLR start T38
-    public final void mT38() throws RecognitionException {
+    // $ANTLR start "T__38"
+    public final void mT__38() throws RecognitionException {
         try {
-            int _type = T38;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:36:5: ( '==' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:36:7: '=='
+            int _type = T__38;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:37:7: ( '==' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:37:9: '=='
             {
             match("=="); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T38
+    // $ANTLR end "T__38"
 
-    // $ANTLR start T39
-    public final void mT39() throws RecognitionException {
+    // $ANTLR start "T__39"
+    public final void mT__39() throws RecognitionException {
         try {
-            int _type = T39;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:37:5: ( '+' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:37:7: '+'
+            int _type = T__39;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:38:7: ( '+' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:38:9: '+'
             {
             match('+'); 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T39
+    // $ANTLR end "T__39"
 
-    // $ANTLR start T40
-    public final void mT40() throws RecognitionException {
+    // $ANTLR start "T__40"
+    public final void mT__40() throws RecognitionException {
         try {
-            int _type = T40;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:38:5: ( 'tested' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:38:7: 'tested'
+            int _type = T__40;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:39:7: ( 'tested' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:39:9: 'tested'
             {
             match("tested"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T40
+    // $ANTLR end "T__40"
 
-    // $ANTLR start T41
-    public final void mT41() throws RecognitionException {
+    // $ANTLR start "T__41"
+    public final void mT__41() throws RecognitionException {
         try {
-            int _type = T41;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:39:5: ( 'readonly' )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:39:7: 'readonly'
+            int _type = T__41;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:40:7: ( 'readonly' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:40:9: 'readonly'
             {
             match("readonly"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end T41
+    // $ANTLR end "T__41"
 
-    // $ANTLR start RULE_NUMBER
+    // $ANTLR start "RULE_NUMBER"
     public final void mRULE_NUMBER() throws RecognitionException {
         try {
             int _type = RULE_NUMBER;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5117:13: ( ( '0' .. '9' )* ( '.' ( '0' .. '9' )+ )? )
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5117:15: ( '0' .. '9' )* ( '.' ( '0' .. '9' )+ )?
             {
@@ -698,36 +766,40 @@ public class InternalExprDemoLexer extends Lexer {
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end RULE_NUMBER
+    // $ANTLR end "RULE_NUMBER"
 
-    // $ANTLR start RULE_INT
+    // $ANTLR start "RULE_INT"
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5119:10: ( '$$$don\\'t use this anymore$$$' )
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5119:12: '$$$don\\'t use this anymore$$$'
             {
-            match("$$$don\'t use this anymore$$$"); 
+            match("$$$don't use this anymore$$$"); 
 
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end RULE_INT
+    // $ANTLR end "RULE_INT"
 
-    // $ANTLR start RULE_ID
+    // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5121:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5121:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
@@ -754,10 +826,9 @@ public class InternalExprDemoLexer extends Lexer {
 
             }
             else {
-                MismatchedSetException mse =
-                    new MismatchedSetException(null,input);
-                recover(mse);    throw mse;
-            }
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
 
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5121:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop5:
@@ -779,10 +850,9 @@ public class InternalExprDemoLexer extends Lexer {
 
             	    }
             	    else {
-            	        MismatchedSetException mse =
-            	            new MismatchedSetException(null,input);
-            	        recover(mse);    throw mse;
-            	    }
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;}
 
 
             	    }
@@ -796,21 +866,23 @@ public class InternalExprDemoLexer extends Lexer {
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end RULE_ID
+    // $ANTLR end "RULE_ID"
 
-    // $ANTLR start RULE_STRING
+    // $ANTLR start "RULE_STRING"
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -822,16 +894,16 @@ public class InternalExprDemoLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("5123:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 8, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
             switch (alt8) {
                 case 1 :
-                    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -840,41 +912,39 @@ public class InternalExprDemoLexer extends Lexer {
                         if ( (LA6_0=='\\') ) {
                             alt6=1;
                         }
-                        else if ( ((LA6_0>='\u0000' && LA6_0<='!')||(LA6_0>='#' && LA6_0<='[')||(LA6_0>=']' && LA6_0<='\uFFFE')) ) {
+                        else if ( ((LA6_0>='\u0000' && LA6_0<='!')||(LA6_0>='#' && LA6_0<='[')||(LA6_0>=']' && LA6_0<='\uFFFF')) ) {
                             alt6=2;
                         }
 
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
-                    	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
+                    	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
                     	        input.consume();
 
                     	    }
                     	    else {
-                    	        MismatchedSetException mse =
-                    	            new MismatchedSetException(null,input);
-                    	        recover(mse);    throw mse;
-                    	    }
+                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
+                    	        recover(mse);
+                    	        throw mse;}
 
 
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:62: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
-                    	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
+                    	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
 
                     	    }
                     	    else {
-                    	        MismatchedSetException mse =
-                    	            new MismatchedSetException(null,input);
-                    	        recover(mse);    throw mse;
-                    	    }
+                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
+                    	        recover(mse);
+                    	        throw mse;}
 
 
                     	    }
@@ -890,10 +960,10 @@ public class InternalExprDemoLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -902,41 +972,39 @@ public class InternalExprDemoLexer extends Lexer {
                         if ( (LA7_0=='\\') ) {
                             alt7=1;
                         }
-                        else if ( ((LA7_0>='\u0000' && LA7_0<='&')||(LA7_0>='(' && LA7_0<='[')||(LA7_0>=']' && LA7_0<='\uFFFE')) ) {
+                        else if ( ((LA7_0>='\u0000' && LA7_0<='&')||(LA7_0>='(' && LA7_0<='[')||(LA7_0>=']' && LA7_0<='\uFFFF')) ) {
                             alt7=2;
                         }
 
 
                         switch (alt7) {
                     	case 1 :
-                    	    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
-                    	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
+                    	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
                     	        input.consume();
 
                     	    }
                     	    else {
-                    	        MismatchedSetException mse =
-                    	            new MismatchedSetException(null,input);
-                    	        recover(mse);    throw mse;
-                    	    }
+                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
+                    	        recover(mse);
+                    	        throw mse;}
 
 
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:129: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5123:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
-                    	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
+                    	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
 
                     	    }
                     	    else {
-                    	        MismatchedSetException mse =
-                    	            new MismatchedSetException(null,input);
-                    	        recover(mse);    throw mse;
-                    	    }
+                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
+                    	        recover(mse);
+                    	        throw mse;}
 
 
                     	    }
@@ -957,17 +1025,19 @@ public class InternalExprDemoLexer extends Lexer {
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end RULE_STRING
+    // $ANTLR end "RULE_STRING"
 
-    // $ANTLR start RULE_ML_COMMENT
+    // $ANTLR start "RULE_ML_COMMENT"
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5125:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5125:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
@@ -985,13 +1055,13 @@ public class InternalExprDemoLexer extends Lexer {
                     if ( (LA9_1=='/') ) {
                         alt9=2;
                     }
-                    else if ( ((LA9_1>='\u0000' && LA9_1<='.')||(LA9_1>='0' && LA9_1<='\uFFFE')) ) {
+                    else if ( ((LA9_1>='\u0000' && LA9_1<='.')||(LA9_1>='0' && LA9_1<='\uFFFF')) ) {
                         alt9=1;
                     }
 
 
                 }
-                else if ( ((LA9_0>='\u0000' && LA9_0<=')')||(LA9_0>='+' && LA9_0<='\uFFFE')) ) {
+                else if ( ((LA9_0>='\u0000' && LA9_0<=')')||(LA9_0>='+' && LA9_0<='\uFFFF')) ) {
                     alt9=1;
                 }
 
@@ -1015,17 +1085,19 @@ public class InternalExprDemoLexer extends Lexer {
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end RULE_ML_COMMENT
+    // $ANTLR end "RULE_ML_COMMENT"
 
-    // $ANTLR start RULE_SL_COMMENT
+    // $ANTLR start "RULE_SL_COMMENT"
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5127:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5127:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
@@ -1037,7 +1109,7 @@ public class InternalExprDemoLexer extends Lexer {
                 int alt10=2;
                 int LA10_0 = input.LA(1);
 
-                if ( ((LA10_0>='\u0000' && LA10_0<='\t')||(LA10_0>='\u000B' && LA10_0<='\f')||(LA10_0>='\u000E' && LA10_0<='\uFFFE')) ) {
+                if ( ((LA10_0>='\u0000' && LA10_0<='\t')||(LA10_0>='\u000B' && LA10_0<='\f')||(LA10_0>='\u000E' && LA10_0<='\uFFFF')) ) {
                     alt10=1;
                 }
 
@@ -1046,15 +1118,14 @@ public class InternalExprDemoLexer extends Lexer {
             	case 1 :
             	    // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5127:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
-            	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
+            	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
 
             	    }
             	    else {
-            	        MismatchedSetException mse =
-            	            new MismatchedSetException(null,input);
-            	        recover(mse);    throw mse;
-            	    }
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;}
 
 
             	    }
@@ -1104,17 +1175,19 @@ public class InternalExprDemoLexer extends Lexer {
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end RULE_SL_COMMENT
+    // $ANTLR end "RULE_SL_COMMENT"
 
-    // $ANTLR start RULE_WS
+    // $ANTLR start "RULE_WS"
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5129:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5129:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
@@ -1139,10 +1212,9 @@ public class InternalExprDemoLexer extends Lexer {
 
             	    }
             	    else {
-            	        MismatchedSetException mse =
-            	            new MismatchedSetException(null,input);
-            	        recover(mse);    throw mse;
-            	    }
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;}
 
 
             	    }
@@ -1160,17 +1232,19 @@ public class InternalExprDemoLexer extends Lexer {
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end RULE_WS
+    // $ANTLR end "RULE_WS"
 
-    // $ANTLR start RULE_ANY_OTHER
+    // $ANTLR start "RULE_ANY_OTHER"
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5131:16: ( . )
             // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:5131:18: .
             {
@@ -1178,911 +1252,280 @@ public class InternalExprDemoLexer extends Lexer {
 
             }
 
-            this.type = _type;
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
-    // $ANTLR end RULE_ANY_OTHER
+    // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:8: ( T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | RULE_NUMBER | RULE_INT | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | RULE_NUMBER | RULE_INT | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
         int alt14=38;
-        int LA14_0 = input.LA(1);
-
-        if ( (LA14_0=='m') ) {
-            int LA14_1 = input.LA(2);
-
-            if ( (LA14_1=='o') ) {
-                int LA14_36 = input.LA(3);
-
-                if ( (LA14_36=='d') ) {
-                    int LA14_71 = input.LA(4);
-
-                    if ( (LA14_71=='e') ) {
-                        int LA14_87 = input.LA(5);
-
-                        if ( (LA14_87=='l') ) {
-                            int LA14_102 = input.LA(6);
-
-                            if ( ((LA14_102>='0' && LA14_102<='9')||(LA14_102>='A' && LA14_102<='Z')||LA14_102=='_'||(LA14_102>='a' && LA14_102<='z')) ) {
-                                alt14=33;
-                            }
-                            else {
-                                alt14=1;}
-                        }
-                        else {
-                            alt14=33;}
-                    }
-                    else {
-                        alt14=33;}
-                }
-                else {
-                    alt14=33;}
-            }
-            else {
-                alt14=33;}
-        }
-        else if ( (LA14_0=='u') ) {
-            int LA14_2 = input.LA(2);
-
-            if ( (LA14_2=='s') ) {
-                int LA14_38 = input.LA(3);
-
-                if ( (LA14_38=='i') ) {
-                    int LA14_72 = input.LA(4);
-
-                    if ( (LA14_72=='n') ) {
-                        int LA14_88 = input.LA(5);
-
-                        if ( (LA14_88=='g') ) {
-                            int LA14_103 = input.LA(6);
-
-                            if ( ((LA14_103>='0' && LA14_103<='9')||(LA14_103>='A' && LA14_103<='Z')||LA14_103=='_'||(LA14_103>='a' && LA14_103<='z')) ) {
-                                alt14=33;
-                            }
-                            else {
-                                alt14=2;}
-                        }
-                        else {
-                            alt14=33;}
-                    }
-                    else {
-                        alt14=33;}
-                }
-                else {
-                    alt14=33;}
-            }
-            else {
-                alt14=33;}
-        }
-        else if ( (LA14_0=='.') ) {
-            int LA14_3 = input.LA(2);
-
-            if ( ((LA14_3>='0' && LA14_3<='9')) ) {
-                alt14=31;
-            }
-            else {
-                alt14=3;}
-        }
-        else if ( (LA14_0=='*') ) {
-            alt14=4;
-        }
-        else if ( (LA14_0=='f') ) {
-            switch ( input.LA(2) ) {
-            case 'l':
-                {
-                int LA14_41 = input.LA(3);
-
-                if ( (LA14_41=='o') ) {
-                    int LA14_73 = input.LA(4);
-
-                    if ( (LA14_73=='a') ) {
-                        int LA14_89 = input.LA(5);
-
-                        if ( (LA14_89=='t') ) {
-                            int LA14_104 = input.LA(6);
-
-                            if ( ((LA14_104>='0' && LA14_104<='9')||(LA14_104>='A' && LA14_104<='Z')||LA14_104=='_'||(LA14_104>='a' && LA14_104<='z')) ) {
-                                alt14=33;
-                            }
-                            else {
-                                alt14=24;}
-                        }
-                        else {
-                            alt14=33;}
-                    }
-                    else {
-                        alt14=33;}
-                }
-                else {
-                    alt14=33;}
-                }
-                break;
-            case 'u':
-                {
-                int LA14_42 = input.LA(3);
-
-                if ( (LA14_42=='n') ) {
-                    int LA14_74 = input.LA(4);
-
-                    if ( (LA14_74=='c') ) {
-                        int LA14_90 = input.LA(5);
-
-                        if ( (LA14_90=='t') ) {
-                            int LA14_105 = input.LA(6);
-
-                            if ( (LA14_105=='i') ) {
-                                int LA14_118 = input.LA(7);
-
-                                if ( (LA14_118=='o') ) {
-                                    int LA14_125 = input.LA(8);
-
-                                    if ( (LA14_125=='n') ) {
-                                        int LA14_131 = input.LA(9);
-
-                                        if ( ((LA14_131>='0' && LA14_131<='9')||(LA14_131>='A' && LA14_131<='Z')||LA14_131=='_'||(LA14_131>='a' && LA14_131<='z')) ) {
-                                            alt14=33;
-                                        }
-                                        else {
-                                            alt14=5;}
-                                    }
-                                    else {
-                                        alt14=33;}
-                                }
-                                else {
-                                    alt14=33;}
-                            }
-                            else {
-                                alt14=33;}
-                        }
-                        else {
-                            alt14=33;}
-                    }
-                    else {
-                        alt14=33;}
-                }
-                else {
-                    alt14=33;}
-                }
-                break;
-            default:
-                alt14=33;}
-
-        }
-        else if ( (LA14_0=='(') ) {
-            alt14=6;
-        }
-        else if ( (LA14_0==')') ) {
-            alt14=7;
-        }
-        else if ( (LA14_0=='{') ) {
-            alt14=8;
-        }
-        else if ( (LA14_0=='}') ) {
-            alt14=9;
-        }
-        else if ( (LA14_0==',') ) {
-            alt14=10;
-        }
-        else if ( (LA14_0=='r') ) {
-            int LA14_11 = input.LA(2);
-
-            if ( (LA14_11=='e') ) {
-                switch ( input.LA(3) ) {
-                case 'a':
-                    {
-                    int LA14_75 = input.LA(4);
-
-                    if ( (LA14_75=='d') ) {
-                        int LA14_91 = input.LA(5);
-
-                        if ( (LA14_91=='o') ) {
-                            int LA14_106 = input.LA(6);
-
-                            if ( (LA14_106=='n') ) {
-                                int LA14_119 = input.LA(7);
-
-                                if ( (LA14_119=='l') ) {
-                                    int LA14_126 = input.LA(8);
-
-                                    if ( (LA14_126=='y') ) {
-                                        int LA14_132 = input.LA(9);
-
-                                        if ( ((LA14_132>='0' && LA14_132<='9')||(LA14_132>='A' && LA14_132<='Z')||LA14_132=='_'||(LA14_132>='a' && LA14_132<='z')) ) {
-                                            alt14=33;
-                                        }
-                                        else {
-                                            alt14=30;}
-                                    }
-                                    else {
-                                        alt14=33;}
-                                }
-                                else {
-                                    alt14=33;}
-                            }
-                            else {
-                                alt14=33;}
-                        }
-                        else {
-                            alt14=33;}
-                    }
-                    else {
-                        alt14=33;}
-                    }
-                    break;
-                case 't':
-                    {
-                    int LA14_76 = input.LA(4);
-
-                    if ( (LA14_76=='u') ) {
-                        int LA14_92 = input.LA(5);
-
-                        if ( (LA14_92=='r') ) {
-                            int LA14_107 = input.LA(6);
-
-                            if ( (LA14_107=='n') ) {
-                                int LA14_120 = input.LA(7);
-
-                                if ( ((LA14_120>='0' && LA14_120<='9')||(LA14_120>='A' && LA14_120<='Z')||LA14_120=='_'||(LA14_120>='a' && LA14_120<='z')) ) {
-                                    alt14=33;
-                                }
-                                else {
-                                    alt14=11;}
-                            }
-                            else {
-                                alt14=33;}
-                        }
-                        else {
-                            alt14=33;}
-                    }
-                    else {
-                        alt14=33;}
-                    }
-                    break;
-                default:
-                    alt14=33;}
-
-            }
-            else {
-                alt14=33;}
-        }
-        else if ( (LA14_0==';') ) {
-            alt14=12;
-        }
-        else if ( (LA14_0=='a') ) {
-            switch ( input.LA(2) ) {
-            case 's':
-                {
-                int LA14_50 = input.LA(3);
-
-                if ( (LA14_50=='s') ) {
-                    int LA14_77 = input.LA(4);
-
-                    if ( (LA14_77=='e') ) {
-                        int LA14_93 = input.LA(5);
-
-                        if ( (LA14_93=='r') ) {
-                            int LA14_108 = input.LA(6);
-
-                            if ( (LA14_108=='t') ) {
-                                int LA14_121 = input.LA(7);
-
-                                if ( ((LA14_121>='0' && LA14_121<='9')||(LA14_121>='A' && LA14_121<='Z')||LA14_121=='_'||(LA14_121>='a' && LA14_121<='z')) ) {
-                                    alt14=33;
-                                }
-                                else {
-                                    alt14=13;}
-                            }
-                            else {
-                                alt14=33;}
-                        }
-                        else {
-                            alt14=33;}
-                    }
-                    else {
-                        alt14=33;}
-                }
-                else {
-                    alt14=33;}
-                }
-                break;
-            case 'r':
-                {
-                int LA14_51 = input.LA(3);
-
-                if ( (LA14_51=='r') ) {
-                    int LA14_78 = input.LA(4);
-
-                    if ( (LA14_78=='a') ) {
-                        int LA14_94 = input.LA(5);
-
-                        if ( (LA14_94=='y') ) {
-                            int LA14_109 = input.LA(6);
-
-                            if ( ((LA14_109>='0' && LA14_109<='9')||(LA14_109>='A' && LA14_109<='Z')||LA14_109=='_'||(LA14_109>='a' && LA14_109<='z')) ) {
-                                alt14=33;
-                            }
-                            else {
-                                alt14=19;}
-                        }
-                        else {
-                            alt14=33;}
-                    }
-                    else {
-                        alt14=33;}
-                }
-                else {
-                    alt14=33;}
-                }
-                break;
-            default:
-                alt14=33;}
-
-        }
-        else if ( (LA14_0=='i') ) {
-            switch ( input.LA(2) ) {
-            case 's':
-                {
-                int LA14_52 = input.LA(3);
-
-                if ( ((LA14_52>='0' && LA14_52<='9')||(LA14_52>='A' && LA14_52<='Z')||LA14_52=='_'||(LA14_52>='a' && LA14_52<='z')) ) {
-                    alt14=33;
-                }
-                else {
-                    alt14=14;}
-                }
-                break;
-            case 'n':
-                {
-                int LA14_53 = input.LA(3);
-
-                if ( (LA14_53=='t') ) {
-                    int LA14_80 = input.LA(4);
-
-                    if ( ((LA14_80>='0' && LA14_80<='9')||(LA14_80>='A' && LA14_80<='Z')||LA14_80=='_'||(LA14_80>='a' && LA14_80<='z')) ) {
-                        alt14=33;
-                    }
-                    else {
-                        alt14=22;}
-                }
-                else {
-                    alt14=33;}
-                }
-                break;
-            default:
-                alt14=33;}
-
-        }
-        else if ( (LA14_0==':') ) {
-            alt14=15;
-        }
-        else if ( (LA14_0=='e') ) {
-            int LA14_16 = input.LA(2);
-
-            if ( (LA14_16=='n') ) {
-                int LA14_55 = input.LA(3);
-
-                if ( (LA14_55=='u') ) {
-                    int LA14_81 = input.LA(4);
-
-                    if ( (LA14_81=='m') ) {
-                        int LA14_96 = input.LA(5);
-
-                        if ( ((LA14_96>='0' && LA14_96<='9')||(LA14_96>='A' && LA14_96<='Z')||LA14_96=='_'||(LA14_96>='a' && LA14_96<='z')) ) {
-                            alt14=33;
-                        }
-                        else {
-                            alt14=16;}
-                    }
-                    else {
-                        alt14=33;}
-                }
-                else {
-                    alt14=33;}
-            }
-            else {
-                alt14=33;}
-        }
-        else if ( (LA14_0=='v') ) {
-            int LA14_17 = input.LA(2);
-
-            if ( (LA14_17=='a') ) {
-                int LA14_56 = input.LA(3);
-
-                if ( (LA14_56=='r') ) {
-                    int LA14_82 = input.LA(4);
-
-                    if ( ((LA14_82>='0' && LA14_82<='9')||(LA14_82>='A' && LA14_82<='Z')||LA14_82=='_'||(LA14_82>='a' && LA14_82<='z')) ) {
-                        alt14=33;
-                    }
-                    else {
-                        alt14=17;}
-                }
-                else {
-                    alt14=33;}
-            }
-            else {
-                alt14=33;}
-        }
-        else if ( (LA14_0=='=') ) {
-            int LA14_18 = input.LA(2);
-
-            if ( (LA14_18=='=') ) {
-                alt14=27;
-            }
-            else {
-                alt14=18;}
-        }
-        else if ( (LA14_0=='[') ) {
-            alt14=20;
-        }
-        else if ( (LA14_0==']') ) {
-            alt14=21;
-        }
-        else if ( (LA14_0=='b') ) {
-            int LA14_21 = input.LA(2);
-
-            if ( (LA14_21=='o') ) {
-                int LA14_61 = input.LA(3);
-
-                if ( (LA14_61=='o') ) {
-                    int LA14_83 = input.LA(4);
-
-                    if ( (LA14_83=='l') ) {
-                        int LA14_98 = input.LA(5);
-
-                        if ( ((LA14_98>='0' && LA14_98<='9')||(LA14_98>='A' && LA14_98<='Z')||LA14_98=='_'||(LA14_98>='a' && LA14_98<='z')) ) {
-                            alt14=33;
-                        }
-                        else {
-                            alt14=23;}
-                    }
-                    else {
-                        alt14=33;}
-                }
-                else {
-                    alt14=33;}
-            }
-            else {
-                alt14=33;}
-        }
-        else if ( (LA14_0=='s') ) {
-            int LA14_22 = input.LA(2);
-
-            if ( (LA14_22=='t') ) {
-                int LA14_62 = input.LA(3);
-
-                if ( (LA14_62=='r') ) {
-                    int LA14_84 = input.LA(4);
-
-                    if ( (LA14_84=='i') ) {
-                        int LA14_99 = input.LA(5);
-
-                        if ( (LA14_99=='n') ) {
-                            int LA14_112 = input.LA(6);
-
-                            if ( (LA14_112=='g') ) {
-                                int LA14_123 = input.LA(7);
-
-                                if ( ((LA14_123>='0' && LA14_123<='9')||(LA14_123>='A' && LA14_123<='Z')||LA14_123=='_'||(LA14_123>='a' && LA14_123<='z')) ) {
-                                    alt14=33;
-                                }
-                                else {
-                                    alt14=25;}
-                            }
-                            else {
-                                alt14=33;}
-                        }
-                        else {
-                            alt14=33;}
-                    }
-                    else {
-                        alt14=33;}
-                }
-                else {
-                    alt14=33;}
-            }
-            else {
-                alt14=33;}
-        }
-        else if ( (LA14_0=='c') ) {
-            int LA14_23 = input.LA(2);
-
-            if ( (LA14_23=='a') ) {
-                int LA14_63 = input.LA(3);
-
-                if ( (LA14_63=='l') ) {
-                    int LA14_85 = input.LA(4);
-
-                    if ( (LA14_85=='c') ) {
-                        int LA14_100 = input.LA(5);
-
-                        if ( ((LA14_100>='0' && LA14_100<='9')||(LA14_100>='A' && LA14_100<='Z')||LA14_100=='_'||(LA14_100>='a' && LA14_100<='z')) ) {
-                            alt14=33;
-                        }
-                        else {
-                            alt14=26;}
-                    }
-                    else {
-                        alt14=33;}
-                }
-                else {
-                    alt14=33;}
-            }
-            else {
-                alt14=33;}
-        }
-        else if ( (LA14_0=='+') ) {
-            alt14=28;
-        }
-        else if ( (LA14_0=='t') ) {
-            int LA14_25 = input.LA(2);
-
-            if ( (LA14_25=='e') ) {
-                int LA14_65 = input.LA(3);
-
-                if ( (LA14_65=='s') ) {
-                    int LA14_86 = input.LA(4);
-
-                    if ( (LA14_86=='t') ) {
-                        int LA14_101 = input.LA(5);
-
-                        if ( (LA14_101=='e') ) {
-                            int LA14_114 = input.LA(6);
-
-                            if ( (LA14_114=='d') ) {
-                                int LA14_124 = input.LA(7);
-
-                                if ( ((LA14_124>='0' && LA14_124<='9')||(LA14_124>='A' && LA14_124<='Z')||LA14_124=='_'||(LA14_124>='a' && LA14_124<='z')) ) {
-                                    alt14=33;
-                                }
-                                else {
-                                    alt14=29;}
-                            }
-                            else {
-                                alt14=33;}
-                        }
-                        else {
-                            alt14=33;}
-                    }
-                    else {
-                        alt14=33;}
-                }
-                else {
-                    alt14=33;}
-            }
-            else {
-                alt14=33;}
-        }
-        else if ( ((LA14_0>='0' && LA14_0<='9')) ) {
-            alt14=31;
-        }
-        else if ( (LA14_0=='$') ) {
-            int LA14_28 = input.LA(2);
-
-            if ( (LA14_28=='$') ) {
-                alt14=32;
-            }
-            else {
-                alt14=38;}
-        }
-        else if ( (LA14_0=='^') ) {
-            int LA14_29 = input.LA(2);
-
-            if ( ((LA14_29>='A' && LA14_29<='Z')||LA14_29=='_'||(LA14_29>='a' && LA14_29<='z')) ) {
-                alt14=33;
-            }
-            else {
-                alt14=38;}
-        }
-        else if ( ((LA14_0>='A' && LA14_0<='Z')||LA14_0=='_'||LA14_0=='d'||(LA14_0>='g' && LA14_0<='h')||(LA14_0>='j' && LA14_0<='l')||(LA14_0>='n' && LA14_0<='q')||(LA14_0>='w' && LA14_0<='z')) ) {
-            alt14=33;
-        }
-        else if ( (LA14_0=='\"') ) {
-            int LA14_31 = input.LA(2);
-
-            if ( ((LA14_31>='\u0000' && LA14_31<='\uFFFE')) ) {
-                alt14=34;
-            }
-            else {
-                alt14=38;}
-        }
-        else if ( (LA14_0=='\'') ) {
-            int LA14_32 = input.LA(2);
-
-            if ( ((LA14_32>='\u0000' && LA14_32<='\uFFFE')) ) {
-                alt14=34;
-            }
-            else {
-                alt14=38;}
-        }
-        else if ( (LA14_0=='/') ) {
-            switch ( input.LA(2) ) {
-            case '*':
-                {
-                alt14=35;
-                }
-                break;
-            case '/':
-                {
-                alt14=36;
-                }
-                break;
-            default:
-                alt14=38;}
-
-        }
-        else if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {
-            alt14=37;
-        }
-        else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||LA14_0=='!'||LA14_0=='#'||(LA14_0>='%' && LA14_0<='&')||LA14_0=='-'||LA14_0=='<'||(LA14_0>='>' && LA14_0<='@')||LA14_0=='\\'||LA14_0=='`'||LA14_0=='|'||(LA14_0>='~' && LA14_0<='\uFFFE')) ) {
-            alt14=38;
-        }
-        else {
-            alt14=31;}
+        alt14 = dfa14.predict(input);
         switch (alt14) {
             case 1 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:10: T12
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:10: T__12
                 {
-                mT12(); 
+                mT__12(); 
 
                 }
                 break;
             case 2 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:14: T13
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:16: T__13
                 {
-                mT13(); 
+                mT__13(); 
 
                 }
                 break;
             case 3 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:18: T14
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:22: T__14
                 {
-                mT14(); 
+                mT__14(); 
 
                 }
                 break;
             case 4 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:22: T15
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:28: T__15
                 {
-                mT15(); 
+                mT__15(); 
 
                 }
                 break;
             case 5 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:26: T16
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:34: T__16
                 {
-                mT16(); 
+                mT__16(); 
 
                 }
                 break;
             case 6 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:30: T17
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:40: T__17
                 {
-                mT17(); 
+                mT__17(); 
 
                 }
                 break;
             case 7 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:34: T18
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:46: T__18
                 {
-                mT18(); 
+                mT__18(); 
 
                 }
                 break;
             case 8 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:38: T19
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:52: T__19
                 {
-                mT19(); 
+                mT__19(); 
 
                 }
                 break;
             case 9 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:42: T20
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:58: T__20
                 {
-                mT20(); 
+                mT__20(); 
 
                 }
                 break;
             case 10 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:46: T21
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:64: T__21
                 {
-                mT21(); 
+                mT__21(); 
 
                 }
                 break;
             case 11 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:50: T22
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:70: T__22
                 {
-                mT22(); 
+                mT__22(); 
 
                 }
                 break;
             case 12 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:54: T23
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:76: T__23
                 {
-                mT23(); 
+                mT__23(); 
 
                 }
                 break;
             case 13 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:58: T24
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:82: T__24
                 {
-                mT24(); 
+                mT__24(); 
 
                 }
                 break;
             case 14 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:62: T25
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:88: T__25
                 {
-                mT25(); 
+                mT__25(); 
 
                 }
                 break;
             case 15 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:66: T26
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:94: T__26
                 {
-                mT26(); 
+                mT__26(); 
 
                 }
                 break;
             case 16 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:70: T27
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:100: T__27
                 {
-                mT27(); 
+                mT__27(); 
 
                 }
                 break;
             case 17 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:74: T28
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:106: T__28
                 {
-                mT28(); 
+                mT__28(); 
 
                 }
                 break;
             case 18 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:78: T29
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:112: T__29
                 {
-                mT29(); 
+                mT__29(); 
 
                 }
                 break;
             case 19 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:82: T30
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:118: T__30
                 {
-                mT30(); 
+                mT__30(); 
 
                 }
                 break;
             case 20 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:86: T31
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:124: T__31
                 {
-                mT31(); 
+                mT__31(); 
 
                 }
                 break;
             case 21 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:90: T32
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:130: T__32
                 {
-                mT32(); 
+                mT__32(); 
 
                 }
                 break;
             case 22 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:94: T33
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:136: T__33
                 {
-                mT33(); 
+                mT__33(); 
 
                 }
                 break;
             case 23 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:98: T34
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:142: T__34
                 {
-                mT34(); 
+                mT__34(); 
 
                 }
                 break;
             case 24 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:102: T35
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:148: T__35
                 {
-                mT35(); 
+                mT__35(); 
 
                 }
                 break;
             case 25 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:106: T36
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:154: T__36
                 {
-                mT36(); 
+                mT__36(); 
 
                 }
                 break;
             case 26 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:110: T37
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:160: T__37
                 {
-                mT37(); 
+                mT__37(); 
 
                 }
                 break;
             case 27 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:114: T38
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:166: T__38
                 {
-                mT38(); 
+                mT__38(); 
 
                 }
                 break;
             case 28 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:118: T39
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:172: T__39
                 {
-                mT39(); 
+                mT__39(); 
 
                 }
                 break;
             case 29 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:122: T40
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:178: T__40
                 {
-                mT40(); 
+                mT__40(); 
 
                 }
                 break;
             case 30 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:126: T41
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:184: T__41
                 {
-                mT41(); 
+                mT__41(); 
 
                 }
                 break;
             case 31 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:130: RULE_NUMBER
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:190: RULE_NUMBER
                 {
                 mRULE_NUMBER(); 
 
                 }
                 break;
             case 32 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:142: RULE_INT
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:202: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
             case 33 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:151: RULE_ID
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:211: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
             case 34 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:159: RULE_STRING
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:219: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
             case 35 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:171: RULE_ML_COMMENT
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:231: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 36 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:187: RULE_SL_COMMENT
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:247: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 37 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:203: RULE_WS
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:263: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 38 :
-                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:211: RULE_ANY_OTHER
+                // ../expr.ui/src-gen/expr/ui/contentassist/antlr/internal/InternalExprDemo.g:1:271: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -2094,6 +1537,334 @@ public class InternalExprDemoLexer extends Lexer {
     }
 
 
+    protected DFA14 dfa14 = new DFA14(this);
+    static final String DFA14_eotS =
+        "\1\33\2\45\1\47\1\uffff\1\45\5\uffff\1\45\1\uffff\2\45\1\uffff"+
+        "\2\45\1\72\2\uffff\3\45\1\uffff\1\45\2\uffff\2\43\1\uffff\3\43\2"+
+        "\uffff\1\45\1\uffff\1\45\2\uffff\2\45\5\uffff\1\45\1\uffff\2\45"+
+        "\1\117\1\45\1\uffff\2\45\4\uffff\3\45\1\uffff\1\45\5\uffff\10\45"+
+        "\1\uffff\1\137\1\45\1\141\14\45\1\uffff\1\156\1\uffff\1\157\1\45"+
+        "\1\161\1\45\1\163\1\164\1\45\1\166\3\45\1\172\2\uffff\1\45\1\uffff"+
+        "\1\45\2\uffff\1\45\1\uffff\1\176\1\45\1\u0080\1\uffff\1\u0081\1"+
+        "\u0082\1\45\1\uffff\1\45\3\uffff\1\u0085\1\u0086\2\uffff";
+    static final String DFA14_eofS =
+        "\u0087\uffff";
+    static final String DFA14_minS =
+        "\1\0\1\157\1\163\1\60\1\uffff\1\154\5\uffff\1\145\1\uffff\1\162"+
+        "\1\156\1\uffff\1\156\1\141\1\75\2\uffff\1\157\1\164\1\141\1\uffff"+
+        "\1\145\2\uffff\1\44\1\101\1\uffff\2\0\1\52\2\uffff\1\144\1\uffff"+
+        "\1\151\2\uffff\1\156\1\157\5\uffff\1\141\1\uffff\1\163\1\162\1\60"+
+        "\1\164\1\uffff\1\165\1\162\4\uffff\1\157\1\162\1\154\1\uffff\1\163"+
+        "\5\uffff\1\145\1\156\1\143\1\141\1\165\1\144\1\145\1\141\1\uffff"+
+        "\1\60\1\155\1\60\1\154\1\151\1\143\1\164\1\154\1\147\2\164\1\162"+
+        "\1\157\1\162\1\171\1\uffff\1\60\1\uffff\1\60\1\156\1\60\1\145\2"+
+        "\60\1\151\1\60\2\156\1\164\1\60\2\uffff\1\147\1\uffff\1\144\2\uffff"+
+        "\1\157\1\uffff\1\60\1\154\1\60\1\uffff\2\60\1\156\1\uffff\1\171"+
+        "\3\uffff\2\60\2\uffff";
+    static final String DFA14_maxS =
+        "\1\uffff\1\157\1\163\1\71\1\uffff\1\165\5\uffff\1\145\1\uffff\2"+
+        "\163\1\uffff\1\156\1\141\1\75\2\uffff\1\157\1\164\1\141\1\uffff"+
+        "\1\145\2\uffff\1\44\1\172\1\uffff\2\uffff\1\57\2\uffff\1\144\1\uffff"+
+        "\1\151\2\uffff\1\156\1\157\5\uffff\1\164\1\uffff\1\163\1\162\1\172"+
+        "\1\164\1\uffff\1\165\1\162\4\uffff\1\157\1\162\1\154\1\uffff\1\163"+
+        "\5\uffff\1\145\1\156\1\143\1\141\1\165\1\144\1\145\1\141\1\uffff"+
+        "\1\172\1\155\1\172\1\154\1\151\1\143\1\164\1\154\1\147\2\164\1\162"+
+        "\1\157\1\162\1\171\1\uffff\1\172\1\uffff\1\172\1\156\1\172\1\145"+
+        "\2\172\1\151\1\172\2\156\1\164\1\172\2\uffff\1\147\1\uffff\1\144"+
+        "\2\uffff\1\157\1\uffff\1\172\1\154\1\172\1\uffff\2\172\1\156\1\uffff"+
+        "\1\171\3\uffff\2\172\2\uffff";
+    static final String DFA14_acceptS =
+        "\4\uffff\1\4\1\uffff\1\6\1\7\1\10\1\11\1\12\1\uffff\1\14\2\uffff"+
+        "\1\17\3\uffff\1\24\1\25\3\uffff\1\34\1\uffff\2\37\2\uffff\1\41\3"+
+        "\uffff\1\45\1\46\1\uffff\1\41\1\uffff\1\3\1\4\2\uffff\1\6\1\7\1"+
+        "\10\1\11\1\12\1\uffff\1\14\4\uffff\1\17\2\uffff\1\33\1\22\1\24\1"+
+        "\25\3\uffff\1\34\1\uffff\1\40\1\42\1\43\1\44\1\45\10\uffff\1\16"+
+        "\17\uffff\1\26\1\uffff\1\21\14\uffff\1\20\1\27\1\uffff\1\32\1\uffff"+
+        "\1\1\1\2\1\uffff\1\30\3\uffff\1\23\3\uffff\1\13\1\uffff\1\15\1\31"+
+        "\1\35\2\uffff\1\5\1\36";
+    static final String DFA14_specialS =
+        "\1\1\36\uffff\1\0\1\2\146\uffff}>";
+    static final String[] DFA14_transitionS = {
+            "\11\43\2\42\2\43\1\42\22\43\1\42\1\43\1\37\1\43\1\34\2\43\1"+
+            "\40\1\6\1\7\1\4\1\30\1\12\1\43\1\3\1\41\12\32\1\17\1\14\1\43"+
+            "\1\22\3\43\32\36\1\23\1\43\1\24\1\35\1\36\1\43\1\15\1\25\1\27"+
+            "\1\36\1\20\1\5\2\36\1\16\3\36\1\1\4\36\1\13\1\26\1\31\1\2\1"+
+            "\21\4\36\1\10\1\43\1\11\uff82\43",
+            "\1\44",
+            "\1\46",
+            "\12\33",
+            "",
+            "\1\52\10\uffff\1\51",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\60",
+            "",
+            "\1\63\1\62",
+            "\1\65\4\uffff\1\64",
+            "",
+            "\1\67",
+            "\1\70",
+            "\1\71",
+            "",
+            "",
+            "\1\75",
+            "\1\76",
+            "\1\77",
+            "",
+            "\1\101",
+            "",
+            "",
+            "\1\102",
+            "\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
+            "\0\103",
+            "\0\103",
+            "\1\104\4\uffff\1\105",
+            "",
+            "",
+            "\1\107",
+            "",
+            "\1\110",
+            "",
+            "",
+            "\1\111",
+            "\1\112",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\114\22\uffff\1\113",
+            "",
+            "\1\115",
+            "\1\116",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\120",
+            "",
+            "\1\121",
+            "\1\122",
+            "",
+            "",
+            "",
+            "",
+            "\1\123",
+            "\1\124",
+            "\1\125",
+            "",
+            "\1\126",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\127",
+            "\1\130",
+            "\1\131",
+            "\1\132",
+            "\1\133",
+            "\1\134",
+            "\1\135",
+            "\1\136",
+            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\140",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\142",
+            "\1\143",
+            "\1\144",
+            "\1\145",
+            "\1\146",
+            "\1\147",
+            "\1\150",
+            "\1\151",
+            "\1\152",
+            "\1\153",
+            "\1\154",
+            "\1\155",
+            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\160",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\162",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\165",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\167",
+            "\1\170",
+            "\1\171",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
+            "",
+            "\1\173",
+            "",
+            "\1\174",
+            "",
+            "",
+            "\1\175",
+            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\177",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\u0083",
+            "",
+            "\1\u0084",
+            "",
+            "",
+            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
+            ""
+    };
+
+    static final short[] DFA14_eot = DFA.unpackEncodedString(DFA14_eotS);
+    static final short[] DFA14_eof = DFA.unpackEncodedString(DFA14_eofS);
+    static final char[] DFA14_min = DFA.unpackEncodedStringToUnsignedChars(DFA14_minS);
+    static final char[] DFA14_max = DFA.unpackEncodedStringToUnsignedChars(DFA14_maxS);
+    static final short[] DFA14_accept = DFA.unpackEncodedString(DFA14_acceptS);
+    static final short[] DFA14_special = DFA.unpackEncodedString(DFA14_specialS);
+    static final short[][] DFA14_transition;
+
+    static {
+        int numStates = DFA14_transitionS.length;
+        DFA14_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA14_transition[i] = DFA.unpackEncodedString(DFA14_transitionS[i]);
+        }
+    }
+
+    class DFA14 extends DFA {
+
+        public DFA14(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 14;
+            this.eot = DFA14_eot;
+            this.eof = DFA14_eof;
+            this.min = DFA14_min;
+            this.max = DFA14_max;
+            this.accept = DFA14_accept;
+            this.special = DFA14_special;
+            this.transition = DFA14_transition;
+        }
+        public String getDescription() {
+            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | RULE_NUMBER | RULE_INT | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+        }
+        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+            IntStream input = _input;
+        	int _s = s;
+            switch ( s ) {
+                    case 0 : 
+                        int LA14_31 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA14_31>='\u0000' && LA14_31<='\uFFFF')) ) {s = 67;}
+
+                        else s = 35;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA14_0 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_0=='m') ) {s = 1;}
+
+                        else if ( (LA14_0=='u') ) {s = 2;}
+
+                        else if ( (LA14_0=='.') ) {s = 3;}
+
+                        else if ( (LA14_0=='*') ) {s = 4;}
+
+                        else if ( (LA14_0=='f') ) {s = 5;}
+
+                        else if ( (LA14_0=='(') ) {s = 6;}
+
+                        else if ( (LA14_0==')') ) {s = 7;}
+
+                        else if ( (LA14_0=='{') ) {s = 8;}
+
+                        else if ( (LA14_0=='}') ) {s = 9;}
+
+                        else if ( (LA14_0==',') ) {s = 10;}
+
+                        else if ( (LA14_0=='r') ) {s = 11;}
+
+                        else if ( (LA14_0==';') ) {s = 12;}
+
+                        else if ( (LA14_0=='a') ) {s = 13;}
+
+                        else if ( (LA14_0=='i') ) {s = 14;}
+
+                        else if ( (LA14_0==':') ) {s = 15;}
+
+                        else if ( (LA14_0=='e') ) {s = 16;}
+
+                        else if ( (LA14_0=='v') ) {s = 17;}
+
+                        else if ( (LA14_0=='=') ) {s = 18;}
+
+                        else if ( (LA14_0=='[') ) {s = 19;}
+
+                        else if ( (LA14_0==']') ) {s = 20;}
+
+                        else if ( (LA14_0=='b') ) {s = 21;}
+
+                        else if ( (LA14_0=='s') ) {s = 22;}
+
+                        else if ( (LA14_0=='c') ) {s = 23;}
+
+                        else if ( (LA14_0=='+') ) {s = 24;}
+
+                        else if ( (LA14_0=='t') ) {s = 25;}
+
+                        else if ( ((LA14_0>='0' && LA14_0<='9')) ) {s = 26;}
+
+                        else if ( (LA14_0=='$') ) {s = 28;}
+
+                        else if ( (LA14_0=='^') ) {s = 29;}
+
+                        else if ( ((LA14_0>='A' && LA14_0<='Z')||LA14_0=='_'||LA14_0=='d'||(LA14_0>='g' && LA14_0<='h')||(LA14_0>='j' && LA14_0<='l')||(LA14_0>='n' && LA14_0<='q')||(LA14_0>='w' && LA14_0<='z')) ) {s = 30;}
+
+                        else if ( (LA14_0=='\"') ) {s = 31;}
+
+                        else if ( (LA14_0=='\'') ) {s = 32;}
+
+                        else if ( (LA14_0=='/') ) {s = 33;}
+
+                        else if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {s = 34;}
+
+                        else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||LA14_0=='!'||LA14_0=='#'||(LA14_0>='%' && LA14_0<='&')||LA14_0=='-'||LA14_0=='<'||(LA14_0>='>' && LA14_0<='@')||LA14_0=='\\'||LA14_0=='`'||LA14_0=='|'||(LA14_0>='~' && LA14_0<='\uFFFF')) ) {s = 35;}
+
+                        else s = 27;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA14_32 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA14_32>='\u0000' && LA14_32<='\uFFFF')) ) {s = 67;}
+
+                        else s = 35;
+
+                        if ( s>=0 ) return s;
+                        break;
+            }
+            NoViableAltException nvae =
+                new NoViableAltException(getDescription(), 14, _s, input);
+            error(nvae);
+            throw nvae;
+        }
+    }
  
 
 }

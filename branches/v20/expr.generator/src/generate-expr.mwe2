@@ -13,7 +13,7 @@ Workflow {
 	component = org.eclipse.xtext.mwe.Reader {
 	// lookup all resources on the classpath
 	// useJavaClassPath = true
-
+	
 	// or define search scope explicitly
 		path = modelPath		uriFilter = NegatedUriFilter {
 			uriFilter = NameBasedFilter {
@@ -30,6 +30,7 @@ Workflow {
 	}
 
 	component = org.eclipse.xpand2.Generator {
+		metaModel = org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel {}
 		expand = "main::main FOREACH models"
 		outlet = {
 			path = targetDir
