@@ -35,15 +35,15 @@ class TsDslGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		val m = resource.contents.get(0) as TypesystemSpec
-		fsa.generateFile( m.name.replaceAll("\\.", "/")+"Generated.java", 
-		''' 
+		fsa.generateFile( m.name.replaceAll("\\.", "/")+"Generated.java",
+		'''
 		package «m.pack»;
 
 		import org.eclipse.emf.ecore.EObject;
 		import de.itemis.xtext.typesystem.exceptions.TypesystemConfigurationException;
 		import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
 
-		public «IF m.all.exists(s|typeof(JavaCodeTypingRule).isInstance( s.typingRule ))»abstract «ENDIF»class «m.className» extends de.itemis.xtext.typesystem.DefaultTypesystem {
+		public «IF m.all.exists(s|typeof(JavaCodeTypingRule).isInstance( s.typingRule ))» abstract «ENDIF»class «m.className» extends de.itemis.xtext.typesystem.DefaultTypesystem {
 
 			protected «m.languagePack» p = «m.languagePack».eINSTANCE;
 
