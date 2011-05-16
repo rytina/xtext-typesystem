@@ -1,7 +1,7 @@
 package expr.typesystem;
 
-import de.itemis.xtext.typesystem.DefaultTypesystem;
-import de.itemis.xtext.typesystem.exceptions.TypesystemConfigurationException;
+import org.eclipse.emf.ecore.EObject;
+
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
 import de.itemis.xtext.typesystem.util.Utils;
 import expr.exprDemo.ArrayAccess;
@@ -14,31 +14,15 @@ import expr.exprDemo.NumberLiteral;
 import expr.exprDemo.StringLiteral;
 import expr.exprDemo.StringType;
 import expr.exprDemo.Type;
+import expr.typesys.ExprTypesystemGenerated;
 
-import org.eclipse.emf.ecore.EObject;
-
-public class ExprTypesystem extends DefaultTypesystem {
+public class ExprTypesystem extends ExprTypesystemGenerated {
 
 	private ExprDemoPackage lang = ExprDemoPackage.eINSTANCE;
 
 	@Override
 	protected void initialize() {
-		
-		try {
-			
-
-			/* --------------------------------------------------
-			 * FUNCTIONSDECLARATION
-			 */
-			useTypeOfFeature(lang.getParameter(), lang.getParameter_Type());
-			useTypeOfFeature(lang.getFunctionDeclaration(), lang.getFunctionDeclaration_Type());
-			
-
-			
-		} catch (TypesystemConfigurationException e) {
-			e.printStackTrace();
-		}
-
+		super.initialize();
 	}
 
 	
