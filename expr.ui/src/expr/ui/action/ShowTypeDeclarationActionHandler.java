@@ -19,11 +19,10 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.nodemodel.ICompositeNode;
+import org.eclipse.xtext.nodemodel.ILeafNode;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.parser.IParseResult;
-import org.eclipse.xtext.parsetree.AbstractNode;
-import org.eclipse.xtext.parsetree.CompositeNode;
-import org.eclipse.xtext.parsetree.NodeUtil;
-import org.eclipse.xtext.parsetree.ParseTreeUtil;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
@@ -70,11 +69,11 @@ public class ShowTypeDeclarationActionHandler extends AbstractHandler {
 
 		private String getDescription(final int offset, final XtextResource resource) {
 			IParseResult parseResult = resource.getParseResult();
-			CompositeNode rootNode = parseResult.getRootNode();
-			AbstractNode currentNode = ParseTreeUtil.getLastCompleteNodeByOffset(rootNode, offset);
-			EObject semanticObject = NodeUtil.getNearestSemanticObject(currentNode);
+			ICompositeNode rootNode = parseResult.getRootNode();
+			ILeafNode node = NodeModelUtils.findLeafNodeAtOffset(rootNode, offset);
+			EObject semanticObject = NodeModelUtils.findActualSemanticObjectFor(node);
 			StringBuffer bf = new StringBuffer();
-			bf.append( "QName: "+qfnp.getQualifiedName(semanticObject )+"\n" );
+			bf.append( "QName: "+qfnp.getFullyQualifiedName(semanticObject )+"\n" );
 			bf.append( "Metaclass: "+semanticObject.eClass().getName()+"\n" );
 			TypeCalculationTrace trace = new TypeCalculationTrace();
 			EObject type = ts.typeof(semanticObject, trace);

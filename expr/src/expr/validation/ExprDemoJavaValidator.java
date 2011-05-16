@@ -1,7 +1,5 @@
 package expr.validation;
 
-import java.util.Map;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
@@ -47,14 +45,14 @@ public class ExprDemoJavaValidator extends AbstractExprDemoJavaValidator {
 	public void checkArgs( SymbolRef r ) {		// FUNC
 		Symbol symbol = r.getSymbol();
 		if ( symbol instanceof FunctionDeclaration && r.getActuals().isEmpty() ) {
-			error( "arguments missing", r, -1 );
+			error( "arguments missing", lang.getSymbolRef_Actuals() );
 		}
 	}
 	
 	@Check
 	public void checkReturnOnlyInFunction( Return r ) {
 		if ( Utils.ancestor(r, FunctionDeclaration.class) == null ) {
-			error( "return can only be used inside of funtctions", r, -1);
+			error( "return can only be used inside of funtctions", r, null, -1);
 		}
 	}
 	
@@ -64,13 +62,13 @@ public class ExprDemoJavaValidator extends AbstractExprDemoJavaValidator {
 		try {
 			MessageList errors = new ExprModelInterpreter().runModel(m, ts);
 			for (MessageList.MessageItem o: errors.getMessages()) {
-				error( o.message, o.element, -1, INTERPRETERFAILED );
+				error( o.message, o.element, null, -1, INTERPRETERFAILED );
 			}
 		} catch (InterpreterException e) {
 			if ( e.getFailedObject() != null ) {
-				error( e.getMessage(), e.getFailedObject(), -1, INTERPRETERFAILED );
+				error( e.getMessage(), e.getFailedObject(), null, -1, INTERPRETERFAILED );
 			} else {
-				error( e.getMessage(), m, -1, INTERPRETERFAILED );
+				error( e.getMessage(), m, null, -1, INTERPRETERFAILED );
 				e.printStackTrace();
 			}
 		}
@@ -84,7 +82,7 @@ public class ExprDemoJavaValidator extends AbstractExprDemoJavaValidator {
 		if ( !ts.isCompatibleTypeOrdered(f, ftype, r, rtype, new TypeCalculationTrace()) ) {
 			error( "incompatible types; expected "+
 					ts.typeString(ftype)+", found "+
-					ts.typeString(rtype), r, lang.RETURN__EXPR);
+					ts.typeString(rtype), lang.getReturn_Expr());
 		}
 	}
 
@@ -94,7 +92,7 @@ public class ExprDemoJavaValidator extends AbstractExprDemoJavaValidator {
 		if ( symbol instanceof FunctionDeclaration ) {
 			FunctionDeclaration fd = (FunctionDeclaration) symbol;
 			if ( r.getActuals().size() != fd.getParams().size() ) {
-				error( "wrong number of args ", r, -1 );
+				error( "wrong number of args ", r, null, -1 );
 				return;
 			}
 			EList<Expr> actuals = r.getActuals();
@@ -106,7 +104,7 @@ public class ExprDemoJavaValidator extends AbstractExprDemoJavaValidator {
 				if ( !ts.isCompatibleTypeOrdered(p, ptype, a, atype, new TypeCalculationTrace()) ) {
 					error( "incompatible types; expected "+
 							ts.typeString(ptype)+", found "+
-							ts.typeString(atype), a, -1);
+							ts.typeString(atype), a, null, -1);
 				}
 				i++;
 			}
@@ -126,13 +124,13 @@ public class ExprDemoJavaValidator extends AbstractExprDemoJavaValidator {
 				}
 			}
 		}
-		warning("no test found for this formula", f, -1);
+		warning("no test found for this formula", f, null, -1);
 	}	
 	
 	@Check
 	public void checkReadonlyStuff(VarDecl ctx) {
 		if ( ctx.isReadonly() && ctx.getInit() == null ) {
-			error("readonly vars must have an init expression", ctx, -1);
+			error("readonly vars must have an init expression", ctx, null, -1);
 		}
 	}
 }

@@ -1,4 +1,4 @@
-«IMPORT expr::exprDemo»
+«IMPORT exprDemo»
 
 «DEFINE main FOR Model»
 «FILE name.toFirstUpper()+".java"»
@@ -64,7 +64,7 @@ public class «name.toFirstUpper()» {
 
 «DEFINE code FOR SymbolRef-»
 «IF FunctionDeclaration.isInstance(this.symbol)-»
-	«((Model)this.symbol.eContainer()).name.toFirstUpper()».«symbol.name»( «EXPAND code FOREACH actuals SEPARATOR ","-» )
+	«((Model)this.symbol.eContainer).name.toFirstUpper()».«symbol.name»( «EXPAND code FOREACH actuals SEPARATOR ","-» )
 «ELSE-»
 	«symbol.name-»
 «ENDIF-»

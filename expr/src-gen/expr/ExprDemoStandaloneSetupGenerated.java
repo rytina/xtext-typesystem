@@ -39,6 +39,5 @@ public class ExprDemoStandaloneSetupGenerated implements ISetup {
 
 
 
-
 	}
 }
