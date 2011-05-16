@@ -31,7 +31,7 @@ public class CDCTCAdapter implements ISingleElementTypesystemCheck {
 		if ( res instanceof TypeIsInvalid) {
 			TypeIsInvalid inv = (TypeIsInvalid) res;
 			acceptor.acceptError("incompatible type; expected "+ts.typeString(inv.getExpectedType())+
-					", actual "+ts.typeString(inv.getActualType())+"(on a "+element.eClass().getName()+")", element, inv.getFeatureID(), null, trace.toStringArray());
+					", actual "+ts.typeString(inv.getActualType())+"(on a "+element.eClass().getName()+")", element, inv.getFeature(), -1, null, trace.toStringArray());
 		}
 		return true;
 	}

@@ -14,6 +14,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.part.ViewPart;
+import org.eclipse.xtext.nodemodel.ICompositeNode;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 
 import de.itemis.interpreter.logging.LogEntry;
@@ -146,7 +148,7 @@ public class LogViewPart extends ViewPart {
 					
 					LogEntry entry = (LogEntry) sel.getFirstElement();
 					
-					org.eclipse.xtext.nodemodel.impl.CompositeNode node =  NodeUtil.getNode(entry.element);
+					ICompositeNode node =  NodeModelUtils.getNode(entry.element);
 					
 					if(node != null) {
 						int offset = node.getOffset();
