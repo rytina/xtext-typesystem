@@ -2,9 +2,9 @@ tested model basic
 
 var int a = 1;
 var int b = 2;
-var int c = 3; 
+var int c = 3;  
 //var string c;   // error: int + string does not work
-
+  
 calc int x = a;  
 calc int y = a + c;  
 calc int z = a * a + plus(1,2);    

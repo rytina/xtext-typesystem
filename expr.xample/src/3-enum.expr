@@ -5,11 +5,11 @@ enum color {
 }  
 
 enum shape {  
-  rect triangle circle
+  rect triangle circle 
 }   
  
 var color col1;  
 calc color col2 = color.blue; 
-calc color col3 = shape.circle; 
+calc color col3 = shape.circle;  // error, wrong enumg
  
  
