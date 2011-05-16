@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.IResourceDescriptions;
@@ -79,13 +80,14 @@ public class Utils {
 		public List<? extends EObject> getElements() {
 			return elements;
 		}
-		public abstract String getName( EObject o ); 
+		public abstract QualifiedName getName( EObject o ); 
 	}
 
 	/**
 	 * Helper function to construct scopes from IScope objects,
 	 * List<EObject>s and ElementNamers
 	 */
+	@SuppressWarnings("unchecked")
 	public static IScope buildScope( Object ... scopes ) {
 		List<EObject> objects = new ArrayList<EObject>();
 		for (Object s: scopes) {
@@ -96,11 +98,11 @@ public class Utils {
 		IScope res = Scopes.scopeFor(objects); 
 		for (Object s: scopes) {
 			if ( s instanceof IScope ) {
-				res = new SimpleScope(res, ((IScope) s).getAllContents());
+				res = new SimpleScope(res, ((IScope) s).getAllElements());
 			} else if ( s instanceof ElementNamer ) {
 				final ElementNamer namer = (ElementNamer)s;
-				res = Scopes.scopeFor(namer.getElements(), new Function<EObject, String>() {
-					public String apply(EObject from) {
+				res = Scopes.scopeFor(namer.getElements(), new Function<EObject, QualifiedName>() {
+					public QualifiedName apply(EObject from) {
 						return namer.getName(from);
 					};
 				}, res);
@@ -134,7 +136,7 @@ public class Utils {
 			Iterable<IResourceDescription> allResourceDescriptions = global.getAllResourceDescriptions();
 			for (IResourceDescription description : allResourceDescriptions) {
 				for (EClass cls : classes) {
-					Iterable<IEObjectDescription> enums = description.getExportedObjects(cls);
+					Iterable<IEObjectDescription> enums = description.getExportedObjectsByType(cls);
 					for (IEObjectDescription od : enums) {
 						if ( p == null ) res.add( od );
 						else if ( p.include(od) ) res.add( od );

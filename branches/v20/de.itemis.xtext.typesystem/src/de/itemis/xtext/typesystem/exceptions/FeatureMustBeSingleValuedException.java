@@ -7,6 +7,11 @@ package de.itemis.xtext.typesystem.exceptions;
  */
 public class FeatureMustBeSingleValuedException extends TypesystemConfigurationException {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4410731287123435275L;
+
 	public FeatureMustBeSingleValuedException() {
 		super();
 	}
