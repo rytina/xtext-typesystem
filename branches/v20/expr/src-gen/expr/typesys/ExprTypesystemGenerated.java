@@ -4,7 +4,7 @@
 		import de.itemis.xtext.typesystem.exceptions.TypesystemConfigurationException;
 		import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
 
-		public abstract class ExprTypesystemGenerated extends de.itemis.xtext.typesystem.DefaultTypesystem {
+		public  abstract class ExprTypesystemGenerated extends de.itemis.xtext.typesystem.DefaultTypesystem {
 
 			protected expr.exprDemo.ExprDemoPackage p = expr.exprDemo.ExprDemoPackage.eINSTANCE;
 

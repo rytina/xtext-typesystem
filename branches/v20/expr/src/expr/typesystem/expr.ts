@@ -1,11 +1,12 @@
 typesystem expr.typesys.ExprTypesystem 
 	ecore file "platform:/resource/expr/src-gen/expr/ExprDemo.ecore"
 	language package expr.exprDemo.ExprDemoPackage
-	
+	 
 section "Basics" 
-	
+	  
 	// float is a subtype of string
 	subtype IntType base FloatType	
+	
 	// primitive types use clones of themselves as their type
 	typeof Type + -> clone
 	// string literals have string type
