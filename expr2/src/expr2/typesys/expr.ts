@@ -2,14 +2,13 @@ typesystem expr2.typesys.Expr2Typesystem
 	ecore file "platform:/resource/expr2/src-gen/expr2/Expr2Dsl.ecore"
 	language package expr2.expr2Dsl.Expr2DslPackage
 	 
-section "Basics" 
-
-	// float is a subtype of string
-	subtype IntType base FloatType	
+section "Basic" 
+	 
+	subtype IntType base FloatType
 	   
 	// primitive types use clones of themselves as their type
 	typeof Type + -> clone
-	// string literals have string type
+	// string literals have string type 
 	typeof StringLiteral -> StringType 
 	typeof Equals -> BoolType 
 	typeof NumberLiteral -> javacode 

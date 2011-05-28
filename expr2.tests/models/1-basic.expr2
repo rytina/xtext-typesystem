@@ -4,12 +4,12 @@ var int a = 1;
 var int b = 2; 
 var int c = 3;  
 //var string c;   // error: int + string does not work
-   
-calc int x = 1;   
-calc int y = a + c;  
+    
+calc int x = "12"; // ?????    
+calc int y = a + c;   
 calc int z = a * a + plus(1,2);    
 
-assert a is 1                 
+assert a is 1                  
 assert b is 2                  
 assert x is 1                 
 assert y is 4                  

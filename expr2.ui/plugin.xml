@@ -207,4 +207,46 @@
   </extension>
 
 
+
+
+
+
+
+     <extension
+         point="org.eclipse.ui.handlers">
+         <handler 
+         	class="expr2.ui.Expr2DslExecutableExtensionFactory:expr2.ui.action.ShowTypeDeclarationActionHandler"
+         	commandId="expr2.ui.showTypeDeclaration">
+       </handler>
+     </extension>
+     <extension
+          point="org.eclipse.ui.commands">
+       <command
+             description="Show the type declaration of the selected element."
+             id="expr2.ui.showTypeDeclaration"
+             name="Type declaration">
+       </command>
+     </extension>
+     
+      <extension point="org.eclipse.ui.menus">
+         <menuContribution
+             locationURI="popup:#TextEditorContext?after=group.open">
+              <command commandId="expr2.ui.showTypeDeclaration"
+                  style="push"
+                  tooltip="Show type declaration">
+          </command>
+          </menuContribution>
+     </extension>
+    <extension point="org.eclipse.ui.bindings">
+      <key  sequence="M1+M2+I" 
+      		commandId="expr2.ui.showTypeDeclaration" 
+      		schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+    </extension>
+
+
+
+
+
+
+
 </plugin>
