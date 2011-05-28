@@ -39,7 +39,7 @@ class Expr2DslGenerator implements IGenerator {
 		import junit.framework.Assert;
 		
 		public class «m.name.toFirstUpper()» {
-		
+		 
 			@Test
 			public void runTest() {
 				«FOR e: m.elements»
