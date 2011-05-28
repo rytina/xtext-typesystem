@@ -22,6 +22,7 @@ import de.itemis.xtext.typesystem.dsl.tsDsl.FeatureTypeConstraint;
 import de.itemis.xtext.typesystem.dsl.tsDsl.FixedTypingRule;
 import de.itemis.xtext.typesystem.dsl.tsDsl.MetaclassSpec;
 import de.itemis.xtext.typesystem.dsl.tsDsl.Section;
+import de.itemis.xtext.typesystem.dsl.tsDsl.SubtypeSpec;
 import de.itemis.xtext.typesystem.dsl.tsDsl.TbdRule;
 import de.itemis.xtext.typesystem.dsl.tsDsl.TsDslPackage;
 import de.itemis.xtext.typesystem.dsl.tsDsl.TypeComparisonFeature;
@@ -42,6 +43,16 @@ public class TsDslJavaValidator extends AbstractTsDslJavaValidator {
 		error("must be replaced with actual specification", r.eContainer(), TsDslPackage.eINSTANCE.getMetaclassSpec_TypingRule(), -1);
 	}
 	
+	
+	
+	@Check
+	public void checkCommon( CommonSuperTypeOfRule cstr ) {
+		TypesystemSpec s = (TypesystemSpec)cstr.eContainer().eContainer().eContainer();
+		for(Section sec : s.getSections()) {
+			if ( !sec.getSubtypeSpec().isEmpty()) return;
+		}
+		warning("use of 'common' without a subtype specification is almost certainly an error", cstr.eContainer(), TsDslPackage.eINSTANCE.getMetaclassSpec_TypingRule(), -1);
+	}
 	
 	
 	@Check

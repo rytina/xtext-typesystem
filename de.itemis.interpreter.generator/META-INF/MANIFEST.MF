@@ -12,3 +12,4 @@ Require-Bundle: org.eclipse.ui,
  de.itemis.interpreter;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: de.itemis.interpreter.generator

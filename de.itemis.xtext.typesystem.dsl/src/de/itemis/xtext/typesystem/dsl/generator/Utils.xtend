@@ -52,6 +52,10 @@ class Utils {
 		spec.sections.map(s|s.metaclassSpecs).flatten
 	}
 	
+	def allSubtypeSpec( TypesystemSpec spec ) {
+		spec.sections.map(s|s.subtypeSpec).flatten
+	}
+	
 	def hasSpecFor( TypesystemSpec spec, EClass cls ) {
 		spec.all.exists(mm|mm.responsibleFor(cls)  )
 	}
