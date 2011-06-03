@@ -22,7 +22,6 @@ import de.itemis.xtext.typesystem.dsl.tsDsl.FeatureTypeConstraint;
 import de.itemis.xtext.typesystem.dsl.tsDsl.FixedTypingRule;
 import de.itemis.xtext.typesystem.dsl.tsDsl.MetaclassSpec;
 import de.itemis.xtext.typesystem.dsl.tsDsl.Section;
-import de.itemis.xtext.typesystem.dsl.tsDsl.SubtypeSpec;
 import de.itemis.xtext.typesystem.dsl.tsDsl.TbdRule;
 import de.itemis.xtext.typesystem.dsl.tsDsl.TsDslPackage;
 import de.itemis.xtext.typesystem.dsl.tsDsl.TypeComparisonFeature;
@@ -128,9 +127,6 @@ public class TsDslJavaValidator extends AbstractTsDslJavaValidator {
 		for (TypeSpec cls: c.getTypes()) {
 			if ( cls instanceof EClassRef ) {
 				checkTypePropagation(spec, ((EClassRef)cls).getClazz(), TsDslPackage.eINSTANCE.getFeatureTypeConstraint_Types());
-			}
-			if ( cls instanceof CharRef) {
-				throw new RuntimeException("Not yet implemneted");
 			}
 		}
 	}
