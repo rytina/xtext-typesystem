@@ -42,10 +42,17 @@ class TsDslGenerator implements IGenerator {
 		import org.eclipse.emf.ecore.EObject;
 		import de.itemis.xtext.typesystem.exceptions.TypesystemConfigurationException;
 		import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
+		import de.itemis.xtext.typesystem.characteristics.TypeCharacteristic;
 
 		public «IF m.all.exists(s|typeof(JavaCodeTypingRule).isInstance( s.typingRule ))» abstract «ENDIF»class «m.className» extends de.itemis.xtext.typesystem.DefaultTypesystem {
 
 			protected «m.languagePack» p = «m.languagePack».eINSTANCE;
+
+			«FOR s: m.sections»
+				«FOR c: s.characteristics» 
+					private TypeCharacteristic «c.name» = new TypeCharacteristic("«c.name»");
+				«ENDFOR»
+			«ENDFOR»
 
 			protected void initialize() {
 
@@ -55,12 +62,19 @@ class TsDslGenerator implements IGenerator {
 						// ----------------------------------------------------------------
 						// Section: «s.name»
 
+
+						«FOR c: s.characteristics» 
+							«FOR t: c.types»
+								declareCharacteristic(«t.getter», «c.name»);
+							«ENDFOR»
+						«ENDFOR»
+
 						«FOR sts: s.subtypeSpec»
 							declareSubtype( «sts.subtype.getter», «sts.supertype.getter»);
 						«ENDFOR»
 						«FOR MetaclassSpec ms: s.metaclassSpecs»
 							«IF ms.includeSubtypes»
-								// include subtypes!
+								// include subtypes! 
 								«ms.typingRule.rulecode(ms.clazz)»
 								«FOR sub: ms.clazz.subtypes»
 									«IF !ms.ts.hasDirectSpecFor(sub)»
@@ -87,6 +101,7 @@ class TsDslGenerator implements IGenerator {
 
 					«ENDFOR»
 				} catch ( TypesystemConfigurationException ex ) {
+					e.printStackTrace();
 				}
 			}
 
@@ -129,7 +144,7 @@ class TsDslGenerator implements IGenerator {
 	}
 
 	def dispatch code( CharRef ref) {
-		"TODO characteristic refs not yet implemeted"
+		ref.char.name
 	}
 
 }
