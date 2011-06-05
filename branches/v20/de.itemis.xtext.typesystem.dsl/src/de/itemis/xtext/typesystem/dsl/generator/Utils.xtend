@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EStructuralFeature
 import de.itemis.xtext.typesystem.dsl.tsDsl.TypeConstraint
 import java.util.LinkedList
 
-class Utils {
+class Utils { 
 	
 	def className( TypesystemSpec tss ) {
 		val l = tss.name.lastIndexOf('.');
