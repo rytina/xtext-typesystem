@@ -101,7 +101,7 @@ class TsDslGenerator implements IGenerator {
 
 					«ENDFOR»
 				} catch ( TypesystemConfigurationException ex ) {
-					e.printStackTrace();
+					ex.printStackTrace();
 				}
 			}
 
@@ -136,8 +136,8 @@ class TsDslGenerator implements IGenerator {
 			SameTypeOp: "TODO currently not yet suported"
 			SubTypeOp: '''ensureOrderedCompatibility( «IF tc.errorMsg != null»"«tc.errorMsg»", «ENDIF»«clazz.getter», «tc.feature1.getter», «tc.feature2.getter» );'''
 			UnoderedSubtypeOp: '''ensureUnorderedCompatibility( «IF tc.errorMsg != null»"«tc.errorMsg»", «ENDIF»«clazz.getter», «tc.feature1.getter», «tc.feature2.getter» );'''
-		}
-	}
+		} 
+	} 
 
 	def dispatch code( EClassRef ref) {
 		ref.clazz.getter
