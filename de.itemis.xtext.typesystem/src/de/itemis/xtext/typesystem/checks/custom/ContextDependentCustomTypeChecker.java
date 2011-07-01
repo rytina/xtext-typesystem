@@ -17,10 +17,15 @@ public abstract class ContextDependentCustomTypeChecker {
 		private EObject expected;
 		private EObject actual;
 		private EStructuralFeature feature;
-		public TypeIsInvalid( EObject expected, EObject actual, EStructuralFeature feature ) {
+		private int index;
+		public TypeIsInvalid( EObject expected, EObject actual, EStructuralFeature feature, int index ) {
 			this.expected = expected;
 			this.actual = actual;
 			this.feature = feature;
+			this.index = index;
+		}
+		public TypeIsInvalid( EObject expected, EObject actual, EStructuralFeature feature ) {
+			this( expected, actual, feature, -1 );
 		}
 		public EObject getExpectedType() {
 			return expected;
@@ -33,6 +38,9 @@ public abstract class ContextDependentCustomTypeChecker {
 		}
 		public int getFeatureID() {
 			return feature.getFeatureID();
+		}
+		public int getIndex() {
+			return index;
 		}
 	}
 	
@@ -48,8 +56,12 @@ public abstract class ContextDependentCustomTypeChecker {
 		return new TypeIsValid();
 	}
 	
+	protected Result fail(EObject expected, EObject actual, EStructuralFeature feature, int index) {
+		return new TypeIsInvalid(expected, actual, feature, index);
+	}
+	
 	protected Result fail(EObject expected, EObject actual, EStructuralFeature feature) {
-		return new TypeIsInvalid(expected, actual, feature);
+		return new TypeIsInvalid(expected, actual, feature, -1);
 	}
 
 	public abstract Result isValidType( EObject ctx, ITypesystem ts, TypeCalculationTrace trace );
