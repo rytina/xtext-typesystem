@@ -1,0 +1,12 @@
+auto Seifenkiste {
+	
+	motor ps=100 art=diesel treibtAn vorneLinks treibtAn vorneLinks
+	 
+	rad vorneRechts
+	rad vorneLinks
+	rad hintenLinks
+	rad hintenRechts
+	
+	ersatzrad rad ersatz
+	
+} 
