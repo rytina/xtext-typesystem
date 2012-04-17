@@ -4,7 +4,7 @@ typesystem expr2.typesys.Expr2Typesystem
 	 
 section "Basic" 
 	 
-	subtype IntType base FloatType
+	subtype IntType base FloatType 
 	   
 	// primitive types use clones of themselves as their type
 	typeof Type + -> clone

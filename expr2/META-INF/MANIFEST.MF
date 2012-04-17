@@ -23,8 +23,7 @@ Require-Bundle: org.eclipse.xtext;bundle-version="2.0.0";visibility:=reexport,
  de.itemis.xtext.typesystem;bundle-version="1.0.0";visibility:=reexport
 Import-Package: org.apache.log4j,
  org.apache.commons.logging,
- org.eclipse.xtext.xbase.lib,
- org.eclipse.xtext.xtend2.lib
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: expr2,
  expr2.services,
@@ -34,4 +33,7 @@ Export-Package: expr2,
  expr2.parseTreeConstruction,
  expr2.parser.antlr,
  expr2.parser.antlr.internal,
- expr2.validation
+ expr2.validation,
+ expr2.scoping,
+ expr2.generator,
+ expr2.formatting

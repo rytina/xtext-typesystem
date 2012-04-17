@@ -6,14 +6,13 @@ import de.itemis.xtext.typesystem.dsl.tsDsl.MetaclassSpec
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EStructuralFeature
 import de.itemis.xtext.typesystem.dsl.tsDsl.TypeConstraint
-import java.util.LinkedList
 
 class Utils { 
 	
 	def className( TypesystemSpec tss ) {
 		val l = tss.name.lastIndexOf('.');
 		tss.name.substring(l+1)+"Generated"
-	}
+	} 
 	
 	def pack( TypesystemSpec tss ) {
 		val l = tss.name.lastIndexOf('.');
