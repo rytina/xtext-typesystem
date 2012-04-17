@@ -1,0 +1,78 @@
+«IMPORT exprDemo»
+
+«DEFINE main FOR Model»
+«FILE name.toFirstUpper()+".java"»
+
+import org.junit.Test;
+import junit.framework.Assert;
+
+
+public class «name.toFirstUpper()» {
+
+	@Test
+	public void runTest() {
+		«EXPAND code FOREACH elements»		
+	}
+	
+	«FOREACH functions.typeSelect(FunctionDeclaration) AS f»
+		public static «EXPAND code FOR f.type» «f.name»( «EXPAND code FOREACH f.params SEPARATOR ","» ) {
+			«EXPAND code FOREACH f.elements»
+		}
+	«ENDFOREACH»
+
+}
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE code FOR Element»// Don't know how to generate «metaType.name»«ENDDEFINE»
+
+«DEFINE code FOR VarDecl»
+	«EXPAND code FOR type» «name» «IF init != null» = «EXPAND code FOR init»«ENDIF-»;
+«ENDDEFINE»
+
+«DEFINE code FOR Formula»
+	«EXPAND code FOR type» «name» = «EXPAND code FOR expr-»;
+«ENDDEFINE»
+
+«DEFINE code FOR Return»
+	return «EXPAND code FOR expr»;
+«ENDDEFINE»
+
+«DEFINE code FOR Assert»
+	«IF msg != null»
+		Assert.assertEquals(«EXPAND code FOR msg», «EXPAND code FOR expected», «EXPAND code FOR actual»);
+	«ELSE»
+		Assert.assertEquals(«EXPAND code FOR expected», «EXPAND code FOR actual»);
+	«ENDIF»
+«ENDDEFINE»
+
+
+«DEFINE code FOR Type»«ENDDEFINE»
+«DEFINE code FOR IntType»int«ENDDEFINE»
+«DEFINE code FOR FloatType»double«ENDDEFINE»
+«DEFINE code FOR BoolType»boolean«ENDDEFINE»
+«DEFINE code FOR StringType»String«ENDDEFINE»
+«DEFINE code FOR ArrayType»«EXPAND code FOR baseType»[]«ENDDEFINE»
+
+«DEFINE code FOR Expr»«ENDDEFINE»
+«DEFINE code FOR Equals»«EXPAND code FOR left» == «EXPAND code FOR right»«ENDDEFINE»
+«DEFINE code FOR Plus»«EXPAND code FOR left» + «EXPAND code FOR right»«ENDDEFINE»
+«DEFINE code FOR Multi»«EXPAND code FOR left» * «EXPAND code FOR right»«ENDDEFINE»
+«DEFINE code FOR ArrayAccess»«EXPAND code FOR expr»[«EXPAND code FOR index»]«ENDDEFINE»
+«DEFINE code FOR NumberLiteral»«value»«ENDDEFINE»
+«DEFINE code FOR StringLiteral»"«value»"«ENDDEFINE»
+
+«DEFINE code FOR SymbolRef-»
+«IF FunctionDeclaration.isInstance(this.symbol)-»
+	«((Model)this.symbol.eContainer).name.toFirstUpper()».«symbol.name»( «EXPAND code FOREACH actuals SEPARATOR ","-» )
+«ELSE-»
+	«symbol.name-»
+«ENDIF-»
+«ENDDEFINE»
+
+
+«DEFINE code FOR Parameter»«EXPAND code FOR type» «name»«ENDDEFINE»
+
+
+
+
