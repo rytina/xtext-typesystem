@@ -7,6 +7,11 @@ package de.itemis.xtext.typesystem.exceptions;
  */
 public class DuplicateRegistrationException extends TypesystemConfigurationException {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4722579820651051103L;
+
 	public DuplicateRegistrationException() {
 		super();
 	}

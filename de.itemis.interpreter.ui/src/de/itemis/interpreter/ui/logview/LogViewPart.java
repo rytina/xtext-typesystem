@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
-import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
@@ -14,10 +13,9 @@ import org.eclipse.jface.viewers.TreeViewerColumn;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Tree;
-import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.part.ViewPart;
-import org.eclipse.xtext.parsetree.CompositeNode;
-import org.eclipse.xtext.parsetree.NodeUtil;
+import org.eclipse.xtext.nodemodel.ICompositeNode;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 
 import de.itemis.interpreter.logging.LogEntry;
@@ -150,7 +148,7 @@ public class LogViewPart extends ViewPart {
 					
 					LogEntry entry = (LogEntry) sel.getFirstElement();
 					
-					CompositeNode node =  NodeUtil.getNode(entry.element);
+					ICompositeNode node =  NodeModelUtils.getNode(entry.element);
 					
 					if(node != null) {
 						int offset = node.getOffset();

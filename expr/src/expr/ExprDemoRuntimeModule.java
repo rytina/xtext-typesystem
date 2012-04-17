@@ -12,7 +12,7 @@ import expr.typesystem.ExprTypesystem;
 public class ExprDemoRuntimeModule extends expr.AbstractExprDemoRuntimeModule {
 
 	public Class<? extends ITypesystem> bindITypestem() {
-		return ExprTypesystem.class;
+		return ExprTypesystem.class;   
 	}
 
 	

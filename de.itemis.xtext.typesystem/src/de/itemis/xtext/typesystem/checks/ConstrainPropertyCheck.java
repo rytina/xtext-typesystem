@@ -39,7 +39,7 @@ public class ConstrainPropertyCheck implements ISingleElementTypesystemCheck {
 		EObject type = ts.typeof(val, trace.child(feature.getName(), val));
 		if ( showWarnings && type == null ) {
 			trace.add(val, "type of feature '"+feature.getName()+"' is undefined");
-			acceptor.acceptWarning("type of feature '"+feature.getName()+"' is undefined", element, feature.getFeatureID(), null, null);
+			acceptor.acceptWarning("type of feature '"+feature.getName()+"' is undefined", element, feature, -1, null);
 		}
 		for (Object o: validTypes) {
 			if ( o instanceof EClass ) {
@@ -63,7 +63,7 @@ public class ConstrainPropertyCheck implements ISingleElementTypesystemCheck {
 			}
 		}
 		String m = errorMessage != null ? errorMessage : "incompatible type; expected "+ts.typeStrings(validTypes)+", but found "+ts.typeString(type)+" (on a "+ctxClass.getName()+")"; 
-		acceptor.acceptError(m, element, feature.getFeatureID(), null, null);
+		acceptor.acceptError(m, element, feature, -1, null);
 		return false;
 	}
 	@Override

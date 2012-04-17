@@ -428,24 +428,15 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	 */
 	public boolean isCompatibleTypeUnordered(EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace) {
 		Boolean manual = compareTypeDispatcher.invoke(type1, type2, CheckKind.unordered, trace);
-		if ( manual != null ) {
-			return manual.booleanValue();
-		}
+		if ( manual != null && manual ) return true;
 		if ( isSameType(element1, type1, element2, type2, trace)) return true;
 		EClass type1Class = type1.eClass();
 		EClass type2Class = type2.eClass();
-		if ( isSubtype( type1Class, type2Class) || isSubtype( type2Class, type1Class) ) {
-			return handleComparisonAndRecursionFeatures(type1, type2, CheckKind.unordered, trace);
-		} else {
-			EObject coercedType1 = tryToCoerceType(element1, type1, type2, trace);
-			if ( coercedType1 != null ) {
-				return isCompatibleTypeUnordered(element1, coercedType1, element2, type2, trace);
-			}
-			EObject coercedType2 = tryToCoerceType(element2, type2, type1, trace);
-			if ( coercedType2 != null ) {
-				return isCompatibleTypeUnordered(element1, type1, element2, coercedType2, trace);
-			}
-		}
+		if ( (isSubtype( type1Class, type2Class) || isSubtype( type2Class, type1Class)) && handleComparisonAndRecursionFeatures(type1, type2, CheckKind.unordered, trace)) return true;
+		EObject coercedType1 = tryToCoerceType(element1, type1, type2, trace);
+		if ( coercedType1 != null && isCompatibleTypeUnordered(element1, coercedType1, element2, type2, trace)) return true;
+		EObject coercedType2 = tryToCoerceType(element2, type2, type1, trace);
+		if ( coercedType2 != null && isCompatibleTypeUnordered(element1, type1, element2, coercedType2, trace)) return true;
 		return false;
 	}
 
@@ -455,22 +446,15 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	 */
 	public boolean isCompatibleTypeOrdered(EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace) {
 		Boolean manual = compareTypeDispatcher.invoke(type1, type2, CheckKind.ordered, trace);
-		if ( manual != null ) return manual.booleanValue();
+		if ( manual != null && manual ) return true;
 		if ( isSameType(element1, type1, element2, type2, trace)) return true;
 		EClass type1Class = type1.eClass();
 		EClass type2Class = type2.eClass();
-		if ( isSameOrSubtype( type2Class, type1Class, trace) ) {
-			return handleComparisonAndRecursionFeatures(type1, type2, CheckKind.ordered, trace);
-		} else {
-			EObject coercedType1 = tryToCoerceType(element1, type1, type2, trace);
-			if ( coercedType1 != null ) {
-				return isCompatibleTypeOrdered(element1, coercedType1, element2, type2, trace);
-			}
-			EObject coercedType2 = tryToCoerceType(element2, type2, type1, trace);
-			if ( coercedType2 != null ) {
-				return isCompatibleTypeOrdered(element1, type1, element2, coercedType2, trace);
-			}
-		}
+		if ( isSameOrSubtype( type2Class, type1Class, trace)  && handleComparisonAndRecursionFeatures(type1, type2, CheckKind.ordered, trace)) return true;
+		EObject coercedType1 = tryToCoerceType(element1, type1, type2, trace);
+		if ( coercedType1 != null && isCompatibleTypeOrdered(element1, coercedType1, element2, type2, trace)) return true;
+		EObject coercedType2 = tryToCoerceType(element2, type2, type1, trace);
+		if ( coercedType2 != null && isCompatibleTypeOrdered(element1, type1, element2, coercedType2, trace)) return true;
 		return false;
 	}
 

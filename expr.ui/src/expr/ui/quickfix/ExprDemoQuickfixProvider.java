@@ -17,7 +17,6 @@ public class ExprDemoQuickfixProvider extends DefaultQuickfixProvider {
 	@Fix(ExprDemoJavaValidator.INTERPRETERFAILED)
 	public void capitalizeName(final Issue issue, IssueResolutionAcceptor acceptor) {
 		acceptor.accept(issue, "Show Log", "Show the execution Log of the Test", "upcase.png", new IModification() {
-			@SuppressWarnings("restriction")
 			public void apply(IModificationContext context) throws BadLocationException {
 				LogViewUtil.showMostRecentLog(null);
 			}

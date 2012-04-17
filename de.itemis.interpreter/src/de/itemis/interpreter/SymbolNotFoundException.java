@@ -1,8 +1,9 @@
 package de.itemis.interpreter;
 
-import org.eclipse.emf.ecore.EObject;
 
 public class SymbolNotFoundException extends InterpreterException {
+
+	private static final long serialVersionUID = -2045164405526939634L;
 
 	private final Object symbol;
 
@@ -11,4 +12,7 @@ public class SymbolNotFoundException extends InterpreterException {
 		this.symbol = symbol;
 	}
 
+	public Object getSymbol() {
+		return symbol;
+	}
 }

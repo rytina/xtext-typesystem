@@ -35,14 +35,14 @@ public class EnsureUnorderedCompatibilityCheck extends AbstractCompatibilityChec
 			EObject type2 = ts.typeof(val2, trace.child(feature2.getName(), val2));
 			if ( showWarnings && type1 == null ) {
 				trace.add(val1, "type of feature '"+feature1.getName()+"' is undefined");
-				acceptor.acceptWarning("type of feature '"+feature1.getName()+"' is undefined", element, feature1.getFeatureID(), null, null);
+				acceptor.acceptWarning("type of feature '"+feature1.getName()+"' is undefined", element, feature1, -1, null);
 			} else if ( showWarnings && type2 == null ){
 				trace.add(val2, "type of featue '"+feature2.getName()+"' is undefined");
-				acceptor.acceptWarning("type of '"+feature2.getName()+"' is undefined", element, feature2.getFeatureID(), null, null);
+				acceptor.acceptWarning("type of '"+feature2.getName()+"' is undefined", element, feature2, -1, null);
 			} 
 			if ( !ts.isCompatibleTypeUnordered(val1, type1, val2, type2, trace) ) {
 				String m = errorMessage != null ? errorMessage : "incompatible type "+ts.typeString(type1)+" and "+ts.typeString(type2)+" (on a "+ctxClass.getName()+")"; 
-				acceptor.acceptError(m, element, feature2.getFeatureID(), null, null);
+				acceptor.acceptError(m, element, feature2, -1, null);
 				return false;
 			}
 		}
