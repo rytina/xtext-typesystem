@@ -20,8 +20,7 @@ Require-Bundle: org.eclipse.xtext;bundle-version="2.0.0";visibility:=reexport,
  org.eclipse.xtext.common.types
 Import-Package: org.apache.log4j,
  org.apache.commons.logging,
- org.eclipse.xtext.xbase.lib,
- org.eclipse.xtext.xtend2.lib
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: de.itemis.xtext.typesystem.dsl,
  de.itemis.xtext.typesystem.dsl.generator,
@@ -32,4 +31,7 @@ Export-Package: de.itemis.xtext.typesystem.dsl,
  de.itemis.xtext.typesystem.dsl.tsDsl,
  de.itemis.xtext.typesystem.dsl.tsDsl.impl,
  de.itemis.xtext.typesystem.dsl.tsDsl.util,
- de.itemis.xtext.typesystem.dsl.validation
+ de.itemis.xtext.typesystem.dsl.validation,
+ de.itemis.xtext.typesystem.dsl.scoping,
+ de.itemis.xtext.typesystem.dsl.formatting
+

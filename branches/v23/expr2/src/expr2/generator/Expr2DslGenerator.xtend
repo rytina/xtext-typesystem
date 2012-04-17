@@ -90,7 +90,7 @@ class Expr2DslGenerator implements IGenerator {
 	def dispatch String exprcode( Equals e ) {e.left.exprcode+" == "+e.right.exprcode}
 	def dispatch String exprcode( Plus e) {e.left.exprcode+" + "+e.right.exprcode}
 	def dispatch String exprcode( Multi e) {e.left.exprcode+" * "+e.right.exprcode}
-	def dispatch String exprcode( ArrayAccess e) {e.expr.exprcode+"["e.index.exprcode+"]"}
+	def dispatch String exprcode( ArrayAccess e) {e.expr.exprcode+"["+e.index.exprcode+"]"}
 	def dispatch exprcode( NumberLiteral e) {e.value}
 	def dispatch exprcode( StringLiteral e) {"\""+e.value+"\""}
 	

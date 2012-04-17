@@ -71,6 +71,19 @@
         </page>
     </extension>
     <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            class="de.itemis.xtext.typesystem.dsl.ui.TsDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="de.itemis.xtext.typesystem.dsl.TsDsl"
+            name="TsDsl">
+            <keywordReference id="de.itemis.xtext.typesystem.dsl.ui.keyword_TsDsl"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+    <extension
         point="org.eclipse.ui.keywords">
         <keyword
             id="de.itemis.xtext.typesystem.dsl.ui.keyword_TsDsl"
@@ -138,6 +151,28 @@
     </extension>
 
 
+    <!-- marker definitions for de.itemis.xtext.typesystem.dsl.TsDsl -->
+    <extension
+            id="tsdsl.check.fast"
+            name="TsDsl Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.fast"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="tsdsl.check.normal"
+            name="TsDsl Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.normal"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="tsdsl.check.expensive"
+            name="TsDsl Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.expensive"/>
+        <persistent value="true"/>
+    </extension>
 
    <extension
          point="org.eclipse.xtext.builder.participant">
@@ -145,6 +180,30 @@
             class="de.itemis.xtext.typesystem.dsl.ui.TsDslExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
       </participant>
    </extension>
+   <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            category="de.itemis.xtext.typesystem.dsl.TsDsl"
+            class="de.itemis.xtext.typesystem.dsl.ui.TsDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="de.itemis.xtext.typesystem.dsl.TsDsl.compiler.preferencePage"
+            name="Compiler">
+            <keywordReference id="de.itemis.xtext.typesystem.dsl.ui.keyword_TsDsl"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            category="de.itemis.xtext.typesystem.dsl.TsDsl"
+            class="de.itemis.xtext.typesystem.dsl.ui.TsDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="de.itemis.xtext.typesystem.dsl.TsDsl.compiler.propertyPage"
+            name="Compiler">
+            <keywordReference id="de.itemis.xtext.typesystem.dsl.ui.keyword_TsDsl"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
 
 	<!-- Quick Outline -->
 	<extension
@@ -179,13 +238,34 @@
 			</command>
 		</menuContribution>
 	</extension>
-   <!-- quickfix marker resolution generator -->
-   <extension
-         point="org.eclipse.ui.ide.markerResolution">
-      <markerResolutionGenerator
-            class="de.itemis.xtext.typesystem.dsl.ui.TsDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator">
-      </markerResolutionGenerator>
-   </extension>
+    <!-- quickfix marker resolution generator for de.itemis.xtext.typesystem.dsl.TsDsl -->
+    <extension
+            point="org.eclipse.ui.ide.markerResolution">
+        <markerResolutionGenerator
+            class="de.itemis.xtext.typesystem.dsl.ui.TsDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="de.itemis.xtext.typesystem.dsl.ui.tsdsl.check.fast">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="de.itemis.xtext.typesystem.dsl.ui.TsDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="de.itemis.xtext.typesystem.dsl.ui.tsdsl.check.normal">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="de.itemis.xtext.typesystem.dsl.ui.TsDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="de.itemis.xtext.typesystem.dsl.ui.tsdsl.check.expensive">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+    </extension>
 
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="de.itemis.xtext.typesystem.dsl.TsDsl.compare.contentViewers"
@@ -205,6 +285,5 @@
             extensions="ts">
     </provider>
   </extension>
-
 
 </plugin>

@@ -20,5 +20,6 @@ Import-Package: org.apache.log4j,
  org.apache.commons.logging
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: expr2.ui.contentassist.antlr,
- expr2.ui.internal
+ expr2.ui.internal,
+ expr2.ui.contentassist
 Bundle-Activator: expr2.ui.internal.Expr2DslActivator
