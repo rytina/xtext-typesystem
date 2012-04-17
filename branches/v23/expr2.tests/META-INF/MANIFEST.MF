@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: expr2.tests
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.0
+Bundle-Version: 1.1.0.qualifier
 Bundle-SymbolicName: expr2.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: expr2,
