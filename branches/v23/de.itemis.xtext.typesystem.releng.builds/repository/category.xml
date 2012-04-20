@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/de.itemis.xtext.typesystem.editor_1.3.0.qualifier.jar" id="de.itemis.xtext.typesystem.editor" version="1.3.0.qualifier">
+      <category name="de.itemis.xtext.typesystem"/>
+   </feature>
+   <feature url="features/de.itemis.xtext.typesystem.sdk_1.3.0.qualifier.jar" id="de.itemis.xtext.typesystem.sdk" version="1.3.0.qualifier">
+      <category name="de.itemis.xtext.typesystem"/>
+   </feature>
+   <category-def name="de.itemis.xtext.typesystem" label="Xtext Typesystem"/>
+</site>
