@@ -10,5 +10,6 @@
 	</parent>
 	<groupId>de.itemis.xtext.typesystem.plugins</groupId>
 	<artifactId>de.itemis.xtext.typesystem.updatesite</artifactId>
+	<version>1.3.0-SNAPSHOT</version>
 	<packaging>eclipse-repository</packaging>
 </project>
