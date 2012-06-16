@@ -18,7 +18,7 @@
 		<url>http://code.google.com/a/eclipselabs.org/hosting</url>
 	</organization>
 	<scm>
-		<developerConnection>http://svn.codespot.com/a/eclipselabs.org/xtext-typesystem/branches/v23</developerConnection>
+		<developerConnection>scm:svn:https://svn.codespot.com/a/eclipselabs.org/xtext-typesystem/branches/v23</developerConnection>
 	</scm>
 	<issueManagement>
 		<system>GoogleCode Issue Tracker</system>
