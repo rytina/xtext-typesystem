@@ -103,14 +103,6 @@
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>2.4.1</version>
 				</plugin>
-				<plugin>
-					<artifactId>maven-release-plugin</artifactId>
-					<version>2.2.2</version>
-					<configuration>
-						<tagBase>http://svn.codespot.com/a/eclipselabs.org/xtext-typesystem/tags</tagBase>
-						<tagNameFormat>v@{project.version}</tagNameFormat>
-					</configuration>
-				</plugin>
 				<!-- 3rd party plug-ins -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
