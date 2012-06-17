@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xpand2.XpandExecutionContext;
 import org.eclipse.xpand2.XpandFacade;
 import org.eclipse.xtext.Grammar;
@@ -66,7 +67,8 @@ public class InterpreterGenerator extends AbstractGeneratorFragment {
 		
 		interpreterPackage = metaclassesPackage.substring(0,p)+".interpreter";
 		
-		EObject mmroot = loadMetamodel(grammarPath);
+		ResourceSet rs = new ResourceSetImpl();
+		EObject mmroot = loadMetamodel(grammarPath, rs);
 		EClass statementLikeRoot = findEClassByName(mmroot, statementRootClassName);
 		EClass exprLikeRoot = findEClassByName(mmroot, expressionRootClassName);
 		
@@ -85,8 +87,17 @@ public class InterpreterGenerator extends AbstractGeneratorFragment {
 			EObject o = all.next();
 			if ( o instanceof EClass ) {
 				EClass c = (EClass) o;
-				if ( c.getEAllSuperTypes().contains(statementLikeRoot) ) statementLikeClasses.add(c);
-				if ( c.getEAllSuperTypes().contains(exprLikeRoot) ) exprLikeClasses.add(c);
+				for (EClass sc : c.getEAllSuperTypes()) {
+					if ( sc.eIsProxy() ) {
+						sc = (EClass) EcoreUtil.resolve(sc, rs); 
+					}
+					if ( sc.getName() != null ) {
+						if ( sc.getName().equals(statementLikeRoot.getName()))
+							statementLikeClasses.add(c);
+						if ( sc.getName().equals(exprLikeRoot.getName()))
+							exprLikeClasses.add(c);
+					}
+				}
 			}
 		}
 		
@@ -129,10 +140,9 @@ public class InterpreterGenerator extends AbstractGeneratorFragment {
 		});
 	}
 
-	private EObject loadMetamodel(String grammarPath) {
-		ResourceSet resourceSet = new ResourceSetImpl();
+	private EObject loadMetamodel(String grammarPath, ResourceSet rs ) {
 		URI fileURI = URI.createFileURI("src-gen/"+grammarPath+".ecore");
-		Resource resource = resourceSet.getResource(fileURI, true);		
+		Resource resource = rs.getResource(fileURI, true);		
 		try {
 			resource.load(null);
 			EList<EObject> contents = resource.getContents();

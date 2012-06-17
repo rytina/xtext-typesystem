@@ -2,6 +2,7 @@ package de.itemis.xtext.typesystem.checks.custom;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import de.itemis.xtext.typesystem.ITypesystem;
 import de.itemis.xtext.typesystem.trace.TypeCalculationTrace;
@@ -15,11 +16,16 @@ public abstract class ContextDependentCustomTypeChecker {
 	public static class TypeIsInvalid extends Result{
 		private EObject expected;
 		private EObject actual;
-		private int featureID;
-		public TypeIsInvalid( EObject expected, EObject actual, int featureID ) {
+		private EStructuralFeature feature;
+		private int index;
+		public TypeIsInvalid( EObject expected, EObject actual, EStructuralFeature feature, int index ) {
 			this.expected = expected;
 			this.actual = actual;
-			this.featureID = featureID;
+			this.feature = feature;
+			this.index = index;
+		}
+		public TypeIsInvalid( EObject expected, EObject actual, EStructuralFeature feature ) {
+			this( expected, actual, feature, -1 );
 		}
 		public EObject getExpectedType() {
 			return expected;
@@ -27,8 +33,14 @@ public abstract class ContextDependentCustomTypeChecker {
 		public EObject getActualType() {
 			return actual;
 		}
+		public EStructuralFeature getFeature() {
+			return feature;
+		}
 		public int getFeatureID() {
-			return featureID;
+			return feature.getFeatureID();
+		}
+		public int getIndex() {
+			return index;
 		}
 	}
 	
@@ -44,8 +56,12 @@ public abstract class ContextDependentCustomTypeChecker {
 		return new TypeIsValid();
 	}
 	
-	protected Result fail(EObject expected, EObject actual, int featureID) {
-		return new TypeIsInvalid(expected, actual, featureID);
+	protected Result fail(EObject expected, EObject actual, EStructuralFeature feature, int index) {
+		return new TypeIsInvalid(expected, actual, feature, index);
+	}
+	
+	protected Result fail(EObject expected, EObject actual, EStructuralFeature feature) {
+		return new TypeIsInvalid(expected, actual, feature, -1);
 	}
 
 	public abstract Result isValidType( EObject ctx, ITypesystem ts, TypeCalculationTrace trace );

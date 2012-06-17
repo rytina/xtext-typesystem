@@ -1,4 +1,4 @@
-«IMPORT org::eclipse::xtext»
+«IMPORT org::eclipse::xtext»»
 
 «EXTENSION org::eclipse::xtext::generator::Naming»
 «EXTENSION org::eclipse::xtext::GrammarUtil»
@@ -6,13 +6,13 @@
 «EXTENSION de::itemis::interpreter::generator::InterpreterGenerator»
 
 
-«DEFINE generate FOR Grammar-»´
+«DEFINE generate FOR Grammar-»¥
 	«EXPAND statementExecutor FOR this»
 	«EXPAND expressionEvaluator FOR this»
 «ENDDEFINE»
 
 
-«DEFINE statementExecutor FOR Grammar-»´
+«DEFINE statementExecutor FOR Grammar-»¥
 «FILE name.asPath()+"/../interpreter/Abstract"+langName()+"StatementExecutor.java" SRC_GEN»
 package «interpreterPackage()»;
 
@@ -62,7 +62,7 @@ public abstract class Abstract«langName()»StatementExecutor extends AbstractStat
 
 
 
-«DEFINE expressionEvaluator FOR Grammar-»´
+«DEFINE expressionEvaluator FOR Grammar-»¥
 «FILE name.asPath()+"/../interpreter/Abstract"+langName()+"ExpressionEvaluator.java" SRC_GEN»
 package «interpreterPackage()»;
 

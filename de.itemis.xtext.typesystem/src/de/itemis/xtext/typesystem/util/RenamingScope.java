@@ -8,6 +8,7 @@
 package de.itemis.xtext.typesystem.util;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 
@@ -18,38 +19,32 @@ import com.google.common.base.Function;
  */
 public class RenamingScope implements IScope {
 	private IScope delegate;
-	private IScope outer;
 
-	private Function<String, String> renameFunction;
+	private Function<QualifiedName, QualifiedName> renameFunction;
 
-	public RenamingScope (IScope delegate, Function<String, String> renameFunction) {
+	public RenamingScope (IScope delegate, Function<QualifiedName, QualifiedName> renameFunction) {
 		this.delegate = delegate;
 		this.renameFunction = renameFunction;
-		outer = delegate.getOuterScope()!=IScope.NULLSCOPE ? new RenamingScope (delegate.getOuterScope(), renameFunction) : IScope.NULLSCOPE;
 	}
 
-	public IScope getOuterScope() {
-		return outer;
+	public Iterable<IEObjectDescription> getAllElements() {
+		return delegate.getAllElements();
 	}
 
-	public Iterable<IEObjectDescription> getAllContents() {
-		return delegate.getAllContents();
+	public Iterable<IEObjectDescription> getElements(EObject object) {
+		return delegate.getElements(object);
+	}
+	
+	public Iterable<IEObjectDescription> getElements(QualifiedName name) {
+		return delegate.getElements(renameFunction.apply(name));
 	}
 
-	public Iterable<IEObjectDescription> getContents() {
-		return delegate.getContents();
+	public IEObjectDescription getSingleElement(EObject object) {
+		return delegate.getSingleElement(object);
 	}
-
-	public IEObjectDescription getContentByName(String name) {
-		return delegate.getContentByName(renameFunction.apply(name));
+	
+	@Override
+	public IEObjectDescription getSingleElement(QualifiedName name) {
+		return delegate.getSingleElement(renameFunction.apply(name));
 	}
-
-	public IEObjectDescription getContentByEObject(EObject object) {
-		return delegate.getContentByEObject(object);
-	}
-
-	public Iterable<IEObjectDescription> getAllContentsByEObject(EObject object) {
-		return delegate.getAllContentsByEObject(object);
-	}
-
 }
