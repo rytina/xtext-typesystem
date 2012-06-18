@@ -4,11 +4,11 @@
   <parent>
 		<groupId>de.itemis.xtext.typesystem.releng</groupId>
 		<artifactId>de.itemis.xtext.typesystem.releng.parent</artifactId>
-		<version>1.3.0-SNAPSHOT</version>
+		<version>1.3.1-SNAPSHOT</version>
 		<relativePath>../de.itemis.xtext.typesystem.releng.builds/parent/pom.xml</relativePath>
   </parent>
   <groupId>de.itemis.xtext.typesystem.features</groupId>
   <artifactId>de.itemis.xtext.typesystem.sdk</artifactId>
-  <version>1.3.0-SNAPSHOT</version>
+  <version>1.3.1-SNAPSHOT</version>
   <packaging>eclipse-feature</packaging>
 </project>
