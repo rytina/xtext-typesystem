@@ -513,7 +513,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 		if ( supertypeToSubtype.containsKey(c)) {
 			EClass st = supertypeToSubtype.get(c);
 			res.add(st);
-			findSupertypes(res, st);
+			findSubtypes(res, st);
 		}
 	}
 	
