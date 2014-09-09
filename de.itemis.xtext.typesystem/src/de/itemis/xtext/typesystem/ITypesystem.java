@@ -1,5 +1,7 @@
 package de.itemis.xtext.typesystem;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -84,6 +86,9 @@ public interface ITypesystem {
 	 * the two types passedin
 	 */
 	public EObject computeCommonType(EObject element1, EObject type1, EObject element2, EObject type2, TypeCalculationTrace trace);
+
+	//TODO: Added to type system
+	public Collection<?> getTypes();
 
 
 }
