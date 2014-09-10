@@ -34,6 +34,7 @@ import de.itemis.xtext.typesystem.exceptions.EClassDoesntHaveFeatureException;
 import de.itemis.xtext.typesystem.exceptions.FeatureMustBeSingleValuedException;
 import de.itemis.xtext.typesystem.exceptions.InvalidType;
 import de.itemis.xtext.typesystem.exceptions.InvalidTypeSpecification;
+import de.itemis.xtext.typesystem.messages.IErrorMessageProvider;
 import de.itemis.xtext.typesystem.rules.CloneTCRule;
 import de.itemis.xtext.typesystem.rules.ComputeCommonTCRule;
 import de.itemis.xtext.typesystem.rules.TCRule;
@@ -580,7 +581,7 @@ public abstract class DefaultTypesystem implements ITypesystem {
 	 * @throws InvalidTypeSpecification 
 	 */
 	protected void ensureFeatureType(EClass ctxClass, EStructuralFeature feature, Object ... validTypes) throws FeatureMustBeSingleValuedException, EClassDoesntHaveFeatureException, InvalidTypeSpecification {
-		ensureFeatureType(null, ctxClass, feature, validTypes);
+		ensureFeatureType((String)null, ctxClass, feature, validTypes);
 	}
 
 	/**
@@ -597,6 +598,22 @@ public abstract class DefaultTypesystem implements ITypesystem {
 			}
 		}
 		singleElementChecks.add( new ConstrainPropertyCheck(errorMessage, ctxClass, feature, validTypes) );
+	}
+	
+	/**
+	 * same as above, but with custom error message provider
+	 */
+	protected void ensureFeatureType(IErrorMessageProvider errorMessageProvider, EClass ctxClass, EStructuralFeature feature, Object ... validTypes) throws FeatureMustBeSingleValuedException, EClassDoesntHaveFeatureException, InvalidTypeSpecification {
+		ensureValidFeature( ctxClass, feature );
+		for (Object o: validTypes) {
+			if ( !(o instanceof EClass) && !(o instanceof StaticCustomTypeChecker) && !(o instanceof TypeCharacteristic) ) {
+				throw new InvalidTypeSpecification("types must be EClasses or instances of CustomTypechecker or instances of TypeCharacteristic");
+			}
+			if ( o instanceof EClass || o instanceof EObject ) {
+				checkSuperSuperTypes((EObject) o);
+			}
+		}
+		singleElementChecks.add( new ConstrainPropertyCheck(errorMessageProvider, ctxClass, feature, validTypes) );
 	}
 
 	
