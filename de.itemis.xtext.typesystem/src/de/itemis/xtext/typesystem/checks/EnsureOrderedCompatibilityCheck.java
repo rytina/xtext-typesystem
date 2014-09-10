@@ -41,7 +41,7 @@ public class EnsureOrderedCompatibilityCheck extends AbstractCompatibilityCheck 
 				acceptor.acceptWarning("type of feature '"+feature2.getName()+"' is undefined", element, feature2, 1,  null);
 			} 
 			if ( ts.isCompatibleTypeOrdered(leftVal, leftType, rightVal, rightType, trace) ) return true;
-			String m = errorMessage != null ? errorMessage : "incompatible type "+ts.typeString(leftType)+" and "+ts.typeString(rightType)+" (on a "+ctxClass.getName()+")"; 
+			String m = errorMessage != null ? String.format(errorMessage, leftType, rightType) : "incompatible type "+ts.typeString(leftType)+" and "+ts.typeString(rightType)+" (on a "+ctxClass.getName()+")"; 
 			acceptor.acceptError(m, element, feature2, -1, null);
 			return false;
 		}
