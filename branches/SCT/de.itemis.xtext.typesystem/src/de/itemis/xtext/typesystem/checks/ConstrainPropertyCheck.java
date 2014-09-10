@@ -62,7 +62,7 @@ public class ConstrainPropertyCheck implements ISingleElementTypesystemCheck {
 				}
 			}
 		}
-		String m = errorMessage != null ? errorMessage : "incompatible type; expected "+ts.typeStrings(validTypes)+", but found "+ts.typeString(type)+" (on a "+ctxClass.getName()+")"; 
+		String m = errorMessage != null ? String.format(errorMessage,type) : "incompatible type; expected "+ts.typeStrings(validTypes)+", but found "+ts.typeString(type)+" (on a "+ctxClass.getName()+")"; 
 		acceptor.acceptError(m, element, feature, -1, null);
 		return false;
 	}
