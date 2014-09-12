@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import de.itemis.xtext.typesystem.exceptions.FeatureMustBeSingleValuedException;
+import de.itemis.xtext.typesystem.messages.IErrorMessageProvider;
 
 abstract class AbstractCompatibilityCheck implements ISingleElementTypesystemCheck {
 	protected final EClass ctxClass;
@@ -16,12 +17,17 @@ abstract class AbstractCompatibilityCheck implements ISingleElementTypesystemChe
 	protected final EStructuralFeature feature2;
 	protected final String info;
 	protected String errorMessage;
-	public AbstractCompatibilityCheck(String errorMessage, String traceInfo, EClass ctxClass, EStructuralFeature feature1, EStructuralFeature feature2) throws FeatureMustBeSingleValuedException  {
-		if ( feature1 != null && feature1.isMany() ) {
-			throw new FeatureMustBeSingleValuedException("can only check compatibility for single-valued features ("+feature1.getName()+" is multi-valued)");
+	protected IErrorMessageProvider<EObject> errorMessageProvider;
+
+	public AbstractCompatibilityCheck(String errorMessage, String traceInfo, EClass ctxClass,
+			EStructuralFeature feature1, EStructuralFeature feature2) throws FeatureMustBeSingleValuedException {
+		if (feature1 != null && feature1.isMany()) {
+			throw new FeatureMustBeSingleValuedException("can only check compatibility for single-valued features ("
+					+ feature1.getName() + " is multi-valued)");
 		}
-		if ( feature2.isMany() ) {
-			throw new FeatureMustBeSingleValuedException("can only check compatibility for single-valued features ("+feature2.getName()+" is multi-valued)");
+		if (feature2.isMany()) {
+			throw new FeatureMustBeSingleValuedException("can only check compatibility for single-valued features ("
+					+ feature2.getName() + " is multi-valued)");
 		}
 		this.errorMessage = errorMessage;
 		this.info = traceInfo;
@@ -29,12 +35,20 @@ abstract class AbstractCompatibilityCheck implements ISingleElementTypesystemChe
 		this.feature1 = feature1;
 		this.feature2 = feature2;
 	}
+
+	public AbstractCompatibilityCheck(IErrorMessageProvider<EObject> errorMessageProvider, String traceInfo,
+			EClass ctxClass, EStructuralFeature feature1, EStructuralFeature feature2)
+			throws FeatureMustBeSingleValuedException {
+		this((String) null, traceInfo, ctxClass, feature1, feature2);
+		this.errorMessageProvider = errorMessageProvider;
+	}
+
 	public boolean isApplicable(EObject element) {
 		return ctxClass.isInstance(element);
 	}
-	public void appendTraceInfo(List<String> collector, EObject element, String level) {
-		collector.add( level+"["+eString(element)+"] "+info );
-	}
 
+	public void appendTraceInfo(List<String> collector, EObject element, String level) {
+		collector.add(level + "[" + eString(element) + "] " + info);
+	}
 
 }
